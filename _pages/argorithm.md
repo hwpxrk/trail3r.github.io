@@ -1,8 +1,8 @@
 ---
 title: "알고리즘"
-layout: custom
+layout: posts_archive
 categories: ["알고리즘"]
-permalink: /projects/algorithm/
+permalink: /algorithms/
 
 author_profile: true
 active_sidebar: true

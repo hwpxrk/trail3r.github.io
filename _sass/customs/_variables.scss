@@ -19,10 +19,6 @@ $bitmap_monospace: "DepartureMono", monospace;
 /* 상단 네비게이션 바 폰트 스타일링 */
 $navigation-font-family: $bitmap_sans_serif;
 
-.masthead, .masthead__menu, .greedy-nav, .greedy-nav a {
-    font-family: $navigation-font-family;
-}
-
 
 /* 블로그 기본 폰트 크기 */
 $doc-font-size: 16px;

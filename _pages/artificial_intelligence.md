@@ -1,8 +1,8 @@
 ---
 title: "인공지능"
-layout: custom
+layout: posts_archive
 categories: ["인공지능"]
-permalink: /projects/artificial-intelligence/
+permalink: /artificial_intelligence/
 
 author_profile: true
 active_sidebar: true

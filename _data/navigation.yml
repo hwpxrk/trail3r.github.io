@@ -8,7 +8,7 @@ main:
         url: "/categories/"
       - title: "태그"
         url: "/tags/"
-      
+
   - title: "개구리의 밀실"
     children:
       - title: "개구리의 밀실"
@@ -22,13 +22,22 @@ main:
       - title: "몰입의 즐거움"
         url: "/interest/"
 
-  - title: "프로젝트"
+  - title: "화이트보드"
     children:
       - title: "Python"
-        url: "/projects/python/"
+        url: "/python/"
       - title: "알고리즘"
-        url: "/projects/algorithm/"
+        url: "/algorithms/"
+      - title: "미분적분학"
+        url: "/calculus/"
+      - title: "확률과통계"
+        url: "/probabilistics/"
+      - title: "최적화이론"
+        url: "/optimization/"
       - title: "인공지능"
-        url: "/projects/artificial-intelligence/"
+        url: "/artificial_intelligence/"
+
+  - title: "프로젝트"
+    children:
       - title: "GitHub Pages"
-        url: "/projects/github-pages/"
+        url: "/github_pages/"

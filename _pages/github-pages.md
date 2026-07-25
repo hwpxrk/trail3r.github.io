@@ -1,8 +1,8 @@
 ---
 title: "GitHub Pages"
-layout: custom
+layout: posts_archive
 categories: ["GitHub Pages"]
-permalink: /projects/github-pages/
+permalink: /github_pages/
 
 author_profile: true
 active_sidebar: true

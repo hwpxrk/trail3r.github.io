@@ -1,165 +1,235 @@
-{%- comment -%}
-파일(File):
-    - _includes/customs/masthead.html
+{% comment %}
+상단 네비게이션 메뉴바를 렌더링합니다.
 
-역할(Role):
-    - 상단 네비게이션 바를 렌더링한다.
+참고사항(Notes)
+-------------
+카테고리 메뉴는 데스크톱 환경에서 플라이 아웃 형태로, 모바일 환경에서 사이드바 형태로 제공됩니다.
 
-의존성(Dependencies):
-    - _data/navigation.yml
-    - _sass/customs/_masthead.scss
-    - assets/js/customs/masthead.js
-{%- endcomment -%}
+연관(Related)
+------------
+"_sass/customs/_masthead.scss": 상단 네비게이션 메뉴바의 레이아웃과 디자인을 정의합니다.
+"assets/js/customs/masthead.js": 데스크톱 플라이 아웃 메뉴, 검색 화면, 그리고 모바일 사이드바 메뉴의 동작을 제어합니다.
+{% endcomment %}
 
-{%- capture logo_path -%}{{ site.logo }}{%- endcapture -%}
 
-<div class="masthead">
-    <div class="masthead__inner-wrap">
-        <div class="masthead__menu">
-            <nav class="greedy-nav" id="site-nav">
-                {%- unless logo_path == empty -%}
-                    <a class="site-logo" href="{{ '/' | relative_url }}">
-                        <img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}">
+{% assign logo_path = site.logo %}
+{% assign author_reference = page.author | default: page.authors[0] | default: site.author %}
+{% assign author = site.data.authors[author_reference] | default: author_reference %}
+
+<nav class="masthead" id="site-nav">
+    <div class="masthead_container">
+        <div class="masthead_contents">
+            <div class="masthead_site_metadata">
+                {% if logo_path and logo_path != empty %}
+                    <a class="masthead_site_logo" href="{{ '/' | relative_url }}">
+                        <img src="{{ logo_path | relative_url }}" alt="{{ site.title }}">
                     </a>
-                {%- endunless -%}
+                {% endif %}
 
-                <a class="site-title" href="{{ '/' | relative_url }}">
-                    {{ site.masthead_title | default: site.title | escape_once | strip }}
+                <a class="masthead_site_title" href="{{ '/' | relative_url }}">
+                    {{ site.title | escape_once | strip }}
 
-                    {%- if site.subtitle -%}
-                        <span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>
-                    {%- endif -%}
+                    {% if site.subtitle %}
+                        <span class="masthead_site_subtitle">{{ site.subtitle | escape_once | strip }}</span>
+                    {% endif %}
                 </a>
+            </div>
 
-                <ul class="visible-links">
-                    {%- for link in site.data.navigation.main -%}
-                        {%- if link.children and link.children.size > 0 -%}
-                            <li class="dropdown">
-                                <a class="dropdown__toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ link.title }}
-                                    <i class="fa fa-caret-down fa-sm" aria-hidden="true"></i>
-                                    <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown__menu">
-                                    {%- for children in link.children -%}
-                                        <li class="dropdown__item">
-                                            <a class="dropdown__item-title" href="{{ children.url | relative_url }}">{{ children.title | escape_once }}</a>
-                                        </li>
-                                    {%- endfor -%}
-                                </ul>
-                            </li>
-                        {%- else -%}
-                            <li class="masthead__menu-item">
-                                <a href="{{ link.url | relative_url }}">{{ link.title | escape_once}}</a>
-                            </li>
-                        {%- endif -%}
-                    {%- endfor -%}
-                </ul>
-
-                {%- if site.search == true -%}
-                    <button class="search__toggle" type="button">
-                        <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-                        <i class="fas fa-search"></i>
-                    </button>
-                {%- endif -%}
-
-                <button class="greedy-nav__toggle hidden" type="button">
-                    <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_toggle_label | default: "Toggle menu" }}</span>
-                    <div class="navicon"></div>
-                </button>
-
-                <ul class="hidden-links hidden"></ul>
-            </nav>
-        </div>
-    </div>
-
-    <div class="mobile-masthead__inner-wrap">
-        <div class="mobile-masthead__menu">
-            <nav class="mobile-nav" id="mobile-nav">
-                {%- unless logo_path == empty -%}
-                    <a class="mobile-site-logo" href="{{ '/' | relative_url }}">
-                        <img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}">
-                    </a>
-                {%- endunless -%}
-
-                <a class="mobile-site-title" href="{{ '/' | relative_url }}">
-                    {{ site.masthead_title | default: site.title | escape_once | strip }}
-
-                    {%- if site.subtitle -%}
-                        <span class="mobile-site-subtitle">{{ site.subtitle | escape_once | strip }}</span>
-                    {%- endif -%}
-                </a>
-
-                {%- if site.search == true -%}
-                    <button class="search__toggle" type="button">
-                        <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-                        <i class="fas fa-search"></i>
-                    </button>
-                {%- endif -%}
-
-                <button class="mobile-nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-links">
-                    <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_toggle_label | default: "Toggle menu" }}</span>
-                    <div class="navicon"></div>
-                </button>
-
-                <div class="mobile-nav__blur" id="mobile-nav__blur"></div>
-                
-                <ul class="mobile-links" id="mobile-links" aria-hidden="true">
-                    
-                    <div class="mobile-author__profile">
-                        <div class="mobile-author__meta">
-                            {% if author.avatar %}
-                                <a class="mobile-author__link" href="{{ author.home | default: '/' | absolute_url }}">
-                                    <img class="mobile-author__avatar" src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image">
-                                    <p class="mobile-author__name">{{ author.name }}</p>
+            <div class="masthead_menu_tray">
+                <ul class="masthead_menu_items">
+                    {% for menu in site.data.navigation.main %}
+                        <li class="masthead_menu_item">
+                            {% if menu.children and menu.children.size > 0 %}
+                                <button class="masthead_flyout_trigger js_masthead_flyout_trigger" type="button" aria-controls="masthead_flyout_container" aria-expanded="false">
+                                    <span class="masthead_flyout_trigger_title">{{ menu.title | escape_once }}</span>
+                                </button>
+                            {% else %}
+                                <a class="masthead_menu_link" href="{{ menu.url | relative_url }}">
+                                    <span class="masthead_menu_link_title">{{ menu.title | escape_once }}</span>
                                 </a>
                             {% endif %}
-                        </div>
-
-                        {%- if author.bio -%}
-                            <div class="mobile-author__bio">{{ author.bio | markdownify }}</div>
-                        {%- endif -%}
-                    </div>
-
-                    <div class="mobile-nav-menu">
-                        {%- for link in site.data.navigation.main -%}
-                            {%- if link.children and link.children.size > 0 -%}
-                                <details class="accordion">
-                                    <summary class="accordion__toggle">
-                                        {{ link.title | escape_once }}
-                                        <i class="accordion__arrow fas fa-chevron-right" aria-hidden="true"></i>
-                                    </summary>
-
-                                    <ul class="accordion__menu">
-                                        {%- for child in link.children -%}
-                                            <a class="accordion__item" href="{{ child.url | relative_url }}">
-                                                <p class="accordion__item-title">{{ child.title | escape_once }}</p>
-                                            </a>
-                                        {%- endfor -%}
-                                    </ul>
-                                </details>
-                            {%- else -%}
-                                <li class="accordion__links">
-                                    <a href="{{ link.url | relative_url }}">{{ link.title | escape_once}}</a>
-                                </li>
-                            {%- endif -%}
-                        {%- endfor -%}
-                    </div>
-
-                    <div class="mobile-nav__follow">
-                        <p class="mobile-nav__follow-label">
-                            {{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}
-                        </p>
-
-                        <li class="mobile-nav__follow-list">
-                            {%- for link in author.links -%}
-                                <a class="mobile-nav__follow-icon" href="{{ link.url }}">{%- include customs/links-icon.html icon=link.icon %}<span class="label">{{ link.label }}</span></a>
-                            {%- endfor -%}
                         </li>
-                    </div>
+                    {% endfor %}
                 </ul>
-            </nav>
+            </div>
+
+            {% if site.search == true %}
+                <div class="masthead_search">
+                    <button class="masthead_search_bar js_masthead_search_bar" type="button">
+                        <span class="masthead_search_icon" aria-hidden="true">🔍︎</span>
+                        <span class="masthead_search_label">밀실 수색하기</span>
+                    </button>
+                </div>
+            {% endif %}
         </div>
     </div>
-</div>
+
+    <!-- 데스크톱 플라이 아웃 메뉴 -->
+    <div class="masthead_flyout_container js_masthead_flyout_container" id="masthead_flyout_container" inert>
+        <div class="masthead_flyout_contents">
+            <div class="masthead_profile_section">
+                <div class="masthead_profile">
+                    <a class="masthead_profile_link" href="{{ '/' | relative_url }}">
+                        {% if author.avatar %}
+                            <img class="masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                        {% endif %}
+
+                        {% if author.name %}
+                            <span class="masthead_profile_name">{{ author.name }}</span>
+                        {% endif %}
+
+                        {% if author.instagram_id %}
+                            <span class="masthead_profile_instagram_id">{{ author.instagram_id }}</span>
+                        {% endif %}
+
+                        {% if author.bio %}
+                            <div class="masthead_profile_bio">{{ author.bio | markdownify }}</div>
+                        {% endif %}
+                    </a>
+                </div>
+
+                {% if author.links and author.links.size > 0 %}
+                    <div class="masthead_follow">
+                        <ul class="masthead_follow_list">
+                            {% for link in author.links %}
+                                <li class="masthead_follow_item">
+                                    <a class="masthead_follow_link" href="{{ link.url }}" aria-label="{{ link.label }}">
+                                        {% include customs/links-icon.html icon=link.icon %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="masthead_submenu_section">
+                {% for menu in site.data.navigation.main %}
+                    <div class="masthead_submenu_group">
+                        <p class="masthead_submenu_header">{{ menu.title | escape_once }}</p>
+
+                        <ul class="masthead_submenu_list">
+                            {% if menu.children and menu.children.size > 0 %}
+                                {% for submenu in menu.children %}
+                                    <li class="masthead_submenu_item">
+                                        <a class="masthead_submenu_link" href="{{ submenu.url | relative_url }}">
+                                            <span class="masthead_submenu_link_title">{{ submenu.title | escape_once }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="masthead_submenu_item">
+                                    <a class="masthead_submenu_link" href="{{ menu.url | relative_url }}">
+                                        <span class="masthead_submenu_link_title">{{ menu.title | escape_once }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- /데스크톱 플라이 아웃 메뉴 -->
+
+    <div class="mobile_masthead_container">
+        <div class="mobile_masthead_contents">
+            <div class="mobile_masthead_site_metadata">
+                {% if logo_path and logo_path != empty %}
+                    <a class="mobile_masthead_site_logo" href="{{ '/' | relative_url }}">
+                        <img src="{{ logo_path | relative_url }}" alt="{{ site.title }}">
+                    </a>
+                {% endif %}
+
+                <a class="mobile_masthead_site_title" href="{{ '/' | relative_url }}">
+                    {{ site.title | escape_once | strip }}
+
+                    {% if site.subtitle %}
+                        <span class="mobile_masthead_site_subtitle">{{ site.subtitle | escape_once | strip }}</span>
+                    {% endif %}
+                </a>
+
+                {% if site.search == true %}
+                    <div class="mobile_masthead_search">
+                        <button class="mobile_masthead_search_button js_mobile_masthead_search_button" type="button" aria-label="밀실 수색하기">
+                            <span class="mobile_masthead_search_icon" aria-hidden="true">🔍︎</span>
+                        </button>
+                    </div>
+                {% endif %}
+
+                <button class="mobile_masthead_sidebar_trigger js_mobile_masthead_sidebar_trigger" type="button" aria-label="전체 메뉴 펼치기" aria-expanded="false" aria-controls="mobile_masthead_sidebar_container">
+                    <span class="mobile_masthead_sidebar_icon" aria-hidden="true"></span>
+                </button>
+
+                <!-- 모바일 사이드바 -->
+                <div class="mobile_masthead_filter js_mobile_masthead_filter"></div>
+
+                <div class="mobile_masthead_sidebar_container js_mobile_masthead_sidebar_container" id="mobile_masthead_sidebar_container" inert>
+                    <div class="mobile_masthead_sidebar_contents">
+                        <div class="mobile_masthead_profile">
+                            <a class="mobile_masthead_profile_link" href="{{ '/' | relative_url }}">
+                                {% if author.avatar %}
+                                    <img class="mobile_masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                                {% endif %}
+
+                                {% if author.name %}
+                                    <span class="mobile_masthead_profile_name">{{ author.name }}</span>
+                                {% endif %}
+
+                                {% if author.instagram_id %}
+                                    <span class="mobile_masthead_profile_instagram_id">{{ author.instagram_id }}</span>
+                                {% endif %}
+
+                                {% if author.bio %}
+                                    <div class="mobile_masthead_profile_bio">{{ author.bio | markdownify }}</div>
+                                {% endif %}
+                            </a>
+                        </div>
+
+                        <div class="mobile_masthead_accordion_section">
+                            {% for menu in site.data.navigation.main %}
+                                {% if menu.children and menu.children.size > 0 %}
+                                    <details class="mobile_masthead_accordion_group js_mobile_masthead_accordion_group">
+                                        <summary class="mobile_masthead_accordion_header">{{ menu.title | escape_once }} <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+
+                                        <ul class="mobile_masthead_accordion_list">
+                                            {% for submenu in menu.children %}
+                                                <li class="mobile_masthead_accordion_item">
+                                                    <a class="mobile_masthead_accordion_link" href="{{ submenu.url | relative_url }}">
+                                                        <span class="mobile_masthead_accordion_link_title">{{ submenu.title | escape_once }}</span>
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </details>
+                                {% else %}
+                                    <a class="mobile_masthead_accordion_link" href="{{ menu.url | relative_url }}">
+                                        <span class="mobile_masthead_accordion_link_title">{{ menu.title | escape_once }}</span>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% if author.links and author.links.size > 0 %}
+                            <div class="mobile_masthead_follow">
+                                <p class="mobile_masthead_follow_label">팔로우</p>
+
+                                <ul class="mobile_masthead_follow_list">
+                                    {% for link in author.links %}
+                                        <li class="mobile_masthead_follow_item">
+                                            <a class="mobile_masthead_follow_link" href="{{ link.url }}">
+                                                {% include customs/links-icon.html icon=link.icon %}
+                                                <span class="mobile_masthead_follow_link_label">{{ link.label }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- /모바일 사이드바 -->
+        </div>
+    </div>
+</nav>

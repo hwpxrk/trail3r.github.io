@@ -1,6 +1,6 @@
 ---
 title: "개구리 성장기"
-layout: custom
+layout: posts_archive
 categoreis: ["개구리 성장기"]
 permalink: /fictions/
 

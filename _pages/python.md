@@ -1,8 +1,8 @@
 ---
 title: "Python"
-layout: custom
+layout: posts_archive
 categories: ["Python"]
-permalink: /projects/python/
+permalink: /python/
 
 author_profile: true
 active_sidebar: true
