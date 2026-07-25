@@ -12,7 +12,7 @@
 
         background-color: transparent;
 
-        font-family: "Galmuri11";
+        font-family: $bitmap_sans_serif;
 
         .hero_container {
             display: flex;
@@ -63,7 +63,7 @@
         .hero_title {
             margin-bottom: 0.75rem;
 
-            font-family: "Galmuri11";
+            font-family: $bitmap_sans_serif;
             font-size: $xxx-large-font-size;
             font-weight: normal;
         }

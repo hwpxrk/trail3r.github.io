@@ -102,9 +102,64 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 
+// 모나12 (Mona12)
+@import url("https://cdn.jsdelivr.net/gh/MonadABXY/mona-font/web/mona.css");
+
+
+// 도스이야기 (DosStory)
+@font-face {
+    font-family: 'DosStory';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+
+// 갈무리14 (Galmuri14)
+@font-face {
+    font-family: 'Galmuri14';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/Galmuri14.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
 // 갈무리11 (Galmuri11)
 @import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+
+@font-face {
+    font-family: 'Galmuri11';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/Galmuri11-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
 
 
 // Neo둥근모 Pro (NeoDunggeunmo Pro)
 @import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-pro-webfont@1.020/neodgm_pro/style.css');
+
+
+// 탕바 (Tangba)
+@font-face {
+    font-family: 'Tangba';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-4@1.1/Tangba12.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+
+// 서궁 (Seogung)
+@font-face {
+    font-family: 'Seogung';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-4@1.1/Suhgung12.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+
+// DEPARTURE_MONO (DepartureMono)
+@font-face {
+    font-family: 'DepartureMono';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2409-1@1.0/DepartureMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
