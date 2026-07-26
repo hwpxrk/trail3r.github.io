@@ -33,7 +33,7 @@
 
         font-family: $bitmap_sans_serif;
         font-size: $standard-font-size;
-        font-weight: $regular;
+        font-weight: $bold;
     }
 
     .recent_posts_grid {
@@ -223,6 +223,8 @@
                 background: rgba($light-gray, 0.75);
 
                 color: $blue;
+
+                font-weight: $bold;
 
                 text-decoration: none;
             }
