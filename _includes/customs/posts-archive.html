@@ -1,93 +1,86 @@
 {% comment %}
-게시글 아카이브를 최신순으로 렌더링합니다.
+선택한 카테고리에 분류된 게시글 아카이브를 렌더링합니다.
 
 매개변수(Parameter)
 -----------------
-category_filtering : bool, default=true
-    카테고리 필터링 여부를 설정합니다.
 category : str, default=page.categories.first
-    필터링할 카테고리를 설정합니다.
-active_pagination : bool, default=true
+    표시할 게시글의 카테고리를 설정합니다.
+pagination : bool, default=true
     페이지네이션의 활성화 여부를 설정합니다.
 
 참고사항(Notes)
 -------------
-페이지네이션을 활성화하고 "paginator"가 존재하면 현재 페이지에 배정된 게시글만 표시합니다.
-페이지네이션을 사용하지 않으면 "site.posts"에 포함된 모든 게시글을 표시합니다.
-대표 게시글 여부와 관계없이 필터링된 모든 게시글을 표시합니다.
-게시글 요약은 Jekyll이 자동으로 생성한 "post.excerpt"를 사용합니다.
+이 게시글 아카이브 템플릿을 include할 때 필터링할 카테고리가 존재하면 해당 카테고리에 분류된 게시글만 렌더링하고, 그렇지 않으면 모든 게시글을 렌더링합니다.
+이 게시글 아카이브 템플릿을 include할 때 필터링할 카테고리가 존재하지 않으면 게시글 렌더링 섹션에 해당 게시글이 분류된 카테고리를 같이 렌더링합니다.
+페이지네이션을 사용하지 않으면 모든 게시글을 한 번에 렌더링합니다.
 
 예시(Examples)
 -------------
 {% include customs/posts-archive.html %}
-{% include customs/posts-archive.html category="개구리의 밀실" active_pagination=false %}
+{% include customs/posts-archive.html category="개구리의 밀실" pagination=false %}
 {% endcomment %}
 
 
-{% assign category_filtering = include.category_filtering %}
 {% assign category = include.category | default: page.categories.first | default: "" %}
-{% assign active_pagination = include.active_pagination %}
+{% assign pagination = include.pagination %}
 
-{% if category_filtering == nil %}
-    {% assign category_filtering = true %}
+{% if pagination == nil %}
+    {% assign pagination = true %}
 {% endif %}
 
-{% if active_pagination == nil %}
-    {% assign active_pagination = true %}
-{% endif %}
-
-{% if active_pagination and paginator %}
+{% if pagination and paginator %}
     {% assign posts = paginator.posts %}
 {% else %}
     {% assign posts = site.posts %}
 {% endif %}
 
-{% if category_filtering and category != "" %}
+{% if category != empty %}
     {% assign posts = posts | where_exp: "post", "post.categories contains category" %}
 {% endif %}
 
 {% if posts.size > 0 %}
-    <section class="posts_archive">
+    <div class="posts_archive">
         <div class="posts_archive_list">
             {% for post in posts %}
                 <article class="posts_archive_item">
-                    <a class="posts_archive_item_link" href="{{ post.url | relative_url }}">
-                        <div class="posts_archive_item_thumbnail">
+                    <a class="posts_archive_link" href="{{ post.url | relative_url }}">
+                        <div class="posts_archive_thumbnail">
                             {% if post.header.teaser %}
-                                <img class="posts_archive_item_teaser" src="{{ post.header.teaser | relative_url }}" alt="">
+                                <img class="posts_archive_teaser" src="{{ post.header.teaser | relative_url }}" alt="">
                             {% endif %}
                         </div>
 
-                        <div class="posts_archive_item_body">
-                            {% if post.title %}
-                                <h3 class="posts_archive_item_title">{{ post.title | escape_once }}</h3>
+                        <div class="posts_archive_item_metadata{% if category == empty %} has_category{% endif %}">
+                            {% if category == empty %}
+                                {% comment %} 필터링할 카테고리가 지정되지 않은 페이지에서는 게시글 카드에 카테고리를 표시합니다. {% endcomment %}
+                                <p class="posts_archive_category">{{ post.categories.first | escape_once }}</p>
                             {% endif %}
 
-                            <div class="posts_archive_item_metadata">
-                                {% if post.subtitle %}
-                                    <p class="posts_archive_item_subtitle">{{ post.subtitle | escape_once }}</p>
-                                {% else %}
-                                    <p class="posts_archive_item_subtitle empty" aria-hidden="true">&nbsp;</p>
-                                {% endif %}
+                            {% if post.title %}
+                                <h2 class="posts_archive_title">{{ post.title | escape_once }}</h2>
+                            {% endif %}
 
-                                {% if post.excerpt %}
-                                    <p class="posts_archive_item_excerpt">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-                                {% endif %}
+                            {% if post.subtitle %}
+                                <p class="posts_archive_subtitle">{{ post.subtitle | escape_once }}</p>
+                            {% endif %}
 
-                                <time class="posts_archive_item_date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
-                            </div>
+                            {% if post.excerpt %}
+                                <p class="posts_archive_excerpt">{{ post.excerpt | markdownify | strip_html }}</p>
+                            {% endif %}
+
+                            <time class="posts_archive_date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
                         </div>
                     </a>
                 </article>
             {% endfor %}
         </div>
 
-        {% if active_pagination and paginator %}
+        {% if pagination and paginator %}
             {% include customs/paginator-v2.html %}
         {% endif %}
-    </section>
+    </div>
 {% else %}
     <div class="posts_archive_empty">
-        <p class="posts_archive_empty_message">이 게시판에 등록된 게시글이 없습니다!</p>
+        <p class="posts_archive_empty_message">이 게시판에 아직 등록된 게시글이 없습니다!</p>
     </div>
 {% endif %}

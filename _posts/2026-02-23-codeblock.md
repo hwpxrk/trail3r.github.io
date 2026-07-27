@@ -1,6 +1,7 @@
 ---
 title: 코드블럭 테스트
 subtitle: tree-sitter 구문 강조기 도입 실험
+categories: ["몰입의 즐거움"]
 ---
 
 

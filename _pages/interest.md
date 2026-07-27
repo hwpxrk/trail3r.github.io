@@ -1,7 +1,7 @@
 ---
 title: "몰입의 즐거움"
 layout: posts_archive
-categoreis: ["몰입의 즐거움"]
+categories: ["몰입의 즐거움"]
 permalink: /interest/
 
 author_profile: true
