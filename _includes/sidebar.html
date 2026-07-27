@@ -1,15 +1,42 @@
+{% comment %}
+Minimal Mistakes 테마 기본 파일: 페이지 좌측에 사이드바를 렌더링합니다.
+
+참고사항(Notes)
+-------------
+"author_profile: true"일 때 사이드바를 렌더링합니다.
+
+연관(Related)
+------------
+"_includes/customs/sidebar_profile.html": 작성자 프로필과 카테고리 메뉴를 렌더링합니다.
+"_includes/nav_list": "page.sidebar.nav"에 지정된 네비게이션을 렌더링합니다.
+{% endcomment %}
+
+
 {% if page.author_profile or layout.author_profile or page.sidebar %}
     <div class="sidebar sticky">
-        {% if page.author_profile or layout.author_profile %}{%- include customs/author-profile.html -%}{% endif %}
-            {% if page.sidebar %}
-                {% for s in page.sidebar %}
-                    {% if s.image %}
-                        <img src="{{ s.image | relative_url }}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
-                    {% endif %}
-                    {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-                    {% if s.text %}{{ s.text | markdownify }}{% endif %}
-                    {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
-                {% endfor %}
+        {% if page.author_profile or layout.author_profile %}
+            {% include customs/sidebar_profile.html %}
+        {% endif %}
+
+        {% if page.sidebar %}
+            {% for sidebar in page.sidebar %}
+                {% if sidebar.image %}
+                    <img src="{{ sidebar.image | relative_url }}" alt="{{ sidebar.image_alt | default: '' | escape_once }}">
+                {% endif %}
+
+                {% if sidebar.title %}
+                    <h3>{{ sidebar.title | escape_once }}</h3>
+                {% endif %}
+
+                {% if sidebar.text %}
+                    {{ sidebar.text | markdownify }}
+                {% endif %}
+
+                {% if sidebar.nav %}
+                    {% include nav_list nav=sidebar.nav %}
+                {% endif %}
+            {% endfor %}
+
             {% if page.sidebar.nav %}
                 {% include nav_list nav=page.sidebar.nav %}
             {% endif %}

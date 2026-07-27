@@ -1,0 +1,76 @@
+{% comment %}
+좌측 사이드바에 카테고리 메뉴를 렌더링합니다.
+
+참고사항(Notes)
+-------------
+"display_total_posts_counts"를 "false"로 설정하면 전체 게시글 수를 숨깁니다.
+"프롤로그", "카테고리", "태그" 메뉴에는 게시글 수를 표시하지 않습니다.
+현재 페이지와 연결된 메뉴는 활성화 상태로 렌더링합니다.
+
+연관(Related)
+------------
+"_data/sidebar.yml": 사이드바에 표시할 메뉴를 정의합니다.
+"_includes/customs/sidebar_profile.html": 작성자 프로필과 카테고리 메뉴를 조합합니다.
+"_sass/customs/_sidebar.scss": 사이드바의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
+
+
+{% assign sidebar_configuration = site.data.sidebar %}
+{% assign sidebar_menus = sidebar_configuration.sidebar %}
+{% assign current_url = page.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+
+{% if sidebar_menus and sidebar_menus.size > 0 %}
+    <nav class="sidebar_navigation" aria-label="사이드바">
+        <ul class="sidebar_navigation_list">
+            {% if sidebar_configuration.display_total_posts_counts != false %}
+                <li class="sidebar_navigation_total_posts">전체 게시글 수 [{{ site.posts | size }}]</li>
+            {% endif %}
+
+            {% for menu in sidebar_menus %}
+                <li class="sidebar_navigation_group">
+                    <p class="sidebar_navigation_group_title">{{ menu.title | escape_once }}</p>
+
+                    <ul class="sidebar_navigation_links">
+                        {% for menu_item in menu.children %}
+                            {% assign post_count = 0 %}
+                            {% assign display_post_count = true %}
+
+                            {% comment %}"프롤로그", "카테고리", "태그" 메뉴는 게시글 수를 숨깁니다.{% endcomment %}
+                            {% if menu_item.title == "프롤로그" or menu_item.title == "카테고리" or menu_item.title == "태그" %}
+                                {% assign display_post_count = false %}
+                            {% else %}
+                                {% assign category_posts = site.categories[menu_item.title] %}
+
+                                {% if category_posts %}
+                                    {% assign post_count = category_posts | size %}
+                                {% endif %}
+                            {% endif %}
+
+                            {% assign menu_item_url = menu_item.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+                            {% assign is_active = false %}
+
+                            {% comment %}현재 페이지의 URL 또는 카테고리가 메뉴와 일치하면 활성화합니다.{% endcomment %}
+                            {% if menu_item_url == current_url %}
+                                {% assign is_active = true %}
+                            {% endif %}
+
+                            {% if page.categories and page.categories contains menu_item.title %}
+                                {% assign is_active = true %}
+                            {% endif %}
+
+                            <li class="sidebar_navigation_item">
+                                <a class="sidebar_navigation_link{% if is_active %} is_active{% endif %}" href="{{ menu_item.url | relative_url }}">
+                                    <span class="sidebar_navigation_link_title">{{ menu_item.title | escape_once }}</span>
+
+                                    {% if display_post_count %}
+                                        <span class="sidebar_navigation_post_count">{{ post_count }}</span>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

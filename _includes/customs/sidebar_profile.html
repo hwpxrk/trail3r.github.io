@@ -1,0 +1,58 @@
+{% comment %}
+좌측 사이드바에 작성자 프로필과 팔로우 링크를 렌더링합니다.
+
+참고사항(Notes)
+-------------
+페이지의 "active_sidebar"가 활성화되면 작성자 프로필 아래에 카테고리 메뉴를 렌더링합니다.
+
+연관(Related)
+------------
+"_includes/customs/sidebar_navigation.html": 사이드바의 카테고리 메뉴를 렌더링합니다.
+"_sass/customs/_sidebar.scss": 사이드바의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
+
+
+{% assign author_reference = page.author | default: page.authors[0] | default: site.author %}
+{% assign author = site.data.authors[author_reference] | default: author_reference %}
+{% assign follow_links = author.links | default: site.author.links %}
+
+<div class="sidebar_contents">
+    <div class="sidebar_profile_section" itemscope itemtype="https://schema.org/Person">
+        <a class="sidebar_profile" href="{{ '/' | absolute_url }}" rel="me" itemprop="url">
+            {% if author.avatar %}
+                <img class="sidebar_profile_avatar" src="{{ author.avatar | relative_url }}" alt="" itemprop="image">
+            {% endif %}
+
+            <div class="sidebar_profile_contents">
+                {% if author.name %}
+                    <span class="sidebar_profile_name" itemprop="name">{{ author.name | escape_once }}</span>
+                {% endif %}
+
+                {% if author.bio %}
+                    <div class="sidebar_profile_bio" itemprop="description">{{ author.bio | markdownify }}</div>
+                {% endif %}
+            </div>
+        </a>
+
+        {% if follow_links and follow_links.size > 0 %}
+            <div class="sidebar_follow">
+                <p class="sidebar_follow_label">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</p>
+
+                <ul class="sidebar_follow_list">
+                    {% for link in follow_links %}
+                        <li class="sidebar_follow_item">
+                            <a class="sidebar_follow_link" href="{{ link.url }}" rel="nofollow noopener noreferrer me"{% if link.url contains "http" %} itemprop="sameAs"{% endif %}>
+                                {% include customs/links-icon.html icon=link.icon %}
+                                <span class="sidebar_follow_link_label">{{ link.label | escape_once }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if page.active_sidebar %}
+        {% include customs/sidebar_navigation.html %}
+    {% endif %}
+</div>
