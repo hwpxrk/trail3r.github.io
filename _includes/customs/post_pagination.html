@@ -1,62 +1,74 @@
-{%- comment -%}
-파일(File):
-    - _includes/customs/post_pagination.html
+{% comment %}
+게시글 하단에서 같은 카테고리의 이전 글과 다음 글을 탐색할 수 있는 페이지네이션을 렌더링합니다.
 
-역할(Role):
-    - 게시글 하단에 나타나는 페이지네이션이 같은 카테고리 내에서만 이동하는 기능을 구현합니다.
+매개변수(Parameter)
+-----------------
+category : str, default=page.categories.first
+    페이지네이션이 탐색할 카테고리입니다.
 
-인자(Argument):
-    - include.category (optional, string): 페이지네이션이 탐색할 카테고리 (기본값: 현재 게시글의 첫 번째 카테고리)
+참고사항(Notes)
+-------------
+게시글을 오래된 순서로 정렬하므로 이전 글은 현재 글보다 오래된 게시글이고 다음 글은 더 새로운 게시글입니다.
 
-참고사항(Notes):
-    - Minimal Mistakes 테마의 single.html에 import하여 사용됩니다.
-{%- endcomment -%}
+연관(Related)
+------------
+"_layouts/post.html": 게시글의 태그와 공유 영역 아래에서 페이지네이션을 호출합니다.
+"_sass/customs/_post_pagination.scss": 페이지네이션의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
 
-{%- comment -%} 탐색할 카테고리 설정 {%- endcomment -%}
-{%- assign category = include.category | default: (page.categories | first) -%}
 
-{%- if category -%}
-    {%- assign posts = site.categories[category] | reverse -%}
-{%- else -%}
-    {%- assign posts = site.posts | reverse -%}
-{%- endif -%}
+{% assign category = include.category | default: page.categories.first %}
 
-{%- assign previous_post = nil -%}
-{%- assign next_post = nil -%}
+{% if category %}
+    {% assign posts = site.categories[category] | reverse %}
+{% else %}
+    {% assign posts = site.posts | reverse %}
+{% endif %}
 
-{%- for post in posts -%}
-    {%- if post.url == page.url -%}
-        {%- assign previous_index = forloop.index0 | minus: 1 -%}
-        {%- assign next_index = forloop.index0 | plus: 1 -%}
+{% assign previous_post = nil %}
+{% assign next_post = nil %}
 
-        {%- if previous_index >= 0 -%}
-            {%- assign previous_post = posts[previous_index] -%}
-        {%- endif -%}
+{% for post in posts %}
+    {% if post.url == page.url %}
+        {% assign previous_index = forloop.index0 | minus: 1 %}
+        {% assign next_index = forloop.index0 | plus: 1 %}
 
-        {%- if next_index < posts.size -%}
-            {%- assign next_post = posts[next_index] -%}
-        {%- endif -%}
+        {% if previous_index >= 0 %}
+            {% assign previous_post = posts[previous_index] %}
+        {% endif %}
 
-        {%- break -%}
-    {%- endif -%}
-{%- endfor -%}
+        {% if next_index < posts.size %}
+            {% assign next_post = posts[next_index] %}
+        {% endif %}
 
-{%- if previous_post or next_post -%}
-    <nav class="milestone" aria-label="Post navigation within category">
-        {%- if previous_post -%}
-            <a class="junction" href="{{ previous_post.url | relative_url }}">
-                <span class="milepost">이전 글&nbsp;</span>{{ previous_post.title }}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% if previous_post or next_post %}
+    <nav class="post_pagination" aria-label="같은 카테고리의 이전 및 다음 게시글">
+        {% if previous_post %}
+            <a class="post_pagination_item previous" href="{{ previous_post.url | relative_url }}">
+                <span class="post_pagination_label"><span aria-hidden="true">&larr;</span> 이전 게시글</span>
+                <span class="post_pagination_title">{{ previous_post.title | escape_once }}</span>
             </a>
-        {%- else -%}
-            <span class="junction disabled" aria-disabled="true">첫 번째 게시글입니다.</span>
-        {%- endif -%}
+        {% else %}
+            <div class="post_pagination_item previous disabled" aria-disabled="true">
+                <span class="post_pagination_label"><span aria-hidden="true">&larr;</span> 이전 게시글</span>
+                <span class="post_pagination_title">첫 번째 게시글입니다.</span>
+            </div>
+        {% endif %}
 
-        {%- if next_post -%}
-            <a class="junction" href="{{ next_post.url | relative_url }}">
-                <span class="milepost">다음 글&nbsp;</span>{{ next_post.title }}
+        {% if next_post %}
+            <a class="post_pagination_item next" href="{{ next_post.url | relative_url }}">
+                <span class="post_pagination_label">다음 게시글 <span aria-hidden="true">&rarr;</span></span>
+                <span class="post_pagination_title">{{ next_post.title | escape_once }}</span>
             </a>
-        {%- else -%}
-            <span class="junction disabled" aria-disabled="true">마지막 게시글입니다.</span>
-        {%- endif -%}
+        {% else %}
+            <div class="post_pagination_item next disabled" aria-disabled="true">
+                <span class="post_pagination_label">다음 게시글 <span aria-hidden="true">&rarr;</span></span>
+                <span class="post_pagination_title">마지막 게시글입니다.</span>
+            </div>
+        {% endif %}
     </nav>
-{%- endif -%}
+{% endif %}

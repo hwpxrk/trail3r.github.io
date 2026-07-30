@@ -1,18 +1,96 @@
-{%- comment -%} ====================================================================================================
-파일(File):
-    - _includes/customs/social-share.html
+{% comment %}
+게시글을 외부 서비스로 공유하거나 URL을 복사하는 아이콘 목록을 렌더링합니다.
 
-목적(Purpose):
-    - 게시글 하단에 나타나는 공유하기 버튼에 URL 복사 버튼을 추가합니다.
-
-참고사항(Notes):
-    - Minimal Mistakes 테마의 기본 social-share.html을 대체하는 파일입니다.
-================================================================================================= {%- endcomment -%}
+연관(Related)
+------------
+"_sass/customs/_social-share.scss": 공유 아이콘 목록의 디자인을 정의합니다.
+"assets/js/customs/social-share.js": URL 복사 버튼의 동작을 제어합니다.
+{% endcomment %}
 
 
-<section class="page__share">
-    <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
-    <button class="btn btn--copyUrl" type="button" data-copy-url-button data-copy-url="{{ page.url | absolute_url }}">
-        <span>URL 복사</span>
-    </button>
-</section>
+{% assign post_url = page.url | absolute_url %}
+{% capture post_share_text %}{{ page.title }} {{ post_url }}{% endcapture %}
+{% assign share_context = include.context | default: "section" %}
+
+{% capture share_list %}
+    <ul class="post__share-list">
+        <li class="post__share-item">
+            <a
+                class="post__share-link"
+                href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&amp;{% endif %}text={{ post_share_text | strip | url_encode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X로 공유"
+                title="X로 공유"
+            >
+                <i class="fab fa-x-twitter" aria-hidden="true"></i>
+            </a>
+        </li>
+
+        <li class="post__share-item">
+            <a
+                class="post__share-link"
+                href="https://www.facebook.com/sharer/sharer.php?u={{ post_url | url_encode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook으로 공유"
+                title="Facebook으로 공유"
+            >
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+
+        <li class="post__share-item">
+            <a
+                class="post__share-link"
+                href="https://www.linkedin.com/sharing/share-offsite/?url={{ post_url | url_encode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn으로 공유"
+                title="LinkedIn으로 공유"
+            >
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+        </li>
+
+        <li class="post__share-item">
+            <a
+                class="post__share-link"
+                href="https://bsky.app/intent/compose?text={{ post_share_text | strip | url_encode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bluesky로 공유"
+                title="Bluesky로 공유"
+            >
+                <i class="fab fa-bluesky" aria-hidden="true"></i>
+            </a>
+        </li>
+
+        <li class="post__share-item">
+            <button
+                class="post__share-copy-button"
+                type="button"
+                aria-label="URL 복사"
+                title="URL 복사"
+                data-copy-url-button
+                data-copy-url="{{ post_url }}"
+            >
+                <i class="fas fa-link" aria-hidden="true"></i>
+            </button>
+        </li>
+    </ul>
+{% endcapture %}
+
+{% if share_context == "menu" %}
+    <div class="post__share-menu-panel" id="post-share-menu-panel" aria-labelledby="post-share-menu-title" hidden>
+        <p class="post__share-menu-title" id="post-share-menu-title">공유하기</p>
+
+        {{ share_list }}
+    </div>
+{% else %}
+    <section class="post__share" aria-labelledby="post-share-title">
+        <h2 class="post__footer-title" id="post-share-title">공유하기</h2>
+
+        {{ share_list }}
+    </section>
+{% endif %}

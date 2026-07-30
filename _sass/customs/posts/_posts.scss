@@ -1,44 +1,77 @@
 /*
-파일(File):
-    - _sass/customs/posts/_posts.scss
+개별 게시글 페이지의 레이아웃과 디자인을 정의합니다.
 
-목적(Purpose):
-    - 개별 게시글 페이지의 스타일을 정의합니다.
-
-의존성(Dependencies):
-    - _layouts/post.html
+연관(Related)
+------------
+"_layouts/post.html": 개별 게시글 페이지의 HTML 마크업 구조를 정의합니다.
 */
 
 .post__categories-link {
-    text-decoration: none;
+    display: inline-block;
+
+    margin-bottom: 1rem;
+
     color: $gray;
+
+    text-decoration: none;
 
     &:hover {
         color: $blue;
     }
 
     .post__categories {
-        margin: 0 0 1rem 0;
+        margin: 0;
+
         font-size: $small-font-size;
+        line-height: 1.5;
     }
+}
+
+.post__subtitle {
+    margin: 0 0 1.5rem;
+
+    color: $gray;
+
+    font-size: $small-font-size;
+    line-height: 1.5;
 }
 
 .post__meta {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
     padding: 0 0 1rem 0;
     margin: 0 0 1rem 0;
+
     border-bottom: 1px solid $light-gray;
+
     font-size: $small-font-size;
 
     .post__author {
         display: flex;
+
         align-items: center;
+
+        min-width: 0;
+
         color: $gray;
 
         .post__author-link {
+            display: flex;
+
+            align-items: center;
+
+            flex: 0 0 auto;
+
+            color: $gray;
+
             text-decoration: none;
+
             opacity: 0.7;
 
             &:hover {
@@ -48,11 +81,14 @@
         }
 
         .post__author-avatar {
-            padding: 0.1rem;
             width: 32px;
             height: 32px;
+
+            padding: 0.1rem;
+
             border: 1px solid $light-gray;
             border-radius: 50%;
+
             object-fit: cover;
         }
 
@@ -65,36 +101,97 @@
 
     .post__date {
         margin: 0 0 0 1rem;
+
+        color: $gray;
+
         font-size: $x-small-font-size;
         font-weight: $light;
-        color: $gray;
     }
 
-    /* URL 복사 */
-    .post__share {
-        .post__share-btn {
-            padding: 0;
-            border: none;
-            background: transparent;
-            font-family: $sans-serif;
-            font-size: $small-font-size;
-            color: $gray;
+    .post__actions {
+        display: flex;
 
-            &:hover {
-                color: $blue;
-                cursor: pointer;
-            }
+        align-items: center;
 
-            &:focus {
-                outline: none;
-            }
+        flex: 0 0 auto;
+
+        gap: 1rem;
+    }
+
+    .post__github-link {
+        display: flex;
+
+        align-items: center;
+
+        color: $gray;
+
+        font-size: $x-small-font-size;
+        text-decoration: none;
+
+        .links-icon {
+            display: block;
+
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+
+        &:hover {
+            color: $blue;
+
+            font-weight: $bold;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            color: $blue;
+
+            outline: 2px solid $blue;
+        }
+    }
+
+    .post__copy-url-button,
+    .post__share-menu-button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        border: none;
+        background: transparent;
+
+        color: $gray;
+
+        font-size: $small-font-size;
+
+        cursor: pointer;
+
+        &:hover,
+        &.is-copied,
+        &[aria-expanded="true"] {
+            color: $blue;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            color: $blue;
+
+            outline: 2px solid $blue;
         }
     }
 }
 
 .page__inner-wrap {
     .page__title {
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 0.5rem 0;
+
         font-size: $h-size-1;
         font-weight: $medium;
     }
@@ -244,42 +341,195 @@ blockquote {
     font-style: normal;
 }
 
-.post-taxonomy__body {
+.post__footer {
+    margin-top: 3rem;
+
+    font-family: $navigation-font-family;
+}
+
+.post__tags + .post__share {
+    margin-top: 2rem;
+}
+
+.post__footer-title {
+    margin: 0 0 0.75rem;
+
+    color: $black;
+
+    font-size: $small-font-size;
+    font-weight: $bold;
+    line-height: 1.5;
+}
+
+.post__tag-list {
     display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-    margin: 0 0 3rem 0;
 
-    .post-taxonomy__label {
-        white-space: nowrap;
-    }
+    align-items: center;
+    flex-wrap: wrap;
 
-    .post-taxonomy__tokens {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.25rem;
-    }
+    gap: 0.25rem 0.75rem;
+}
 
-    .post-taxonomy__token {
-        padding: 0.1rem 0.5rem;
-        border: 1px solid $light-gray;
-        border-radius: 999px;
-        font-size: $x-small-font-size;
-        line-height: 1.2;
+.post__tag-link {
+    color: $gray;
+
+    font-size: $x-small-font-size;
+    line-height: 1.5;
+    text-decoration: none;
+
+    &:hover {
+        color: $blue;
+
+        font-weight: $bold;
         text-decoration: none;
-        color: $gray;
     }
 
-    .post-taxonomy__token--tag {
-        font-weight: $regular;
-        color: $light-gray;
+    &:focus {
+        outline: none;
+    }
 
-        &:hover {
-            border-color: $black;
-            color: $black;
+    &:focus-visible {
+        color: $blue;
+
+        outline: 2px solid $blue;
+    }
+}
+
+.related_posts {
+    margin-top: 3rem;
+
+    font-family: $navigation-font-family;
+}
+
+.related_posts_title {
+    margin: 0 0 1rem;
+
+    color: $black;
+
+    font-size: $small-font-size;
+    font-weight: $bold;
+    line-height: 1.5;
+}
+
+.related_posts_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 1rem;
+}
+
+.related_post {
+    min-width: 0;
+
+    margin: 0;
+}
+
+.related_post_link {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+
+    color: $black;
+
+    text-decoration: none;
+
+    &:hover {
+        color: $blue;
+
+        text-decoration: none;
+
+        .related_post_teaser {
+            transform: scale(1.02);
         }
     }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $blue;
+    }
+}
+
+.related_post_thumbnail {
+    overflow: hidden;
+
+    aspect-ratio: 16 / 9;
+
+    border-radius: 0.5rem;
+    background: $extra-light-gray;
+}
+
+.related_post_teaser {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.2s ease;
+}
+
+.related_post_metadata {
+    display: flex;
+
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding-top: 0.75rem;
+}
+
+.related_post_category,
+.related_post_title,
+.related_post_subtitle,
+.related_post_date {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.related_post_category {
+    margin: 0 0 0.25rem;
+
+    color: $gray;
+
+    font-size: $x-small-font-size;
+    line-height: 1.5;
+}
+
+.related_post_title {
+    margin: 0 0 0.1rem;
+
+    color: inherit;
+
+    font-size: $small-font-size;
+    font-weight: $bold;
+    line-height: 1.5;
+}
+
+.related_post_subtitle {
+    margin: 0;
+
+    color: $gray;
+
+    font-size: $x-small-font-size;
+    line-height: 1.5;
+}
+
+.related_post_date {
+    margin: 0.75rem 0 0;
+
+    color: $gray;
+
+    font-size: $x-small-font-size;
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -305,5 +555,11 @@ blockquote {
                 font-size: 1rem;
             }
         }
+    }
+
+    .related_posts_grid {
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 1.5rem;
     }
 }

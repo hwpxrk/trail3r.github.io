@@ -1,56 +1,131 @@
 /*
-파일(File):
-    - _sass/customs/_post_pagination.scss
+게시글 하단에서 이전 글과 다음 글을 좌우로 나누어 표시하는 페이지네이션의 디자인을 정의합니다.
 
-목적(Purpose):
-    - 게시글 하단 페이지네이션 스타일을 정의합니다.
-
-의존성(Dependencies):
-    - _includes/customs/post_pagination.html
+연관(Related)
+------------
+"_includes/customs/post_pagination.html": 페이지네이션의 HTML 마크업과 탐색 순서를 정의합니다.
 */
 
-.milestone {
+
+.post_pagination {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    margin-top: 3rem;
+
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+
+    font-family: $navigation-font-family;
+}
+
+.post_pagination_item {
     display: flex;
+
     flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
-    margin: 1rem 0;
-    border: none;
 
-    .junction {
-        overflow: hidden;
-        display: block;
-        min-width: 0;
-        padding: 0.5rem;
-        border-top: 1px solid $gray;
-        border-bottom: 1px solid $gray;
-        font-family: $sans-serif;
-        font-size: $small-font-size;
-        font-weight: $regular;
-        text-align: center;
-        white-space: nowrap;
-        text-decoration: none;
-        text-overflow: ellipsis;
+    min-width: 0;
+    min-height: 5rem;
+
+    padding: 1rem 0;
+
+    color: $gray;
+
+    text-decoration: none;
+
+    &.previous {
+        align-items: flex-start;
+
+        padding-right: 1.5rem;
+
+        text-align: left;
+    }
+
+    &.next {
+        align-items: flex-end;
+
+        padding-left: 1.5rem;
+
+        text-align: right;
+    }
+
+    &:visited {
         color: $gray;
+    }
 
-        /* "이전 글" 및 "다음 글" 글자 스타일링 */
-        .milepost {
-            margin-right: 0.5rem;
-            font-weight: $bold;
-            color: $blue;
+    &:not(.disabled):hover {
+        color: $blue;
+
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:not(.disabled):focus-visible {
+        color: $blue;
+
+        outline: 2px solid $blue;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+
+        cursor: default;
+    }
+}
+
+.post_pagination_label {
+    color: inherit;
+
+    font-size: $x-small-font-size;
+    line-height: 1.5;
+}
+
+.post_pagination_title {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    margin-top: 0.5rem;
+
+    color: $black;
+
+    font-size: $small-font-size;
+    font-weight: $bold;
+    line-height: 1.5;
+
+    word-break: keep-all;
+
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.post_pagination_item:not(.disabled):hover,
+.post_pagination_item:not(.disabled):focus-visible {
+    .post_pagination_title {
+        color: $blue;
+    }
+}
+
+.post_pagination_item.disabled {
+    .post_pagination_title {
+        color: $gray;
+    }
+}
+
+@media (max-width: 768px) {
+    .post_pagination_item {
+        min-height: 4.5rem;
+
+        &.previous {
+            padding-right: 0.75rem;
         }
 
-        &:hover,
-        &:focus-visible {
-            text-decoration: none;
-            color: $black;
-        }
-
-        &.disabled {
-            text-decoration: none;
-            color: $gray;
-            cursor: not-allowed;
-            pointer-events: none;
+        &.next {
+            padding-left: 0.75rem;
         }
     }
 }

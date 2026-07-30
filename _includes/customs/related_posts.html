@@ -1,0 +1,71 @@
+{% comment %}
+게시글 하단에 현재 게시글과 관련된 게시글을 최대 3개까지 렌더링합니다.
+
+참고사항(Notes)
+-------------
+현재 게시글과 같은 카테고리에 속한 게시글을 우선 렌더링하며, 그 개수가 부족하면 최근 업로드된 게시글을 렌더링합니다.
+
+연관(Related)
+------------
+"_layouts/post.html": 게시글 하단에서 관련 게시글 목록을 호출합니다.
+"_sass/customs/posts/_posts.scss": 관련 게시글 카드의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
+
+
+{% assign current_category = page.categories | first %}
+{% assign category_posts = site.categories[current_category] | default: site.posts %}
+{% assign related_post_candidates = category_posts | concat: site.posts | uniq %}
+{% assign related_post_count = 0 %}
+
+{% capture related_post_cards %}
+    {% for related_post in related_post_candidates %}
+        {% if related_post.id != page.id and related_post.hidden != true %}
+            {% assign related_post_category = related_post.categories | first %}
+
+            <article class="related_post">
+                <a class="related_post_link" href="{{ related_post.url | relative_url }}">
+                    <div class="related_post_thumbnail">
+                        {% if related_post.header.teaser %}
+                            <img
+                                class="related_post_teaser"
+                                src="{{ related_post.header.teaser | relative_url }}"
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        {% endif %}
+                    </div>
+
+                    <div class="related_post_metadata">
+                        <p class="related_post_category">{{ related_post_category | escape_once }}</p>
+                        <h3 class="related_post_title">{{ related_post.title | escape_once }}</h3>
+
+                        {% if related_post.subtitle %}
+                            <p class="related_post_subtitle">{{ related_post.subtitle | escape_once }}</p>
+                        {% else %}
+                            <p class="related_post_subtitle" aria-hidden="true">&nbsp;</p>
+                        {% endif %}
+
+                        <time class="related_post_date" datetime="{{ related_post.date | date_to_xmlschema }}">{{ related_post.date | date: "%Y. %m. %d" }}</time>
+                    </div>
+                </a>
+            </article>
+
+            {% assign related_post_count = related_post_count | plus: 1 %}
+
+            {% if related_post_count == 3 %}
+                {% break %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endcapture %}
+
+{% if related_post_count > 0 %}
+    <section class="related_posts" aria-labelledby="related-posts-title">
+        <h2 class="related_posts_title" id="related-posts-title">관련 게시글</h2>
+
+        <div class="related_posts_grid">
+            {{ related_post_cards }}
+        </div>
+    </section>
+{% endif %}

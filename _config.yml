@@ -400,7 +400,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: post
       author_profile: false
       active_sidebar: false
       sidebar:
@@ -408,7 +408,7 @@ defaults:
       read_time: false
       comments: true
       share: true
-      related: false
+      related: true
       toc: true
       toc_sticky: true
 

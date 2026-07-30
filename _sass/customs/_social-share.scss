@@ -1,24 +1,114 @@
-/* ====================================================================================================
-   URL 복사 버튼 스타일링
-   ==================================================================================================== */
+/*
+게시글 하단에 표시하는 공유 아이콘 목록의 디자인을 정의합니다.
+
+연관(Related)
+------------
+"_includes/customs/social-share.html": 공유 아이콘 목록의 HTML 마크업을 정의합니다.
+*/
 
 
-.page__share {
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+.post__share-list {
+    display: flex;
 
-  border-top: 1px solid $light-gray;
-  border-bottom: 1px solid $light-gray;
+    align-items: center;
+    flex-wrap: wrap;
 
-  .btn--copyUrl {
-    background-color: $blue;
+    gap: 1rem;
 
-    color: $white;
-  }
+    padding: 0;
+    margin: 0;
 
-  .btn--copyUrl:hover {
-    background-color: $sky-blue;
+    list-style: none;
+}
 
-    color: $white;
-  }
+.post__share-item {
+    margin: 0;
+}
+
+.post__share-link,
+.post__share-copy-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: $gray;
+    opacity: 0.7;
+
+    font-size: $small-font-size;
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+
+    &:hover,
+    &.is-copied {
+        color: $blue;
+        opacity: 1;
+
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        color: $blue;
+        opacity: 1;
+
+        outline: 2px solid $blue;
+    }
+}
+
+.post__share-copy-button {
+    cursor: pointer;
+}
+
+.post__share-menu {
+    position: relative;
+
+    display: flex;
+}
+
+.post__share-menu-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 20;
+
+    min-width: 10rem;
+
+    padding: 0.75rem;
+
+    border: 1px solid $light-gray;
+    border-radius: 0.5rem;
+    background: $background-color;
+    box-shadow: 0 0.25rem 1rem rgba($black, 0.1);
+
+    .post__share-list {
+        flex-wrap: nowrap;
+
+        gap: 0.75rem;
+    }
+}
+
+.post__share-menu-title {
+    margin: 0 0 0.5rem;
+
+    color: $black;
+
+    font-family: $navigation-font-family;
+    font-size: $x-small-font-size;
+    font-weight: $bold;
+    line-height: 1.5;
 }
