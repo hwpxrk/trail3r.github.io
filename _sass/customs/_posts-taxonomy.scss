@@ -1,156 +1,191 @@
 /*
-파일(File):
-    - _sass/customs/_posts-taxonomy.scss
+카테고리 및 태그 아카이브 페이지의 레이아웃과 디자인을 정의합니다.
 
-목적(Purpose):
-    - 게시글 카테고리 및 태그 아카이브 페이지에 렌더링 되는 카테고리와 태그(taxonomy)의 스타일을 정의합니다.
+참고사항(Notes)
+-------------
+카테고리 및 태그 목록과 게시글 메타데이터에는 비트맵 폰트를 사용합니다.
+데스크톱에서는 분류별 게시글 목록을 들여쓰고 모바일에서는 들여쓰기를 제거합니다.
 
-의존성(Dependencies):
-    - _includes/customs/posts-taxonomy.html
+연관(Related)
+------------
+"_includes/customs/category_archive.html": 카테고리 아카이브의 HTML 마크업 구조를 정의합니다.
+"_includes/customs/tag_archive.html": 태그 아카이브의 HTML 마크업 구조를 정의합니다.
+"_includes/customs/archive_single.html": 카테고리 및 태그 게시글 항목을 렌더링합니다.
 */
 
-.archive__subtitle {
-    margin: 1.5rem 0 0.5rem;
-    padding: 0;
-
-    font-size: 1rem;
-
-    color: $black;
+.taxonomy_archive {
+    > .taxonomy__index {
+        margin-bottom: 5rem;
+    }
 }
 
-.taxonomy__index {
-    > li {
-        font-size: $x-small-font-size;
+.tag_archive_index {
+    margin-bottom: 5rem;
 
-        color: $black;
+    > .taxonomy__index {
+        margin-bottom: 1rem;
+    }
+}
 
-        &:hover {
+.tag_archive_toggle {
+    display: block;
+
+    width: 100%;
+    padding: 0.5rem 0;
+
+    border: 0;
+    background: transparent;
+
+    color: $gray;
+
+    font-family: $bitmap_sans_serif;
+    font-size: $x-small-font-size;
+    text-align: center;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $blue;
+    }
+}
+
+.taxonomy_archive_section {
+    & + & {
+        margin-top: 5rem;
+    }
+}
+
+.taxonomy_archive_title {
+    padding: 0 0 0.5rem 0;
+    margin: 0;
+
+    border-bottom: 1px solid $light-gray;
+
+    color: $black;
+
+    font-family: $bitmap_sans_serif;
+    font-size: $small-font-size;
+    font-weight: $bold;
+}
+
+.taxonomy_archive_posts {
+    margin-left: 20%;
+}
+
+.taxonomy_post {
+    border-bottom: 1px solid $extra-light-gray;
+
+    font-family: $bitmap_sans_serif;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $blue;
+    }
+}
+
+.taxonomy_post_link {
+    display: block;
+
+    padding: 1rem 0;
+
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        .taxonomy_post_title,
+        .taxonomy_post_subtitle,
+        .taxonomy_post_tags,
+        .taxonomy_post_date {
             color: $blue;
         }
     }
 }
 
-.taxonomy__section {
-    padding-bottom: 0.1rem;
+.taxonomy_post_title {
+    overflow: hidden;
+
+    margin: 0 0 0.1rem 0;
+
+    color: $black;
+
+    font-family: inherit;
+    font-size: $small-font-size;
+    font-weight: $bold;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.taxonomy_post_subtitle,
+.taxonomy_post_tags {
+    overflow: hidden;
+
+    min-height: 1.5em;
+
+    margin: 0 0 0.25rem 0;
+
+    color: $gray;
+
+    font-size: $x-small-font-size;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.taxonomy_post_date {
+    display: block;
+
+    color: $gray;
+
+    font-size: $xx-small-font-size;
+    white-space: nowrap;
+}
+
+.taxonomy__index {
+    > li {
+        font-family: $bitmap_sans_serif;
+        font-size: $x-small-font-size;
+
+        color: $black;
+
+        &:hover,
+        &:focus-within {
+            color: $blue;
+
+            .taxonomy__count {
+                color: $blue;
+            }
+        }
+    }
+
+    .taxonomy__link {
+        display: flex;
+
+        justify-content: space-between;
+
+        padding: 0.25em 0;
+
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+@media (max-width: 768px) {
+    .taxonomy_archive_posts {
+        margin-left: 0;
+    }
 }
 
 .back-to-top {
-    padding-top: 0.1rem;
+    padding-top: 0.25rem;
 
-    color: $graphite !important;
-}
+    color: $graphite;
 
-.archive__item {
-    padding: 0.25rem 0;
-    border-bottom: 1px solid $extra-light-gray;
-
-    .archive__item-body {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        min-width: 0;
-    }
-
-    .archive__item-title {
-        overflow: hidden;
-        min-width: 0;
-        font-size: $small-font-size;
-        font-weight: $semibold;
-        white-space: nowrap;
-        text-decoration: none;
-        text-overflow: ellipsis;
-        color: $black;
-    }
-
-    .archive__item-date {
-        font-size: $xx-small-font-size;
-        white-space: nowrap;
-        color: $gray;
-    }
-
-    .archive__item-list {
-        display: flex;
-        align-items: center;
-    }
-}
-
-/* 카테고리와 태그 스타일링 */
-.posts__taxonomy {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.25rem;
-
-    .posts__list[hidden] {
-        display: none;
-    }
-
-    .posts__list {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.05rem 0.5rem;
-        border: 1px solid $gray;
-        border-radius: 99rem;
-        font-size: $xx-small-font-size;
-        font-weight: $regular;
-        line-height: 1.5;
-        text-decoration: none;
-        color: $black;
-
-        &.posts__category {
-            border: 1px solid $graphite;
-
-            .posts__category__link {
-                text-decoration: none;
-                color: $graphite;
-            }
-
-            &:hover {
-                border-color: $blue;
-                font-weight: $semibold;
-
-                .posts__category__link {
-                    color: $blue;
-                }
-            }
-        }
-
-        &.posts__tag {
-            .posts__tag__link {
-                overflow: hidden;
-                min-width: 0;
-                max-width: 5rem;  // 태그의 최대 길이를 제한합니다.
-                white-space: nowrap;
-                text-decoration: none;
-                text-overflow: ellipsis;
-                color: $gray;
-            }
-
-            &:hover {
-                border-color: $black;
-
-                .posts__tag__link {
-                    font-weight: $semibold;
-                    color: $black;
-                }
-            }
-        }
-
-
-        &.posts__list--expand {
-            border: 1px dashed $light-gray;
-            background: transparent;
-            color: $gray;
-
-            &:focus {
-                outline: none;
-            }
-
-            &:hover {
-                border: 1px solid $black;
-                font-weight: $semibold;
-                color: $black;
-            }
-        }
-    }
+    font-family: $bitmap_sans_serif;
 }

@@ -1,0 +1,59 @@
+{% comment %}
+게시글에 등록된 카테고리와 태그를 렌더링합니다.
+
+매개변수(Parameter)
+-----------------
+post : object, default=post
+    카테고리와 태그를 렌더링할 게시글입니다.
+
+참고사항(Notes)
+-------------
+카테고리 또는 태그 아카이브 페이지에서는 현재 페이지의 앵커로 연결하고, 외부 페이지에서는 해당 아카이브 페이지의 앵커로 연결합니다.
+게시글에 등록된 모든 태그를 렌더링합니다.
+
+예시(Examples)
+-------------
+{% include customs/posts_taxonomy.html %}
+{% include customs/posts_taxonomy.html post=post %}
+{% endcomment %}
+
+
+{% assign post = include.post | default: post %}
+{% assign category_path = site.category_archive.path | default: "/categories/" %}
+{% assign tag_path = site.tag_archive.path | default: "/tags/" %}
+
+{% if post %}
+    <span class="posts_taxonomy">
+        {% if post.categories.size > 0 %}
+            {% for category in post.categories %}
+                {% assign category_slug = category | slugify %}
+
+                {% if page.url == category_path %}
+                    {% assign category_url = "#" | append: category_slug %}
+                {% else %}
+                    {% assign category_url = category_path | relative_url | append: "#" | append: category_slug %}
+                {% endif %}
+
+                <span class="posts_taxonomy_item posts_taxonomy_category">
+                    <a class="posts_taxonomy_category_link" href="{{ category_url }}">{{ category | escape_once }}</a>
+                </span>
+            {% endfor %}
+        {% endif %}
+
+        {% if post.tags.size > 0 %}
+            {% for tag in post.tags %}
+                {% assign tag_slug = tag | slugify %}
+
+                {% if page.url == tag_path %}
+                    {% assign tag_url = "#" | append: tag_slug %}
+                {% else %}
+                    {% assign tag_url = tag_path | relative_url | append: "#" | append: tag_slug %}
+                {% endif %}
+
+                <span class="posts_taxonomy_item posts_taxonomy_tag">
+                    <a class="posts_taxonomy_tag_link" href="{{ tag_url }}" title="#{{ tag | escape_once }}">#{{ tag | escape_once }}</a>
+                </span>
+            {% endfor %}
+        {% endif %}
+    </span>
+{% endif %}

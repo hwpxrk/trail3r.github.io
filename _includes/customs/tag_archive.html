@@ -1,0 +1,73 @@
+{% comment %}
+태그 목록과 태그별 게시글 목록을 렌더링합니다.
+
+참고사항(Notes)
+-------------
+태그는 등록된 게시글 수가 많은 순서대로 렌더링되며, 게시글 수가 같은 경우 site.tags에 저장된 순서대로 렌더링합니다.
+태그 목록은 상위 15개만 렏너링하며, 15개를 초과한 태그는 더 보기 버튼을 통해 펼치거나 접을 수 있스빈다.
+{% endcomment %}
+
+
+{% assign maximum_tag_post_count = 0 %}
+{% assign tag_index_limit = 15 %}
+{% assign rendered_tag_count = 0 %}
+{% assign hidden_tag_count = site.tags.size | minus: tag_index_limit %}
+
+{% for tag in site.tags %}
+    {% if tag[1].size > maximum_tag_post_count %}
+        {% assign maximum_tag_post_count = tag[1].size %}
+    {% endif %}
+{% endfor %}
+
+<div class="taxonomy_archive js_tag_archive">
+    <div class="tag_archive_index">
+        <ul class="taxonomy__index" id="tag_archive_index">
+            {% for tag_post_count in (1..maximum_tag_post_count) reversed %}
+                {% for tag in site.tags %}
+                    {% if tag[1].size == tag_post_count %}
+                        {% assign rendered_tag_count = rendered_tag_count | plus: 1 %}
+
+                        <li{% if rendered_tag_count > tag_index_limit %} class="js_tag_archive_hidden_item"{% endif %}>
+                            <a href="#{{ tag[0] | slugify }}">
+                                <strong>{{ tag[0] | escape_once }}</strong>
+                                <span class="taxonomy__count">{{ tag_post_count }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>
+
+        {% if hidden_tag_count > 0 %}
+            <button
+                class="tag_archive_toggle js_tag_archive_toggle"
+                type="button"
+                data-expand-text="태그 {{ hidden_tag_count }}개 더 보기"
+                data-hide-text="태그 접기"
+                aria-controls="tag_archive_index"
+                aria-expanded="false"
+                hidden
+            >
+                태그 {{ hidden_tag_count }}개 더 보기
+            </button>
+        {% endif %}
+    </div>
+
+    {% for tag_post_count in (1..maximum_tag_post_count) reversed %}
+        {% for tag in site.tags %}
+            {% if tag[1].size == tag_post_count %}
+                <section class="taxonomy_archive_section" id="{{ tag[0] | slugify }}">
+                    <h2 class="taxonomy_archive_title">{{ tag[0] | escape_once }}</h2>
+
+                    <div class="taxonomy_archive_posts">
+                        {% for post in tag[1] %}
+                            {% include customs/archive_single.html type="taxonomy" %}
+                        {% endfor %}
+                    </div>
+
+                    <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                </section>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

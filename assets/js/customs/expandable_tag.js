@@ -1,45 +1,43 @@
 /*
-파일(File):
-    - assets/js/customs/expandable_tag.js
+태그 아카이브의 숨겨진 태그 목록을 펼치고 접는 기능을 제어합니다.
 
-목적(Purpose):
-    - 태그가 많은 게시글의 일부 태그를 숨기고 "+ N" 버튼을 통해 태그 전체 표시 및 일부 숨기기 기능을 제공합니다.
+참고사항(Notes)
+-------------
+태그 아카이브 페이지에서는 처음 15개를 제외한 태그 목록을 펼치거나 접습니다.
 
-의존성(Dependencies):
-    - _includes/customs/posts-taxonomy.html
+연관(Related)
+------------
+"_includes/customs/tag_archive.html": 태그 아카이브 목록과 펼치기 버튼의 HTML 마크업 구조를 정의합니다.
 */
 
 
-(function () {
+(() => {
     "use strict";
 
-    /* 태그의 확장/숨김 상태 설정 */
-    function setExpand(tagWrapper, button, expanded) {
-        const hiddenTags = tagWrapper.querySelectorAll(".posts__tag--hidden");
-        hiddenTags.forEach(tag => (tag.hidden = !expanded));
+    function set_tag_archive_expand_state(expand_button, is_expanded) {
+        const tag_archive = expand_button.closest(".js_tag_archive", );
+        const hidden_tags = tag_archive.querySelectorAll(".js_tag_archive_hidden_item", );
+        const expand_text = expand_button.dataset.expandText || "태그 더 보기";
+        const hide_text = expand_button.dataset.hideText || "태그 접기";
 
-        button.setAttribute("aria-expanded", String(expanded));
-        tagWrapper.dataset.collapsed = expanded ? "false" : "true";
+        hidden_tags.forEach((hidden_tag) => {
+            hidden_tag.hidden = !is_expanded;
+        });
 
-        const expandText = button.getAttribute("data-expand-text") || "+";
-        const hideText = button.getAttribute("data-hide-text") || "접기";
-        button.textContent = expanded ? hideText : expandText;
+        expand_button.setAttribute("aria-expanded", String(is_expanded), );
+        expand_button.textContent = is_expanded ? hide_text : expand_text;
     }
 
-    /* 버튼 클릭 이벤트 핸들러 */
-    function onClick(event) {
-        const button = event.target.closest(".posts__expand-btn");
-        const taxonomy = button.closest(".posts__taxonomy");
-        const expanded = button.getAttribute("aria-expanded") === "true";
-        setExpand(taxonomy, button, !expanded);
-    }
+    const tag_archive_expand_buttons = document.querySelectorAll(".js_tag_archive_toggle", );
 
-    document.addEventListener("click", onClick);
+    tag_archive_expand_buttons.forEach((expand_button) => {
+        expand_button.hidden = false;
+        set_tag_archive_expand_state(expand_button, false);
 
-    window.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".posts__taxonomy").forEach(taxonomy => {
-            const button = taxonomy.querySelector(".posts__expand-btn");
-            setExpand(taxonomy, button, false);  // default: 숨김
+        expand_button.addEventListener("click", () => {
+            const is_expanded = expand_button.getAttribute("aria-expanded", ) === "true";
+
+            set_tag_archive_expand_state(expand_button, !is_expanded);
         });
     });
 })();
