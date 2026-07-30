@@ -12,6 +12,7 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 @import "customs/masthead";  // 상단 네비게이션 바 스타일링
+@import "customs/search";  // 검색 화면 스타일링
 
 @import "customs/pages/home/hero";  // 홈페이지의 Hero 스타일링
 @import "customs/pages/home/featured_posts";  // 홈페이지의 대표 게시글 스타일링
