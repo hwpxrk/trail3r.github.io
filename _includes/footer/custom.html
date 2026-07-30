@@ -1,67 +1,91 @@
-{%- comment -%} ====================================================================================================
-파일(File):
-    - _includes/footer/custom.html
+{% comment %}
+사이트 하단에 작성자 프로필, 팔로우 링크, 사이트맵과 저작권 정보를 렌더링합니다.
 
-역할(Role):
-    - 푸터(Footer)의 링크 아이콘(author.links)을 렌더링할 때 렌더링을 "links-icon.html"에게 위임합니다.
+참고사항(Notes)
+-------------
+사이트맵은 "_data/navigation.yml"의 "main" 메뉴에 명시된 순서를 따라 렌더링됩니다.
 
-매개변수(Parameters):
-    - link.icon(문자열): 이미지 경로(".../*.svg" 또는 ".../*.png") 또는 FontAwesome 클래스 문자열
-
-참고사항(Notes):
-    - Minimal Mistakes테마의 기본 footer를 오버라이드(override)하였습니다.
-    - _layout/default.html에서 호출하여 사용됩니다.
-================================================================================================= {%- endcomment -%}
-
-{%- assign show_atom = site.atom_feed.hide != true -%}
+연관(Related)
+------------
+"_data/navigation.yml": 사이트맵에 표시할 카테고리와 하위 메뉴를 정의합니다.
+"_sass/customs/_footer.scss": 푸터의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
 
 
-{%- if site.footer.links or show_atom -%}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {%- if site.data.ui-text[site.locale].follow_label -%}
-      <li>
-        <strong>{{ site.data.ui-text[site.locale].follow_label }}</strong>
-      </li>
-    {%- endif -%}
+{% assign author = site.author %}
+{% assign current_year = site.time | date: "%Y" %}
 
-    {%- if site.footer.links -%}
-      {%- for link in site.footer.links -%}
-        {%- if link.label and link.url -%}
-          <li>
-            <a href="{{ link.url }}" rel="nofollow noopener noreferrer">
-              {%- include customs/links-icon.html icon=link.icon -%}
-              {{ link.label | escape_once | strip }}
-            </a>
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
+<div class="footer_contents">
+    <div class="footer_profile">
+        <a class="footer_profile_link" href="{{ '/' | relative_url }}">
+            <div class="footer_profile_header">
+                {% if author.avatar %}
+                    <img class="footer_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                {% endif %}
 
-    {%- if show_atom -%}
-      <li>
-        <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">
-          <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
-            {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}
+                {% if author.name %}
+                    <span class="footer_profile_name">{{ author.name | escape_once }}</span>
+                {% endif %}
+            </div>
+
+            {% if author.bio %}
+                <div class="footer_profile_bio">{{ author.bio | markdownify }}</div>
+            {% endif %}
         </a>
-      </li>
-    {%- endif -%}
-  </ul>
-</div>
-{%- endif -%}
+    </div>
 
-<div class="page__footer-copyright">
-  &copy;
-  {%- assign site_time = site.time | date: '%Y' -%}
-  {%- if site.footer.since and site_time != site.footer.since -%}
-    {{ site.footer.since }} - 
-  {% endif %}
-  {{ site_time }}
-  <a href="{{ site.copyright_url | default: site.url }}">
-    {{ site.copyright | default: site.title | escape_once | strip }}
-  </a>.
-  {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
-  <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>
-  &amp;
-  <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.
+    <nav class="footer_sitemap" aria-label="사이트맵">
+        {% for menu in site.data.navigation.main %}
+            <div class="footer_sitemap_group">
+                <p class="footer_sitemap_title">{{ menu.title | escape_once }}</p>
+
+                <ul class="footer_sitemap_list">
+                    {% if menu.children and menu.children.size > 0 %}
+                        {% for submenu in menu.children %}
+                            <li class="footer_sitemap_item">
+                                <a class="footer_sitemap_link" href="{{ submenu.url | relative_url }}">{{ submenu.title | escape_once }}</a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="footer_sitemap_item">
+                            <a class="footer_sitemap_link" href="{{ menu.url | relative_url }}">{{ menu.title | escape_once }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endfor %}
+    </nav>
+</div>
+
+{% if author.links and author.links.size > 0 %}
+    <div class="footer_follow">
+        <p class="footer_follow_label">팔로우</p>
+
+        <ul class="footer_follow_list">
+            {% for link in author.links %}
+                <li class="footer_follow_item">
+                    <a class="footer_follow_link" href="{{ link.url }}" rel="me">
+                        {% include customs/links-icon.html icon=link.icon %}
+                        <span class="footer_follow_link_label">{{ link.label | escape_once }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<div class="footer_copyright">
+    <p class="footer_copyright_text">
+        Copyright &copy;
+        {% if site.footer.since and site.footer.since != current_year %}
+            {{ site.footer.since }}&ndash;{{ current_year }}
+        {% else %}
+            {{ current_year }}
+        {% endif %}
+        <span class="footer_copyright_text_site_title">{{ site.copyright | default: site.title | escape_once | strip }}.</span> 모든 권리 보유.
+        {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
+        <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>
+        &amp;
+        <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.
+    </p>
 </div>

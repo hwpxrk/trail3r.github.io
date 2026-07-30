@@ -1,26 +1,26 @@
-{%- comment -%} ====================================================================================================
-파일(File):
-  - _includes/customs/links-icon.html
+{% comment %}
+프로필 링크의 이미지 또는 Font Awesome 아이콘을 렌더링합니다.
 
-역할(Role):
-  - Minimal Mistakes의 링크 아이콘에서 FontAwesome 클래스뿐만 아니라 SVG 또는 PNG 이미지도 사용할 수 있게 렌더링 범위를 확장합니다.
+매개변수(Parameter)
+-----------------
+icon : str
+    렌더링할 이미지 경로 또는 Font Awesome 클래스입니다.
 
-인자(Arguments):
-  - include.icon(문자열): 이미지 경로(".../*.svg" 또는 ".../*.png") 또는 FontAwesome 클래스 문자열
+참고사항(Notes)
+-------------
+"svg" 또는 "png" 이미지 경로를 전달하면 "img" 태그를 사용하고, 이외의 값은 Font Awesome 클래스로 사용합니다.
 
-의존성(Dependencies):
-  - 이미지 파일의 확장자는 "*.svg" 또는 "*.png" 형태여야만 합니다.
-
-참고사항(Notes):
-  - _includes/customs/sidebar_profile.html에서 호출하여 사용됩니다.
-  - _includes/footer/customs.html에서 호출하여 사용됩니다.
-================================================================================================= {%- endcomment -%}
-
-{%- assign icon = include.icon | default: "" | remove: '"' | strip -%}
+연관(Related)
+------------
+"_includes/customs/sidebar_profile.html": 좌측 사이드바의 프로필 링크를 렌더링합니다.
+"_includes/footer/custom.html": 푸터의 프로필 링크를 렌더링합니다.
+{% endcomment %}
 
 
-{%- if icon contains ".svg" or icon contains ".png" -%}
-  <img class="links-icon" src="{{ icon | relative_url }}" alt="" aria-hidden="true">
-{%- else -%}
-  <i class="{{ icon | default: 'fas fa-link' }}" aria-hidden="true"></i>
-{%- endif -%}
+{% assign icon = include.icon | default: "" | remove: '"' | strip %}
+
+{% if icon contains ".svg" or icon contains ".png" %}
+    <img class="links-icon" src="{{ icon | relative_url }}" alt="" aria-hidden="true">
+{% else %}
+    <i class="{{ icon | default: 'fas fa-link' }}" aria-hidden="true"></i>
+{% endif %}
