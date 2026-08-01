@@ -20,20 +20,20 @@
         background: transparent;
 
         font-family: $bitmap_sans_serif;
-        font-weight: $regular;
+        font-weight: normal;
     }
 
     .recent_posts_title {
         padding: 0 0.25rem 0.5rem 0.25rem;
         margin: 0 0 0.5rem 0;
 
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light_gray;
 
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $standard-font-size;
-        font-weight: $bold;
+        font-size: $type_size_6;
+        font-weight: bold;
     }
 
     .recent_posts_grid {
@@ -46,7 +46,7 @@
 
         padding: 1rem 0.5rem 1rem 0.5rem;
 
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light_gray;
 
         .recent_post_link {
             display: grid;
@@ -99,7 +99,7 @@
 
         border-radius: 0.5rem;
 
-        background: $extra-light-gray;
+        background: $lighter_gray;
 
         aspect-ratio: 4 / 3;
 
@@ -130,8 +130,8 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_9;
+        font-weight: normal;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -148,8 +148,8 @@
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_8;
+        font-weight: normal;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -167,7 +167,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -179,7 +179,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
     }
 
@@ -203,13 +203,13 @@
             border: none;
             border-radius: 2rem;
 
-            background: $extra-light-gray;
+            background: $lighter_gray;
 
             color: $black;
 
             font-family: $bitmap_sans_serif;
-            font-size: $small-font-size;
-            font-weight: $regular;
+            font-size: $type_size_8;
+            font-weight: normal;
 
             text-decoration: none;
 
@@ -220,11 +220,11 @@
             &:hover {
                 border-color: $blue;
 
-                background: rgba($light-gray, 0.75);
+                background: rgba($light_gray, 0.75);
 
                 color: $blue;
 
-                font-weight: $bold;
+                font-weight: bold;
 
                 text-decoration: none;
             }

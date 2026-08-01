@@ -11,28 +11,28 @@
   margin: 0 auto;
   max-width: 100%;
   padding-inline: 1em;
-  font-family: $sans-serif;
-  -webkit-animation: $intro-transition;
-  animation: $intro-transition;
+  font-family: $sans_serif;
+  -webkit-animation: $intro_transition;
+  animation: $intro_transition;
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 
-  @include breakpoint($x-large) {
-    max-width: $x-large;
+  @include breakpoint($x_large) {
+    max-width: $x_large;
   }
 
   ol {
     padding: 0;
     list-style: none;
-    font-size: $type-size-6;
+    font-size: $type_size_6;
 
     @include breakpoint($large) {
       float: inline-end;
-      width: calc(100% - #{$right-sidebar-width-narrow});
+      width: calc(100% - #{$right_sidebar_width_narrow});
     }
 
-    @include breakpoint($x-large) {
-      width: calc(100% - #{$right-sidebar-width});
+    @include breakpoint($x_large) {
+      width: calc(100% - #{$right_sidebar_width});
     }
   }
 
@@ -60,7 +60,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    font-family: $sans-serif;
+    font-family: $sans_serif;
   }
 
   li {
@@ -72,28 +72,28 @@
       display: block;
       margin-bottom: 0.25em;
       padding: 0.5em 1em;
-      font-family: $sans-serif;
+      font-family: $sans_serif;
       font-size: 14px;
       font-weight: bold;
       line-height: 1.5;
       text-align: center;
       text-decoration: none;
-      color: $muted-text-color;
-      border: 1px solid mix(#000, $border-color, 25%);
+      color: $muted_text_color;
+      border: 1px solid mix(#000, $border_color, 25%);
       border-radius: 0;
 
       &:hover {
-        color: $link-color-hover;
+        color: $link_color_hover;
       }
 
       &.current,
       &.current.disabled {
         color: #fff;
-        background: $primary-color;
+        background: $primary_color;
       }
 
       &.disabled {
-        color: rgba($muted-text-color, 0.5);
+        color: rgba($muted_text_color, 0.5);
         pointer-events: none;
         cursor: not-allowed;
       }
@@ -103,15 +103,15 @@
       margin-inline-start: 0;
 
       a {
-        border-start-start-radius: $border-radius;
-        border-end-start-radius: $border-radius;
+        border-start-start-radius: $border_radius;
+        border-end-start-radius: $border_radius;
       }
     }
 
     &:last-child {
       a {
-        border-start-end-radius: $border-radius;
-        border-end-end-radius: $border-radius;
+        border-start-end-radius: $border_radius;
+        border-end-end-radius: $border_radius;
       }
     }
   }
@@ -122,17 +122,17 @@
     padding: 1em 2em;
     float: inline-start;
     width: 50%;
-    font-family: $sans-serif;
-    font-size: $type-size-5;
+    font-family: $sans_serif;
+    font-size: $type_size_5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: $muted-text-color;
-    border: 1px solid mix(#000, $border-color, 25%);
-    border-radius: $border-radius;
+    color: $muted_text_color;
+    border: 1px solid mix(#000, $border_color, 25%);
+    border-radius: $border_radius;
 
     &:hover {
-      @include yiq-contrasted($muted-text-color);
+      @include yiq-contrasted($muted_text_color);
     }
 
     &:first-child {
@@ -147,7 +147,7 @@
     }
 
     &.disabled {
-      color: rgba($muted-text-color, 0.5);
+      color: rgba($muted_text_color, 0.5);
       pointer-events: none;
       cursor: not-allowed;
     }
@@ -160,7 +160,7 @@
 .page__comments + .pagination {
   margin-top: 2em;
   padding-top: 2em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid $border_color;
 }
 
 /*
@@ -175,19 +175,19 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: $nav-height;
-  background: $background-color;
+  min-height: $nav_height;
+  background: $background_color;
 
   a {
     display: block;
     margin: 0 1rem;
-    color: $masthead-link-color;
+    color: $masthead_link_color;
     text-decoration: none;
     -webkit-transition: none;
     transition: none;
 
     &:hover {
-      color: $masthead-link-color-hover;
+      color: $masthead_link_color_hover;
     }
 
     &.site-logo {
@@ -208,7 +208,7 @@
   &__toggle {
     -ms-flex-item-align: center;
     align-self: center;
-    height: $nav-toggle-height;
+    height: $nav_toggle_height;
     border: 0;
     outline: none;
     background-color: transparent;
@@ -242,10 +242,10 @@
         inset-inline-start: 0;
         bottom: 0;
         height: 4px;
-        background: $primary-color;
+        background: $primary_color;
         width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
+        -webkit-transition: $global_transition;
+        transition: $global_transition;
         -webkit-transform: scaleX(0) translate3d(0, 0, 0);
         transform: scaleX(0) translate3d(0, 0, 0); // hide
       }
@@ -264,9 +264,9 @@
     inset-inline-end: 0;
     margin-top: 15px;
     padding: 5px;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    background: $background-color;
+    border: 1px solid $border_color;
+    border-radius: $border_radius;
+    background: $background_color;
     -webkit-box-shadow: 0 2px 4px 0 rgba(#000, 0.16),
       0 2px 10px 0 rgba(#000, 0.12);
     box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
@@ -278,11 +278,11 @@
     a {
       margin: 0;
       padding: 10px 20px;
-      font-size: $type-size-5;
+      font-size: $type_size_5;
 
       &:hover {
-        color: $masthead-link-color-hover;
-        background: $navicon-link-color-hover;
+        color: $masthead_link_color_hover;
+        background: $navicon_link_color_hover;
       }
     }
 
@@ -294,7 +294,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: $border-color transparent;
+      border-color: $border_color transparent;
       display: block;
       z-index: 0;
     }
@@ -307,14 +307,14 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: $background-color transparent;
+      border-color: $background_color transparent;
       display: block;
       z-index: 1;
     }
 
     li {
       display: block;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid $border_color;
 
       &:last-child {
         border-bottom: none;
@@ -351,10 +351,10 @@
       display: inline-block;
       padding: 0.5em 2.5em 0.5em 1em;
       color: $gray;
-      font-size: $type-size-6;
+      font-size: $type_size_6;
       font-weight: bold;
-      border: 1px solid $light-gray;
-      border-radius: $border-radius;
+      border: 1px solid $light_gray;
+      border-radius: $border_radius;
       z-index: 20;
       -webkit-transition: 0.2s ease-out;
       transition: 0.2s ease-out;
@@ -481,8 +481,8 @@
 .nav__title {
   margin: 0;
   padding: 0.5rem 0.75rem;
-  font-family: $sans-serif-narrow;
-  font-size: $type-size-5;
+  font-family: $sans_serif_narrow;
+  font-size: $type_size_5;
   font-weight: bold;
 }
 
@@ -490,11 +490,11 @@
   display: block;
   margin: 0.5rem 0;
   padding: 0.25rem 0;
-  font-family: $sans-serif-narrow;
-  font-size: $type-size-6;
+  font-family: $sans_serif_narrow;
+  font-size: $type_size_6;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $border_color;
 }
 
 /*
@@ -502,25 +502,25 @@
      ========================================================================== */
 
 .toc {
-  font-family: $sans-serif-narrow;
+  font-family: $sans_serif_narrow;
   color: $gray;
-  background-color: $background-color;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
+  background-color: $background_color;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  -webkit-box-shadow: $box_shadow;
+  box-shadow: $box_shadow;
 
   .nav__title {
     color: #fff;
-    font-size: $type-size-6;
-    background: $primary-color;
-    border-start-start-radius: $border-radius;
-    border-start-end-radius: $border-radius;
+    font-size: $type_size_6;
+    background: $primary_color;
+    border-start-start-radius: $border_radius;
+    border-start-end-radius: $border_radius;
   }
 
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
-    @include yiq-contrasted($active-color);
+    @include yiq-contrasted($active_color);
   }
 }
 
@@ -529,22 +529,22 @@
   padding: 0;
   width: 100%;
   list-style: none;
-  font-size: $type-size-6;
+  font-size: $type_size_6;
 
   @include breakpoint($large) {
-    font-size: $type-size-7;
+    font-size: $type_size_7;
   }
 
   a {
     display: block;
     padding: 0.25rem 0.75rem;
-    color: $muted-text-color;
+    color: $muted_text_color;
     font-weight: bold;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border_color;
 
     &:hover {
-      color: $text-color;
+      color: $text_color;
     }
   }
 

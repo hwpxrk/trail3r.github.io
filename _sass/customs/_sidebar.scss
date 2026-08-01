@@ -14,7 +14,7 @@
 
     color: $gray;
 
-    font-family: $navigation-font-family;
+    font-family: $bitmap_sans_serif;
 
     &:hover {
         opacity: 1;
@@ -74,7 +74,7 @@
         width: 72px;
         height: 72px;
         padding: 5px;
-        border: 1px solid $border-color;
+        border: 1px solid $border_color;
         border-radius: 50%;
 
         object-fit: contain;
@@ -87,8 +87,8 @@
 
         color: $black;
 
-        font-size: $small-font-size;
-        font-weight: $bold;
+        font-size: $type_size_8;
+        font-weight: bold;
         line-height: 1.25;
 
         transition: color 0.2s ease;
@@ -106,22 +106,22 @@
         p {
             margin: 0;
 
-            font-family: $navigation-font-family;
-            font-size: $xx-small-font-size;
+            font-family: $bitmap_sans_serif;
+            font-size: $type_size_10;
             line-height: 1.5;
         }
     }
 
     .sidebar_follow {
         padding-bottom: 1rem;
-        border-bottom: 1px solid $extra-light-gray;
+        border-bottom: 1px solid $lighter_gray;
     }
 
     .sidebar_follow_label {
         margin: 0 0 0.5rem 0;
 
-        font-family: $navigation-font-family;
-        font-size: $xx-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
     }
 
     .sidebar_follow_list {
@@ -145,8 +145,8 @@
         color: $gray;
         opacity: 0.7;
 
-        font-family: $navigation-font-family;
-        font-size: $x-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_9;
         text-decoration: none;
 
         .links-icon {
@@ -162,14 +162,14 @@
             color: $black;
             opacity: 1;
 
-            font-weight: $bold;
+            font-weight: bold;
         }
     }
 
     .sidebar_follow_link_label {
         margin-left: 0.5rem;
 
-        font-size: $xx-small-font-size;
+        font-size: $type_size_10;
 
         white-space: nowrap;
     }
@@ -196,14 +196,14 @@
 
     .sidebar_navigation_group {
         padding: 0.5rem 0;
-        border-bottom: 1px solid $extra-light-gray;
+        border-bottom: 1px solid $lighter_gray;
     }
 
     .sidebar_navigation_group_title {
         margin: 0.5rem 0;
 
-        font-family: $navigation-font-family;
-        font-size: $xx-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
     }
 
     .sidebar_navigation_links {
@@ -213,8 +213,8 @@
     .sidebar_navigation_item {
         margin-bottom: 0.25rem;
 
-        font-family: $navigation-font-family;
-        font-size: $xx-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
     }
 
     .sidebar_navigation_link {
@@ -226,13 +226,13 @@
         &:hover {
             color: $black;
 
-            font-weight: $bold;
+            font-weight: bold;
         }
 
         &.is_active {
             color: $blue;
 
-            font-weight: $bold;
+            font-weight: bold;
         }
     }
 

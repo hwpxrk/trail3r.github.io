@@ -10,17 +10,17 @@
 
 .search__toggle {
   margin-inline: 1rem;
-  height: $nav-toggle-height;
+  height: $nav_toggle_height;
   border: 0;
   outline: none;
-  color: $primary-color;
+  color: $primary_color;
   background-color: transparent;
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 
   &:hover {
-    color: mix(#000, $primary-color, 25%);
+    color: mix(#000, $primary_color, 25%);
   }
 }
 
@@ -39,13 +39,13 @@
     width: 100%;
     margin-inline: auto;
     padding-inline: 1em;
-    -webkit-animation: $intro-transition;
-    animation: $intro-transition;
+    -webkit-animation: $intro_transition;
+    animation: $intro_transition;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
 
-    @include breakpoint($x-large) {
-      max-width: $max-width;
+    @include breakpoint($x_large) {
+      max-width: $x_large;
     }
 
   }
@@ -62,14 +62,14 @@
     outline: none;
     box-shadow: none;
     background-color: transparent;
-    font-size: $type-size-3;
+    font-size: $type_size_3;
 
     @include breakpoint($large) {
-      font-size: $type-size-2;
+      font-size: $type_size_2;
     }
 
-    @include breakpoint($x-large) {
-      font-size: $type-size-1;
+    @include breakpoint($x_large) {
+      font-size: $type_size_1;
     }
   }
 
@@ -85,7 +85,7 @@
 
   .results__found {
     margin-top: 0.5em;
-    font-size: $type-size-6;
+    font-size: $type_size_6;
   }
 
   .archive__item {
@@ -95,7 +95,7 @@
       width: 75%;
     }
 
-    @include breakpoint($x-large) {
+    @include breakpoint($x_large) {
       width: 50%;
     }
   }
@@ -117,13 +117,13 @@
 }
 
 .archive__item-title .ais-Highlight {
-  color: $primary-color;
+  color: $primary_color;
   font-style: normal;
   text-decoration: underline;
 }
 
 .archive__item-excerpt .ais-Highlight {
-  color: $primary-color;
+  color: $primary_color;
   font-style: normal;
   font-weight: bold;
 }

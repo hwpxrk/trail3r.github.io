@@ -43,7 +43,7 @@
     color: $gray;
     opacity: 0.7;
 
-    font-size: $small-font-size;
+    font-size: $type_size_8;
     text-decoration: none;
 
     transition:
@@ -90,9 +90,9 @@
 
     padding: 0.75rem;
 
-    border: 1px solid $light-gray;
+    border: 1px solid $light_gray;
     border-radius: 0.5rem;
-    background: $background-color;
+    background: $background_color;
     box-shadow: 0 0.25rem 1rem rgba($black, 0.1);
 
     .post__share-list {
@@ -107,8 +107,8 @@
 
     color: $black;
 
-    font-family: $navigation-font-family;
-    font-size: $x-small-font-size;
-    font-weight: $bold;
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_9;
+    font-weight: bold;
     line-height: 1.5;
 }

@@ -22,7 +22,7 @@
     .post__categories {
         margin: 0;
 
-        font-size: $small-font-size;
+        font-size: $type_size_8;
         line-height: 1.5;
     }
 }
@@ -32,7 +32,7 @@
 
     color: $gray;
 
-    font-size: $small-font-size;
+    font-size: $type_size_8;
     line-height: 1.5;
 }
 
@@ -48,9 +48,9 @@
     padding: 0 0 1rem 0;
     margin: 0 0 1rem 0;
 
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $light_gray;
 
-    font-size: $small-font-size;
+    font-size: $type_size_8;
 
     .post__author {
         display: flex;
@@ -86,7 +86,7 @@
 
             padding: 0.1rem;
 
-            border: 1px solid $light-gray;
+            border: 1px solid $light_gray;
             border-radius: 50%;
 
             object-fit: cover;
@@ -95,7 +95,7 @@
         .post__author-name {
             margin-left: 0.5rem;
 
-            font-weight: $regular;
+            font-weight: normal;
         }
     }
 
@@ -104,8 +104,8 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
-        font-weight: $light;
+        font-size: $type_size_9;
+        font-weight: normal;
     }
 
     .post__actions {
@@ -125,7 +125,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         text-decoration: none;
 
         .links-icon {
@@ -138,7 +138,7 @@
         &:hover {
             color: $blue;
 
-            font-weight: $bold;
+            font-weight: bold;
         }
 
         &:focus {
@@ -166,7 +166,7 @@
 
         color: $gray;
 
-        font-size: $small-font-size;
+        font-size: $type_size_8;
 
         cursor: pointer;
 
@@ -192,56 +192,56 @@
     .page__title {
         margin: 0 0 0.5rem 0;
 
-        font-size: $h-size-1;
-        font-weight: $medium;
+        font-size: $h_size_1;
+        font-weight: normal;
     }
 
     .page__content {
         p {
             margin: 0 0 1rem 0;
-            font-size: $doc-font-size;
+            font-size: $doc_font_size;
         }
 
         li, dl {
-            font-size: $doc-font-size;
+            font-size: $doc_font_size;
         }
 
         h1 {
             margin: 1.5rem 0;
-            font-size: $h-size-1;
-            font-weight: $medium;
+            font-size: $h_size_1;
+            font-weight: normal;
         }
 
         h2 {
             padding: 0;
             margin: 0 0 0.1rem 0;
-            font-size: $h-size-3;
-            font-weight: $medium;
+            font-size: $h_size_3;
+            font-weight: normal;
             border: none;
         }
 
         h3 {
             margin: 0 0 0.1rem 0;
-            font-size: $h-size-5;
-            font-weight: $medium;
+            font-size: $h_size_5;
+            font-weight: normal;
         }
 
         h4 {
             margin: 0 0 0.1rem 0;
-            font-size: $h-size-5;
-            font-weight: $medium;
+            font-size: $h_size_5;
+            font-weight: normal;
         }
 
         h5 {
             margin: 0 0 0.1rem 0;
-            font-size: $h-size-6;
-            font-weight: $medium;
+            font-size: $h_size_6;
+            font-weight: normal;
         }
 
         h6 {
             margin: 0 0 0.1rem 0;
-            font-size: $h-size-6;
-            font-weight: $medium;
+            font-size: $h_size_6;
+            font-weight: normal;
         }
 
         .posts-subtitle {
@@ -282,11 +282,11 @@
                 &::before,
                 &::after {
                     display: block;
-                    color: $light-gray;
+                    color: $light_gray;
                     font-family: $serif;
                     font-size: 3rem;
                     font-style: normal;
-                    font-weight: $bold;
+                    font-weight: bold;
                     line-height: 1;
                 }
 
@@ -328,8 +328,8 @@
         }
 
         .end-of-post {
-            font-size: $h-size-3;
-            font-weight: $medium;
+            font-size: $h_size_3;
+            font-weight: normal;
         }
     }
 }
@@ -337,14 +337,14 @@
 blockquote {
     padding-inline: 0.5rem;
     margin: 1rem 1rem;
-    background-color: $extra-light-gray;
+    background-color: $lighter_gray;
     font-style: normal;
 }
 
 .post__footer {
     margin-top: 3rem;
 
-    font-family: $navigation-font-family;
+    font-family: $bitmap_sans_serif;
 }
 
 .post__tags + .post__share {
@@ -356,8 +356,8 @@ blockquote {
 
     color: $black;
 
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
     line-height: 1.5;
 }
 
@@ -373,14 +373,14 @@ blockquote {
 .post__tag-link {
     color: $gray;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
     text-decoration: none;
 
     &:hover {
         color: $blue;
 
-        font-weight: $bold;
+        font-weight: bold;
         text-decoration: none;
     }
 
@@ -398,7 +398,7 @@ blockquote {
 .related_posts {
     margin-top: 3rem;
 
-    font-family: $navigation-font-family;
+    font-family: $bitmap_sans_serif;
 }
 
 .related_posts_title {
@@ -406,8 +406,8 @@ blockquote {
 
     color: $black;
 
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
     line-height: 1.5;
 }
 
@@ -460,7 +460,7 @@ blockquote {
     aspect-ratio: 16 / 9;
 
     border-radius: 0.5rem;
-    background: $extra-light-gray;
+    background: $lighter_gray;
 }
 
 .related_post_teaser {
@@ -500,7 +500,7 @@ blockquote {
 
     color: $gray;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
 }
 
@@ -509,8 +509,8 @@ blockquote {
 
     color: inherit;
 
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
     line-height: 1.5;
 }
 
@@ -519,7 +519,7 @@ blockquote {
 
     color: $gray;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
 }
 
@@ -528,7 +528,7 @@ blockquote {
 
     color: $gray;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
 }
 

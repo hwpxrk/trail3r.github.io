@@ -21,7 +21,7 @@
         background: transparent;
 
         font-family: $bitmap_sans_serif;
-        font-weight: $regular;
+        font-weight: normal;
     }
 
     .featured_posts_header {
@@ -33,7 +33,7 @@
         padding: 0 0.25rem 0.5rem 0.25rem;
         margin: 0 0 1rem 0;
         
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light_gray;
     }
 
     .featured_posts_title {
@@ -45,8 +45,8 @@
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $standard-font-size;
-        font-weight: $bold;
+        font-size: $type_size_6;
+        font-weight: bold;
     }
 
     .featured_posts_navigation {
@@ -70,14 +70,14 @@
 
         padding: 0;
 
-        border: 1px solid $light-gray;
+        border: 1px solid $light_gray;
         border-radius: 50%;
         
         background: transparent;
 
         color: $black;
         font: inherit;
-        font-size: $standard-font-size;
+        font-size: $type_size_6;
 
         cursor: pointer;
         touch-action: manipulation;
@@ -87,7 +87,7 @@
         &:focus-visible:not(:disabled) {
             border-color: $blue;
 
-            background: $extra-light-gray;
+            background: $lighter_gray;
 
             color: $blue;
         }
@@ -182,7 +182,7 @@
         
         border-radius: 0.5rem;
 
-        background: $extra-light-gray;
+        background: $lighter_gray;
 
         aspect-ratio: 4 / 3;
 
@@ -214,8 +214,8 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_9;
+        font-weight: normal;
         line-height: 1.5;
         
         white-space: nowrap;
@@ -230,8 +230,8 @@
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $standard-font-size;
-        font-weight: $regular;
+        font-size: $type_size_6;
+        font-weight: normal;
         line-height: 1.5;
         
         line-clamp: 2;
@@ -248,7 +248,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
         
         white-space: nowrap;
@@ -260,7 +260,7 @@
     .featured_post_date {
         margin: 0;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         
         grid-row: 4;
     }
@@ -291,7 +291,7 @@
         }
 
         .featured_posts_title {
-            font-size: $standard-font-size;
+            font-size: $type_size_6;
         }
 
         .featured_posts_button {

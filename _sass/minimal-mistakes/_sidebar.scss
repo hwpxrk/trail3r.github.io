@@ -18,7 +18,7 @@
 
   @include breakpoint($large) {
     float: inline-start;
-    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    width: calc(#{$right_sidebar_width_narrow} - 1em);
     opacity: 0.75;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
@@ -32,12 +32,12 @@
       /* calculate height of nav list
          viewport height - nav height - masthead x-padding
       */
-      max-height: calc(100vh - #{$nav-height} - 2em);
+      max-height: calc(100vh - #{$nav_height} - 2em);
     }
   }
 
-  @include breakpoint($x-large) {
-    width: calc(#{$right-sidebar-width} - 1em);
+  @include breakpoint($x_large) {
+    width: calc(#{$right_sidebar_width} - 1em);
   }
 
   > * {
@@ -51,13 +51,13 @@
   h5,
   h6 {
     margin-bottom: 0;
-    font-family: $sans-serif-narrow;
+    font-family: $sans_serif_narrow;
   }
 
   p,
   li {
-    font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-family: $sans_serif;
+    font-size: $type_size_6;
     line-height: 1.5;
   }
 
@@ -78,8 +78,8 @@
     position: absolute;
     top: 0;
     inset-inline-end: 0;
-    width: $right-sidebar-width-narrow;
-    margin-inline-end: -1 * $right-sidebar-width-narrow;
+    width: $right_sidebar_width_narrow;
+    margin-inline-end: -1 * $right_sidebar_width_narrow;
     padding-inline-start: 1em;
     z-index: 10;
 
@@ -99,9 +99,9 @@
     }
   }
 
-  @include breakpoint($x-large) {
-    width: $right-sidebar-width;
-    margin-inline-end: -1 * $right-sidebar-width;
+  @include breakpoint($x_large) {
+    width: $right_sidebar_width;
+    margin-inline-end: -1 * $right_sidebar_width;
   }
 }
 
@@ -112,7 +112,7 @@
     margin-inline-end: 0;
   }
 
-  @include breakpoint($x-large) {
+  @include breakpoint($x_large) {
     margin-inline-end: 0;
   }
 }
@@ -139,7 +139,7 @@
 
     @include breakpoint($large) {
       padding: 5px;
-      border: 1px solid $border-color;
+      border: 1px solid $border_color;
     }
   }
 }
@@ -171,8 +171,8 @@
   }
 }
 .sidebar .author__name {
-  font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-family: $sans_serif;
+  font-size: $type_size_5;
 }
 
 .author__bio {
@@ -188,7 +188,7 @@
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  font-family: $sans-serif;
+  font-family: $sans_serif;
   z-index: 20;
   cursor: pointer;
 
@@ -243,9 +243,9 @@
   margin-top: 15px;
   padding: 10px;
   list-style-type: none;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  background: $background-color;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  background: $background_color;
   box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
   cursor: default;
 
@@ -272,7 +272,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: $border-color transparent;
+    border-color: $border_color transparent;
     z-index: 0;
 
     @include breakpoint($large) {
@@ -289,7 +289,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: $background-color transparent;
+    border-color: $background_color transparent;
     z-index: 1;
 
     @include breakpoint($large) {
@@ -312,7 +312,7 @@
     padding-block: 2px;
     padding-inline-end: 5px;
     color: inherit;
-    font-size: $type-size-5;
+    font-size: $type_size_5;
     text-decoration: none;
 
     &:hover {
@@ -342,7 +342,7 @@
     }
   }
 
-  @include breakpoint($x-large) {
+  @include breakpoint($x_large) {
     width: initial;
     margin-inline-end: initial;
   }

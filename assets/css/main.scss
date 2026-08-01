@@ -6,7 +6,6 @@ search: false
 @charset "utf-8";
 
 @import "customs/fonts";  // 폰트(Fonts) 추가
-@import "customs/variables";  // Minimal Mistakes 테마 변수 재정의 및 커스텀 변수 추가
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials

@@ -15,17 +15,17 @@
     max-height: calc(100vh - 3rem);
     padding: 0.25rem 0.5rem;
     margin: 0;
-    border-left: 2px solid $light-gray;
-    font-family: $sans-serif;
-    font-weight: $regular;
+    border-left: 2px solid $light_gray;
+    font-family: $sans_serif;
+    font-weight: normal;
     line-height: 1.5;
 
     .nav__title {
         display: block;
         padding: 0;
         margin: 0 0 0.25rem 0;
-        font-size: $small-font-size;
-        font-weight: $semibold;
+        font-size: $type_size_8;
+        font-weight: bold;
         color: $black;
 
         &:focus {
@@ -43,8 +43,8 @@
             display: block;
             padding: 0;
             border: none;
-            font-size: $x-small-font-size;
-            font-weight: $regular;
+            font-size: $type_size_9;
+            font-weight: normal;
             color: $gray;
 
             &:hover {
@@ -67,8 +67,8 @@
         padding-left: 0.5rem;
         margin-bottom: 0.1rem;
         border: none;
-        font-size: $x-small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_9;
+        font-weight: normal;
         color: $gray;
     }
 
@@ -92,7 +92,7 @@
     }
 }
 
-@media (max-width: $medium-wide) {
+@media (max-width: $medium) {
     .sidebar.sticky {
         display: none;
     }

@@ -17,11 +17,11 @@
     position: relative;
     margin-bottom: 1rem;
     border-radius: 0.25rem;
-    background: $--vscode-editor-background;
+    background: $codeblock_dark_background;
     font-family: $monospace;
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
-    color: $--vscode-editor-foreground;
+    color: $codeblock_dark_foreground;
 
     [dir=rtl] & {
         direction: ltr;
@@ -43,84 +43,84 @@
 /* 구문 강조 색상 ========================================================================================= */
 .highlighter-tree-sitter {
     .ts-attribute {
-        color: $--vscode-editor-attributes;
+        color: $codeblock_dark_attributes;
     }
 
     .ts-comment {
-        color: $--vscode-editor-comment;
+        color: $codeblock_dark_comment;
     }
 
     .ts-constant,
     .ts-constant-builtin {
-        color: $--vscode-editor-constant;
+        color: $codeblock_dark_constant;
     }
 
     .ts-function,
     .ts-function-builtin {
-        color: $--vscode-editor-function;
+        color: $codeblock_dark_function;
     }
 
     .ts-keyword {
-        color: $--vscode-editor-keyword;
+        color: $codeblock_dark_keyword;
     }
 
     .ts-operator {
-        color: $--vscode-editor-operator;
+        color: $codeblock_dark_operator;
     }
 
     .ts-property {
-        color: $--vscode-editor-property;
+        color: $codeblock_dark_property;
     }
 
     .ts-string {
-        color: $--vscode-editor-string;
+        color: $codeblock_dark_string;
     }
 
     .ts-string-special-symbol {
-        color: $--vscode-editor-function;
+        color: $codeblock_dark_function;
     }
 
     .ts-tag {
-        color: $--vscode-editor-tag;
+        color: $codeblock_dark_tag;
     }
 
     .ts-type,
     .ts-type-builtin {
-        color: $--vscode-editor-type;
+        color: $codeblock_dark_type;
     }
 
     .ts-variable,
     .ts-variable-parameter {
-        color: $--vscode-editor-variable;
+        color: $codeblock_dark_variable;
     }
 
     .ts-variable-builtin {
-        color: $--vscode-editor-variable-builtin;
+        color: $codeblock_dark_variable_builtin;
     }
 
     .ts-constructor,
     .ts-module {
-        color: $--vscode-editor-module;
+        color: $codeblock_dark_module;
     }
 
     .ts-punctuation-bracket {
-        color: $--vscode-editor-punctuation-bracket;
+        color: $codeblock_dark_punctuation_bracket;
     }
 
     .ts-punctuation-delimeter {
-        color: $--vscode-editor-punctuation-delimeter;
+        color: $codeblock_dark_punctuation_delimeter;
     }
 
     .ts-punctuation-special {
-        color: $--vscode-editor-punctuation-special;
+        color: $codeblock_dark_punctuation_special;
     }
 
     .ts-error {
-        color: $--vscode-editor-error;
+        color: $codeblock_dark_error;
     }
 
     .ts-number {
-        color: $--vscode-editor-number;
+        color: $codeblock_dark_number;
     }
 }
 
@@ -131,42 +131,42 @@
     }
 
     .bracket-depth-1 {
-        color: $--bracket-depth-1;
+        color: $codeblock_dark_bracket_depth_1;
     }
 
     .bracket-depth-2 {
-        color: $--bracket-depth-2;
+        color: $codeblock_dark_bracket_depth_2;
     }
 
     .bracket-depth-3 {
-        color: $--bracket-depth-3;
+        color: $codeblock_dark_bracket_depth_3;
     }
 
     .bracket-depth-4 {
-        color: $--bracket-depth-4;
+        color: $codeblock_dark_bracket_depth_4;
     }
 
     .bracket-depth-5 {
-        color: $--bracket-depth-5;
+        color: $codeblock_dark_bracket_depth_5;
     }
 
     .bracket-depth-6 {
-        color: $--bracket-depth-6;
+        color: $codeblock_dark_bracket_depth_6;
     }
 
     .bracket-depth-7 {
-        color: $--bracket-depth-7;
+        color: $codeblock_dark_bracket_depth_7;
     }
 
     .bracket-depth-8 {
-        color: $--bracket-depth-8;
+        color: $codeblock_dark_bracket_depth_8;
     }
 
     .bracket-mismatch {
-        text-decoration: underline wavy $--vscode-editor-error;
+        text-decoration: underline wavy $codeblock_dark_error;
         text-decoration-skip-ink: none;
         text-underline-offset: 3px;
-        color: $--vscode-editor-error;
+        color: $codeblock_dark_error;
     }
 }
 
@@ -178,13 +178,13 @@
         justify-content: space-between;
         padding: 0.5rem;
         border-radius: 0.25rem;
-        background: $--vscode-editor-background;
-        font-family: $sans-serif;
-        font-size: $x-small-font-size;
+        background: $codeblock_dark_background;
+        font-family: $sans_serif;
+        font-size: $type_size_9;
     }
 
     .codeblock-masthead__language {
-        font-weight: $semibold;
+        font-weight: bold;
     }
 
     .codeblock-masthead__filename {
@@ -201,9 +201,9 @@
     .gutter {
         padding: 0 0.5rem 0.75rem 0.75rem;
         border-radius: 0.5rem;
-        background: $--vscode-editor-background;
+        background: $codeblock_dark_background;
         text-align: right;
-        color: $--vscode-editor-line-numbers;
+        color: $codeblock_dark_line_numbers;
 
         // 코드와 행별 높이를 일치시킵니다.
         > span {
@@ -228,16 +228,16 @@
     border: none;
     border-radius: 0.25rem;
     background: inherit;
-    font-family: $sans-serif;
-    font-size: $x-small-font-size;
-    color: $--vscode-editor-widget-foreground;
+    font-family: $sans_serif;
+    font-size: $type_size_9;
+    color: $codeblock_dark_widget_foreground;
 
     &:focus {
         outline: none;
     }
 
     &:focus-visible {
-        outline: 1px solid $primary-color;
+        outline: 1px solid $primary_color;
     }
 
     .codeblock-copy_button_icon {
@@ -259,20 +259,20 @@
         gap: 0.25rem;
         border: 1px solid $gray;
         border-radius: 0.25rem;
-        background: $--vscode-editor-widget;
+        background: $codeblock_dark_widget;
 
         &:focus {
             outline: none;
         }
 
         &:focus-visible {
-            outline: 1px solid $primary-color;
+            outline: 1px solid $primary_color;
         }
     }
 }
 
 @media (max-width: 768px) {
     .highlighter-tree-sitter {
-        font-size: $small-font-size;
+        font-size: $type_size_8;
     }
 }

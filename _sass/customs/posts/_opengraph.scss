@@ -15,7 +15,7 @@
             overflow: hidden;
             width: min(50%, 50rem);
             margin: 1.5rem auto;
-            border: 1px solid $light-gray;
+            border: 1px solid $light_gray;
             border-radius: 5px;
             background: $white;
             transition:
@@ -67,7 +67,7 @@
 
         .opengraph__image {
             flex: 0 0 11rem;
-            background: $light-gray;
+            background: $light_gray;
         }
 
         .opengraph__image img {
@@ -92,8 +92,8 @@
             display: block;
             overflow: hidden;
             color: $black;
-            font-size: $small-font-size;
-            font-weight: $medium;
+            font-size: $type_size_8;
+            font-weight: normal;
             line-height: 1.5;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -103,7 +103,7 @@
             display: -webkit-box;
             overflow: hidden;
             color: $gray;
-            font-size: $x-small-font-size;
+            font-size: $type_size_9;
             line-height: 1.5;
             line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -113,7 +113,7 @@
         .opengraph__domain {
             overflow: hidden;
             color: $green;
-            font-size: $x-small-font-size;
+            font-size: $type_size_9;
             line-height: 1.25;
             text-overflow: ellipsis;
             white-space: nowrap;

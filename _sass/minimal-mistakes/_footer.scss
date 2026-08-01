@@ -8,12 +8,12 @@
   margin-inline: 0;
   width: 100%;
   margin-top: 3em;
-  color: $muted-text-color;
-  -webkit-animation: $intro-transition;
-  animation: $intro-transition;
+  color: $muted_text_color;
+  -webkit-animation: $intro_transition;
+  animation: $intro_transition;
   -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
-  background-color: $footer-background-color;
+  background-color: $footer_background_color;
 
   footer {
     @include clearfix;
@@ -22,8 +22,8 @@
     max-width: 100%;
     padding: 0 1em 2em;
 
-    @include breakpoint($x-large) {
-      max-width: $x-large;
+    @include breakpoint($x_large) {
+      max-width: $x_large;
     }
   }
 
@@ -40,13 +40,13 @@
   .fab,
   .far,
   .fal {
-    color: $muted-text-color;
+    color: $muted_text_color;
   }
 }
 
 .page__footer-copyright {
-  font-family: $global-font-family;
-  font-size: $type-size-7;
+  font-family: $global_font_family;
+  font-size: $type_size_7;
 }
 
 .page__footer-follow {
@@ -60,8 +60,8 @@
     display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
+    font-family: $sans_serif_narrow;
+    font-size: $type_size_6;
     text-transform: uppercase;
   }
 

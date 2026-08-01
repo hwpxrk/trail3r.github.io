@@ -25,11 +25,11 @@
         margin: auto;
 
         .post-table__body {
-            border-top: 1px solid $light-gray;
-            border-bottom: 1px solid $light-gray;
+            border-top: 1px solid $light_gray;
+            border-bottom: 1px solid $light_gray;
 
             .index {
-                font-size: $small-font-size;
+                font-size: $type_size_8;
             }
         }
 
@@ -45,13 +45,13 @@
 
         .contents__title {
             margin: 0;
-            font-size: $small-font-size;
+            font-size: $type_size_8;
             color: $black;
         }
 
         .contents__subtitle {
             margin: 0;
-            font-size: $x-small-font-size;
+            font-size: $type_size_9;
             color: $gray;
         }
 
@@ -81,11 +81,11 @@
             @include set_column_width(5vw, 80vw);
 
             .contents__title {
-                font-size: $standard-font-size;
+                font-size: $type_size_6;
             }
 
             .contents__subtitle {
-                font-size: $small-font-size;
+                font-size: $type_size_8;
             }
         }
     }

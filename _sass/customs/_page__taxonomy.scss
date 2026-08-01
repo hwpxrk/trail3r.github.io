@@ -6,7 +6,7 @@
 .page-taxonomy {
   margin-top: 1rem;
 
-  font-size: $x-small-font-size;
+  font-size: $type_size_9;
 
   color: $gray;
 }
@@ -41,10 +41,10 @@
 .page-taxonomy__token {
   padding: 0.1rem 0.5rem;
 
-  border: 1px solid $light-gray;
+  border: 1px solid $light_gray;
   border-radius: 999px;
   
-  font-size: $x-small-font-size;
+  font-size: $type_size_9;
   
   text-decoration: none;
   line-height: 1.2;
@@ -54,12 +54,12 @@
 
 
 .page-taxonomy__token--category {
-  font-weight: $semibold;
+  font-weight: bold;
 
   &:hover {
     border-color: $blue;
     
-    font-weight: $bold;
+    font-weight: bold;
         
     color: $blue;
   }
@@ -67,12 +67,12 @@
 
 
 .page-taxonomy__token--tag {
-  font-weight: $regular;
+  font-weight: normal;
 
   &:hover {
     border-color: $black;
 
-    font-weight: $bold;
+    font-weight: bold;
         
     color: $black;
   }
@@ -82,5 +82,5 @@
 .page-taxonomy__date {
   margin-top: 0.5rem;
 
-  font-size: $x-small-font-size;
+  font-size: $type_size_9;
 }

@@ -8,13 +8,13 @@
 
   @include breakpoint($large) {
     float: inline-end;
-    width: calc(100% - #{$right-sidebar-width-narrow});
-    padding-inline-end: $right-sidebar-width-narrow;
+    width: calc(100% - #{$right_sidebar_width_narrow});
+    padding-inline-end: $right_sidebar_width_narrow;
   }
 
-  @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
-    padding-inline-end: $right-sidebar-width;
+  @include breakpoint($x_large) {
+    width: calc(100% - #{$right_sidebar_width});
+    padding-inline-end: $right_sidebar_width;
   }
 }
 
@@ -34,9 +34,9 @@
 .archive__subtitle {
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
-  font-size: $type-size-5;
-  color: $muted-text-color;
-  border-bottom: 1px solid $border-color;
+  font-size: $type_size_5;
+  color: $muted_text_color;
+  border-bottom: 1px solid $border_color;
 
   + .list__item .archive__item-title {
     margin-top: 0.5em;
@@ -45,7 +45,7 @@
 
 .archive__item-title {
   margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
+  font-family: $sans_serif_narrow;
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,7 +71,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-6;
+  font-size: $type_size_6;
 
   & + p {
     text-indent: 0;
@@ -84,7 +84,7 @@
 
 .archive__item-teaser {
   position: relative;
-  border-radius: $border-radius;
+  border-radius: $border_radius;
   overflow: hidden;
 
   img {
@@ -99,13 +99,13 @@
   margin: 0 auto;
   padding: 2px 5px;
   color: #fff;
-  font-family: $caption-font-family;
-  font-size: $type-size-8;
+  font-family: $caption_font_family;
+  font-size: $type_size_8;
   background: #000;
   text-align: end;
   z-index: 5;
   opacity: 0.5;
-  border-radius: $border-radius 0 0 0;
+  border-radius: $border_radius 0 0 0;
 
   @include breakpoint($large) {
     padding: 5px 10px;
@@ -137,11 +137,11 @@
     /* extend grid elements to the right */
 
     @include breakpoint($large) {
-      margin-inline-end: -1 * $right-sidebar-width-narrow;
+      margin-inline-end: -1 * $right_sidebar_width_narrow;
     }
 
-    @include breakpoint($x-large) {
-      margin-inline-end: -1 * $right-sidebar-width;
+    @include breakpoint($x_large) {
+      margin-inline-end: -1 * $right_sidebar_width;
     }
   }
 }
@@ -207,7 +207,7 @@
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: $type_size_5;
   }
 
   .archive__item-excerpt {
@@ -215,7 +215,7 @@
 
     @include breakpoint($medium) {
       display: block;
-      font-size: $type-size-6;
+      font-size: $type_size_6;
     }
   }
 
@@ -237,7 +237,7 @@
 .feature__wrapper {
   @include clearfix();
   margin-bottom: 2em;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $border_color;
 
   .archive__item-title {
     margin-bottom: 0;
@@ -416,7 +416,7 @@
       padding-inline-end: 0;
     }
 
-    @include breakpoint($x-large) {
+    @include breakpoint($x_large) {
       padding-inline-end: 0;
     }
   }

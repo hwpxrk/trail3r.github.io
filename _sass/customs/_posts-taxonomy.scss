@@ -39,7 +39,7 @@
     color: $gray;
 
     font-family: $bitmap_sans_serif;
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     text-align: center;
 
     &:focus {
@@ -62,13 +62,13 @@
     padding: 0 0 0.5rem 0;
     margin: 0;
 
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $light_gray;
 
     color: $black;
 
     font-family: $bitmap_sans_serif;
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
 }
 
 .taxonomy_archive_posts {
@@ -76,7 +76,7 @@
 }
 
 .taxonomy_post {
-    border-bottom: 1px solid $extra-light-gray;
+    border-bottom: 1px solid $lighter_gray;
 
     font-family: $bitmap_sans_serif;
 
@@ -116,8 +116,8 @@
     color: $black;
 
     font-family: inherit;
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
 
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -133,7 +133,7 @@
 
     color: $gray;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
 
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -144,14 +144,14 @@
 
     color: $gray;
 
-    font-size: $xx-small-font-size;
+    font-size: $type_size_10;
     white-space: nowrap;
 }
 
 .taxonomy__index {
     > li {
         font-family: $bitmap_sans_serif;
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
 
         color: $black;
 
@@ -172,7 +172,7 @@
 
         padding: 0.25em 0;
 
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid $border_color;
     }
 }
 
@@ -185,7 +185,7 @@
 .back-to-top {
     padding-top: 0.25rem;
 
-    color: $graphite;
+    color: $dark_gray;
 
     font-family: $bitmap_sans_serif;
 }

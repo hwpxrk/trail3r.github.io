@@ -15,10 +15,10 @@
 .page__footer {
     margin-top: 5rem;
 
-    background: $footer-background-color;
+    background: $footer_background_color;
 
     footer {
-        max-width: $x-large;
+        max-width: $x_large;
 
         padding: 2rem 1rem 1rem;
         margin: 0 auto;
@@ -35,7 +35,7 @@
     .footer_profile {
         min-width: 0;
 
-        font-family: $navigation-font-family;
+        font-family: $bitmap_sans_serif;
     }
 
     .footer_profile_link {
@@ -88,8 +88,8 @@
     }
 
     .footer_profile_name {
-        font-size: $small-font-size;
-        font-weight: $bold;
+        font-size: $type_size_8;
+        font-weight: bold;
         line-height: 1.25;
     }
 
@@ -103,8 +103,8 @@
         p {
             margin: 0;
 
-            font-family: $navigation-font-family;
-            font-size: $xx-small-font-size;
+            font-family: $bitmap_sans_serif;
+            font-size: $type_size_10;
             line-height: 1.5;
         }
     }
@@ -126,9 +126,9 @@
 
         color: $black;
 
-        font-family: $navigation-font-family;
-        font-size: $xx-small-font-size;
-        font-weight: $bold;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
+        font-weight: bold;
         line-height: 1.5;
     }
 
@@ -161,7 +161,7 @@
 
         color: $gray;
 
-        font-family: $navigation-font-family;
+        font-family: $bitmap_sans_serif;
         text-decoration: none;
 
         transition: color 0.2s ease;
@@ -186,7 +186,7 @@
         &:hover {
             color: $blue;
 
-            font-weight: $bold;
+            font-weight: bold;
             text-decoration: none;
 
             .links-icon {
@@ -212,7 +212,7 @@
     .footer_follow_link_label {
         margin-left: 0.5rem;
 
-        font-size: $xx-small-font-size;
+        font-size: $type_size_10;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -233,9 +233,9 @@
 
         color: $black;
 
-        font-family: $navigation-font-family;
-        font-size: $x-small-font-size;
-        font-weight: $bold;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_9;
+        font-weight: bold;
         line-height: 1.5;
     }
 
@@ -263,8 +263,8 @@
 
         color: $gray;
 
-        font-family: $navigation-font-family;
-        font-size: $x-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_9;
 
         white-space: nowrap;
         text-decoration: none;
@@ -277,7 +277,7 @@
         &:hover {
             color: $blue;
 
-            font-weight: $bold;
+            font-weight: bold;
             text-decoration: none;
         }
 
@@ -296,7 +296,7 @@
         padding: 0.5rem 0 0;
         margin: 0.25rem 0 0;
 
-        border-top: 1px solid $light-gray;
+        border-top: 1px solid $light_gray;
     }
 
     .footer_copyright_text {
@@ -304,8 +304,8 @@
 
         color: $gray;
 
-        font-family: $navigation-font-family;
-        font-size: $xx-small-font-size;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
         line-height: 1.5;
 
         .footer_copyright_text_site_title {

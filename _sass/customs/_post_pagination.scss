@@ -13,10 +13,10 @@
 
     margin-top: 3rem;
 
-    border-top: 1px solid $light-gray;
-    border-bottom: 1px solid $light-gray;
+    border-top: 1px solid $light_gray;
+    border-bottom: 1px solid $light_gray;
 
-    font-family: $navigation-font-family;
+    font-family: $bitmap_sans_serif;
 }
 
 .post_pagination_item {
@@ -79,7 +79,7 @@
 .post_pagination_label {
     color: inherit;
 
-    font-size: $x-small-font-size;
+    font-size: $type_size_9;
     line-height: 1.5;
 }
 
@@ -92,8 +92,8 @@
 
     color: $black;
 
-    font-size: $small-font-size;
-    font-weight: $bold;
+    font-size: $type_size_8;
+    font-weight: bold;
     line-height: 1.5;
 
     word-break: keep-all;

@@ -64,7 +64,7 @@
             margin-bottom: 0.75rem;
 
             font-family: $bitmap_sans_serif;
-            font-size: $xxx-large-font-size;
+            font-size: $type_size_2;
             font-weight: normal;
         }
 
@@ -73,7 +73,7 @@
 
             margin: 0;
 
-            font-size: $standard-font-size;
+            font-size: $type_size_6;
             line-height: 1.25;
 
             text-wrap: balance;
@@ -98,11 +98,11 @@
             .hero_title {
                 margin-bottom: 0.5rem;
 
-                font-size: $xx-large-font-size;
+                font-size: $type_size_3;
             }
 
             .hero_description {
-                font-size: $standard-font-size;
+                font-size: $type_size_6;
             }
 
             .hero_container {

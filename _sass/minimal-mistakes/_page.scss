@@ -6,14 +6,14 @@
   @include clearfix;
   margin-inline: auto;
   padding-inline: 1em;
-  -webkit-animation: $intro-transition;
-  animation: $intro-transition;
+  -webkit-animation: $intro_transition;
+  animation: $intro_transition;
   max-width: 100%;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
 
-  @include breakpoint($x-large) {
-    max-width: $max-width;
+  @include breakpoint($x_large) {
+    max-width: $x_large;
   }
 }
 
@@ -36,13 +36,13 @@ body {
 .page {
   @include breakpoint($large) {
     float: inline-end;
-    width: calc(100% - #{$right-sidebar-width-narrow});
-    padding-inline-end: $right-sidebar-width-narrow;
+    width: calc(100% - #{$right_sidebar_width_narrow});
+    padding-inline-end: $right_sidebar_width_narrow;
   }
 
-  @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
-    padding-inline-end: $right-sidebar-width;
+  @include breakpoint($x_large) {
+    width: calc(100% - #{$right_sidebar_width});
+    padding-inline-end: $right_sidebar_width;
   }
 
   .page__inner-wrap {
@@ -69,7 +69,7 @@ body {
   line-height: 1;
 
   a {
-    color: $text-color;
+    color: $text_color;
     text-decoration: none;
   }
 
@@ -79,14 +79,14 @@ body {
 }
 
 .page__lead {
-  font-family: $global-font-family;
-  font-size: $type-size-4;
+  font-family: $global_font_family;
+  font-size: $type_size_4;
 }
 
 .page__content {
   h2 {
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border_color;
   }
 
 	h1, h2, h3, h4, h5, h6 {
@@ -114,13 +114,13 @@ body {
 
   /* paragraph indents */
   p {
-    margin: 0 0 $indent-var;
+    margin: 0 0 $indent_var;
 
     /* sibling indentation*/
-    @if $paragraph-indent == true {
+    @if $paragraph_indent == true {
       & + p {
-        text-indent: $indent-var;
-        margin-top: -($indent-var);
+        text-indent: $indent_var;
+        margin-top: -($indent_var);
       }
     }
   }
@@ -139,8 +139,8 @@ body {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     font-size: 0.8em;
-    background: $code-background-color;
-    border-radius: $border-radius;
+    background: $code_background_color;
+    border-radius: $border_radius;
 
     &::before,
     &::after {
@@ -151,18 +151,18 @@ body {
 
   dt {
     margin-top: 1em;
-    font-family: $sans-serif;
+    font-family: $sans_serif;
     font-weight: bold;
   }
 
   dd {
     margin-inline-start: 1em;
-    font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-family: $sans_serif;
+    font-size: $type_size_6;
   }
 
   .small {
-    font-size: $type-size-6;
+    font-size: $type_size_6;
   }
 
   /* blockquote citations */
@@ -176,8 +176,8 @@ body {
   position: relative;
   margin-bottom: 2em;
   @include clearfix;
-  -webkit-animation: $intro-transition;
-  animation: $intro-transition;
+  -webkit-animation: $intro_transition;
+  animation: $intro_transition;
   -webkit-animation-delay: 0.25s;
   animation-delay: 0.25s;
 
@@ -189,8 +189,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-animation: $intro-transition;
-    animation: $intro-transition;
+    -webkit-animation: $intro_transition;
+    animation: $intro_transition;
     -webkit-animation-delay: 0.25s;
     animation-delay: 0.25s;
 
@@ -201,8 +201,8 @@ body {
     .wrapper {
       padding-inline: 1em;
 
-      @include breakpoint($x-large) {
-        max-width: $x-large;
+      @include breakpoint($x_large) {
+        max-width: $x_large;
       }
     }
 
@@ -219,10 +219,10 @@ body {
     }
 
     .page__title {
-      font-size: $type-size-2;
+      font-size: $type_size_2;
 
       @include breakpoint($small) {
-        font-size: $type-size-1;
+        font-size: $type_size_1;
       }
     }
   }
@@ -241,13 +241,13 @@ body {
   margin: 0 auto;
   padding: 2px 5px;
   color: #fff;
-  font-family: $caption-font-family;
-  font-size: $type-size-7;
+  font-family: $caption_font_family;
+  font-size: $type_size_7;
   background: #000;
   text-align: end;
   z-index: 5;
   opacity: 0.5;
-  border-radius: $border-radius 0 0 0;
+  border-radius: $border_radius 0 0 0;
 
   @include breakpoint($large) {
     padding: 5px 10px;
@@ -266,7 +266,7 @@ body {
 .page__share {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid $border_color;
 
   @include breakpoint(max-width $small) {
     .btn span {
@@ -284,7 +284,7 @@ body {
 
 .page__share-title {
   margin-bottom: 10px;
-  font-size: $type-size-6;
+  font-size: $type_size_6;
   text-transform: uppercase;
 }
 
@@ -294,9 +294,9 @@ body {
 
 .page__meta {
   margin-top: 2em;
-  color: $muted-text-color;
-  font-family: $sans-serif;
-  font-size: $type-size-6;
+  color: $muted_text_color;
+  font-family: $sans_serif;
+  font-size: $type_size_6;
 
   p {
     margin: 0;
@@ -309,7 +309,7 @@ body {
 
 .page__meta-title {
   margin-bottom: 10px;
-  font-size: $type-size-6;
+  font-size: $type_size_6;
   text-transform: uppercase;
 }
 
@@ -338,12 +338,12 @@ body {
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid mix(#000, $border-color, 25%);
-  border-radius: $border-radius;
+  border: 1px solid mix(#000, $border_color, 25%);
+  border-radius: $border_radius;
 
   &:hover {
     text-decoration: none;
-    color: $link-color-hover;
+    color: $link_color_hover;
   }
 }
 
@@ -352,7 +352,7 @@ body {
   padding-bottom: 1em;
 
   &:not(:last-child) {
-    border-bottom: solid 1px $border-color;
+    border-bottom: solid 1px $border_color;
   }
 
   .archive__item-title {
@@ -371,11 +371,11 @@ body {
 
 .taxonomy__title {
   margin-bottom: 0.5em;
-  color: $muted-text-color;
+  color: $muted_text_color;
 }
 
 .taxonomy__count {
-  color: $muted-text-color;
+  color: $muted_text_color;
 }
 
 .taxonomy__index {
@@ -401,14 +401,14 @@ body {
     justify-content: space-between;
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border_color;
   }
 }
 
 .back-to-top {
   display: block;
   clear: both;
-  color: $muted-text-color;
+  color: $muted_text_color;
   font-size: 0.6em;
   text-transform: uppercase;
   text-align: end;
@@ -430,14 +430,14 @@ body {
   margin-top: 2rem;
   margin-bottom: 10px;
   padding-top: 2rem;
-  font-size: $type-size-6;
-  border-top: 1px solid $border-color;
+  font-size: $type_size_6;
+  border-top: 1px solid $border_color;
   text-transform: uppercase;
 }
 
 .page__comments-form {
-  -webkit-transition: $global-transition;
-  transition: $global-transition;
+  -webkit-transition: $global_transition;
+  transition: $global_transition;
 
   &.disabled {
     input,
@@ -458,7 +458,7 @@ body {
   margin: 1em 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border_color;
   }
 }
 
@@ -482,7 +482,7 @@ body {
     width: 80px;
     height: 80px;
     padding: 5px;
-    border: 1px solid $border-color;
+    border: 1px solid $border_color;
   }
 }
 
@@ -521,15 +521,15 @@ body {
   float: inline-start;
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid $border_color;
 
   @include breakpoint($large) {
     float: inline-end;
-    width: calc(100% - #{$right-sidebar-width-narrow});
+    width: calc(100% - #{$right_sidebar_width_narrow});
   }
 
-  @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
+  @include breakpoint($x_large) {
+    width: calc(100% - #{$right_sidebar_width});
   }
 
   a {
@@ -540,7 +540,7 @@ body {
 
 .page__related-title {
   margin-bottom: 10px;
-  font-size: $type-size-6;
+  font-size: $type_size_6;
   text-transform: uppercase;
 }
 
@@ -554,7 +554,7 @@ body {
       padding-inline-end: 0;
     }
 
-    @include breakpoint($x-large) {
+    @include breakpoint($x_large) {
       padding-inline-end: 0;
     }
   }

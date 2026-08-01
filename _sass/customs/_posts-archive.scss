@@ -14,20 +14,20 @@
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $standard-font-size;
-        font-weight: $bold;
+        font-size: $type_size_6;
+        font-weight: bold;
     }
 
     .posts_archive,
     .posts_archive_empty {
         font-family: $bitmap_sans_serif;
-        font-weight: $regular;
+        font-weight: normal;
     }
 
     .posts_archive_item {
         padding: 1rem 0.5rem;
 
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light_gray;
 
         .posts_archive_link {
             display: grid;
@@ -68,7 +68,7 @@
 
         border-radius: 0.5rem;
 
-        background: $extra-light-gray;
+        background: $lighter_gray;
 
         aspect-ratio: 4 / 3;
     }
@@ -91,7 +91,7 @@
 
         padding: 0.1rem 0;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
     }
 
@@ -116,8 +116,8 @@
         color: $black;
 
         font-family: inherit;
-        font-size: $small-font-size;
-        font-weight: $bold;
+        font-size: $type_size_8;
+        font-weight: bold;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -187,7 +187,7 @@
 
         color: $gray;
 
-        font-size: $standard-font-size;
+        font-size: $type_size_6;
 
         .posts_archive_empty_message {
             margin: 0;

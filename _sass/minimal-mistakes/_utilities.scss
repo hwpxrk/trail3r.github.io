@@ -74,7 +74,7 @@ body:hover .visually-hidden button {
   position: fixed;
   z-index: 20;
   margin: 0;
-  font-family: $sans-serif;
+  font-family: $sans_serif;
   white-space: nowrap;
 }
 
@@ -200,35 +200,35 @@ $text-alignments: left, right, start, end, center, justify;
   .fab,
   .far,
   .fal {
-    color: $text-color;
+    color: $text_color;
   }
 
   @each $color, $icons in (
-    $behance-color: ".fa-behance, .fa-behance-square",
-    $bitbucket-color: ".fa-bitbucket",
-    $dribbble-color: ".fa-dribbble, .fa-dribbble-square",
-    $facebook-color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
-    $flickr-color: ".fa-flickr",
-    $foursquare-color: ".fa-foursquare",
-    $github-color: ".fa-github, .fa-github-alt, .fa-github-square",
-    $gitlab-color: ".fa-gitlab",
-    $instagram-color: ".fa-instagram",
-    $keybase-color: ".fa-keybase",
-    $lastfm-color: ".fa-lastfm, .fa-lastfm-square",
-    $linkedin-color: ".fa-linkedin, .fa-linkedin-in",
-    $mastodon-color: ".fa-mastodon, .fa-mastodon-square",
-    $pinterest-color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
-    $reddit-color: ".fa-reddit",
-    $rss-color: ".fa-rss, .fa-rss-square",
-    $soundcloud-color: ".fa-soundcloud",
-    $stackoverflow-color: ".fa-stack-exchange, .fa-stack-overflow",
-    $tumblr-color: ".fa-tumblr, .fa-tumblr-square",
-    $twitter-color: ".fa-twitter, .fa-twitter-square",
-    $x-color: ".fa-x-twitter, .fa-square-x-twitter",
-    $vimeo-color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
-    $vine-color: ".fa-vine",
-    $xing-color: ".fa-xing, .fa-xing-square",
-    $youtube-color: ".fa-youtube",
+    $behance_color: ".fa-behance, .fa-behance-square",
+    $bitbucket_color: ".fa-bitbucket",
+    $dribbble_color: ".fa-dribbble, .fa-dribbble-square",
+    $facebook_color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
+    $flickr_color: ".fa-flickr",
+    $foursquare_color: ".fa-foursquare",
+    $github_color: ".fa-github, .fa-github-alt, .fa-github-square",
+    $gitlab_color: ".fa-gitlab",
+    $instagram_color: ".fa-instagram",
+    $keybase_color: ".fa-keybase",
+    $lastfm_color: ".fa-lastfm, .fa-lastfm-square",
+    $linkedin_color: ".fa-linkedin, .fa-linkedin-in",
+    $mastodon_color: ".fa-mastodon, .fa-mastodon-square",
+    $pinterest_color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
+    $reddit_color: ".fa-reddit",
+    $rss_color: ".fa-rss, .fa-rss-square",
+    $soundcloud_color: ".fa-soundcloud",
+    $stackoverflow_color: ".fa-stack-exchange, .fa-stack-overflow",
+    $tumblr_color: ".fa-tumblr, .fa-tumblr-square",
+    $twitter_color: ".fa-twitter, .fa-twitter-square",
+    $x_color: ".fa-x-twitter, .fa-square-x-twitter",
+    $vimeo_color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
+    $vine_color: ".fa-vine",
+    $xing_color: ".fa-xing, .fa-xing-square",
+    $youtube_color: ".fa-youtube",
   ) {
     #{$icons} {
       color: $color;
@@ -242,9 +242,9 @@ $text-alignments: left, right, start, end, center, justify;
 
 .navicon {
   position: relative;
-  width: $navicon-width;
-  height: $navicon-height;
-  background: $primary-color;
+  width: $navicon_width;
+  height: $navicon_height;
+  background: $primary_color;
   margin: auto;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -254,19 +254,19 @@ $text-alignments: left, right, start, end, center, justify;
     content: "";
     position: absolute;
     inset-inline-start: 0;
-    width: $navicon-width;
-    height: $navicon-height;
-    background: $primary-color;
+    width: $navicon_width;
+    height: $navicon_height;
+    background: $primary_color;
     -webkit-transition: 0.3s;
     transition: 0.3s;
   }
 
   &:before {
-    top: (-2 * $navicon-height);
+    top: (-2 * $navicon_height);
   }
 
   &:after {
-    bottom: (-2 * $navicon-height);
+    bottom: (-2 * $navicon_height);
   }
 }
 
@@ -281,7 +281,7 @@ $text-alignments: left, right, start, end, center, justify;
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     top: 0;
-    width: $navicon-width;
+    width: $navicon_width;
   }
 
   /* rotate the lines to form the x shape*/
@@ -305,9 +305,9 @@ $text-alignments: left, right, start, end, center, justify;
       width: 100%;
       height: 100%;
       opacity: 0;
-      background-color: $background-color;
-      -webkit-transition: $global-transition;
-      transition: $global-transition;
+      background-color: $background_color;
+      -webkit-transition: $global_transition;
+      transition: $global_transition;
       pointer-events: none;
     }
   }
@@ -315,8 +315,8 @@ $text-alignments: left, right, start, end, center, justify;
   &.close {
     &:before {
       opacity: 0.9;
-      -webkit-transition: $global-transition;
-      transition: $global-transition;
+      -webkit-transition: $global_transition;
+      transition: $global_transition;
       pointer-events: auto;
     }
   }
@@ -326,7 +326,7 @@ $text-alignments: left, right, start, end, center, justify;
   .navicon,
   .navicon:before,
   .navicon:after {
-    background: mix(#000, $primary-color, 25%);
+    background: mix(#000, $primary_color, 25%);
   }
 
   &.close {
@@ -363,7 +363,7 @@ $text-alignments: left, right, start, end, center, justify;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
-  border-radius: $border-radius;
+  border-radius: $border_radius;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
@@ -402,9 +402,9 @@ $text-alignments: left, right, start, end, center, justify;
   min-height: 0;
   z-index: 9999;
   background: #fff;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  border: 1px solid $border_color;
+  border-radius: $border_radius;
+  box-shadow: $box_shadow;
 
   &__title {
     margin: 0;
@@ -417,7 +417,7 @@ $text-alignments: left, right, start, end, center, justify;
 
   &__actions {
     padding: 0.5em 1em;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $border_color;
   }
 }
 
@@ -437,7 +437,7 @@ $text-alignments: left, right, start, end, center, justify;
   li,
   p {
     margin-bottom: 0;
-    font-size: $type-size-6;
+    font-size: $type_size_6;
   }
 }
 
@@ -455,7 +455,7 @@ a.reversefootnote {
    ========================================================================== */
 
 .required {
-  color: $danger-color;
+  color: $danger_color;
   font-weight: bold;
 }
 

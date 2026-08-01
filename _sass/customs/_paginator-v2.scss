@@ -30,7 +30,7 @@
 .paginator-v2__item--selected {
     .paginator-v2__link {
         border-color: $blue;
-        font-weight: $bold;
+        font-weight: bold;
         color: $blue;
     }
 }
@@ -51,8 +51,8 @@
         width: 28px;
         height: 28px;
         padding: 0;
-        font-size: $standard-font-size;
-        font-weight: $thin;
+        font-size: $type_size_6;
+        font-weight: normal;
     }
 }
 
@@ -64,12 +64,12 @@
     padding: 0 0.5rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    font-size: $xx-small-font-size;
-    font-weight: $regular;
+    font-size: $type_size_10;
+    font-weight: normal;
     text-align: center;
     text-decoration: none;
     line-height: 1;
-    color: $graphite;
+    color: $dark_gray;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;

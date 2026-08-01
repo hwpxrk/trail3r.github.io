@@ -20,15 +20,15 @@
 
     .search-input {
         font-family: $bitmap_sans_serif;
-        font-size: $large-font-size;
-        font-weight: $regular;
+        font-size: $type_size_5;
+        font-weight: normal;
 
         @include breakpoint($large) {
-            font-size: $x-large-font-size;
+            font-size: $type_size_4;
         }
 
-        @include breakpoint($x-large) {
-            font-size: $x-large-font-size;
+        @include breakpoint($x_large) {
+            font-size: $type_size_4;
         }
     }
 
@@ -45,8 +45,8 @@
         color: $gray;
 
         font-family: $bitmap_sans_serif;
-        font-size: $small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_8;
+        font-weight: normal;
     }
 
     .search_result {
@@ -54,7 +54,7 @@
 
         padding: 1rem 0.5rem;
 
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light_gray;
     }
 
     .search_result_link {
@@ -112,7 +112,7 @@
 
         border-radius: 0.5rem;
 
-        background: $extra-light-gray;
+        background: $lighter_gray;
 
         aspect-ratio: 4 / 3;
     }
@@ -136,7 +136,7 @@
         padding: 0.1rem 0;
 
         font-family: $bitmap_sans_serif;
-        font-weight: $regular;
+        font-weight: normal;
     }
 
     .search_result_category,
@@ -154,8 +154,8 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
-        font-weight: $regular;
+        font-size: $type_size_9;
+        font-weight: normal;
         line-height: 1.5;
     }
 
@@ -167,8 +167,8 @@
         color: $black;
 
         font-family: $bitmap_sans_serif;
-        font-size: $small-font-size;
-        font-weight: $bold;
+        font-size: $type_size_8;
+        font-weight: bold;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -184,7 +184,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -196,7 +196,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
 
         white-space: nowrap;
@@ -208,7 +208,7 @@
 
         color: $gray;
 
-        font-size: $x-small-font-size;
+        font-size: $type_size_9;
         line-height: 1.5;
     }
 }

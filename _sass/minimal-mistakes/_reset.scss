@@ -7,19 +7,19 @@
 html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
-  background-color: $background-color;
-  font-size: $doc-font-size;
+  background-color: $background_color;
+  font-size: $doc_font_size;
 
   @include breakpoint($medium) {
-    font-size: $doc-font-size-medium;
+    font-size: $doc_font_size_medium;
   }
 
   @include breakpoint($large) {
-    font-size: $doc-font-size-large;
+    font-size: $doc_font_size_large;
   }
 
-  @include breakpoint($x-large) {
-    font-size: $doc-font-size-x-large;
+  @include breakpoint($x_large) {
+    font-size: $doc_font_size_x_large;
   }
 
   -webkit-text-size-adjust: 100%;
@@ -73,7 +73,7 @@ audio:not([controls]) {
 }
 
 a {
-  color: $link-color;
+  color: $link_color;
 }
 
 /* Apply focus state */
