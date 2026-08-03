@@ -1,21 +1,12 @@
-/*
-상단 네비게이션 메뉴바와 플라이 아웃 메뉴, 모바일 사이드바의 레이아웃과 디자인을 정의합니다.
-
-연관(Related)
-------------
-"_includes/customs/masthead.html": 상단 네비게이션 메뉴바의 HTML 마크업 구조를 정의합니다.
-"assets/js/customs/masthead.js": 데스크톱 플라이 아웃 메뉴, 검색 화면, 그리고 모바일 사이드바의 동작을 제어합니다.
-*/
-
+/* Masthead */
 
 @use "sass:color";
 
 
+// Common Styling
 .masthead {
     position: sticky;
     top: 0;
-
-    z-index: 30;
 
     border: none;
 
@@ -31,7 +22,7 @@
             visibility: visible;
             overflow-y: auto;
 
-            max-height: calc(100dvh - 52px);  // masthead 높이 보장
+            max-height: calc(100dvh - 52px);  // Guarantee masthead's minimum height.
 
             opacity: 1;
 
@@ -253,6 +244,7 @@
     }
 }
 
+// Desktop Fly-out Menu Styling
 .masthead_flyout_container {
     visibility: hidden;
     overflow: hidden;
@@ -334,8 +326,6 @@
 
         .masthead_profile_name,
         .mobile_masthead_profile_name,
-        .masthead_profile_instagram_id,
-        .mobile_masthead_profile_instagram_id,
         .masthead_profile_bio,
         .mobile_masthead_profile_bio {
             color: $blue;
@@ -376,17 +366,6 @@
     line-height: 1.25;
 
     transition: color 0.2s ease;
-}
-
-.masthead_profile_instagram_id,
-.mobile_masthead_profile_instagram_id {
-    margin: 0 0 0.5rem 0;
-
-    color: $gray;
-
-    font-size: $type_size_9;
-    font-weight: normal;
-    line-height: 1.2;
 }
 
 .masthead_profile_bio,
@@ -546,6 +525,7 @@
     }
 }
 
+// Mobile sidebar Styling
 .mobile_masthead_container {
     display: none;
 
@@ -1015,11 +995,9 @@
         font-size: $type_size_8;
     }
 
-    .masthead_profile_instagram_id,
     .masthead_profile_bio {
         font-size: $type_size_10;
     }
-
 }
 
 @media (max-width: 768px) {

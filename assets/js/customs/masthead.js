@@ -1,15 +1,4 @@
-/*
-상단 네비게이션 메뉴바의 플라이 아웃 메뉴와 모바일 사이드바를 제어합니다.
-
-참고사항(Notes)
--------------
-데스크톱 환경의 플라이 아웃 메뉴와 모바일 환경의 사이드바를 제어합니다.
-
-연관(Related)
-------------
-"_includes/customs/masthead.html": 상단 네비게이션 메뉴바의 HTML 마크업 구조를 정의합니다.
-"_sass/customs/_masthead.scss": 상단 네비게이션 메뉴바의 레이아웃과 디자인을 정의합니다.
-*/
+/* Control masthead's fly-out and sidebar menu */
 
 
 (() => {
@@ -17,7 +6,7 @@
 
     const masthead = document.querySelector(".masthead", );
 
-    if (!masthead) return;  // 상단 네비게이션 메뉴바가 없으면 불필요한 초기화를 생략합니다.
+    if (!masthead) return;
 
     function initialize_desktop_flyout() {
         const flyout_container = masthead.querySelector(".js_masthead_flyout_container", );
@@ -34,7 +23,7 @@
         let is_restoring_flyout_focus = false;
 
         function set_flyout_state(is_open) {
-            masthead.classList.toggle("is_flyout_open", is_open);
+            masthead.classList.toggle("is_open", is_open);
             flyout_container.inert = !is_open;
 
             flyout_triggers.forEach((flyout_trigger) => {
@@ -51,7 +40,7 @@
             set_flyout_state(false);
         }
 
-        // 플라이 아웃 메뉴 내부에 키보드 포커스가 있으면 포인터가 벗어나도 열린 상태를 유지합니다.
+        // Keep fly-out open state on focus-visible.
         function close_flyout_from_pointer() {
             if (!flyout_container.contains(document.activeElement)) {
                 close_flyout();
@@ -59,7 +48,7 @@
         }
 
         function close_flyout_and_restore_focus() {
-            if (!masthead.classList.contains("is_flyout_open")) return;
+            if (!masthead.classList.contains("is_open")) return;
 
             close_flyout();
             is_restoring_flyout_focus = true;
@@ -118,8 +107,7 @@
         const search_content = document.querySelector(".search-content", );
         const search_input = search_content?.querySelector("input", );
 
-        if (search_buttons.length === 0) return;
-        if (!initial_content || !search_content) return;
+        if (search_buttons.length === 0 || !initial_content || !search_content) return;
 
         function toggle_search() {
             const is_opening = !search_content.classList.contains("is--visible");
@@ -158,7 +146,10 @@
             sidebar_container.classList.toggle("is_open", is_open);
             sidebar_filter.classList.toggle("is_open", is_open);
             sidebar_trigger.setAttribute("aria-expanded", String(is_open));
-            sidebar_trigger.setAttribute("aria-label", is_open ? "전체 메뉴 접기" : "전체 메뉴 펼치기");
+            sidebar_trigger.setAttribute(
+                "aria-label",
+                is_open ? "전체 메뉴 접기" : "전체 메뉴 펼치기",
+            );
             sidebar_container.inert = !is_open;
             document.documentElement.classList.toggle("is_mobile_masthead_open", is_open);
 
@@ -175,7 +166,7 @@
             set_sidebar_state(false, true);
         }, );
 
-        // 열린 모바일 사이드바 밖으로 키보드 포커스가 빠져나가지 않도록 순환시킵니다.
+        // Keep focus-visible state on mobile sidebar menu panel.
         document.addEventListener("keydown", (event) => {
             if (!sidebar_container.classList.contains("is_open")) return;
 
@@ -207,12 +198,16 @@
             if (!event.matches) set_sidebar_state(false);
         }, );
 
-        const accordion_groups = sidebar_container.querySelectorAll(".js_mobile_masthead_accordion_group", );
+        const accordion_groups = sidebar_container.querySelectorAll(
+            ".js_mobile_masthead_accordion_group",
+        );
         const prefers_reduced_motion = window.matchMedia("(prefers-reduced-motion: reduce)", );
         const accordion_animations = new Map();
 
         function set_accordion_state(accordion_group, is_open) {
-            const accordion_header = accordion_group.querySelector(".mobile_masthead_accordion_header", );
+            const accordion_header = accordion_group.querySelector(
+                ".mobile_masthead_accordion_header",
+            );
             const current_animation = accordion_animations.get(accordion_group);
             const start_height = accordion_group.getBoundingClientRect().height;
 
@@ -257,7 +252,9 @@
         }
 
         accordion_groups.forEach((accordion_group) => {
-            const accordion_header = accordion_group.querySelector(".mobile_masthead_accordion_header", );
+            const accordion_header = accordion_group.querySelector(
+                ".mobile_masthead_accordion_header",
+            );
 
             accordion_group.classList.toggle("is_open", accordion_group.open);
 
