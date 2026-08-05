@@ -1,0 +1,215 @@
+/* Recent posts on main landing page */
+
+
+.page__content {
+    .recent_posts {
+        padding: 3rem 0 0 0;
+        margin: 0 0 5rem 0;
+
+        font-family: $bitmap_sans_serif;
+    }
+
+    .recent_posts_title {
+        padding: 0 0.25rem 0.5rem 0.25rem;
+        margin: 0 0 0.5rem 0;
+
+        border-bottom: 1px solid $light_gray;
+
+        color: $black;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_5;
+    }
+
+    .recent_posts_grid {
+        display: grid;
+        grid-template-columns: repeat(var(--columns, 2), minmax(0, 1fr));
+    }
+
+    .recent_post {
+        min-width: 0;
+
+        padding: 1rem 0.5rem 1rem 0.5rem;
+
+        border-bottom: 1px solid $light_gray;
+
+        .recent_post_link {
+            display: grid;
+            grid-template-columns: minmax(3rem, 1fr) minmax(4rem, 2fr);
+            column-gap: 1rem;
+
+            align-items: stretch;
+
+            height: 100%;
+
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+
+                .recent_post_metadata > * {
+                    color: $primary_color;
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid $primary_color;
+                outline-offset: 0.25rem;
+            }
+        }
+    }
+
+    .recent_post_thumbnail {
+        overflow: hidden;
+
+        width: 100%;
+
+        border-radius: 0.5rem;
+
+        background: $lighter_gray;
+
+        aspect-ratio: 4 / 3;
+
+        .recent_post_teaser {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+    }
+
+    .recent_post_metadata {
+        display: flex;
+
+        flex-direction: column;
+
+        min-width: 0;
+
+        padding: 0.1rem 0;
+
+        font-size: $type_size_9;
+        line-height: 1.5;
+    }
+
+    .recent_post_metadata > * {
+        transition: color 0.2s ease-in-out;
+    }
+
+    .recent_post_category,
+    .recent_post_subtitle {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .recent_post_category,
+    .recent_post_subtitle,
+    .recent_post_date {
+        color: $gray;
+    }
+
+    .recent_post_category {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .recent_post_title {
+        overflow: hidden;
+
+        margin: 0;
+
+        color: $black;
+
+        font-family: $sans_serif;
+        font-size: $type_size_7;
+        font-weight: bold;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .recent_post_subtitle {
+        margin: 0;
+
+        font-family: $sans_serif;
+    }
+
+    .recent_post_date {
+        margin: auto 0 0 0;
+    }
+
+    .recent_posts_footer {
+        display: flex;
+
+        justify-content: center;
+
+        margin: 2rem 0 0 0;
+
+        .recent_posts_footer_button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 2.5rem;
+
+            padding: 0.5rem 1.25rem;
+
+            border-radius: 2rem;
+
+            background: $lighter_gray;
+
+            color: $black;
+
+            font-size: $type_size_8;
+
+            text-decoration: none;
+
+            &:hover {
+                background: rgba($light_gray, 0.33);
+
+                color: $primary_color;
+
+                font-weight: bold;
+
+                text-decoration: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid $primary_color;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .page__content {
+        .recent_posts {
+            margin-bottom: 3rem;
+        }
+
+        .recent_posts_grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .recent_post {
+            padding: 1rem 0;
+
+            .recent_post_link {
+                grid-template-columns: minmax(5rem, 1.5fr) minmax(0, 2fr);
+
+                column-gap: 0.75rem;
+            }
+        }
+    }
+}

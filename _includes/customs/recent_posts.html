@@ -1,0 +1,47 @@
+<!-- Render recent posts on the main landing page. -->
+
+
+{% assign columns = include.columns | default: 2 %}
+{% assign rows = include.rows | default: 5 %}
+{% assign limit = columns | times: rows %}
+{% assign recent_posts = site.posts | slice: 0, limit %}
+
+<section class="recent_posts">
+    <h2 class="recent_posts_title">최근 업로드된 게시글</h2>
+
+    <div class="recent_posts_grid" style="--columns: {{ columns }};">
+        {% for recent_post in recent_posts %}
+            {% assign category = recent_post.categories | first %}
+
+            <article class="recent_post">
+                <a class="recent_post_link" href="{{ recent_post.url | relative_url }}">
+                    <div class="recent_post_thumbnail">
+                        {% if recent_post.header.teaser %}
+                            <img class="recent_post_teaser" src="{{ recent_post.header.teaser | relative_url }}" alt="">
+                        {% endif %}
+                    </div>
+
+                    <div class="recent_post_metadata">
+                        {% if category %}
+                            <p class="recent_post_category">{{ category | escape_once }}</p>
+                        {% endif %}
+
+                        {% if recent_post.title %}
+                            <p class="recent_post_title">{{ recent_post.title | escape_once }}</p>
+                        {% endif %}
+
+                        {% if recent_post.subtitle %}
+                            <p class="recent_post_subtitle">{{ recent_post.subtitle | escape_once }}</p>
+                        {% endif %}
+
+                        <time class="recent_post_date" datetime="{{ recent_post.date | date_to_xmlschema }}">{{ recent_post.date | date: "%Y. %m. %d" }}</time>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+
+    <div class="recent_posts_footer">
+        <a class="recent_posts_footer_button" href="{{ '/prologue/' | relative_url }}">전체 게시글 보기</a>
+    </div>
+</section>

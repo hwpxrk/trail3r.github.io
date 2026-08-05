@@ -1,0 +1,57 @@
+<!-- Render featured posts on the main landing page. -->
+
+
+{% assign limit = include.limit | default: 5 %}
+{% assign featured_posts = site.posts | where: "featured", true | slice: 0, limit | reverse %}
+
+{% if featured_posts.size > 0 %}
+    <section class="featured_posts_carousel js_featured_posts_carousel">
+        <div class="featured_posts_header">
+            <h2 class="featured_posts_title">대표 게시글</h2>
+
+            {% if featured_posts.size > 1 %}
+                <nav class="featured_posts_navigation js_featured_posts_navigation" aria-label="대표 게시글 둘러보기" hidden>
+                    <button class="featured_posts_button previous js_featured_posts_button_previous" type="button" aria-controls="featured_posts" aria-label="이전 대표 게시글" disabled>
+                        <span aria-hidden="true">&lt;</span>
+                    </button>
+
+                    <button class="featured_posts_button next js_featured_posts_button_next" type="button" aria-controls="featured_posts" aria-label="다음 대표 게시글">
+                        <span aria-hidden="true">&gt;</span>
+                    </button>
+                </nav>
+            {% endif %}
+        </div>
+
+        <div class="featured_posts js_featured_posts" id="featured_posts">
+            {% for featured_post in featured_posts %}
+                {% assign category = featured_post.categories | first %}
+
+                <article class="featured_post js_featured_post">
+                    <a class="featured_post_link" href="{{ featured_post.url | relative_url }}">
+                        <div class="featured_post_thumbnail">
+                            {% if featured_post.header.teaser %}
+                                <img class="featured_post_teaser" src="{{ featured_post.header.teaser | relative_url }}" alt="">
+                            {% endif %}
+                        </div>
+
+                        <div class="featured_post_metadata">
+                            {% if category %}
+                                <p class="featured_post_category">{{ category | escape_once }}</p>
+                            {% endif %}
+
+                            {% if featured_post.title %}
+                                <p class="featured_post_title">{{ featured_post.title | escape_once }}</p>
+                            {% endif %}
+
+                            {% if featured_post.subtitle %}
+                                <p class="featured_post_subtitle">{{ featured_post.subtitle | escape_once }}</p>
+                            {% endif %}
+
+                            <time class="featured_post_date" datetime="{{ featured_post.date | date_to_xmlschema }}">{{ featured_post.date | date: "%Y. %m. %d" }}</time>
+                        </div>
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}
