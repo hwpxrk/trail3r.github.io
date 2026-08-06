@@ -32,5 +32,4 @@ search: false
 @import "customs/page__taxonomy";  // 게시글 하단 카테고리, 태그, 날짜 메타데이터 스타일링
 @import "customs/social-share.scss";  // URL 복사 버튼 스타일링
 
-@import "customs/paginator-v2";  // jekyll-paginate-v2를 활용한 paginator-v2 페이지네이션 스타일링
 @import "customs/post_pagination";  // 게시글 하단 페이지네이션 스타일링

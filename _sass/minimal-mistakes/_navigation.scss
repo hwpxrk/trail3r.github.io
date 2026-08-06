@@ -154,6 +154,99 @@
   }
 }
 
+.paginator {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 1rem 0;
+}
+
+.paginator_list {
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.paginator_item {
+    &.selected {
+        .paginator_link {
+            border-color: $primary_color;
+
+            color: $primary_color;
+
+            font-weight: bold;
+        }
+    }
+
+    &.disabled {
+        .paginator_link {
+            opacity: 0.5;
+
+            cursor: default;
+        }
+    }
+
+    &.control {
+        .paginator_link {
+            width: 28px;
+            height: 28px;
+
+            padding: 0;
+
+            font-size: $type_size_6;
+            font-weight: normal;
+        }
+    }
+}
+
+.paginator_link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 30px;
+    height: 28px;
+
+    padding: 0 0.5rem;
+
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+    color: $dark_gray;
+
+    font-size: $type_size_10;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .paginator_list {
+        gap: 0.25rem;
+    }
+
+    .paginator_link {
+        min-width: 28px;
+
+        padding: 0 0.25rem;
+    }
+}
+
 .page__content + .pagination,
 .page__meta + .pagination,
 .page__share + .pagination,

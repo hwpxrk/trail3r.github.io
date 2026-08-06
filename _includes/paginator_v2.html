@@ -1,0 +1,64 @@
+<!-- Render archive pagination with jekyll-paginate-v2. -->
+
+
+<nav class="paginator" aria-label="게시글 페이지 이동">
+    <ul class="paginator_list">
+        {% if paginator.page > 1 %}
+            <li class="paginator_item control first">
+                <a class="paginator_link" href="{{ paginator.first_page_path | remove: 'index.html' | relative_url }}" aria-label="첫 페이지">&laquo;</a>
+            </li>
+        {% else %}
+            <li class="paginator_item control first disabled">
+                <span class="paginator_link" aria-disabled="true" aria-label="첫 페이지">&laquo;</span>
+            </li>
+        {% endif %}
+
+        {% if paginator.previous_page %}
+            <li class="paginator_item control previous">
+                <a class="paginator_link" href="{{ paginator.previous_page_path | remove: 'index.html' | relative_url }}" aria-label="이전 페이지" rel="previous">&lsaquo;</a>
+            </li>
+        {% else %}
+            <li class="paginator_item control previous disabled">
+                <span class="paginator_link" aria-disabled="true" aria-label="이전 페이지">&lsaquo;</span>
+            </li>
+        {% endif %}
+
+        {% if paginator.page_trail.size > 0 %}
+            {% for page_trail in paginator.page_trail %}
+                {% if paginator.page == page_trail.num %}
+                    <li class="paginator_item selected">
+                        <span class="paginator_link" aria-current="page">{{ page_trail.num }}</span>
+                    </li>
+                {% else %}
+                    <li class="paginator_item">
+                        <a class="paginator_link" href="{{ page_trail.path | remove: 'index.html' | relative_url }}" aria-label="{{ page_trail.num }}페이지로 이동">{{ page_trail.num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li class="paginator_item selected">
+                <span class="paginator_link" aria-current="page">{{ paginator.page }}</span>
+            </li>
+        {% endif %}
+
+        {% if paginator.next_page %}
+            <li class="paginator_item control next">
+                <a class="paginator_link" href="{{ paginator.next_page_path | remove: 'index.html' | relative_url }}" aria-label="다음 페이지" rel="next">&rsaquo;</a>
+            </li>
+        {% else %}
+            <li class="paginator_item control next disabled">
+                <span class="paginator_link" aria-disabled="true" aria-label="다음 페이지">&rsaquo;</span>
+            </li>
+        {% endif %}
+
+        {% if paginator.page < paginator.total_pages %}
+            <li class="paginator_item control last">
+                <a class="paginator_link" href="{{ paginator.last_page_path | remove: 'index.html' | relative_url }}" aria-label="마지막 페이지">&raquo;</a>
+            </li>
+        {% else %}
+            <li class="paginator_item control last disabled">
+                <span class="paginator_link" aria-disabled="true" aria-label="마지막 페이지">&raquo;</span>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
