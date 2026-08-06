@@ -1,43 +1,86 @@
-/*
-태그 아카이브의 숨겨진 태그 목록을 펼치고 접는 기능을 제어합니다.
-
-참고사항(Notes)
--------------
-태그 아카이브 페이지에서는 처음 15개를 제외한 태그 목록을 펼치거나 접습니다.
-
-연관(Related)
-------------
-"_includes/customs/tag_archive.html": 태그 아카이브 목록과 펼치기 버튼의 HTML 마크업 구조를 정의합니다.
-*/
+/* Control tag expand function */
 
 
 (() => {
     "use strict";
 
-    function set_tag_archive_expand_state(expand_button, is_expanded) {
-        const tag_archive = expand_button.closest(".js_tag_archive", );
-        const hidden_tags = tag_archive.querySelectorAll(".js_tag_archive_hidden_item", );
-        const expand_text = expand_button.dataset.expandText || "태그 더 보기";
-        const hide_text = expand_button.dataset.hideText || "태그 접기";
+    function update_tag_archive_toggle(toggle_button, is_expanded) {
+        const expand_text = toggle_button.dataset.expandText || "태그 더 보기";
+        const hide_text = toggle_button.dataset.hideText || "태그 접기";
 
-        hidden_tags.forEach((hidden_tag) => {
-            hidden_tag.hidden = !is_expanded;
-        });
-
-        expand_button.setAttribute("aria-expanded", String(is_expanded), );
-        expand_button.textContent = is_expanded ? hide_text : expand_text;
+        toggle_button.setAttribute("aria-expanded", String(is_expanded), );
+        toggle_button.textContent = is_expanded ? hide_text : expand_text;
     }
 
-    const tag_archive_expand_buttons = document.querySelectorAll(".js_tag_archive_toggle", );
+    function update_tag_item_visibility(hidden_tag_items, is_expanded) {
+        hidden_tag_items.forEach((tag_item) => {
+            tag_item.hidden = !is_expanded;
+        });
+    }
 
-    tag_archive_expand_buttons.forEach((expand_button) => {
-        expand_button.hidden = false;
-        set_tag_archive_expand_state(expand_button, false);
+    function animate_tag_archive(tag_index, hidden_tag_items, is_expanded) {
+        const start_height = tag_index.offsetHeight;
 
-        expand_button.addEventListener("click", () => {
-            const is_expanded = expand_button.getAttribute("aria-expanded", ) === "true";
+        update_tag_item_visibility(hidden_tag_items, is_expanded);
 
-            set_tag_archive_expand_state(expand_button, !is_expanded);
+        const end_height = tag_index.offsetHeight;
+
+        if (!is_expanded) {
+            update_tag_item_visibility(hidden_tag_items, true);
+        }
+
+        tag_index.style.overflow = "hidden";
+
+        return tag_index.animate(
+            [
+                { height: `${start_height}px` },
+                { height: `${end_height}px` },
+            ],
+            {
+                duration: 250,
+                easing: "ease-in-out",
+            },
+        );
+    }
+
+    const prefers_reduced_motion = window.matchMedia("(prefers-reduced-motion: reduce)", ).matches;
+    const tag_archive_toggle_buttons = document.querySelectorAll(".js_tag_archive_toggle", );
+
+    tag_archive_toggle_buttons.forEach((toggle_button) => {
+        const tag_archive = toggle_button.closest(".js_tag_archive", );
+        const tag_index = tag_archive.querySelector(".taxonomy_index", );
+        const hidden_tag_items = tag_archive.querySelectorAll(".js_tag_archive_hidden_item", );
+
+        toggle_button.hidden = false;
+        update_tag_item_visibility(hidden_tag_items, false);
+        update_tag_archive_toggle(toggle_button, false);
+
+        toggle_button.addEventListener("click", () => {
+            const is_expanded = toggle_button.getAttribute("aria-expanded", ) === "true";
+            const next_is_expanded = !is_expanded;
+
+            update_tag_archive_toggle(toggle_button, next_is_expanded);
+
+            if (prefers_reduced_motion) {
+                update_tag_item_visibility(hidden_tag_items, next_is_expanded);
+
+                return;
+            }
+
+            toggle_button.disabled = true;
+
+            const tag_archive_animation = animate_tag_archive(
+                tag_index,
+                hidden_tag_items,
+                next_is_expanded,
+            );
+
+            tag_archive_animation.addEventListener("finish", () => {
+                update_tag_item_visibility(hidden_tag_items, next_is_expanded);
+
+                tag_index.style.removeProperty("overflow");
+                toggle_button.disabled = false;
+            }, { once: true }, );
         });
     });
 })();

@@ -406,13 +406,188 @@ body {
 }
 
 .back-to-top {
-  display: block;
-  clear: both;
-  color: $muted_text_color;
-  font-size: 0.6em;
-  text-transform: uppercase;
-  text-align: end;
-  text-decoration: none;
+    display: block;
+    clear: both;
+    padding-top: 0.25rem;
+    color: $gray;
+    font-family: $bitmap_sans_serif;
+    font-size: 0.6em;
+    text-align: end;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:visited {
+        color: $gray;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $primary_color;
+    }
+}
+
+.taxonomy_index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2em;
+    padding: 0;
+    margin: 2.5em 0 5rem 0;
+    list-style: none;
+
+    > li {
+        color: $black;
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_8;
+
+        &:hover,
+        &:focus-within {
+            color: $primary_color;
+
+            .taxonomy_count {
+                color: $primary_color;
+            }
+        }
+    }
+
+    .taxonomy_link {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25em 0;
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid $border_color;
+    }
+}
+
+.taxonomy_count {
+    color: $gray;
+}
+
+.tag_archive_index {
+    margin-bottom: 5rem;
+
+    > .taxonomy_index {
+        margin-bottom: 1rem;
+    }
+}
+
+.tag_archive_toggle {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    color: $gray;
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_9;
+    text-align: center;
+    background: transparent;
+    border: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $primary_color;
+        font-weight: bold;
+    }
+}
+
+.taxonomy_archive_section {
+    & + & {
+        margin-top: 5rem;
+    }
+}
+
+.taxonomy_archive_title {
+    padding: 0 0 0.5rem 0;
+    margin: 0;
+    color: $black;
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_6;
+    font-weight: bold;
+    border-bottom: 1px solid $light_gray;
+}
+
+.taxonomy_archive_posts {
+    margin-left: 20%;
+}
+
+.taxonomy_post {
+    border-bottom: 1px solid $lighter_gray;
+}
+
+.taxonomy_post_link {
+    display: block;
+    padding: 1rem 0;
+    font-family: $sans_serif;
+    text-decoration: none;
+
+    > * {
+        transition: color 0.2s ease-in-out;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        > * {
+            color: $primary_color;
+        }
+    }
+}
+
+.taxonomy_post_title {
+    overflow: hidden;
+    margin: 0;
+    color: $black;
+    font-size: $type_size_7;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taxonomy_post_subtitle {
+    overflow: hidden;
+    min-height: 1.5em;
+    margin: 0 0 0.25rem 0;
+    color: $gray;
+    font-size: $type_size_8;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taxonomy_post_tags {
+    overflow: hidden;
+    min-height: 1.5em;
+    margin: 0 0 0.25rem 0;
+    color: $gray;
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_9;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taxonomy_post_date {
+    display: block;
+    color: $gray;
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_9;
+    white-space: nowrap;
+}
+
+@include breakpoint($large) {
+    .taxonomy_index {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .taxonomy_archive_posts {
+        margin-left: 0;
+    }
 }
 
 /*

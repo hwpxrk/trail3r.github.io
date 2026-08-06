@@ -1,37 +1,172 @@
-{% assign items_max = 0 %}
-{% for item in include.taxonomies %}
-  {% if item[1].size > items_max %}
-    {% assign items_max = item[1].size %}
-  {% endif %}
-{% endfor %}
+{% if include.type == "category" %}
+    {% assign category_pages = site.pages | where_exp: "category_page", "category_page.categories" %}
 
-<ul class="taxonomy__index">
-  {% for i in (1..items_max) reversed %}
-    {% for item in include.taxonomies %}
-      {% if item[1].size == i %}
-        <li>
-          <a href="#{{ item[0] | slugify }}">
-            <strong>{{ item[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-          </a>
-        </li>
-      {% endif %}
+    <div class="taxonomy_archive">
+        <ul class="taxonomy_index">
+            {% for navigation_menu in site.data.navigation.main %}
+                {% for navigation_item in navigation_menu.children %}
+                    {% assign category = navigation_item.title %}
+                    {% assign category_page = category_pages | where_exp: "page", "page.categories contains category" | first %}
+
+                    {% if category_page %}
+                        {% assign category_posts = site.categories[category] %}
+                        {% assign category_post_count = category_posts | size %}
+                        {% assign category_slug = category | slugify %}
+
+                        <li>
+                            {% if category_post_count > 0 %}
+                                <a class="taxonomy_link" href="#{{ category_slug }}">
+                                    <strong>{{ category | escape_once }}</strong>
+                                    <span class="taxonomy_count">{{ category_post_count }}</span>
+                                </a>
+                            {% else %}
+                                <span class="taxonomy_link">
+                                    <strong>{{ category | escape_once }}</strong>
+                                    <span class="taxonomy_count">0</span>
+                                </span>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>
+
+        {% for navigation_menu in site.data.navigation.main %}
+            {% for navigation_item in navigation_menu.children %}
+                {% assign category = navigation_item.title %}
+                {% assign category_page = category_pages | where_exp: "page", "page.categories contains category" | first %}
+                {% assign category_posts = site.categories[category] %}
+                {% assign category_post_count = category_posts | size %}
+                {% assign category_slug = category | slugify %}
+
+                {% if category_page and category_post_count > 0 %}
+                    <section class="taxonomy_archive_section" id="{{ category_slug }}">
+                        <h2 class="taxonomy_archive_title">{{ category | escape_once }}</h2>
+
+                        <div class="taxonomy_archive_posts">
+                            {% for post in category_posts %}
+                                {% include archive-single.html type="taxonomy" %}
+                            {% endfor %}
+                        </div>
+
+                        <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                    </section>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% elsif include.type == "tag" %}
+    {% assign maximum_tag_post_count = 0 %}
+    {% assign tag_index_limit = 15 %}
+    {% assign rendered_tag_count = 0 %}
+    {% assign tag_count = site.tags | size %}
+    {% assign hidden_tag_count = tag_count | minus: tag_index_limit %}
+
+    {% for tag in site.tags %}
+        {% assign tag_posts = tag[1] %}
+        {% assign tag_post_count = tag_posts | size %}
+
+        {% if tag_post_count > maximum_tag_post_count %}
+            {% assign maximum_tag_post_count = tag_post_count %}
+        {% endif %}
     {% endfor %}
-  {% endfor %}
-</ul>
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-{% for i in (1..items_max) reversed %}
-  {% for taxonomy in include.taxonomies %}
-    {% if taxonomy[1].size == i %}
-      <section id="{{ taxonomy[0] | slugify }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ taxonomy[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
-          {% for post in taxonomy.last %}
-            {%- include customs/archive_single.html type=entries_layout -%}
-          {% endfor %}
+    <div class="taxonomy_archive js_tag_archive">
+        <div class="tag_archive_index">
+            <ul class="taxonomy_index" id="tag_archive_index">
+                {% for post_count in (1..maximum_tag_post_count) reversed %}
+                    {% for tag in site.tags %}
+                        {% assign tag_name = tag[0] %}
+                        {% assign tag_posts = tag[1] %}
+                        {% assign tag_post_count = tag_posts | size %}
+
+                        {% if tag_post_count == post_count %}
+                            {% assign rendered_tag_count = rendered_tag_count | plus: 1 %}
+                            {% assign tag_slug = tag_name | slugify %}
+
+                            <li{% if rendered_tag_count > tag_index_limit %} class="js_tag_archive_hidden_item"{% endif %}>
+                                <a class="taxonomy_link" href="#{{ tag_slug }}">
+                                    <strong>{{ tag_name | escape_once }}</strong>
+                                    <span class="taxonomy_count">{{ tag_post_count }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+
+            {% if hidden_tag_count > 0 %}
+                <button class="tag_archive_toggle js_tag_archive_toggle" type="button" data-expand-text="태그 {{ hidden_tag_count }}개 더 보기" data-hide-text="태그 접기" aria-controls="tag_archive_index" aria-expanded="false" hidden>
+                    태그 {{ hidden_tag_count }}개 더 보기
+                </button>
+            {% endif %}
         </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
-      </section>
-    {% endif %}
-  {% endfor %}
-{% endfor %}
+
+        {% for post_count in (1..maximum_tag_post_count) reversed %}
+            {% for tag in site.tags %}
+                {% assign tag_name = tag[0] %}
+                {% assign tag_posts = tag[1] %}
+                {% assign tag_post_count = tag_posts | size %}
+
+                {% if tag_post_count == post_count %}
+                    {% assign tag_slug = tag_name | slugify %}
+
+                    <section class="taxonomy_archive_section" id="{{ tag_slug }}">
+                        <h2 class="taxonomy_archive_title">{{ tag_name | escape_once }}</h2>
+
+                        <div class="taxonomy_archive_posts">
+                            {% for post in tag_posts %}
+                                {% include archive-single.html type="taxonomy" %}
+                            {% endfor %}
+                        </div>
+
+                        <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                    </section>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% else %}
+    {% assign items_max = 0 %}
+
+    {% for item in include.taxonomies %}
+        {% if item[1].size > items_max %}
+            {% assign items_max = item[1].size %}
+        {% endif %}
+    {% endfor %}
+
+    <ul class="taxonomy__index">
+        {% for item_count in (1..items_max) reversed %}
+            {% for item in include.taxonomies %}
+                {% if item[1].size == item_count %}
+                    <li>
+                        <a href="#{{ item[0] | slugify }}">
+                            <strong>{{ item[0] }}</strong>
+                            <span class="taxonomy__count">{{ item_count }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+    {% assign entries_layout = page.entries_layout | default: "list" %}
+
+    {% for item_count in (1..items_max) reversed %}
+        {% for taxonomy in include.taxonomies %}
+            {% if taxonomy[1].size == item_count %}
+                <section class="taxonomy__section" id="{{ taxonomy[0] | slugify }}">
+                    <h2 class="archive__subtitle">{{ taxonomy[0] }}</h2>
+
+                    <div class="entries-{{ entries_layout }}">
+                        {% for post in taxonomy.last %}
+                            {% include archive-single.html type=entries_layout %}
+                        {% endfor %}
+                    </div>
+
+                    <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                </section>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}
