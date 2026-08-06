@@ -1,0 +1,202 @@
+/* Styling posts archive pages. */
+
+
+.archive {
+    .page__title {
+        margin: 0 0 1rem;
+
+        color: $black;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_5;
+        font-weight: bold;
+    }
+
+    .posts_archive_item {
+        padding: 1rem 0.5rem;
+
+        border-bottom: 1px solid $light_gray;
+
+        .posts_archive_link {
+            display: grid;
+            grid-template-columns: minmax(8rem, 1.25fr) minmax(0, 4fr);
+
+            column-gap: 1rem;
+
+            text-decoration: none;
+
+            &:hover {
+                .posts_archive_metadata > * {
+                    color: $primary_color;
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid $primary_color;
+            }
+        }
+    }
+
+    .posts_archive_thumbnail {
+        overflow: hidden;
+
+        align-self: start;
+
+        border-radius: 0.5rem;
+
+        background: $lighter_gray;
+
+        aspect-ratio: 4 / 3;
+
+        .posts_archive_teaser {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+    }
+
+    .posts_archive_metadata {
+        display: grid;
+        grid-template-rows: auto auto 1.6em minmax(0, 1fr) auto;
+
+        min-width: 0;
+
+        padding: 0.1rem 0;
+
+        font-family: $sans_serif;
+
+        > * {
+            transition: color 0.2s ease-in-out;
+        }
+
+        .posts_archive_category {
+            overflow: hidden;
+
+            margin: 0 0 0.25rem 0;
+
+            color: $gray;
+
+            font-family: $bitmap_sans_serif;
+            font-size: $type_size_8;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .posts_archive_title {
+            overflow: hidden;
+
+            margin: 0;
+            padding: 0;
+
+            color: $black;
+
+            font-size: $type_size_6;
+            font-weight: bold;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .posts_archive_subtitle {
+            overflow: hidden;
+
+            margin: 0 0 0.25rem 0;
+            padding: 0;
+
+            color: $gray;
+
+            font-size: $type_size_7;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .posts_archive_excerpt {
+            overflow: hidden;
+            display: -webkit-box;
+
+            align-self: start;
+
+            margin: 0;
+
+            color: $gray;
+
+            font-size: $type_size_7;
+
+            line-height: 1.25;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .posts_archive_date {
+            color: $gray;
+
+            font-family: $bitmap_sans_serif;
+            font-size: $type_size_8;
+        }
+    }
+
+    .posts_archive_empty {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 5rem;
+
+        color: $gray;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_6;
+
+        .posts_archive_empty_message {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .archive {
+        .posts_archive_metadata {
+            .posts_archive_excerpt {
+                line-clamp: 1;
+                -webkit-line-clamp: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .archive {
+        .posts_archive_metadata {
+            padding: 0;
+
+            .posts_archive_category {
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .archive {
+        .posts_archive_item {
+            padding: 1rem 0;
+
+            .posts_archive_link {
+                grid-template-columns: minmax(5rem, 1.5fr) minmax(0, 2fr);
+
+                column-gap: 0.75rem;
+            }
+        }
+    }
+}

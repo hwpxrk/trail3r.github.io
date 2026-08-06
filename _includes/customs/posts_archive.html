@@ -1,0 +1,55 @@
+<!-- Render posts archive pages. -->
+
+
+{% assign category = include.category | default: page.categories.first | default: "" %}
+{% assign pagination = include.pagination %}
+
+{% if pagination == nil %}
+    {% assign pagination = true %}
+{% endif %}
+
+{% if pagination and paginator %}
+    {% assign posts = paginator.posts %}
+{% else %}
+    {% assign posts = site.posts %}
+{% endif %}
+
+{% if category != empty %}
+    {% assign posts = posts | where_exp: "post", "post.categories contains category" %}
+{% endif %}
+
+{% if posts.size > 0 %}
+    <div class="posts_archive">
+        {% for post in posts %}
+            <article class="posts_archive_item">
+                <a class="posts_archive_link" href="{{ post.url | relative_url }}">
+                    <div class="posts_archive_thumbnail">
+                        {% if post.header.teaser %}
+                            <img class="posts_archive_teaser" src="{{ post.header.teaser | relative_url }}" alt="">
+                        {% endif %}
+                    </div>
+
+                    <div class="posts_archive_metadata">
+                        <p class="posts_archive_category">{{ post.categories.first | escape_once }}</p>
+
+                        <h2 class="posts_archive_title">{{ post.title | escape_once }}</h2>
+
+                        <p class="posts_archive_subtitle">{{ post.subtitle | escape_once }}</p>
+
+                        <p class="posts_archive_excerpt">{{ post.excerpt | markdownify | strip_html }}</p>
+
+                        <time class="posts_archive_date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+
+        {% if pagination and paginator %}
+            {% include customs/paginator-v2.html %}
+        {% endif %}
+    </div>
+{% else %}
+    <div class="posts_archive_empty">
+        <p class="posts_archive_empty_message">이 게시판에 등록된 게시글이 없습니다!</p>
+    </div>
+{% endif %}
