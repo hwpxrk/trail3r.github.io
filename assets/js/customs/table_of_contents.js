@@ -1,157 +1,210 @@
-/* ====================================================================================================
-파일(File): assets/js/customs/tag_expand.js
+/* Synchronize the table of contents with the current section. */
 
-목적(Purpose):
-    - 읽고 있는 위치를 알기 위해 ScrollSpy를 구현하여 목차와 동기화 해 현재 보고 있는 목차를 활성화합니다.
 
-참고사항(Notes):
-    - 목차(Table of Contents)를 커스텀해 목차 DOM의 ID에 table-of-contents(전체 목차 DOM)와
-      table-of-content(개별 목차 요소)가 있어야 합니다.
-======================================================================================================= */
-
-(function () {
+(() => {
     "use strict";
 
-    const toc = document.querySelector("#table-of-contents");
-    const content = document.querySelector("#table-of-content");
+    const table_of_contents = document.querySelector("#table-of-contents", );
+    const article_contents = document.querySelector("#table-of-content", );
+    const heading_selector = "h1, h2, h3, h4, h5, h6";
 
-    const HEADING = "h2, h3, h4, h5, h6";
-
-
-    /* 목차 클릭 시 생성되는 URL 디코딩 */
-    const decoder = (href) => {
-        // 한글은 URL로 변환될 때 인코딩되기 때문에, URL 디코딩 규칙을 통일하여 ScrollSpy 기능을 안정시킵니다.
+    function decode_fragment(value) {
         try {
-            return decodeURIComponent(href || "").trim();
-        } catch (e) {
-            return (href || "").trim();
+            return decodeURIComponent(value || "", ).trim();
+        } catch {
+            return (value || "").trim();
         }
-    };
-
-
-    /* 앵커로부터 ID 생성 */
-    const identifier = (href) => {
-        const id = href.indexOf("#");
-        if (id < 0) return "";
-
-        return decoder(href.slice(id + 1));
     }
 
+    function get_fragment_identifier(href) {
+        const fragment_index = href.indexOf("#", );
 
-    /* 상단 메뉴바 높이 계산 */
-    const get_scroll_offset = () => {
-        const masthead = document.querySelector(".masthead");
-        const masthead_height = masthead ? masthead.getBoundingClientRect().height : 0;
+        if (fragment_index < 0) return "";
 
-        return Math.ceil(masthead_height + 16);
-    };
+        return decode_fragment(href.slice(fragment_index + 1, ), );
+    }
 
+    function get_scroll_offset() {
+        const masthead = document.querySelector(".masthead", );
+        const masthead_height = (
+            masthead?.getBoundingClientRect().height || 0
+        );
 
-    /* 현재 페이지 내부 앵커인지 확인 */
-    const is_same_page_anchor = (a) => {
-        const href = a.getAttribute("href");
-        if (!href || href.indexOf("#") < 0) return false;
+        return Math.ceil(masthead_height + 16, );
+    }
 
-        const url = new URL(a.href, window.location.href);
+    function is_same_page_anchor(anchor) {
+        const href = anchor.getAttribute("href", );
+
+        if (!href || !href.includes("#", )) return false;
+
+        const url = new URL(anchor.href, window.location.href, );
 
         return (
             url.origin === window.location.origin &&
             url.pathname === window.location.pathname &&
             url.search === window.location.search
         );
-    };
+    }
 
+    function scroll_to_anchor(event, anchor) {
+        const identifier = get_fragment_identifier(
+            anchor.getAttribute("href", ),
+        );
 
-    /* 부드러운 스크롤 및 클릭 이벤트 관리 */
-    const smooth_scroll = (e, a) => {
-        e.preventDefault();
+        event.preventDefault();
 
-        const id = identifier(a.getAttribute("href"));
-        if (!id) {
-            // ID가 비어있는 것은 화면의 최상단으로 이동하는 경우입니다.
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            history.pushState(null, "", window.location.pathname + window.location.search);
+        if (!identifier) {
+            window.scrollTo({ top: 0, behavior: "smooth" }, );
+            history.pushState(
+                null,
+                "",
+                window.location.pathname + window.location.search,
+            );
+
             return;
         }
 
-        const target = document.getElementById(id);
-        if (target) {
-            // ID가 실제 DOM에 존재할 때만 스크롤을 이동합니다. (사용자가 존재하지 않는 임의의 경로를 입력한 경우 무시)
-            const top = target.getBoundingClientRect().top + window.pageYOffset - get_scroll_offset();
+        const target = document.getElementById(identifier, );
 
-            history.pushState(null, "", `#${encodeURIComponent(id)}`);
-            window.scrollTo({ top, behavior: "smooth" });
+        if (!target) return;
+
+        const scroll_top = (
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            get_scroll_offset()
+        );
+
+        history.pushState(null, "", `#${encodeURIComponent(identifier, )}`, );
+        window.scrollTo({ top: scroll_top, behavior: "smooth" }, );
+    }
+
+    document.addEventListener("click", (event) => {
+        if (event.defaultPrevented || !(event.target instanceof Element)) return;
+
+        const anchor = event.target.closest('a[href*="#"]', );
+
+        if (anchor && is_same_page_anchor(anchor, )) {
+            scroll_to_anchor(event, anchor, );
         }
-    };
-
-
-    document.addEventListener("click", (e) => {
-        if (e.defaultPrevented) return;
-
-        const anchor = e.target.closest('a[href*="#"]');
-        if (anchor && is_same_page_anchor(anchor)) {
-            smooth_scroll(e, anchor);
-        }
-    });
-
+    }, );
 
     if (window.location.hash) {
         window.setTimeout(() => {
-            const id = identifier(window.location.hash);
-            const target = id ? document.getElementById(id) : null;
+            const identifier = get_fragment_identifier(window.location.hash, );
+            const target = (
+                identifier ? document.getElementById(identifier, ) : null
+            );
 
-            if (target) {
-                const top = target.getBoundingClientRect().top + window.pageYOffset - get_scroll_offset();
-                window.scrollTo({ top, behavior: "auto" });
-            }
-        }, 0);
+            if (!target) return;
+
+            const scroll_top = (
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                get_scroll_offset()
+            );
+
+            window.scrollTo({ top: scroll_top, behavior: "auto" }, );
+        }, 0, );
     }
 
+    if (!table_of_contents || !article_contents) return;
 
-    if (!toc || !content) {
-        // 목차를 비활성화 한 경우에는 ScrollSpy 연산을 생략합니다.
-        return;
-    }
+    const toc_menu = table_of_contents.querySelector(".toc__menu", );
 
+    if (!toc_menu) return;
 
-    /* 목차 링크 맵핑 */
-    const heading = Array.from(content.querySelectorAll(HEADING)).filter((h) => h.id);
-    const link = new Map();
+    const headings = Array.from(
+        article_contents.querySelectorAll(heading_selector, ),
+    ).filter((heading) => heading.id, );
+    const links_by_identifier = new Map();
 
-    toc.querySelectorAll('a[href^="#"]').forEach((a) => {
-        const id = identifier(a.getAttribute("href"));
-        if (id) link.set(id, a);
-    })
+    toc_menu.querySelectorAll('a[href^="#"]', ).forEach((anchor) => {
+        const identifier = get_fragment_identifier(
+            anchor.getAttribute("href", ),
+        );
 
+        if (identifier) {
+            links_by_identifier.set(identifier, anchor, );
+        }
+    }, );
 
-    /* 목차 활성화 상태 관리 */
     let active_link = null;
 
-    const active_link_id = (id) => {
-        const target_link = link.get(decoder(id)) || null;
-        if (active_link === target_link) return;
+    function update_active_line() {
+        if (!active_link) {
+            toc_menu.classList.remove("has_active_link", );
+            return;
+        }
 
-        if (active_link) active_link.classList.remove("active");
-        active_link = target_link;
-        if (active_link) active_link.classList.add("active");
-    };
+        const menu_rectangle = toc_menu.getBoundingClientRect();
+        const link_rectangle = active_link.getBoundingClientRect();
+        const line_top = link_rectangle.top - menu_rectangle.top;
 
+        toc_menu.style.setProperty(
+            "--toc_active_line_top",
+            `${line_top}px`,
+        );
+        toc_menu.style.setProperty(
+            "--toc_active_line_height",
+            `${link_rectangle.height}px`,
+        );
+        toc_menu.classList.add("has_active_link", );
+    }
 
-    /* ScrollSpy */
-    const observer = new IntersectionObserver(
-        (elements) => {
-            const visible = elements.filter((e) => e.isIntersecting);
+    function set_active_link(identifier) {
+        const next_active_link = (
+            links_by_identifier.get(decode_fragment(identifier, ), ) || null
+        );
 
-            if (visible.length > 0) {
-                visible.sort((upper, lower) => upper.boundingClientRect.top - lower.boundingClientRect.top);
-                active_link_id(visible[0].target.id);
-            }
+        if (active_link === next_active_link) return;
+
+        if (active_link) {
+            active_link.classList.remove("active", );
+        }
+
+        active_link = next_active_link;
+
+        if (active_link) {
+            active_link.classList.add("active", );
+        }
+
+        update_active_line();
+    }
+
+    const heading_observer = new IntersectionObserver(
+        (entries) => {
+            const visible_headings = entries.filter(
+                (entry) => entry.isIntersecting,
+            );
+
+            if (visible_headings.length === 0) return;
+
+            visible_headings.sort(
+                (upper, lower) => (
+                    upper.boundingClientRect.top -
+                    lower.boundingClientRect.top
+                ),
+            );
+            set_active_link(visible_headings[0].target.id, );
         },
         {
             threshold: 0,
-            rootMargin: "-10% 0px -80% 0px"
-        }
+            rootMargin: "-40% 0px -50% 0px",
+        },
     );
 
-    heading.forEach((h) => observer.observe(h));
+    headings.forEach((heading) => heading_observer.observe(heading, ), );
+
+    if ("ResizeObserver" in window) {
+        const toc_resize_observer = new ResizeObserver(update_active_line, );
+
+        toc_resize_observer.observe(toc_menu, );
+    } else {
+        window.addEventListener("resize", update_active_line, );
+    }
+
+    if (document.fonts) {
+        document.fonts.ready.then(update_active_line, );
+    }
 })();

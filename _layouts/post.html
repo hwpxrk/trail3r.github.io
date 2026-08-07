@@ -40,6 +40,17 @@ layout: default
         {%- endif -%}
 
         <div class="page__inner-wrap">
+            {%- if page.toc -%}
+                <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
+                    <nav class="table-of-contents" id="table-of-contents">
+                        <header>
+                            <a class="nav__title" href="#">{{ page.title }}</a>
+                        </header>
+                        {%- include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
+                    </nav>
+                </aside>
+            {%- endif -%}
+
             {%- unless page.header.overlay_color or page.header.overlay_image -%}
                 <header class="post__header">
                     {%- if page.categories -%}
@@ -130,16 +141,6 @@ layout: default
             {%- endunless -%}
 
             <section class="page__content" itemprop="text">
-                {%- if page.toc -%}
-                    <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-                        <nav class="table-of-contents" id="table-of-contents">
-                            <header>
-                                <a class="nav__title" href="#">{{ page.title }}</a>
-                            </header>
-                            {%- include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
-                        </nav>
-                    </aside>
-                {%- endif -%}
                 <div id="table-of-content">{{ content }}</div>
                 {%- if page.link -%}
                     <div>
