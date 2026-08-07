@@ -22,17 +22,13 @@
                     </div>
 
                     <div class="recent_post_metadata">
-                        {% if category %}
-                            <p class="recent_post_category">{{ category | escape_once }}</p>
-                        {% endif %}
+                        <p class="recent_post_category">{{ category | escape_once }}</p>
 
-                        {% if recent_post.title %}
-                            <p class="recent_post_title">{{ recent_post.title | escape_once }}</p>
-                        {% endif %}
+                        <p class="recent_post_title">{{ recent_post.title | escape_once }}</p>
 
-                        {% if recent_post.subtitle %}
-                            <p class="recent_post_subtitle">{{ recent_post.subtitle | escape_once }}</p>
-                        {% endif %}
+                        <p class="recent_post_subtitle">{{ recent_post.subtitle | escape_once }}</p>
+
+                        <p class="recent_post_excerpt">{{ recent_post.excerpt | markdownify | strip_html | strip }}</p>
 
                         <time class="recent_post_date" datetime="{{ recent_post.date | date_to_xmlschema }}">{{ recent_post.date | date: "%Y. %m. %d" }}</time>
                     </div>
