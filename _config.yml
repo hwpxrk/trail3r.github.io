@@ -154,22 +154,22 @@ analytics:
 # ====================================================================================================
 author:
   name             : "개구리"
-  avatar           : "assets/images/minecraft_frog.png"
+  avatar           : "assets/images/signatures/minecraft_frog.png"
   bio              : "우물 안 개구리의 일상과 생각 그리고 성장을 그리는 우물 탈출기"
   # location         : "대한민국 (South Korea)"
   # email            :
   links:
     - label: "Gmail"
-      icon: "assets/images/links-icon/gmail.svg"
+      icon: "assets/images/logos/gmail.svg"
       url: "mailto:gusdnr7223@gmail.com"
     - label: "네이버 블로그"
-      icon: "assets/images/links-icon/naver-blog.svg"
+      icon: "assets/images/logos/naver-blog.svg"
       url: "https://blog.naver.com/trail3r"
     - label: "GitHub"
-      icon: "assets/images/links-icon/github.svg"
+      icon: "assets/images/logos/github.svg"
       url: "https://github.com/trail3r"
     - label: "Instagram"
-      icon: "assets/images/links-icon/instagram.svg"
+      icon: "assets/images/logos/instagram.svg"
       url: "https://instagram.com/trail3r__"
 
 
@@ -180,13 +180,13 @@ author:
 footer:
   links:
     - label: "네이버 블로그"
-      icon: "assets/images/links-icon/naver-blog.svg"
+      icon: "assets/images/logos/naver-blog.svg"
       url: "https://blog.naver.com/trail3r"
     - label: "GitHub"
-      icon: "assets/images/links-icon/github.svg"
+      icon: "assets/images/logos/github.svg"
       url: "https://github.com/trail3r"
     - label: "Instagram"
-      icon: "assets/images/links-icon/instagram.svg"
+      icon: "assets/images/logos/instagram.svg"
       url: "https://instagram.com/trail3r__"
   since: "2026"
 

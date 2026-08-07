@@ -10,12 +10,12 @@ categories: ["개구리의 밀실"]
 tags: ["안내서", "버킷리스트"]
 
 header:
-  teaser: /assets/images/posts/notice/bucketlist.jpg
+  teaser: /assets/images/posts/Featured/Bucketlist/bucketlist.jpg
 
 featured: true
 ---
 
-<center><img src="/assets/images/posts/notice/bucketlist.jpg"></center><br>
+<center><img src="/assets/images/posts/Featured/Bucketlist/bucketlist.jpg"></center><br>
 
 &emsp;안녕하세요, 개구리의 밀실 블로그 주인장 개구리입니다. 이번 글은 소박하게 이루고 싶은 버킷리스트에 대해서 끄적여 보려고 해요. 여러분은 살면서 한 번쯤은 꼭 해보고 싶은 무언가가 있으신가요? 소박해도 좋고, 거창해도 좋아요. 그냥 뭐라도 꼭 해보고 싶은 그런 것들 하나쯤 있잖아요. 저도 태어난 김에 생각할 수 있는 범주에서 나름 최선을 다하는 흔하디흔한 사람인지라 그런 것들이 조금 많이 있어요.<br>
 

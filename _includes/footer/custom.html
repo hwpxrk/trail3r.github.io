@@ -1,4 +1,15 @@
-<!-- Render footer. -->
+{% comment %}
+사이트 하단에 작성자 프로필, 팔로우 링크, 사이트맵과 저작권 정보를 렌더링합니다.
+
+참고사항(Notes)
+-------------
+사이트맵은 "_data/navigation.yml"의 "main" 메뉴에 명시된 순서를 따라 렌더링됩니다.
+
+연관(Related)
+------------
+"_data/navigation.yml": 사이트맵에 표시할 카테고리와 하위 메뉴를 정의합니다.
+"_sass/minimal-mistakes/_footer.scss": 푸터의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
 
 
 {% assign author = site.author %}
