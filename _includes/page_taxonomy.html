@@ -1,0 +1,96 @@
+<!-- Render page taxonomy metadata or post tags. -->
+
+
+{% assign taxonomy_context = include.context | default: "page" %}
+
+{% case site.category_archive.type %}
+    {% when "liquid" %}
+        {% assign category_path_type = "#" %}
+    {% when "jekyll-archives" %}
+        {% assign category_path_type = nil %}
+{% endcase %}
+
+{% case site.tag_archive.type %}
+    {% when "liquid" %}
+        {% assign tag_path_type = "#" %}
+    {% when "jekyll-archives" %}
+        {% assign tag_path_type = nil %}
+{% endcase %}
+
+{% if taxonomy_context == "post" %}
+    {% if page.tags and page.tags.size > 0 %}
+        <section class="post__tags" aria-labelledby="post-tags-title">
+            <h2 class="post__section-title" id="post-tags-title">태그</h2>
+
+            <div class="post__tag-list">
+                {% for tag in page.tags %}
+                    <a
+                        class="post__tag-link"
+                        href="{{ tag | slugify | prepend: tag_path_type | prepend: site.tag_archive.path | relative_url }}"
+                        rel="tag"
+                    >
+                        #{{ tag }}
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% else %}
+    <div class="page-taxonomy">
+        {% if page.categories and page.categories.size > 0 %}
+            <div class="page-taxonomy__body">
+                <strong class="page-taxonomy__label">카테고리 |</strong>
+
+                <div class="page-taxonomy__tokens">
+                    {% for category in page.categories %}
+                        <a
+                            class="page-taxonomy__token page-taxonomy__token--category"
+                            href="{{ category | slugify | prepend: category_path_type | prepend: site.category_archive.path | relative_url }}"
+                            rel="tag"
+                        >
+                            {{ category }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if page.tags and page.tags.size > 0 %}
+            <div class="page-taxonomy__body">
+                <strong class="page-taxonomy__label">태그 |</strong>
+
+                <div class="page-taxonomy__tokens">
+                    {% for tag in page.tags %}
+                        <a
+                            class="page-taxonomy__token page-taxonomy__token--tag"
+                            href="{{ tag | slugify | prepend: tag_path_type | prepend: site.tag_archive.path | relative_url }}"
+                            rel="tag"
+                        >
+                            #{{ tag }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% assign date_format = site.date_format | default: "%Y. %m. %d" %}
+
+        {% if page.last_modified_at %}
+            <p class="page-taxonomy__date">
+                <strong class="page-taxonomy__label">업데이트 |</strong>
+
+                <time class="page-taxonomy__date-value" datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">
+                    {{ page.last_modified_at | date: date_format }}
+                </time>
+            </p>
+        {% elsif page.date %}
+            <p class="page-taxonomy__date">
+                <strong class="page-taxonomy__label">업데이트 |</strong>
+
+                <time class="page-taxonomy__date-value" datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: date_format }}
+                </time>
+            </p>
+        {% endif %}
+    </div>
+{% endif %}

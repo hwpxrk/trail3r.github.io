@@ -1,0 +1,76 @@
+/* Page taxonomy styles. */
+
+.page-taxonomy {
+    margin-top: 1rem;
+
+    color: $gray;
+
+    font-size: $type_size_9;
+}
+
+.page-taxonomy__body {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 0.25rem;
+
+    margin: 0.5rem 0;
+}
+
+.page-taxonomy__label {
+    white-space: nowrap;
+}
+
+.page-taxonomy__tokens {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 0.25rem;
+}
+
+.page-taxonomy__token {
+    padding: 0.1rem 0.5rem;
+
+    border: 1px solid $light_gray;
+    border-radius: 999px;
+
+    color: $gray;
+
+    font-size: $type_size_9;
+    font-weight: bold;
+    line-height: 1.2;
+    text-decoration: none;
+
+    &:visited {
+        color: $gray;
+    }
+
+    &:hover {
+        border-color: $primary_color;
+
+        color: $primary_color;
+
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        border-color: $primary_color;
+
+        color: $primary_color;
+
+        outline: 2px solid $primary_color;
+    }
+}
+
+.page-taxonomy__date {
+    margin-top: 0.5rem;
+
+    font-size: $type_size_9;
+}

@@ -33,7 +33,11 @@
 <script src="{{ 'assets/js/customs/codeblock/rainbow_brackets.js' | relative_url }}"></script>
 <script src="{{ 'assets/js/customs/codeblock/copy_to_clipboard.js' | relative_url }}"></script>
 <script src="{{ 'assets/js/customs/codeblock/floating_copy_button.js' | relative_url }}"></script>
-<script src="{{ 'assets/js/customs/social-share.js' | relative_url }}"></script>
+{% if page.share %}
+    {% if page.layout == "post" or page.layout == "single" %}
+        <script src="{{ 'assets/js/customs/social_share.js' | relative_url }}"></script>
+    {% endif %}
+{% endif %}
 <script src="{{ 'assets/js/customs/table_of_contents.js' | relative_url }}"></script>
 <script src="{{ 'assets/js/customs/featured_posts.js' | relative_url }}"></script>
 

@@ -1,20 +1,14 @@
-{% comment %}
-게시글 하단에 현재 게시글과 관련된 게시글을 최대 3개까지 렌더링합니다.
-
-참고사항(Notes)
--------------
-현재 게시글과 같은 카테고리에 속한 게시글을 우선 렌더링하며, 그 개수가 부족하면 최근 업로드된 게시글을 렌더링합니다.
-
-연관(Related)
-------------
-"_layouts/post.html": 게시글 하단에서 관련 게시글 목록을 호출합니다.
-"_sass/customs/posts/_posts.scss": 관련 게시글 카드의 레이아웃과 디자인을 정의합니다.
-{% endcomment %}
+<!-- Render up to three related posts. -->
 
 
-{% assign current_category = page.categories | first %}
-{% assign category_posts = site.categories[current_category] | default: site.posts %}
-{% assign related_post_candidates = category_posts | concat: site.posts | uniq %}
+{% if include.posts %}
+    {% assign related_post_candidates = include.posts %}
+{% else %}
+    {% assign current_category = page.categories | first %}
+    {% assign category_posts = site.categories[current_category] | default: site.posts %}
+    {% assign related_post_candidates = category_posts | concat: site.posts | uniq %}
+{% endif %}
+
 {% assign related_post_count = 0 %}
 
 {% capture related_post_cards %}

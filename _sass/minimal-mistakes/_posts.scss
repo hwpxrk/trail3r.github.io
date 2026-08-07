@@ -1,10 +1,4 @@
-/*
-개별 게시글 페이지의 레이아웃과 디자인을 정의합니다.
-
-연관(Related)
-------------
-"_layouts/post.html": 개별 게시글 페이지의 HTML 마크업 구조를 정의합니다.
-*/
+/* Custom post styles. */
 
 .post__categories-link {
     display: inline-block;
@@ -13,17 +7,27 @@
 
     color: $gray;
 
+    font-family: $bitmap_sans_serif;
+    font-size: $type_size_8;
+    line-height: 1.5;
     text-decoration: none;
 
-    &:hover {
-        color: $blue;
+    &:visited {
+        color: $gray;
     }
 
-    .post__categories {
-        margin: 0;
+    &:hover {
+        color: $primary_color;
+    }
 
-        font-size: $type_size_8;
-        line-height: 1.5;
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        color: $primary_color;
+
+        outline: 2px solid $primary_color;
     }
 }
 
@@ -32,16 +36,18 @@
 
     color: $gray;
 
-    font-size: $type_size_8;
-    line-height: 1.5;
+    font-family: $sans_serif;
+    font-size: $type_size_6;
+    font-weight: normal;
+    line-height: 1.4;
 }
 
 .post__meta {
     display: flex;
 
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     gap: 1rem;
 
@@ -74,8 +80,23 @@
 
             opacity: 0.7;
 
+            &:visited {
+                color: $gray;
+            }
+
             &:hover {
-                color: $blue;
+                color: $primary_color;
+                opacity: 1;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                color: $primary_color;
+
+                outline: 2px solid $primary_color;
                 opacity: 1;
             }
         }
@@ -95,7 +116,8 @@
         .post__author-name {
             margin-left: 0.5rem;
 
-            font-weight: normal;
+            font-family: $bitmap_sans_serif;
+            font-weight: bold;
         }
     }
 
@@ -104,6 +126,7 @@
 
         color: $gray;
 
+        font-family: $bitmap_sans_serif;
         font-size: $type_size_9;
         font-weight: normal;
     }
@@ -125,7 +148,6 @@
 
         color: $gray;
 
-        font-size: $type_size_9;
         text-decoration: none;
 
         .links_icon {
@@ -135,10 +157,12 @@
             height: 0.75rem;
         }
 
-        &:hover {
-            color: $blue;
+        &:visited {
+            color: $gray;
+        }
 
-            font-weight: bold;
+        &:hover {
+            color: $primary_color;
         }
 
         &:focus {
@@ -146,9 +170,9 @@
         }
 
         &:focus-visible {
-            color: $blue;
+            color: $primary_color;
 
-            outline: 2px solid $blue;
+            outline: 2px solid $primary_color;
         }
     }
 
@@ -173,7 +197,7 @@
         &:hover,
         &.is-copied,
         &[aria-expanded="true"] {
-            color: $blue;
+            color: $primary_color;
         }
 
         &:focus {
@@ -181,133 +205,141 @@
         }
 
         &:focus-visible {
-            color: $blue;
+            color: $primary_color;
 
-            outline: 2px solid $blue;
+            outline: 2px solid $primary_color;
         }
     }
 }
 
-.page__inner-wrap {
+.post__header {
     .page__title {
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 0.25rem 0;
 
+        color: $black;
+
+        font-family: $sans_serif;
         font-size: $h_size_1;
-        font-weight: normal;
+        font-weight: bold;
+    }
+}
+
+.post {
+    .page__inner-wrap > .page__content {
+        float: none;
     }
 
     .page__content {
         p {
             margin: 0 0 1rem 0;
+
             font-size: $doc_font_size;
         }
 
-        li, dl {
+        li,
+        dl {
             font-size: $doc_font_size;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: $black;
+
+            font-weight: bold;
         }
 
         h1 {
-            margin: 1.5rem 0;
             font-size: $h_size_1;
-            font-weight: normal;
         }
 
         h2 {
             padding: 0;
-            margin: 0 0 0.1rem 0;
-            font-size: $h_size_3;
-            font-weight: normal;
+
             border: none;
+
+            font-size: $h_size_4;
         }
 
         h3 {
-            margin: 0 0 0.1rem 0;
             font-size: $h_size_5;
-            font-weight: normal;
         }
 
         h4 {
-            margin: 0 0 0.1rem 0;
-            font-size: $h_size_5;
-            font-weight: normal;
+            font-size: $h_size_6;
         }
 
         h5 {
-            margin: 0 0 0.1rem 0;
             font-size: $h_size_6;
-            font-weight: normal;
         }
 
         h6 {
-            margin: 0 0 0.1rem 0;
-            font-size: $h_size_6;
-            font-weight: normal;
+            font-size: $type_size_6;
         }
 
         .posts-subtitle {
-            margin: 0;
+            margin: -0.75rem 0 1rem;
+
             color: $gray;
+
+            font-size: $type_size_7;
         }
 
-        .contents {
-            &.center {
-                text-align: center;
+        .contents.center {
+            text-align: center;
+        }
+
+        blockquote {
+            padding-inline: 0.5rem;
+            margin: 1rem;
+
+            background-color: $lighter_gray;
+
+            font-style: normal;
+        }
+
+        .quotation.quotes {
+            margin: 1rem auto;
+
+            border: 0;
+
+            background-color: transparent;
+
+            color: $black;
+
+            font-family: $serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+
+            &::before {
+                margin-bottom: -1.25rem;
+
+                content: "\201C";
             }
-        }
 
-        .quotation {
-            &.quotes {
-                margin: 1rem auto;
-                border: 0;
-                background-color: transparent;
-                color: $black;
+            &::after {
+                margin-top: 0.75rem;
+                margin-bottom: -1.25rem;
+
+                content: "\201D";
+            }
+
+            &::before,
+            &::after {
+                display: block;
+
+                color: $light_gray;
+
                 font-family: $serif;
-                font-size: 1.5rem;
-                font-style: italic;
+                font-size: 3rem;
+                font-style: normal;
                 font-weight: bold;
-                line-height: 1.5;
-                text-align: center;
-
-                &::before {
-                    content: "\201C";  // "
-                    margin-bottom: -1.25rem;  // Why does it have gap?
-                }
-
-                &::after {
-                    content: "\201D";  // "
-                    margin-top: 0.75rem;
-                    margin-bottom: -1.25rem;
-                }
-
-                &::before,
-                &::after {
-                    display: block;
-                    color: $light_gray;
-                    font-family: $serif;
-                    font-size: 3rem;
-                    font-style: normal;
-                    font-weight: bold;
-                    line-height: 1;
-                }
-
-                p {
-                    margin: 0;
-                }
+                line-height: 1;
             }
-        }
 
-        @media (max-width: 768px) {
-            .quotation
-                &.quotes {
-                    max-width: 100%;
-                    margin: 1rem auto;
-                    font-size: 1rem;
-                    line-height: 2;
-
-                &::before,
-                &::after {
-                    font-size: 3rem;
-                }
+            p {
+                margin: 0;
             }
         }
 
@@ -317,8 +349,9 @@
             }
 
             a {
+                color: $primary_color;
+
                 text-decoration: none;
-                color: $blue;
 
                 &:hover {
                     text-decoration: underline;
@@ -328,34 +361,37 @@
         }
 
         .end-of-post {
+            display: block;
+
+            padding: 0 0 1rem;
+
+            color: $black;
+
+            border-bottom: 1px solid $light_gray;
+
             font-size: $h_size_3;
-            font-weight: normal;
+            font-weight: bold;
         }
     }
 }
 
-blockquote {
-    padding-inline: 0.5rem;
-    margin: 1rem 1rem;
-    background-color: $lighter_gray;
-    font-style: normal;
-}
-
-.post__footer {
-    margin-top: 3rem;
+.post__tags,
+.post__share {
+    margin-top: 5rem;
 
     font-family: $bitmap_sans_serif;
 }
 
 .post__tags + .post__share {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
-.post__footer-title {
+.post__section-title {
     margin: 0 0 0.75rem;
 
     color: $black;
 
+    font-family: $bitmap_sans_serif;
     font-size: $type_size_8;
     font-weight: bold;
     line-height: 1.5;
@@ -374,13 +410,17 @@ blockquote {
     color: $gray;
 
     font-size: $type_size_9;
+    font-weight: bold;
     line-height: 1.5;
     text-decoration: none;
 
-    &:hover {
-        color: $blue;
+    &:visited {
+        color: $gray;
+    }
 
-        font-weight: bold;
+    &:hover {
+        color: $primary_color;
+
         text-decoration: none;
     }
 
@@ -389,9 +429,9 @@ blockquote {
     }
 
     &:focus-visible {
-        color: $blue;
+        color: $primary_color;
 
-        outline: 2px solid $blue;
+        outline: 2px solid $primary_color;
     }
 }
 
@@ -406,6 +446,7 @@ blockquote {
 
     color: $black;
 
+    font-family: $bitmap_sans_serif;
     font-size: $type_size_8;
     font-weight: bold;
     line-height: 1.5;
@@ -436,9 +477,11 @@ blockquote {
     text-decoration: none;
 
     &:hover {
-        color: $blue;
-
         text-decoration: none;
+
+        .related_post_metadata > * {
+            color: $primary_color;
+        }
 
         .related_post_teaser {
             transform: scale(1.02);
@@ -450,7 +493,11 @@ blockquote {
     }
 
     &:focus-visible {
-        outline: 2px solid $blue;
+        outline: 2px solid $primary_color;
+
+        .related_post_metadata > * {
+            color: $primary_color;
+        }
     }
 }
 
@@ -491,8 +538,9 @@ blockquote {
 .related_post_date {
     overflow: hidden;
 
-    white-space: nowrap;
     text-overflow: ellipsis;
+    transition: color 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .related_post_category {
@@ -505,11 +553,12 @@ blockquote {
 }
 
 .related_post_title {
-    margin: 0 0 0.1rem;
+    margin: 0;
 
-    color: inherit;
+    color: $black;
 
-    font-size: $type_size_8;
+    font-family: $sans_serif;
+    font-size: $type_size_7;
     font-weight: bold;
     line-height: 1.5;
 }
@@ -519,12 +568,13 @@ blockquote {
 
     color: $gray;
 
+    font-family: $sans_serif;
     font-size: $type_size_9;
     line-height: 1.5;
 }
 
 .related_post_date {
-    margin: 0.75rem 0 0;
+    margin: 0.25rem 0 0;
 
     color: $gray;
 
@@ -533,11 +583,13 @@ blockquote {
 }
 
 @media (max-width: 768px) {
-    .page__inner-wrap {
+    .post__header {
         .page__title {
-            font-size: 28px;
+            font-size: 1.75rem;
         }
+    }
 
+    .post {
         .page__content {
             h1 {
                 font-size: 1.5rem;
@@ -548,11 +600,27 @@ blockquote {
             }
 
             h3 {
+                font-size: 1.125rem;
+            }
+
+            h4,
+            h5,
+            h6 {
                 font-size: 1rem;
             }
 
-            h4 {
+            .quotation.quotes {
+                max-width: 100%;
+
+                margin: 1rem auto;
+
                 font-size: 1rem;
+                line-height: 2;
+
+                &::before,
+                &::after {
+                    font-size: 3rem;
+                }
             }
         }
     }

@@ -782,5 +782,3 @@ header:
 <br><br>
 
 <p class="end-of-post">End of Post.</p>
-
----

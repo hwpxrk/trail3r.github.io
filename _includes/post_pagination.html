@@ -1,14 +1,58 @@
-{% if page.previous or page.next %}
-  <nav class="pagination">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html | strip}}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
-    {% else %}
-      <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+<!-- Render previous and next posts in the same category. -->
+
+
+{% assign pagination_category = include.category | default: page.categories.first %}
+
+{% if pagination_category %}
+    {% assign pagination_posts = site.categories[pagination_category] | reverse %}
+{% else %}
+    {% assign pagination_posts = site.posts | reverse %}
+{% endif %}
+
+{% assign previous_post = nil %}
+{% assign next_post = nil %}
+
+{% for pagination_post in pagination_posts %}
+    {% if pagination_post.url == page.url %}
+        {% assign previous_post_index = forloop.index0 | minus: 1 %}
+        {% assign next_post_index = forloop.index0 | plus: 1 %}
+
+        {% if previous_post_index >= 0 %}
+            {% assign previous_post = pagination_posts[previous_post_index] %}
+        {% endif %}
+
+        {% if next_post_index < pagination_posts.size %}
+            {% assign next_post = pagination_posts[next_post_index] %}
+        {% endif %}
+
+        {% break %}
     {% endif %}
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html | strip}}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
-    {% else %}
-      <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
-    {% endif %}
-  </nav>
+{% endfor %}
+
+{% if previous_post or next_post %}
+    <nav class="post_pagination" aria-label="같은 카테고리의 이전 및 다음 게시글">
+        {% if previous_post %}
+            <a class="post_pagination_item previous" href="{{ previous_post.url | relative_url }}">
+                <span class="post_pagination_label"><span aria-hidden="true">&larr;</span> 이전 게시글</span>
+                <span class="post_pagination_title">{{ previous_post.title | escape_once }}</span>
+            </a>
+        {% else %}
+            <div class="post_pagination_item previous disabled" aria-disabled="true">
+                <span class="post_pagination_label"><span aria-hidden="true">&larr;</span> 이전 게시글</span>
+                <span class="post_pagination_title">첫 번째 게시글입니다.</span>
+            </div>
+        {% endif %}
+
+        {% if next_post %}
+            <a class="post_pagination_item next" href="{{ next_post.url | relative_url }}">
+                <span class="post_pagination_label">다음 게시글 <span aria-hidden="true">&rarr;</span></span>
+                <span class="post_pagination_title">{{ next_post.title | escape_once }}</span>
+            </a>
+        {% else %}
+            <div class="post_pagination_item next disabled" aria-disabled="true">
+                <span class="post_pagination_label">다음 게시글 <span aria-hidden="true">&rarr;</span></span>
+                <span class="post_pagination_title">마지막 게시글입니다.</span>
+            </div>
+        {% endif %}
+    </nav>
 {% endif %}

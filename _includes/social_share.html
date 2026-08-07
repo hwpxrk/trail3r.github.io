@@ -1,11 +1,4 @@
-{% comment %}
-게시글을 외부 서비스로 공유하거나 URL을 복사하는 아이콘 목록을 렌더링합니다.
-
-연관(Related)
-------------
-"_sass/customs/_social-share.scss": 공유 아이콘 목록의 디자인을 정의합니다.
-"assets/js/customs/social-share.js": URL 복사 버튼의 동작을 제어합니다.
-{% endcomment %}
+<!-- Render post sharing links and the URL copy button. -->
 
 
 {% assign post_url = page.url | absolute_url %}
@@ -16,12 +9,12 @@
     <ul class="post__share-list">
         <li class="post__share-item">
             <a
-                class="post__share-link"
+                class="post__share-link x"
                 href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&amp;{% endif %}text={{ post_share_text | strip | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X로 공유"
                 title="X로 공유"
+                aria-label="X로 공유"
             >
                 <i class="fab fa-x-twitter" aria-hidden="true"></i>
             </a>
@@ -29,12 +22,12 @@
 
         <li class="post__share-item">
             <a
-                class="post__share-link"
+                class="post__share-link facebook"
                 href="https://www.facebook.com/sharer/sharer.php?u={{ post_url | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook으로 공유"
                 title="Facebook으로 공유"
+                aria-label="Facebook으로 공유"
             >
                 <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
@@ -42,12 +35,12 @@
 
         <li class="post__share-item">
             <a
-                class="post__share-link"
+                class="post__share-link linkedin"
                 href="https://www.linkedin.com/sharing/share-offsite/?url={{ post_url | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn으로 공유"
                 title="LinkedIn으로 공유"
+                aria-label="LinkedIn으로 공유"
             >
                 <i class="fab fa-linkedin" aria-hidden="true"></i>
             </a>
@@ -55,12 +48,12 @@
 
         <li class="post__share-item">
             <a
-                class="post__share-link"
+                class="post__share-link bluesky"
                 href="https://bsky.app/intent/compose?text={{ post_share_text | strip | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Bluesky로 공유"
                 title="Bluesky로 공유"
+                aria-label="Bluesky로 공유"
             >
                 <i class="fab fa-bluesky" aria-hidden="true"></i>
             </a>
@@ -70,10 +63,10 @@
             <button
                 class="post__share-copy-button"
                 type="button"
-                aria-label="URL 복사"
                 title="URL 복사"
                 data-copy-url-button
                 data-copy-url="{{ post_url }}"
+                aria-label="URL 복사"
             >
                 <i class="fas fa-link" aria-hidden="true"></i>
             </button>
@@ -89,7 +82,7 @@
     </div>
 {% else %}
     <section class="post__share" aria-labelledby="post-share-title">
-        <h2 class="post__footer-title" id="post-share-title">공유하기</h2>
+        <h2 class="post__section-title" id="post-share-title">공유하기</h2>
 
         {{ share_list }}
     </section>

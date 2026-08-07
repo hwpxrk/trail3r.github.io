@@ -32,6 +32,10 @@
 
 /* Layout specific */
 @import "minimal-mistakes/page";
+@import "minimal-mistakes/page_taxonomy";
+@import "minimal-mistakes/posts";
+@import "minimal-mistakes/social_share";
+@import "minimal-mistakes/post_pagination";
 @import "minimal-mistakes/archive";
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";

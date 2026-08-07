@@ -392,5 +392,3 @@ featured: true
 
 
 <span class="end-of-post">End of Post.</span>
-
----

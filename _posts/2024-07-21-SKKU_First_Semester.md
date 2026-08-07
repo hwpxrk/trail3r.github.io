@@ -1033,8 +1033,6 @@ OMS 최고 ㅎㅎ!! 미국도 놀라고 일본도 놀라고 우리 엄마도 놀
 
 <p class="end-of-post">End of Post.</p>
 
----
-
 <br><br>
 
 &emsp;끝난 줄 알았죠?<br>
@@ -1083,5 +1081,3 @@ KTX N카드 구매 횟수 및 비용 : 3회 구매 - 49,800원<br>
 <br><br>
 
 <p class="end-of-post">End of Post.</p>
-
----

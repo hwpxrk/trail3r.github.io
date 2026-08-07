@@ -106,5 +106,3 @@ header:
 ​
 
 <p class="end-of-post">To Be Continued</p>
-
----

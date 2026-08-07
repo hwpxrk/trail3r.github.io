@@ -20,14 +20,8 @@ search: false
 
 @import "customs/posts_archive";  // 게시판 스타일링
 
-@import "customs/posts/posts";  // 게시글 스타일링
 @import "customs/posts/table";  // 게시글 도표 스타일링
 @import "customs/posts/image"; // 게시글 내 이미지 배치 스타일링
 @import "customs/posts/seperator";  // 게시글 내 구분선 스타일링
 @import "customs/posts/opengraph";  // OpenGraph 카드 스타일링
 @import "customs/codeblock";  // Tree Sitter 구문 강조기 (Syntax Highlighter) 코드블럭 스타일링
-
-@import "customs/page__taxonomy";  // 게시글 하단 카테고리, 태그, 날짜 메타데이터 스타일링
-@import "customs/social-share.scss";  // URL 복사 버튼 스타일링
-
-@import "customs/post_pagination";  // 게시글 하단 페이지네이션 스타일링

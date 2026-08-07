@@ -1,11 +1,4 @@
-/*
-게시글 하단에서 이전 글과 다음 글을 좌우로 나누어 표시하는 페이지네이션의 디자인을 정의합니다.
-
-연관(Related)
-------------
-"_includes/customs/post_pagination.html": 페이지네이션의 HTML 마크업과 탐색 순서를 정의합니다.
-*/
-
+/* Post pagination styles. */
 
 .post_pagination {
     display: grid;
@@ -25,7 +18,7 @@
     flex-direction: column;
 
     min-width: 0;
-    min-height: 5rem;
+    min-height: 4.5rem;
 
     padding: 1rem 0;
 
@@ -54,7 +47,7 @@
     }
 
     &:not(.disabled):hover {
-        color: $blue;
+        color: $primary_color;
 
         text-decoration: none;
     }
@@ -64,9 +57,9 @@
     }
 
     &:not(.disabled):focus-visible {
-        color: $blue;
+        color: $primary_color;
 
-        outline: 2px solid $blue;
+        outline: 2px solid $primary_color;
     }
 
     &.disabled {
@@ -88,11 +81,12 @@
 
     overflow: hidden;
 
-    margin-top: 0.5rem;
+    margin-top: 0;
 
     color: $black;
 
-    font-size: $type_size_8;
+    font-family: $sans_serif;
+    font-size: $type_size_7;
     font-weight: bold;
     line-height: 1.5;
 
@@ -106,7 +100,7 @@
 .post_pagination_item:not(.disabled):hover,
 .post_pagination_item:not(.disabled):focus-visible {
     .post_pagination_title {
-        color: $blue;
+        color: $primary_color;
     }
 }
 
@@ -118,7 +112,7 @@
 
 @media (max-width: 768px) {
     .post_pagination_item {
-        min-height: 4.5rem;
+        min-height: 4rem;
 
         &.previous {
             padding-right: 0.75rem;

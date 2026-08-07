@@ -1,11 +1,4 @@
-/*
-게시글 하단에 표시하는 공유 아이콘 목록의 디자인을 정의합니다.
-
-연관(Related)
-------------
-"_includes/customs/social-share.html": 공유 아이콘 목록의 HTML 마크업을 정의합니다.
-*/
-
+/* Social share styles. */
 
 .post__share-list {
     display: flex;
@@ -52,7 +45,6 @@
 
     &:hover,
     &.is-copied {
-        color: $blue;
         opacity: 1;
 
         text-decoration: none;
@@ -63,15 +55,46 @@
     }
 
     &:focus-visible {
-        color: $blue;
         opacity: 1;
 
-        outline: 2px solid $blue;
+        outline: 2px solid currentColor;
+    }
+}
+
+.post__share-link {
+    &:visited {
+        color: $gray;
+    }
+
+    &.x:hover,
+    &.x:focus-visible {
+        color: $x_color;
+    }
+
+    &.facebook:hover,
+    &.facebook:focus-visible {
+        color: $facebook_color;
+    }
+
+    &.linkedin:hover,
+    &.linkedin:focus-visible {
+        color: $linkedin_color;
+    }
+
+    &.bluesky:hover,
+    &.bluesky:focus-visible {
+        color: $bluesky_color;
     }
 }
 
 .post__share-copy-button {
     cursor: pointer;
+
+    &:hover,
+    &:focus-visible,
+    &.is-copied {
+        color: $black;
+    }
 }
 
 .post__share-menu {

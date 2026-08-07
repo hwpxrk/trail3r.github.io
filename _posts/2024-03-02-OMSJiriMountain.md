@@ -461,5 +461,3 @@ header:
 <br><br>
 
 <span class="end-of-post">End of Post.</span>
-
----
