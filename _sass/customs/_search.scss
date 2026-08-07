@@ -19,9 +19,14 @@
     }
 
     .search-input {
-        font-family: $bitmap_sans_serif;
+        font-family: $sans_serif;
         font-size: $type_size_5;
-        font-weight: normal;
+        font-weight: bold;
+
+        &::placeholder {
+            font-family: $bitmap_sans_serif;
+            font-weight: normal;
+        }
 
         @include breakpoint($large) {
             font-size: $type_size_4;
@@ -75,7 +80,7 @@
         }
 
         &:hover {
-            color: $blue;
+            color: $primary_color;
 
             text-decoration: none;
 
@@ -84,7 +89,7 @@
             .search_result_subtitle,
             .search_result_tags,
             .search_result_date {
-                color: $blue;
+                color: $primary_color;
 
                 text-decoration: none;
             }
@@ -166,7 +171,7 @@
 
         color: $black;
 
-        font-family: $bitmap_sans_serif;
+        font-family: $sans_serif;
         font-size: $type_size_8;
         font-weight: bold;
         line-height: 1.5;
@@ -184,6 +189,7 @@
 
         color: $gray;
 
+        font-family: $sans_serif;
         font-size: $type_size_9;
         line-height: 1.5;
 
