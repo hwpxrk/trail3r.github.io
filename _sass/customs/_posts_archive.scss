@@ -64,22 +64,26 @@
 
     .posts_archive_metadata {
         display: grid;
-        grid-template-rows: auto auto 1.6em minmax(0, 1fr) auto;
+        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
 
         min-width: 0;
-
-        padding: 0.1rem 0;
 
         font-family: $sans_serif;
 
         > * {
+            margin: 0;
+
+            line-height: 1;
+
             transition: color 0.2s ease-in-out;
         }
 
         .posts_archive_category {
             overflow: hidden;
 
-            margin: 0 0 0.25rem 0;
+            min-height: 1em;
+
+            margin-bottom: 0.5rem;
 
             color: $gray;
 
@@ -93,8 +97,10 @@
         .posts_archive_title {
             overflow: hidden;
 
-            margin: 0;
+            min-height: 1em;
+
             padding: 0;
+            margin: 0 0 0.25rem 0;
 
             color: $black;
 
@@ -108,7 +114,9 @@
         .posts_archive_subtitle {
             overflow: hidden;
 
-            margin: 0 0 0.25rem 0;
+            min-height: 1em;
+
+            margin-bottom: 0.5rem;
             padding: 0;
 
             color: $gray;
@@ -125,11 +133,9 @@
 
             align-self: start;
 
-            margin: 0;
-
             color: $gray;
 
-            font-size: $type_size_7;
+            font-size: $type_size_8;
 
             line-height: 1.25;
             line-clamp: 2;
@@ -138,6 +144,8 @@
         }
 
         .posts_archive_date {
+            min-height: 1em;
+
             color: $gray;
 
             font-family: $bitmap_sans_serif;
@@ -164,31 +172,14 @@
     }
 }
 
-@media (max-width: 1200px) {
-    .archive {
-        .posts_archive_metadata {
-            .posts_archive_excerpt {
-                line-clamp: 1;
-                -webkit-line-clamp: 1;
-            }
-        }
-    }
-}
-
-@media (max-width: 1024px) {
-    .archive {
-        .posts_archive_metadata {
-            padding: 0;
-
-            .posts_archive_category {
-                margin: 0;
-            }
-        }
-    }
-}
-
 @media (max-width: 768px) {
     .archive {
+        .posts_archive_metadata {
+            .posts_archive_title {
+                margin-bottom: 0.25rem;
+            }
+        }
+
         .posts_archive_item {
             padding: 1rem 0;
 
