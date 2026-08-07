@@ -333,10 +333,15 @@ header:
 <center><img src="/assets/images/posts/daily/Tesla_Review/20240915_Tesla_Review_6.jpeg"></center><br>
 &emsp;테슬라 모델3 2024년형에서 가장 마음에 안 드는 부분이에요. 핸들 뒤 레버가 없어요. 예뻐요. 진짜 예쁜데요, 미1친건가요 테슬라...? 스크린 터치로 기어를 바꾸는 게 말이나 되나요? 적응하면 편하다...로 커버칠 수 없어요. 이건 안전과 직결된 문제니까요. 당장 급해 죽겠는데 언제 스크린에 손 뻗어서 차량 심볼을 쭈욱 슬라이드 해서 후진으로 바꾸고 핸들 잡고 다시 손 뻗어서 전진으로 바꾸고... 어휴... 이건 분명한 실수라고 생각해요. 적응하면 편하다는 말은 일상적인 주행에서나 해당되는 말이고, 스크린에 심볼로만 나타난다는 것은 직관적이지 못하다 생각해요. 전 세계 수많은 자동차 회사가 수십 년간 P-R-N-D를 유지한 이유가 있는데, 미니멀리즘 실현을 위해 기어봉까지 없애고 스크린을 통해 변속한다라... 이 부분은 다소 아쉽다고 생각하네요.<br>
 
-<video controls playsinline preload="metadata" style="width: 100%;">
-    <source src="/assets/images/posts/daily/Tesla_Review/20240915_Tesla_Review_7.mp4" type="video/mp4">
-    브라우저가 동영상을 지원하지 않습니다.
-</video>
+<iframe
+    width="1600"
+    height="900"
+    src="https://www.youtube.com/embed/T8jnqw2ouY4"
+    title="Tesla Model 3 Long Range 품평회: 기어봉을 없애는 파격적인 혁신"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen="allowfullscreen"></iframe>
 &emsp;근데 저는 뭐... 급할 땐 이미 죽을 때라는 마인드로 자기 합리화 중 ㅎ <span style="color: #808080;">(자본주의에 굴복당했습니다.)</span><br>
 
 &emsp;아 물론, 비상 깜빡이 양쪽으로 물리 버튼을 통한 기어 변속도 가능하게 만들어 놓았습니다. 다만, 차량의 천장에 붙어있다 보니 직관적이지 못하다는 점이 심각하게 아쉬울 뿐이죠
@@ -448,10 +453,15 @@ header:
 
 &emsp;모델3에서 가장 만족스러운 점을 꼽아보라고 한다면, EAP 다음으로는 사운드를 내세우고 싶어요. 롱레인지는 스피커가 17개라고 알고 있어요. 14개 + 우퍼 3개인데요! 진짜... 말이 안 돼요. 테슬라는 차량의 스피커를 중요하게 생각해서 사운드 엔지니어가 아예 따로 있다던데, 만족감이 장난 아니에요. 같이 일하는 선배 중에 한 분도 주차해놓고 유튜브로 the ocean 듣고 감격했어요. 차에서 노래 듣는데 귀가 즐겁다고 해야 할까요! 영상으로 보시죠.<br>
 
-<video controls playsinline preload="metadata" style="width: 100%;">
-    <source src="/assets/images/posts/daily/Tesla_Review/20240915_Tesla_Review_15.mp4" type="video/mp4">
-    브라우저가 동영상을 지원하지 않습니다.
-</video>
+<iframe
+    width="1600"
+    height="897"
+    src="https://www.youtube.com/embed/4VW8pS19l7k"
+    title="Tesla Model 3 Long Range 품평회: EAP만큼 만족스러운 것, 사운드"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen="allowfullscreen"></iframe>
 &emsp;녹음을 위해서 마이크를 별도로 준비한 게 아니라 잘 담기지는 않았어요. 이어폰 끼고 볼륨을 절반 이상으로 하면 느낌이 비슷하긴 하더라고요. 휴대폰으로 촬영한 거라 이거에 5배 정도는 퀄리티가 높다고 생각하면 좋겠네요. 진짜 만족스럽습니다...<br>
 
 <br><br>

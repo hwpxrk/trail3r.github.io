@@ -73,10 +73,15 @@ header:
 <center><img src="/assets/images/posts/campuslife/Enrollment/20240304_Enrollment_10.jpeg"></center><br>
 &emsp;킹고 응원단도 왔어요. 귓가에 맴도는 그 소리... 박쑤우----!!<br>
 
-<video controls playsinline preload="metadata" style="width: 100%;">
-    <source src="/assets/images/posts/campuslife/Enrollment/20240304_Enrollment_11.mp4" type="video/mp4">
-    브라우저가 동영상을 지원하지 않습니다.
-</video>
+<iframe
+    width="1600"
+    height="900"
+    src="https://www.youtube.com/embed/7k3vh8IUPhg"
+    title="성균관대학교 24학번 입학식: 성균관대학교 24학번 반쪽짜리 입학식"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen="allowfullscreen"></iframe>
 &emsp;이번 입학식에서 제가 가장 좋아하는 그 장면이에요. 다 같이 종이비행기 날리는 장면!!! 낭만 치사량으로 치솟아서 쓰러질 뻔했는데 겨우 참았답니다 ㅎㅎ. 아 설렌다 ㅎㅎ<br>
 
 <center><img src="/assets/images/posts/campuslife/Enrollment/20240304_Enrollment_12.jpeg"></center><br>
