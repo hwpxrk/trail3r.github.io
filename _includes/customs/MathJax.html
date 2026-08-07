@@ -1,16 +1,61 @@
-<script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+<style>
+    .mathjax_loading .page__content {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .page__content {
+        transition: opacity 0.5s ease;
+    }
+</style>
+
+<script>
+    document.documentElement.classList.add("mathjax_loading");
+
+    const reveal_mathjax_content = () => {
+        document.documentElement.classList.remove("mathjax_loading");
+    };
+    const mathjax_loading_timeout = window.setTimeout(
+        reveal_mathjax_content,
+        5000,
+    );
+
+    window.MathJax = {
+        options: {
+            a11y: {
+                braille: false,
+                speech: false,
+            },
+            enableExplorer: false,
+            enableExplorerHelp: false,
+            enableMenu: false,
+            menuOptions: {
+                settings: {
+                    braille: false,
+                    speech: false,
+                },
+            },
+        },
+        startup: {
+            pageReady: () => {
+                return MathJax.startup.defaultPageReady().finally(() => {
+                    window.clearTimeout(mathjax_loading_timeout);
+                    reveal_mathjax_content();
+                });
+            },
+        },
+        tex: {
+            inlineMath: {
+                "[+]": [
+                    ["$", "$"],
+                ],
+            },
+        },
+    };
 </script>
 
-<script type="text/x-mathjax-config">
-   MathJax.Hub.Config({
-     extensions: ["tex2jax.js"],
-     jax: ["input/TeX", "output/HTML-CSS"],
-     tex2jax: {
-       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-       processEscapes: true
-     },
-     "HTML-CSS": { availableFonts: ["TeX"] }
-   });
-</script>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+    onerror="document.documentElement.classList.remove('mathjax_loading')"
+></script>
