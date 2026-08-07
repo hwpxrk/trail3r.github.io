@@ -166,7 +166,7 @@
 
         transition: color 0.2s ease;
 
-        .links-icon {
+        .links_icon {
             display: block;
 
             flex: 0 0 auto;
@@ -189,7 +189,7 @@
             font-weight: bold;
             text-decoration: none;
 
-            .links-icon {
+            .links_icon {
                 opacity: 1;
             }
         }
@@ -203,7 +203,7 @@
 
             outline: 2px solid $blue;
 
-            .links-icon {
+            .links_icon {
                 opacity: 1;
             }
         }

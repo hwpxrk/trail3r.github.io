@@ -402,8 +402,6 @@ defaults:
       layout: post
       author_profile: false
       active_sidebar: false
-      sidebar:
-        nav: "sidebar"
       read_time: false
       comments: true
       share: true

@@ -1,15 +1,4 @@
-{% comment %}
-좌측 사이드바에 작성자 프로필과 팔로우 링크를 렌더링합니다.
-
-참고사항(Notes)
--------------
-페이지의 "active_sidebar"가 활성화되면 작성자 프로필 아래에 카테고리 메뉴를 렌더링합니다.
-
-연관(Related)
-------------
-"_includes/customs/sidebar_navigation.html": 사이드바의 카테고리 메뉴를 렌더링합니다.
-"_sass/customs/_sidebar.scss": 사이드바의 레이아웃과 디자인을 정의합니다.
-{% endcomment %}
+<!-- Render profile on the sidebar. -->
 
 
 {% assign author_reference = page.author | default: page.authors[0] | default: site.author %}
@@ -36,7 +25,7 @@
 
         {% if follow_links and follow_links.size > 0 %}
             <div class="sidebar_follow">
-                <p class="sidebar_follow_label">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</p>
+                <!-- <p class="sidebar_follow_label">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</p> -->
 
                 <ul class="sidebar_follow_list">
                     {% for link in follow_links %}
@@ -53,6 +42,6 @@
     </div>
 
     {% if page.active_sidebar %}
-        {% include customs/sidebar_navigation.html %}
+        {% include sidebar_navigation.html %}
     {% endif %}
 </div>
