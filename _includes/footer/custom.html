@@ -1,15 +1,4 @@
-{% comment %}
-사이트 하단에 작성자 프로필, 팔로우 링크, 사이트맵과 저작권 정보를 렌더링합니다.
-
-참고사항(Notes)
--------------
-사이트맵은 "_data/navigation.yml"의 "main" 메뉴에 명시된 순서를 따라 렌더링됩니다.
-
-연관(Related)
-------------
-"_data/navigation.yml": 사이트맵에 표시할 카테고리와 하위 메뉴를 정의합니다.
-"_sass/customs/_footer.scss": 푸터의 레이아웃과 디자인을 정의합니다.
-{% endcomment %}
+<!-- Render footer. -->
 
 
 {% assign author = site.author %}
@@ -82,7 +71,7 @@
         {% else %}
             {{ current_year }}
         {% endif %}
-        <span class="footer_copyright_text_site_title">{{ site.copyright | default: site.title | escape_once | strip }}.</span> 모든 권리 보유.
+        <a class="footer_copyright_text_site_title" href="{{ '/' | relative_url }}">{{ site.copyright | default: site.title | escape_once | strip }}</a>. 모든 권리 보유.
         {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
         <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>
         &amp;

@@ -1,26 +1,91 @@
-{% unless site.atom_feed.hide %}
-  {% assign show_atom = true %}
-{% endunless %}
-{% if site.footer.links or show_atom %}
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
+{% comment %}
+사이트 하단에 작성자 프로필, 팔로우 링크, 사이트맵과 저작권 정보를 렌더링합니다.
 
-    {% if site.footer.links %}
-      {% for link in site.footer.links %}
-        {% if link.label and link.url %}
-          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label | escape_once | strip }}</a></li>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+참고사항(Notes)
+-------------
+사이트맵은 "_data/navigation.yml"의 "main" 메뉴에 명시된 순서를 따라 렌더링됩니다.
 
-    {% unless site.atom_feed.hide %}
-      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endunless %}
-  </ul>
+연관(Related)
+------------
+"_data/navigation.yml": 사이트맵에 표시할 카테고리와 하위 메뉴를 정의합니다.
+"_sass/minimal-mistakes/_footer.scss": 푸터의 레이아웃과 디자인을 정의합니다.
+{% endcomment %}
+
+
+{% assign author = site.author %}
+{% assign current_year = site.time | date: "%Y" %}
+
+<div class="footer_contents">
+    <div class="footer_profile">
+        <a class="footer_profile_link" href="{{ '/' | relative_url }}">
+            <div class="footer_profile_header">
+                {% if author.avatar %}
+                    <img class="footer_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                {% endif %}
+
+                {% if author.name %}
+                    <span class="footer_profile_name">{{ author.name | escape_once }}</span>
+                {% endif %}
+            </div>
+
+            {% if author.bio %}
+                <div class="footer_profile_bio">{{ author.bio | markdownify }}</div>
+            {% endif %}
+        </a>
+    </div>
+
+    <nav class="footer_sitemap" aria-label="사이트맵">
+        {% for menu in site.data.navigation.main %}
+            <div class="footer_sitemap_group">
+                <p class="footer_sitemap_title">{{ menu.title | escape_once }}</p>
+
+                <ul class="footer_sitemap_list">
+                    {% if menu.children and menu.children.size > 0 %}
+                        {% for submenu in menu.children %}
+                            <li class="footer_sitemap_item">
+                                <a class="footer_sitemap_link" href="{{ submenu.url | relative_url }}">{{ submenu.title | escape_once }}</a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="footer_sitemap_item">
+                            <a class="footer_sitemap_link" href="{{ menu.url | relative_url }}">{{ menu.title | escape_once }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endfor %}
+    </nav>
 </div>
+
+{% if author.links and author.links.size > 0 %}
+    <div class="footer_follow">
+        <p class="footer_follow_label">팔로우</p>
+
+        <ul class="footer_follow_list">
+            {% for link in author.links %}
+                <li class="footer_follow_item">
+                    <a class="footer_follow_link" href="{{ link.url }}" rel="me">
+                        {% include customs/links-icon.html icon=link.icon %}
+                        <span class="footer_follow_link_label">{{ link.label | escape_once }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endif %}
 
-<div class="page__footer-copyright">&copy; {% assign site_time = site.time | date: '%Y' %}{% if site.footer.since and site_time != site.footer.since %}{{ site.footer.since }} - {% endif %}{{ site_time }} <a href="{{ site.copyright_url | default: site.url }}">{{ site.copyright | default: site.title | escape_once | strip }}</a>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="footer_copyright">
+    <p class="footer_copyright_text">
+        Copyright &copy;
+        {% if site.footer.since and site.footer.since != current_year %}
+            {{ site.footer.since }}&ndash;{{ current_year }}
+        {% else %}
+            {{ current_year }}
+        {% endif %}
+        <a class="footer_copyright_text_site_title" href="{{ '/' | relative_url }}">{{ site.copyright | default: site.title | escape_once | strip }}</a>. 모든 권리 보유.
+        {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
+        <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>
+        &amp;
+        <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.
+    </p>
+</div>

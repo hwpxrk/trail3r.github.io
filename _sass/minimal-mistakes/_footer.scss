@@ -1,83 +1,385 @@
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+/*
+사이트 하단의 작성자 프로필, 사이트맵과 저작권 영역의 레이아웃과 디자인을 정의합니다.
+
+참고사항(Notes)
+-------------
+데스크톱에서는 프로필과 사이트맵을 나란히 표시하고 모바일에서는 위아래로 나누어 표시합니다.
+사이트맵은 데스크톱에서 네 열, 모바일에서 두 열로 표시합니다.
+
+연관(Related)
+------------
+"_includes/footer.html": 푸터의 HTML 마크업 구조를 정의합니다.
+*/
+
 
 .page__footer {
-  @include clearfix;
-  float: inline-start;
-  margin-inline: 0;
-  width: 100%;
-  margin-top: 3em;
-  color: $muted_text_color;
-  -webkit-animation: $intro_transition;
-  animation: $intro_transition;
-  -webkit-animation-delay: 0.45s;
-  animation-delay: 0.45s;
-  background-color: $footer_background_color;
+    margin-top: 5rem;
 
-  footer {
-    @include clearfix;
-    margin-inline: auto;
-    margin-top: 2em;
-    max-width: 100%;
-    padding: 0 1em 2em;
+    background: $footer_background_color;
 
-    @include breakpoint($x_large) {
-      max-width: $x_large;
+    footer {
+        max-width: $x_large;
+
+        padding: 2rem 1rem 1rem;
+        margin: 0 auto;
     }
-  }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+    .footer_contents {
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+        column-gap: 3rem;
 
-    &:hover {
-      text-decoration: underline;
+        align-items: start;
     }
-  }
 
-  .fas,
-  .fab,
-  .far,
-  .fal {
-    color: $muted_text_color;
-  }
+    .footer_profile {
+        min-width: 0;
+
+        font-family: $bitmap_sans_serif;
+    }
+
+    .footer_profile_link {
+        display: block;
+
+        width: fit-content;
+
+        color: $black;
+
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+
+        &:visited {
+            color: $black;
+        }
+
+        &:hover {
+            color: $primary_color;
+
+            font-weight: bold;
+            text-decoration: none;
+
+            .footer_profile_bio {
+                color: $primary_color;
+
+                font-weight: normal;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $primary_color;
+        }
+    }
+
+    .footer_profile_header {
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.5rem;
+    }
+
+    .footer_profile_avatar {
+        display: block;
+
+        width: 2rem;
+        height: 2rem;
+
+        object-fit: contain;
+    }
+
+    .footer_profile_name {
+        font-size: $type_size_8;
+        font-weight: bold;
+        line-height: 1.25;
+    }
+
+    .footer_profile_bio {
+        max-width: 12rem;
+
+        margin: 0.5rem 0;
+
+        color: $gray;
+
+        transition: color 0.2s ease;
+
+        p {
+            margin: 0;
+
+            font-family: $bitmap_sans_serif;
+            font-size: $type_size_10;
+            line-height: 1.5;
+        }
+    }
+
+    .footer_follow {
+        display: flex;
+
+        align-items: center;
+
+        margin-top: 3rem;
+
+        gap: 1.5rem;
+    }
+
+    .footer_follow_label {
+        flex: 0 0 auto;
+
+        margin: 0;
+
+        color: $black;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .footer_follow_list {
+        display: flex;
+
+        align-items: center;
+        flex-wrap: wrap;
+
+        padding: 0;
+        margin: 0;
+
+        gap: 1.5rem;
+
+        list-style: none;
+    }
+
+    .footer_follow_item {
+        margin: 0;
+    }
+
+    .footer_follow_link {
+        display: flex;
+
+        align-items: center;
+
+        min-width: 0;
+
+        padding: 0.15rem 0;
+
+        color: $gray;
+
+        font-family: $bitmap_sans_serif;
+        text-decoration: none;
+
+        transition: color 0.2s ease;
+
+        .links_icon {
+            display: block;
+
+            flex: 0 0 auto;
+
+            width: 0.75rem;
+            height: 0.75rem;
+
+            opacity: 0.5;
+
+            transition: opacity 0.2s ease;
+        }
+
+        &:visited {
+            color: $gray;
+        }
+
+        &:hover {
+            color: $primary_color;
+
+            font-weight: bold;
+            text-decoration: none;
+
+            .links_icon {
+                opacity: 1;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            color: $primary_color;
+
+            outline: 2px solid $primary_color;
+
+            .links_icon {
+                opacity: 1;
+            }
+        }
+    }
+
+    .footer_follow_link_label {
+        margin-left: 0.5rem;
+
+        font-size: $type_size_10;
+        line-height: 1.5;
+
+        white-space: nowrap;
+    }
+
+    .footer_sitemap {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 3rem;
+    }
+
+    .footer_sitemap_group {
+        min-width: 0;
+    }
+
+    .footer_sitemap_title {
+        margin: 0 0 0.25rem;
+
+        color: $black;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_9;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .footer_sitemap_list {
+        display: grid;
+
+        padding: 0;
+        margin: 0;
+
+        row-gap: 0.25rem;
+
+        list-style: none;
+    }
+
+    .footer_sitemap_item {
+        margin: 0;
+    }
+
+    .footer_sitemap_link {
+        display: block;
+
+        overflow: hidden;
+
+        max-width: 100%;
+
+        color: $gray;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_9;
+
+        white-space: nowrap;
+        text-decoration: none;
+        text-overflow: ellipsis;
+
+        transition: color 0.2s ease;
+
+        &:visited {
+            color: $gray;
+        }
+
+        &:hover {
+            color: $primary_color;
+
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            color: $primary_color;
+
+            outline: 2px solid $primary_color;
+        }
+    }
+
+    .footer_copyright {
+        padding: 0.5rem 0 0;
+        margin: 0.25rem 0 0;
+
+        border-top: 1px solid $light_gray;
+    }
+
+    .footer_copyright_text {
+        margin: 0;
+
+        color: $gray;
+
+        font-family: $bitmap_sans_serif;
+        font-size: $type_size_10;
+        line-height: 1.5;
+
+        .footer_copyright_text_site_title {
+            color: $black;
+        }
+
+        a {
+            color: inherit;
+
+            text-decoration: none;
+
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $primary_color;
+
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                color: $primary_color;
+
+                font-weight: bold;
+
+                outline: 2px solid $primary_color;
+            }
+        }
+    }
 }
 
-.page__footer-copyright {
-  font-family: $global_font_family;
-  font-size: $type_size_7;
-}
+@media (max-width: 768px) {
+    .page__footer {
+        margin-top: 3rem;
 
-.page__footer-follow {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
+        footer {
+            padding-top: 2rem;
+        }
 
-  li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: $sans_serif_narrow;
-    font-size: $type_size_6;
-    text-transform: uppercase;
-  }
+        .footer_contents {
+            grid-template-columns: minmax(0, 1fr);
+            row-gap: 2.5rem;
+        }
 
-  li + li::before {
-    content: "";
-    padding-inline-end: 5px;
-  }
+        .footer_sitemap {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem 1.5rem;
+        }
 
-  a {
-    padding-inline-end: 10px;
-    font-weight: bold;
-  }
+        .footer_follow {
+            align-items: flex-start;
 
-  .social-icons {
-    a {
-      white-space: nowrap;
+            gap: 0.75rem;
+        }
+
+        .footer_follow_list {
+            gap: 0.5rem 1rem;
+        }
+
+        .footer_copyright {
+            margin-top: 1rem;
+        }
     }
-  }
 }
