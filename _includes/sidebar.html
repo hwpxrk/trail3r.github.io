@@ -1,15 +1,4 @@
-{% comment %}
-Minimal Mistakes 테마 기본 파일: 페이지 좌측에 사이드바를 렌더링합니다.
-
-참고사항(Notes)
--------------
-"author_profile: true"일 때 사이드바를 렌더링합니다.
-
-연관(Related)
-------------
-"_includes/sidebar_profile.html": 작성자 프로필과 카테고리 메뉴를 렌더링합니다.
-"_includes/nav_list": "page.sidebar.nav"에 지정된 네비게이션을 렌더링합니다.
-{% endcomment %}
+<!-- Render the page sidebar. -->
 
 
 {% if page.author_profile or layout.author_profile or page.sidebar %}
@@ -19,21 +8,21 @@ Minimal Mistakes 테마 기본 파일: 페이지 좌측에 사이드바를 렌�
         {% endif %}
 
         {% if page.sidebar %}
-            {% for sidebar in page.sidebar %}
-                {% if sidebar.image %}
-                    <img src="{{ sidebar.image | relative_url }}" alt="{{ sidebar.image_alt | default: '' | escape_once }}">
+            {% for sidebar_item in page.sidebar %}
+                {% if sidebar_item.image %}
+                    <img src="{{ sidebar_item.image | relative_url }}" alt="{{ sidebar_item.image_alt | default: "" | escape_once }}" loading="lazy" decoding="async">
                 {% endif %}
 
-                {% if sidebar.title %}
-                    <h3>{{ sidebar.title | escape_once }}</h3>
+                {% if sidebar_item.title %}
+                    <h3>{{ sidebar_item.title | escape_once }}</h3>
                 {% endif %}
 
-                {% if sidebar.text %}
-                    {{ sidebar.text | markdownify }}
+                {% if sidebar_item.text %}
+                    {{ sidebar_item.text | markdownify }}
                 {% endif %}
 
-                {% if sidebar.nav %}
-                    {% include nav_list nav=sidebar.nav %}
+                {% if sidebar_item.nav %}
+                    {% include nav_list nav=sidebar_item.nav %}
                 {% endif %}
             {% endfor %}
 

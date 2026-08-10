@@ -1,19 +1,19 @@
-/* ==========================================================================
-   Contrast skin
-   ========================================================================== */
+/* Contrast skin */
+
+@use "sass:color";
 
 /* Colors */
-$text-color: #000 !default;
-$muted-text-color: $text-color !default;
-$primary-color: #b60000 !default;
-$border-color: mix(#fff, $text-color, 75%) !default;
-$footer-background-color: #000 !default;
-$link-color: #0000ff !default;
-$masthead-link-color: $text-color !default;
-$masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+$text_color: #000 !default;
+$muted_text_color: $text_color !default;
+$primary_color: #b60000 !default;
+$border_color: color.mix(#fff, $text_color, 75%) !default;
+$footer_background_color: #000 !default;
+$link_color: #0000ff !default;
+$masthead_link_color: $text_color !default;
+$masthead_link_color_hover: $text_color !default;
+$navicon_link_color_hover: color.mix(#fff, $text_color, 80%) !default;
 
-/* contrast syntax highlighting (base16) */
+/* Contrast syntax highlighting */
 $base00: #000000 !default;
 $base01: #242422 !default;
 $base02: #484844 !default;
@@ -31,22 +31,26 @@ $base0d: #96cbfe !default;
 $base0e: #ff73fd !default;
 $base0f: #b18a3d !default;
 
-.page__content {
-  .notice,
-  .notice--primary,
-  .notice--info,
-  .notice--warning,
-  .notice--success,
-  .notice--danger {
-    color: $text-color;
-  }
+.page_content {
+    .notice,
+    .notice_primary,
+    .notice_info,
+    .notice_warning,
+    .notice_success,
+    .notice_danger {
+        color: $text_color;
+    }
 }
 
-.page__footer {
-  color: #fff !important; // override
+.page_footer {
+    color: #fff !important;
 }
 
-.page__footer-follow .social-icons i,
-.page__footer-follow .social-icons .svg-inline--fa  {
-  color: inherit;
+.footer_follow {
+    .social_icons {
+        i,
+        .svg-inline--fa {
+            color: inherit;
+        }
+    }
 }

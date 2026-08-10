@@ -1,0 +1,36 @@
+/* Post separators */
+
+
+.page_content {
+    hr {
+        margin: 1.5rem 0;
+    }
+
+    .separator_vertical {
+        display: block;
+
+        width: 2px;
+        height: 3rem;
+
+        margin: 1rem auto;
+
+        background: $gray;
+
+        opacity: 0.75;
+    }
+
+    .separator_narrow {
+        display: block;
+
+        width: 10rem;
+        height: 2px;
+
+        margin: 1.5rem auto;
+
+        border: 0;
+
+        background: $gray;
+
+        opacity: 0.75;
+    }
+}

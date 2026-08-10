@@ -594,18 +594,18 @@ ne-NP:
 # Korean
 # ------
 ko: &DEFAULT_KO
-  skip_links                 :
-  skip_primary_nav           :
-  skip_content               :
-  skip_footer                :
+  skip_links                 : "빠른 이동"
+  skip_primary_nav           : "주요 메뉴로 이동"
+  skip_content               : "본문으로 이동"
+  skip_footer                : "푸터로 이동"
   page                       : "페이지"
   pagination_previous        : "이전"
   pagination_next            : "다음"
-  breadcrumb_home_label      : "Home"
+  breadcrumb_home_label      : "홈"
   breadcrumb_separator       : "/"
   menu_label                 : "토글 메뉴"
   search_label               :
-  toc_label                  : "On This Page"
+  toc_label                  : "목차"
   ext_link_label             : "직접 링크"
   less_than                  : "최대"
   minute_read                : "분 소요"
@@ -614,7 +614,7 @@ ko: &DEFAULT_KO
   tags_label                 : "태그:"
   categories_label           : "카테고리:"
   date_label                 : "업데이트:"
-  comments_label             : "댓글남기기"
+  comments_label             : "댓글 남기기"
   comments_title             : "댓글"
   more_label                 : "더 보기"
   related_label              : "참고"

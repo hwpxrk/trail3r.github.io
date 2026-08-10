@@ -1,35 +1,38 @@
 ---
 ---
 
-<!doctype html>
+
+<!DOCTYPE html>
 {% include copyright.html %}
-<html lang="{{ site.locale | replace: "_", "-" | default: "en" }}" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
+<html class="no_js" lang="{{ site.locale | replace: "_", "-" | default: "en" }}">
+    <head>
+        {% include head.html %}
+        {% include head/custom.html %}
+    </head>
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached masthead.html %}
+    <body class="layout_{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: " " | prepend: " " }}{% endif %}"
+        dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}"
+    >
+        {% include_cached skip-links.html %}
+        {% include masthead.html %}
 
-    <div class="initial-content">
-      {{ content }}
-      {% include after-content.html %}
-    </div>
+        <div class="initial_content">
+            {{ content }}
+            {% include after-content.html %}
+        </div>
 
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include_cached search/search_form.html %}
-      </div>
-    {% endif %}
+        {% if site.search == true and page.layout != "search" %}
+            <div class="search_content" id="site_search">
+                {% include_cached search/search_form.html %}
+            </div>
+        {% endif %}
 
-    <div class="page__footer" id="footer">
-      <footer>
-        {%- include_cached footer/custom.html -%}
-      </footer>
-    </div>
+        <div class="page_footer" id="footer">
+            <footer>
+                {% include_cached footer/custom.html %}
+            </footer>
+        </div>
 
-    {% include scripts.html %}
-  </body>
+        {% include scripts.html %}
+    </body>
 </html>

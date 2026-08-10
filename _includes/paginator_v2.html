@@ -5,7 +5,7 @@
     <ul class="paginator_list">
         {% if paginator.page > 1 %}
             <li class="paginator_item control first">
-                <a class="paginator_link" href="{{ paginator.first_page_path | remove: 'index.html' | relative_url }}" aria-label="첫 페이지">&laquo;</a>
+                <a class="paginator_link" href="{{ paginator.first_page_path | remove: "index.html" | relative_url }}" aria-label="첫 페이지">&laquo;</a>
             </li>
         {% else %}
             <li class="paginator_item control first disabled">
@@ -15,7 +15,7 @@
 
         {% if paginator.previous_page %}
             <li class="paginator_item control previous">
-                <a class="paginator_link" href="{{ paginator.previous_page_path | remove: 'index.html' | relative_url }}" aria-label="이전 페이지" rel="previous">&lsaquo;</a>
+                <a class="paginator_link" href="{{ paginator.previous_page_path | remove: "index.html" | relative_url }}" aria-label="이전 페이지" rel="previous">&lsaquo;</a>
             </li>
         {% else %}
             <li class="paginator_item control previous disabled">
@@ -24,14 +24,14 @@
         {% endif %}
 
         {% if paginator.page_trail.size > 0 %}
-            {% for page_trail in paginator.page_trail %}
-                {% if paginator.page == page_trail.num %}
+            {% for pagination_page in paginator.page_trail %}
+                {% if paginator.page == pagination_page.num %}
                     <li class="paginator_item selected">
-                        <span class="paginator_link" aria-current="page">{{ page_trail.num }}</span>
+                        <span class="paginator_link" aria-current="page">{{ pagination_page.num }}</span>
                     </li>
                 {% else %}
                     <li class="paginator_item">
-                        <a class="paginator_link" href="{{ page_trail.path | remove: 'index.html' | relative_url }}" aria-label="{{ page_trail.num }}페이지로 이동">{{ page_trail.num }}</a>
+                        <a class="paginator_link" href="{{ pagination_page.path | remove: "index.html" | relative_url }}" aria-label="{{ pagination_page.num }}페이지로 이동">{{ pagination_page.num }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
@@ -43,7 +43,7 @@
 
         {% if paginator.next_page %}
             <li class="paginator_item control next">
-                <a class="paginator_link" href="{{ paginator.next_page_path | remove: 'index.html' | relative_url }}" aria-label="다음 페이지" rel="next">&rsaquo;</a>
+                <a class="paginator_link" href="{{ paginator.next_page_path | remove: "index.html" | relative_url }}" aria-label="다음 페이지" rel="next">&rsaquo;</a>
             </li>
         {% else %}
             <li class="paginator_item control next disabled">
@@ -53,7 +53,7 @@
 
         {% if paginator.page < paginator.total_pages %}
             <li class="paginator_item control last">
-                <a class="paginator_link" href="{{ paginator.last_page_path | remove: 'index.html' | relative_url }}" aria-label="마지막 페이지">&raquo;</a>
+                <a class="paginator_link" href="{{ paginator.last_page_path | remove: "index.html" | relative_url }}" aria-label="마지막 페이지">&raquo;</a>
             </li>
         {% else %}
             <li class="paginator_item control last disabled">

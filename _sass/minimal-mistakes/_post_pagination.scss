@@ -1,5 +1,6 @@
 /* Post pagination styles. */
 
+
 .post_pagination {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -57,9 +58,9 @@
     }
 
     &:not(.disabled):focus-visible {
-        color: $primary_color;
-
         outline: 2px solid $primary_color;
+
+        color: $primary_color;
     }
 
     &.disabled {

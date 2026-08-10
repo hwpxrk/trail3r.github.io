@@ -1,115 +1,98 @@
-/* ==========================================================================
-   NOTICE TEXT BLOCKS
-   ========================================================================== */
+/* Notice blocks */
 
-/**
- *  Default Kramdown usage (no indents!):
- *  <div class="notice" markdown="1">
- *  #### Headline for the Notice
- *  Text for the notice
- *  </div>
- */
+@use "sass:color";
+@use "sass:selector";
 
-@mixin notice($notice-color) {
-  margin: 2em 0 !important;  /* override*/
-  padding: 1em;
-  color: $text_color;
-  font-family: $global_font_family;
-  font-size: $type_size_6 !important;
-  text-indent: initial; /* override*/
-  background-color: mix($background_color, $notice-color, $notice_background_mix);
-  border-radius: $border_radius;
-  box-shadow: 0 1px 1px rgba($notice-color, 0.25);
 
-  h4 {
-    margin-top: 0 !important; /* override*/
-    margin-bottom: 0.75em;
-    line-height: inherit;
-  }
+@mixin apply_notice($notice_color) {
+    padding: 1em;
+    margin: 2em 0 !important;
 
-  @at-root .page__content #{&} h4 {
-    /* using at-root to override .page-content h4 font size*/
-    margin-bottom: 0;
-    font-size: 1em;
-  }
+    border-radius: $border_radius;
 
-  p {
-    &:last-child {
-      margin-bottom: 0 !important; /* override*/
+    background-color: color.mix($background_color, $notice_color, $notice_background_mix);
+    box-shadow: 0 1px 1px rgba($notice_color, 0.25);
+
+    color: $text_color;
+
+    font-family: $global_font_family;
+    font-size: $type_size_6 !important;
+
+    text-indent: initial;
+
+    h4 {
+        margin-top: 0 !important;
+        margin-bottom: 0.75em;
+
+        line-height: inherit;
+
+        .page_content & {
+            margin-bottom: 0;
+
+            font-size: 1em;
+        }
     }
-  }
 
-  h4 + p {
-    /* remove space above paragraphs that appear directly after notice headline*/
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  a {
-    color: mix(#000, $notice-color, 10%);
-
-    &:hover {
-      color: mix(#000, $notice-color, 50%);
+    p:last-child {
+        margin-bottom: 0 !important;
     }
-  }
 
-  @at-root #{selector-unify(&, "blockquote")} {
-    border-inline-start-color: mix(#000, $notice-color, 10%);
-  }
-
-  code {
-    background-color: mix($background_color, $notice-color, $code_notice_background_mix)
-  }
-
-	pre code {
-		background-color: inherit;
-	}
-
-  ul {
-    &:last-child {
-      margin-bottom: 0; /* override*/
+    h4 + p {
+        padding-top: 0;
+        margin-top: 0;
     }
-  }
+
+    a {
+        color: color.mix(#000, $notice_color, 10%);
+
+        &:hover {
+            color: color.mix(#000, $notice_color, 50%);
+        }
+    }
+
+    @at-root #{selector.unify(&, "blockquote")} {
+        border-inline-start-color: color.mix(#000, $notice_color, 10%);
+    }
+
+    code {
+        background-color: color.mix($background_color, $notice_color, $code_notice_background_mix);
+    }
+
+    pre code {
+        background-color: inherit;
+    }
+
+    ul:last-child {
+        margin-bottom: 0;
+    }
 }
-
-/* Default notice */
 
 .notice,
 .markdown-alert {
-  @include notice($light_gray);
+    @include apply_notice($light_gray);
 }
 
-/* Primary notice */
-
-.notice--primary,
+.notice_primary,
 .markdown-alert-important {
-  @include notice($primary_color);
+    @include apply_notice($primary_color);
 }
 
-/* Info notice */
-
-.notice--info,
+.notice_info,
 .markdown-alert-note {
-  @include notice($info_color);
+    @include apply_notice($info_color);
 }
 
-/* Warning notice */
-
-.notice--warning,
+.notice_warning,
 .markdown-alert-warning {
-  @include notice($warning_color);
+    @include apply_notice($warning_color);
 }
 
-/* Success notice */
-
-.notice--success,
+.notice_success,
 .markdown-alert-tip {
-  @include notice($success_color);
+    @include apply_notice($success_color);
 }
 
-/* Danger notice */
-
-.notice--danger,
+.notice_danger,
 .markdown-alert-caution {
-  @include notice($danger_color);
+    @include apply_notice($danger_color);
 }

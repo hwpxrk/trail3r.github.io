@@ -1,14 +1,25 @@
-<script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '{{ site.analytics.google.tracking_id }}']);
-  {% if site.analytics.google.anonymize_ip == true %}
-    _gaq.push(['_gat._anonymizeIp']);
-  {% endif %}
-  _gaq.push(['_trackPageview']);
+<!-- Load legacy Google Analytics. -->
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+
+<script>
+    window._gaq = window._gaq || [];
+    window._gaq.push(["_setAccount", {{ site.analytics.google.tracking_id | jsonify }}]);
+
+    {% if site.analytics.google.anonymize_ip == true %}
+        window._gaq.push(["_gat._anonymizeIp"]);
+    {% endif %}
+
+    window._gaq.push(["_trackPageview"]);
+
+    (() => {
+        "use strict";
+
+        const first_script = document.getElementsByTagName("script")[0];
+        const script = document.createElement("script");
+        const analytics_host = document.location.protocol === "https:" ? "https://ssl" : "http://www";
+
+        script.src = `${analytics_host}.google-analytics.com/ga.js`;
+        script.async = true;
+        first_script.parentNode.insertBefore(script, first_script);
+    })();
 </script>

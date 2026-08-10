@@ -1,6 +1,7 @@
 /* Page taxonomy styles. */
 
-.page-taxonomy {
+
+.page_taxonomy {
     margin-top: 1rem;
 
     color: $gray;
@@ -8,7 +9,7 @@
     font-size: $type_size_9;
 }
 
-.page-taxonomy__body {
+.page_taxonomy_body {
     display: flex;
 
     align-items: baseline;
@@ -18,11 +19,11 @@
     margin: 0.5rem 0;
 }
 
-.page-taxonomy__label {
+.page_taxonomy_label {
     white-space: nowrap;
 }
 
-.page-taxonomy__tokens {
+.page_taxonomy_tokens {
     display: flex;
 
     align-items: center;
@@ -31,7 +32,7 @@
     gap: 0.25rem;
 }
 
-.page-taxonomy__token {
+.page_taxonomy_token {
     padding: 0.1rem 0.5rem;
 
     border: 1px solid $light_gray;
@@ -42,6 +43,7 @@
     font-size: $type_size_9;
     font-weight: bold;
     line-height: 1.2;
+
     text-decoration: none;
 
     &:visited {
@@ -63,14 +65,40 @@
     &:focus-visible {
         border-color: $primary_color;
 
-        color: $primary_color;
-
         outline: 2px solid $primary_color;
+
+        color: $primary_color;
     }
 }
 
-.page-taxonomy__date {
+.page_taxonomy_date {
     margin-top: 0.5rem;
 
     font-size: $type_size_9;
+}
+
+.back_to_top {
+    display: block;
+
+    clear: both;
+
+    padding-top: 0.25rem;
+
+    color: $gray;
+
+    font-family: $bitmap_sans_serif;
+    font-size: 0.6em;
+
+    text-align: end;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:visited {
+        color: $gray;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $primary_color;
+    }
 }

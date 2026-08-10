@@ -1,7 +1,17 @@
+<!-- Load Universal Analytics. -->
+
+
 <script>
-  window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-  ga('create','{{ site.analytics.google.tracking_id }}','auto');
-  ga('set', 'anonymizeIp', {{ site.analytics.google.anonymize_ip | default: false }});
-  ga('send','pageview')
+    window.ga = function () {
+        window.ga.q.push(arguments);
+    };
+
+    window.ga.q = [];
+    window.ga.l = Date.now();
+
+    ga("create", {{ site.analytics.google.tracking_id | jsonify }}, "auto");
+    ga("set", "anonymizeIp", {{ site.analytics.google.anonymize_ip | default: false | jsonify }});
+    ga("send", "pageview");
 </script>
+
 <script src="https://www.google-analytics.com/analytics.js" async></script>

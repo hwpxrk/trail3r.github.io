@@ -29,7 +29,7 @@ $helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif !default;
 
 // Serif
 $transitional: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-$old_style: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;;
+$old_style: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
 $monospace_slab_serif: 'Nimbus Mono PS', 'Courier New', monospace;
 $slab_serif: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;
 $antique: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
@@ -94,12 +94,12 @@ $white: #fcfcff !default;        // True White: RGB (252, 252, 255)
 $red: #e8282b !default;          // True Red: RGB (232, 40, 43)
 $orange: #f0852d !default;       // True Orange: RGB (240, 133, 45)
 $yellow: #ecd803 !default;       // True Yellow: RGB (236, 216, 3)
-$light_green: #00a267 !default;  // Emerald Light Green: RGB (0, 162, 103)
+$light_green: #008552 !default;  // Accessible Emerald Green: RGB (0, 133, 82)
 $green: #10771a !default;        // True Green: RGB (16, 119, 26)
 $light_blue: #add8e6 !default;   // Light Blue: RGB (173, 216, 230)
 $blue: #1643a2 !default;         // True Blue: RGB (22, 67, 162)
 $purple: #562270 !default;       // True Purple: RGB (86, 34, 112)
-$gray: #949494 !default;         // True Gray: RGB (148, 148, 148)
+$gray: #737373 !default;         // Accessible Gray: RGB (115, 115, 115)
 $black: #0a0b0b !default;        // True Black: RGB (10, 11, 11)
 $light_gray: color.mix($white, $gray, 50%) !default;
 $lighter_gray: color.mix($white, $gray, 90%) !default;
@@ -158,9 +158,9 @@ $youtube_color: #bb0000 !default;
 $xing_color: #006567 !default;
 
 // Links
-$link_color: color.mix($black, $info_color, 20%) !default;
-$link_color_hover: color.mix($black, $link_color, 25%) !default;
-$link_color_visited: color.mix($white, $link_color, 15%) !default;
+$link_color: $primary_color !default;
+$link_color_hover: $green !default;
+$link_color_visited: $green !default;
 $masthead_link_color: $primary_color !default;
 $masthead_link_color_hover: color.mix($black, $primary_color, 25%) !default;
 $navicon_link_color_hover: color.mix($white, $primary_color, 75%) !default;
@@ -204,7 +204,7 @@ $codeblock_dark_variable: #c9d1d9 !default;
 $codeblock_dark_variable_builtin: $codeblock_dark_function !default;
 $codeblock_dark_module: #4ec9b0 !default;
 $codeblock_dark_punctuation_bracket: #ffd700 !default;
-$codeblock_dark_punctuation_delimeter: #cccccc !default;
+$codeblock_dark_punctuation_delimiter: #cccccc !default;
 $codeblock_dark_punctuation_special: #da70d6 !default;
 $codeblock_dark_error: #f48661 !default;
 $codeblock_dark_number: #b5cea8 !default;

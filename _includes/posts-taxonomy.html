@@ -1,4 +1,9 @@
-{% if include.type == "category" %}
+<!-- Render category and tag archives. -->
+
+
+{% assign taxonomy_type = include.taxonomy_type | default: include.type %}
+
+{% if taxonomy_type == "category" %}
     {% assign category_pages = site.pages | where_exp: "category_page", "category_page.categories" %}
 
     <div class="taxonomy_archive">
@@ -9,7 +14,7 @@
                     {% assign category_page = category_pages | where_exp: "page", "page.categories contains category" | first %}
 
                     {% if category_page %}
-                        {% assign category_posts = site.categories[category] %}
+                        {% assign category_posts = site.categories[category] | where_exp: "post", "post.hidden != true" %}
                         {% assign category_post_count = category_posts | size %}
                         {% assign category_slug = category | slugify %}
 
@@ -35,7 +40,7 @@
             {% for navigation_item in navigation_menu.children %}
                 {% assign category = navigation_item.title %}
                 {% assign category_page = category_pages | where_exp: "page", "page.categories contains category" | first %}
-                {% assign category_posts = site.categories[category] %}
+                {% assign category_posts = site.categories[category] | where_exp: "post", "post.hidden != true" %}
                 {% assign category_post_count = category_posts | size %}
                 {% assign category_slug = category | slugify %}
 
@@ -45,31 +50,36 @@
 
                         <div class="taxonomy_archive_posts">
                             {% for post in category_posts %}
-                                {% include archive-single.html type="taxonomy" %}
+                                {% include archive-single.html archive_layout="taxonomy" %}
                             {% endfor %}
                         </div>
 
-                        <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                        <a class="back_to_top" href="#page_title">{{ site.data.ui-text[site.locale].back_to_top | default: "Back to Top" }} &uarr;</a>
                     </section>
                 {% endif %}
             {% endfor %}
         {% endfor %}
     </div>
-{% elsif include.type == "tag" %}
+{% elsif taxonomy_type == "tag" %}
     {% assign maximum_tag_post_count = 0 %}
     {% assign tag_index_limit = 15 %}
     {% assign rendered_tag_count = 0 %}
-    {% assign tag_count = site.tags | size %}
-    {% assign hidden_tag_count = tag_count | minus: tag_index_limit %}
+    {% assign visible_tag_count = 0 %}
 
     {% for tag in site.tags %}
-        {% assign tag_posts = tag[1] %}
+        {% assign tag_posts = tag[1] | where_exp: "post", "post.hidden != true" %}
         {% assign tag_post_count = tag_posts | size %}
+
+        {% if tag_post_count > 0 %}
+            {% assign visible_tag_count = visible_tag_count | plus: 1 %}
+        {% endif %}
 
         {% if tag_post_count > maximum_tag_post_count %}
             {% assign maximum_tag_post_count = tag_post_count %}
         {% endif %}
     {% endfor %}
+
+    {% assign hidden_tag_count = visible_tag_count | minus: tag_index_limit %}
 
     <div class="taxonomy_archive js_tag_archive">
         <div class="tag_archive_index">
@@ -77,7 +87,7 @@
                 {% for post_count in (1..maximum_tag_post_count) reversed %}
                     {% for tag in site.tags %}
                         {% assign tag_name = tag[0] %}
-                        {% assign tag_posts = tag[1] %}
+                        {% assign tag_posts = tag[1] | where_exp: "post", "post.hidden != true" %}
                         {% assign tag_post_count = tag_posts | size %}
 
                         {% if tag_post_count == post_count %}
@@ -105,7 +115,7 @@
         {% for post_count in (1..maximum_tag_post_count) reversed %}
             {% for tag in site.tags %}
                 {% assign tag_name = tag[0] %}
-                {% assign tag_posts = tag[1] %}
+                {% assign tag_posts = tag[1] | where_exp: "post", "post.hidden != true" %}
                 {% assign tag_post_count = tag_posts | size %}
 
                 {% if tag_post_count == post_count %}
@@ -116,33 +126,39 @@
 
                         <div class="taxonomy_archive_posts">
                             {% for post in tag_posts %}
-                                {% include archive-single.html type="taxonomy" %}
+                                {% include archive-single.html archive_layout="taxonomy" %}
                             {% endfor %}
                         </div>
 
-                        <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                        <a class="back_to_top" href="#page_title">{{ site.data.ui-text[site.locale].back_to_top | default: "Back to Top" }} &uarr;</a>
                     </section>
                 {% endif %}
             {% endfor %}
         {% endfor %}
     </div>
 {% else %}
-    {% assign items_max = 0 %}
+    {% assign maximum_taxonomy_post_count = 0 %}
 
-    {% for item in include.taxonomies %}
-        {% if item[1].size > items_max %}
-            {% assign items_max = item[1].size %}
+    {% for taxonomy_item in include.taxonomies %}
+        {% assign taxonomy_posts = taxonomy_item[1] | where_exp: "post", "post.hidden != true" %}
+        {% assign taxonomy_post_count = taxonomy_posts | size %}
+
+        {% if taxonomy_post_count > maximum_taxonomy_post_count %}
+            {% assign maximum_taxonomy_post_count = taxonomy_post_count %}
         {% endif %}
     {% endfor %}
 
-    <ul class="taxonomy__index">
-        {% for item_count in (1..items_max) reversed %}
-            {% for item in include.taxonomies %}
-                {% if item[1].size == item_count %}
+    <ul class="taxonomy_index">
+        {% for post_count in (1..maximum_taxonomy_post_count) reversed %}
+            {% for taxonomy_item in include.taxonomies %}
+                {% assign taxonomy_posts = taxonomy_item[1] | where_exp: "post", "post.hidden != true" %}
+                {% assign taxonomy_post_count = taxonomy_posts | size %}
+
+                {% if taxonomy_post_count == post_count %}
                     <li>
-                        <a href="#{{ item[0] | slugify }}">
-                            <strong>{{ item[0] }}</strong>
-                            <span class="taxonomy__count">{{ item_count }}</span>
+                        <a class="taxonomy_link" href="#{{ taxonomy_item[0] | slugify }}">
+                            <strong>{{ taxonomy_item[0] }}</strong>
+                            <span class="taxonomy_count">{{ post_count }}</span>
                         </a>
                     </li>
                 {% endif %}
@@ -152,19 +168,22 @@
 
     {% assign entries_layout = page.entries_layout | default: "list" %}
 
-    {% for item_count in (1..items_max) reversed %}
-        {% for taxonomy in include.taxonomies %}
-            {% if taxonomy[1].size == item_count %}
-                <section class="taxonomy__section" id="{{ taxonomy[0] | slugify }}">
-                    <h2 class="archive__subtitle">{{ taxonomy[0] }}</h2>
+    {% for post_count in (1..maximum_taxonomy_post_count) reversed %}
+        {% for taxonomy_item in include.taxonomies %}
+            {% assign taxonomy_posts = taxonomy_item[1] | where_exp: "post", "post.hidden != true" %}
+            {% assign taxonomy_post_count = taxonomy_posts | size %}
 
-                    <div class="entries-{{ entries_layout }}">
-                        {% for post in taxonomy.last %}
-                            {% include archive-single.html type=entries_layout %}
+            {% if taxonomy_post_count == post_count %}
+                <section class="taxonomy_archive_section" id="{{ taxonomy_item[0] | slugify }}">
+                    <h2 class="taxonomy_archive_title">{{ taxonomy_item[0] }}</h2>
+
+                    <div class="taxonomy_archive_posts">
+                        {% for post in taxonomy_posts %}
+                            {% include archive-single.html archive_layout=entries_layout %}
                         {% endfor %}
                     </div>
 
-                    <a class="back-to-top" href="#page-title">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+                    <a class="back_to_top" href="#page_title">{{ site.data.ui-text[site.locale].back_to_top | default: "Back to Top" }} &uarr;</a>
                 </section>
             {% endif %}
         {% endfor %}

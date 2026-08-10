@@ -1,56 +1,29 @@
-{% comment %}
-
-파일(File)
----------
-_includes/customs/opengraph.html
-
-기능(Functions)
---------------
-Open Graph Protocol을 통해 미리보기 카드를 렌더링 합니다.
-
-매개변수(Parameters)
-------------------
-url: 문자열(string), 필수사항(required)
-    Open Graph Protocol을 통해 미리보기 카드를 만들 URL입니다.
-
-반환값(Returns)
--------------
-HTML
-    앵커, 대표 이미지, 제목, 링크 설명, 도메인명을 가진 '.opengraph' 블록을 반환합니다.
-
-참고사항(Notes)
--------------
-Open Graph Protocol Metadata는 'jekyll-url-metadata' 플러그인에 의해 제공됩니다.
-
-예시(Examples)
--------------
-{% include customs/opengraph.html url="https://blog.naver.com/trail3r" %}
-{% include customs/opengraph.html url="https://blog.naver.com/trail3r" title="Frog Studio" %}
-
-{% endcomment %}
+<!-- Render an Open Graph preview card. -->
 
 
-{%- comment -%} 메타데이터 수집 {%- endcomment -%}
-{%- assign url = include.url -%}
-{%- assign metadata = url | metadata -%}
-{%- assign image = metadata["og:image"] | default: metadata["twitter:image"] -%}
-{%- assign title = metadata["og:title"] | default: metadata["title"] | default: domain -%}
-{%- assign description = metadata["og:description"] | default: metadata["description"] -%}
-{%- assign domain = url | replace: "https://", "" -%}
+{% assign url = include.url %}
+{% assign domain = url | replace: "https://", "" | replace: "http://", "" %}
+{% assign metadata = url | metadata %}
+{% assign image = metadata["og:image"] | default: metadata["twitter:image"] %}
+{% assign title = include.title | default: metadata["og:title"] | default: metadata["title"] | default: domain %}
+{% assign description = metadata["og:description"] | default: metadata["description"] %}
+{% capture image_url %}{{ image }}{% endcapture %}
+{% assign image_url = image_url | strip %}
 
-<div class="opengraph{% if image != blank %} has_image{% endif %}">
-    <a class="opengraph__link" href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">
-        {% if image != blank %}
-            <span class="opengraph__image">
-                <img src="{{ image | escape }}">
+<div class="opengraph{% if image_url != "" %} has_image{% endif %}">
+    <a class="opengraph_link" href="{{ url | escape }}" target="_blank" rel="noopener noreferrer">
+        {% if image_url != "" %}
+            <span class="opengraph_image">
+                <img src="{{ image_url | escape }}" alt="" loading="lazy" decoding="async">
             </span>
         {% endif %}
-        <span class="opengraph__body">
-            <strong class="opengraph__title">{{ title | escape }}</strong>
-            {%- if description -%}
-                <span class="opengraph__description">{{ description | escape }}</span>
-            {%- endif -%}
-            <span class="opengraph__domain">{{ domain | escape }}</span>
+
+        <span class="opengraph_body">
+            <strong class="opengraph_title">{{ title | escape }}</strong>
+            {% if description %}
+                <span class="opengraph_description">{{ description | escape }}</span>
+            {% endif %}
+            <span class="opengraph_domain">{{ domain | escape }}</span>
         </span>
     </a>
 </div>

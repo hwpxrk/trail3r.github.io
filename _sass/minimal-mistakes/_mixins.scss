@@ -1,92 +1,58 @@
-/* ==========================================================================
-   MIXINS
-   ========================================================================== */
+/* Shared Sass helpers */
 
-%tab-focus {
-  /* Default*/
-  outline: thin dotted $focus_color;
-  /* Webkit*/
-  outline: 5px auto $focus_color;
-  outline-offset: -2px;
+@use "sass:color";
+@use "sass:math";
+
+
+%tab_focus {
+    outline: 2px solid $focus_color;
 }
 
-/*
-   em function
-   ========================================================================== */
-
-@function em($target, $context: $doc_font_size) {
-  @return ($target / $context) * 1em;
-}
-
-
-/*
-   Bourbon clearfix
-   ========================================================================== */
-
-/*
-  * Provides an easy way to include a clearfix for containing floats.
-  * link http://cssmojo.com/latest_new_clearfix_so_far/
-  *
-  * example scss - Usage
-  *
-  * .element {
-  *   @include clearfix;
-  * }
-  *
-  * example css - CSS Output
-  *
-  * .element::after {
-  *   clear: both;
-  *   content: "";
-  *   display: table;
-  * }
-*/
-
-@mixin clearfix {
-  clear: both;
-
-  &::after {
+@mixin apply_clearfix {
     clear: both;
-    content: "";
-    display: table;
-  }
+
+    &::after {
+        content: "";
+
+        display: table;
+
+        clear: both;
+    }
 }
 
-/*
-   Compass YIQ Color Contrast
-   https://github.com/easy-designs/yiq-color-contrast
-   ========================================================================== */
+@function is_yiq_light($color, $threshold: $yiq_contrasted_threshold) {
+    $red: color.channel($color, "red", $space: rgb);
+    $green: color.channel($color, "green", $space: rgb);
+    $blue: color.channel($color, "blue", $space: rgb);
+    $yiq: math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000);
 
-@function yiq-is-light(
-  $color,
-  $threshold: $yiq_contrasted_threshold
-) {
-  $red: red($color);
-  $green: green($color);
-  $blue: blue($color);
+    @if $yiq_debug {
+        @debug $yiq, $threshold;
+    }
 
-  $yiq: (($red*299)+($green*587)+($blue*114))/1000;
-
-  @if $yiq_debug { @debug $yiq, $threshold; }
-
-  @return if($yiq >= $threshold, true, false);
+    @return $yiq >= $threshold;
 }
 
-@function yiq-contrast-color(
-  $color,
-  $dark: $yiq_contrasted_dark_default,
-  $light: $yiq_contrasted_light_default,
-  $threshold: $yiq_contrasted_threshold
+@function get_yiq_contrast_color(
+    $color,
+    $dark: $yiq_contrasted_dark_default,
+    $light: $yiq_contrasted_light_default,
+    $threshold: $yiq_contrasted_threshold
 ) {
-  @return if(yiq-is-light($color, $threshold), $yiq_contrasted_dark_default, $yiq_contrasted_light_default);
+    @if is_yiq_light($color, $threshold) {
+        @return $dark;
+    }
+
+    @return $light;
 }
 
-@mixin yiq-contrasted(
-  $background_color,
-  $dark: $yiq_contrasted_dark_default,
-  $light: $yiq_contrasted_light_default,
-  $threshold: $yiq_contrasted_threshold
+@mixin apply_yiq_contrast(
+    $background_color,
+    $dark: $yiq_contrasted_dark_default,
+    $light: $yiq_contrasted_light_default,
+    $threshold: $yiq_contrasted_threshold
 ) {
-  background-color: $background_color;
-  color: yiq-contrast-color($background_color, $dark, $light, $threshold);
+    background-color: $background_color;
+
+    color: get_yiq_contrast_color($background_color, $dark, $light, $threshold);
 }

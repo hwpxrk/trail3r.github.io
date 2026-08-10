@@ -2,80 +2,105 @@
 layout: default
 ---
 
+
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
+    {% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
+    {% include page__hero_video.html %}
 {% endif %}
 
 {% assign breadcrumbs_enabled = site.breadcrumbs %}
+
 {% if page.breadcrumbs != null %}
-  {% assign breadcrumbs_enabled = page.breadcrumbs %}
+    {% assign breadcrumbs_enabled = page.breadcrumbs %}
 {% endif %}
+
 {% if page.url != "/" and breadcrumbs_enabled %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
+    {% unless paginator %}
+        {% include breadcrumbs.html %}
+    {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+<main id="main">
+    {% include sidebar.html %}
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
-
-    <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
-          {% if page.title -%}
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-          </h1>
-          {%- endif %}
-          {% include page__meta.html %}
-        </header>
-      {% endunless %}
-
-      <section class="page__content" itemprop="text">
-        {% if page.toc %}
-          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="table-of-contents" id="table-of-contents">
-              <header><a class="nav__title" href="#">{{ page.title }}</a></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
-          </aside>
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+        {% if page.title %}
+            <meta content="{{ page.title | replace: "|", "&#124;" | markdownify | strip_html | strip_newlines | escape_once }}" itemprop="headline">
         {% endif %}
-        <div id="table-of-content">{{ content }}</div>
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </section>
 
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% if page.excerpt %}
+            <meta content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}" itemprop="description">
         {% endif %}
-        {%- include page_taxonomy.html -%}
-      </footer>
 
-      {% if page.share %}{%- include social_share.html -%}{% endif %}
+        {% if page.date %}
+            <meta content="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% endif %}
 
-      {% if page.id and page.related %}
-        {% include related_posts.html %}
-      {% endif %}
-    </div>
+        {% if page.last_modified_at %}
+            <meta content="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+        {% endif %}
 
-    {% if site.comments.provider and page.comments %}
-      {% if jekyll.environment == 'production' %}
-        {% include comments.html %}
-      {% else %}
-        <p>
-          Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
-          but are disabled in non-production environments.
-        </p>
-      {% endif %}
-    {% endif %}
-  </article>
+        <div class="page_inner_wrap">
+            {% unless page.header.overlay_color or page.header.overlay_image %}
+                <header>
+                    {% if page.title %}
+                        <h1 class="page_title" id="page_title" itemprop="headline">
+                            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+                        </h1>
+                    {% endif %}
 
-</div>
+                    {% include page__meta.html %}
+                </header>
+            {% endunless %}
+
+            <section class="page_content" itemprop="text">
+                {% if page.toc %}
+                    <aside class="sidebar_right {% if page.toc_sticky %}sticky{% endif %}">
+                        <nav class="table_of_contents" id="table_of_contents">
+                            <header>
+                                <a class="navigation_title" href="#">{{ page.title }}</a>
+                            </header>
+                            {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc_menu" skip_no_ids=true %}
+                        </nav>
+                    </aside>
+                {% endif %}
+
+                <div id="article_content">{{ content }}</div>
+
+                {% if page.link %}
+                    <div>
+                        <a class="btn btn_primary" href="{{ page.link }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a>
+                    </div>
+                {% endif %}
+            </section>
+
+            <footer class="page_meta">
+                {% if site.data.ui-text[site.locale].meta_label %}
+                    <h4 class="page_meta_title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+                {% endif %}
+
+                {% include page_taxonomy.html %}
+            </footer>
+
+            {% if page.share %}
+                {% include social_share.html %}
+            {% endif %}
+
+            {% if page.id and page.related %}
+                {% include related_posts.html %}
+            {% endif %}
+        </div>
+
+        {% if site.comments.provider and page.comments %}
+            {% if jekyll.environment == "production" %}
+                {% include comments.html %}
+            {% else %}
+                <p>
+                    Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
+                    but are disabled in non-production environments.
+                </p>
+            {% endif %}
+        {% endif %}
+    </article>
+</main>

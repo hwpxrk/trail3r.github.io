@@ -1,82 +1,102 @@
+<!-- Load Algolia search controls. -->
+
+
 <script>
-// Including InstantSearch.js library and styling
-const loadSearch = function() {
-  const loadCSS = function(src) {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = src;
-    link.media = 'all';
-    document.head.appendChild(link);
-  };
+    (() => {
+        "use strict";
 
-  var script = document.createElement('script');
-  script.setAttribute("type", "text/javascript");
-  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
-  script.addEventListener("load", function() {
-    // Instantiating InstantSearch.js with Algolia credentials
-    const search = instantsearch({
-      appId: '{{ site.algolia.application_id }}',
-      apiKey: '{{ site.algolia.search_only_api_key }}',
-      indexName: '{{ site.algolia.index_name }}',
-      searchParameters: {
-        restrictSearchableAttributes: ['title', 'content']
-      }
-    });
+        let is_search_loaded = false;
 
-    const hitTemplate = function(hit) {
-      const url = hit.url;
-      const hightlight = hit._highlightResult;
-      const title = hightlight.title && hightlight.title.value  || "";
-      const content = hightlight.html && hightlight.html.value  || "";
+        function load_stylesheet(source) {
+            const stylesheet = document.createElement("link");
 
-      return `
-        <div class="list__item">
-          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-            <h2 class="archive__item-title" itemprop="headline"><a href="{{ site.baseurl }}${url}">${title}</a></h2>
-            <div class="archive__item-excerpt" itemprop="description">${content}</div>
-          </article>
-        </div>
-      `;
-    }
-
-    // Adding searchbar and results widgets
-    search.addWidget(
-      instantsearch.widgets.searchBox({
-        container: '.search-searchbar',
-        {% unless site.algolia.powered_by == false %}poweredBy: true,{% endunless %}
-        placeholder: '{{ site.data.ui-text[site.locale].search_placeholder_text | default: "Enter your search term..." }}'
-      })
-    );
-    search.addWidget(
-      instantsearch.widgets.hits({
-        container: '.search-hits',
-        templates: {
-          item: hitTemplate,
-          empty: '{{ site.data.ui-text[site.locale].search_algolia_no_results | default: "No results" }}',
+            stylesheet.rel = "stylesheet";
+            stylesheet.href = source;
+            stylesheet.media = "all";
+            document.head.append(stylesheet);
         }
-      })
-    );
 
-    if (!search.started) {
-      search.start();
-    }
-  });
-  document.body.appendChild(script);
+        function create_hit_template(hit) {
+            const url = hit.url;
+            const highlight = hit._highlightResult ?? {};
+            const title = highlight.title?.value ?? "";
+            const content = highlight.html?.value ?? "";
 
-  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
-  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
-};
+            return `
+                <div class="archive_list_item">
+                    <article class="archive_item" itemscope itemtype="https://schema.org/CreativeWork">
+                        <h2 class="archive_item_title" itemprop="headline">
+                            <a href="{{ site.baseurl }}${url}">${title}</a>
+                        </h2>
+                        <div class="archive_item_excerpt" itemprop="description">${content}</div>
+                    </article>
+                </div>
+            `;
+        }
 
-// Starting the search only when toggle is clicked
-$(document).ready(function() {
-  var scriptLoaded = false;
+        function initialize_algolia_search() {
+            const search = instantsearch({
+                appId: {{ site.algolia.application_id | jsonify }},
+                apiKey: {{ site.algolia.search_only_api_key | jsonify }},
+                indexName: {{ site.algolia.index_name | jsonify }},
+                searchParameters: {
+                    restrictSearchableAttributes: ["title", "content"],
+                },
+            });
 
-  $(".search__toggle").on("click", function() {
-    if (!scriptLoaded) {
-      loadSearch();
-      scriptLoaded = true;
-    }
-  });
-});
+            search.addWidget(
+                instantsearch.widgets.searchBox({
+                    container: ".search-searchbar",
+                    {% unless site.algolia.powered_by == false %}poweredBy: true,{% endunless %}
+                    placeholder: {{ site.data.ui-text[site.locale].search_placeholder_text | default: "Enter your search term..." | jsonify }},
+                }),
+            );
+            search.addWidget(
+                instantsearch.widgets.hits({
+                    container: ".search-hits",
+                    templates: {
+                        item: create_hit_template,
+                        empty: {{ site.data.ui-text[site.locale].search_algolia_no_results | default: "No results" | jsonify }},
+                    },
+                }),
+            );
+
+            if (!search.started) search.start();
+        }
+
+        function load_algolia_search() {
+            if (is_search_loaded) return;
+
+            is_search_loaded = true;
+
+            const script = document.createElement("script");
+
+            script.src = "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js";
+            script.addEventListener(
+                "load",
+                initialize_algolia_search,
+                { once: true },
+            );
+            document.body.append(script);
+
+            load_stylesheet("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css", );
+            load_stylesheet("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css", );
+        }
+
+        const search_triggers = document.querySelectorAll(
+            ".js_masthead_search_bar, .js_mobile_masthead_search_button",
+        );
+
+        search_triggers.forEach((search_trigger) => {
+            search_trigger.addEventListener(
+                "click",
+                load_algolia_search,
+                { once: true },
+            );
+        });
+
+        if (document.body.classList.contains("layout_search")) {
+            load_algolia_search();
+        }
+    })();
 </script>

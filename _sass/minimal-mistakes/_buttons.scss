@@ -1,101 +1,97 @@
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
+/* Buttons */
 
-/*
-   Default button
-   ========================================================================== */
+@use "sass:color";
+
 
 .btn {
-  /* default */
-  display: inline-block;
-  margin-bottom: 0.25em;
-  padding: 0.5em 1em;
-  font-family: $sans_serif;
-  font-size: $type_size_6;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  border-width: 0;
-  border-radius: $border_radius;
-  cursor: pointer;
+    display: inline-block;
 
-  .icon {
-    margin-inline-end: 0.5em;
-  }
+    padding: 0.5em 1em;
+    margin-bottom: 0.25em;
 
-  .icon + .hidden {
-    margin-inline-start: -0.5em; /* override for hidden text*/
-  }
+    border-width: 0;
+    border-radius: $border_radius;
 
-  /* button colors */
-  $buttoncolors:
-  (primary, $primary_color),
-  (inverse, #fff),
-  (light-outline, transparent),
-  (success, $success_color),
-  (warning, $warning_color),
-  (danger, $danger_color),
-  (info, $info_color),
-  /* brands */
-  (bluesky, $bluesky_color),
-  (facebook, $facebook_color),
-  (linkedin, $linkedin_color),
-  (mastodon, $mastodon_color),
-  (twitter, $twitter_color),
-  (x, $x_color);
+    font-family: $sans_serif;
+    font-size: $type_size_6;
+    font-weight: bold;
 
-  @each $buttoncolor, $color in $buttoncolors {
-    &--#{$buttoncolor} {
-      @include yiq-contrasted($color);
-      @if ($buttoncolor == inverse) {
-        border: 1px solid $border_color;
-      }
-      @if ($buttoncolor == light-outline) {
-        border: 1px solid #fff;
-      }
+    text-align: center;
+    text-decoration: none;
 
-      &:visited {
-        @include yiq-contrasted($color);
-      }
+    cursor: pointer;
 
-      &:hover {
-        @include yiq-contrasted(mix(#000, $color, 20%));
-      }
+    .icon {
+        margin-inline-end: 0.5em;
+
+        + .hidden {
+            margin-inline-start: -0.5em;
+        }
     }
-  }
 
-  /* fills width of parent container */
-  &--block {
-    display: block;
-    width: 100%;
+    $button_colors:
+        ("primary", $primary_color),
+        ("inverse", #fff),
+        ("light_outline", transparent),
+        ("success", $success_color),
+        ("warning", $warning_color),
+        ("danger", $danger_color),
+        ("info", $info_color),
+        ("bluesky", $bluesky_color),
+        ("facebook", $facebook_color),
+        ("linkedin", $linkedin_color),
+        ("mastodon", $mastodon_color),
+        ("twitter", $twitter_color),
+        ("x", $x_color);
 
-    + .btn--block {
-      margin-top: 0.25em;
+    @each $button_color, $color in $button_colors {
+        &_#{$button_color} {
+            @include apply_yiq_contrast($color);
+
+            @if $button_color == "inverse" {
+                border: 1px solid $border_color;
+            }
+
+            @if $button_color == "light_outline" {
+                border: 1px solid #fff;
+            }
+
+            &:visited {
+                @include apply_yiq_contrast($color);
+            }
+
+            &:hover {
+                @include apply_yiq_contrast(color.mix(#000, $color, 20%));
+            }
+        }
     }
-  }
 
-  /* disabled */
-  &--disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-    filter: alpha(opacity=65);
-    box-shadow: none;
-    opacity: 0.65;
-  }
+    &_block {
+        display: block;
 
-  /* extra large button */
-  &--x-large {
-    font-size: $type_size_4;
-  }
+        width: 100%;
 
-  /* large button */
-  &--large {
-    font-size: $type_size_5;
-  }
+        + .btn_block {
+            margin-top: 0.25em;
+        }
+    }
 
-  /* small button */
-  &--small {
-    font-size: $type_size_7;
-  }
+    &_disabled {
+        box-shadow: none;
+        opacity: 0.65;
+
+        pointer-events: none;
+    }
+
+    &_x_large {
+        font-size: $type_size_4;
+    }
+
+    &_large {
+        font-size: $type_size_5;
+    }
+
+    &_small {
+        font-size: $type_size_7;
+    }
 }

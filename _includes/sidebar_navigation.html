@@ -2,7 +2,13 @@
 
 
 {% assign sidebar_menus = site.data.navigation.main %}
-{% assign current_url = page.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+{% assign current_url = page.url %}
+
+{% if paginator and paginator.page > 1 %}
+    {% assign current_url = paginator.first_page_path | default: page.url %}
+{% endif %}
+
+{% assign current_url = current_url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
 
 {% if sidebar_menus and sidebar_menus.size > 0 %}
     <nav class="sidebar_navigation" aria-label="사이드바">
@@ -16,7 +22,7 @@
                             {% assign post_count = 0 %}
                             {% assign display_post_count = true %}
 
-                            {% comment %}"프롤로그", "카테고리", "태그" 메뉴는 게시글 수를 숨깁니다.{% endcomment %}
+                            {% comment %}Hide post counts from utility pages.{% endcomment %}
                             {% if menu_item.title == "프롤로그" or menu_item.title == "카테고리" or menu_item.title == "태그" %}
                                 {% assign display_post_count = false %}
                             {% else %}
@@ -30,7 +36,7 @@
                             {% assign menu_item_url = menu_item.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
                             {% assign is_active = false %}
 
-                            {% comment %}현재 페이지의 URL 또는 카테고리가 메뉴와 일치하면 활성화합니다.{% endcomment %}
+                            {% comment %}Activate the matching URL or category.{% endcomment %}
                             {% if menu_item_url == current_url %}
                                 {% assign is_active = true %}
                             {% endif %}
@@ -40,7 +46,7 @@
                             {% endif %}
 
                             <li class="sidebar_navigation_item">
-                                <a class="sidebar_navigation_link{% if is_active %} is_active{% endif %}" href="{{ menu_item.url | relative_url }}">
+                                <a class="sidebar_navigation_link{% if is_active %} is_active{% endif %}" href="{{ menu_item.url | relative_url }}"{% if is_active %} aria-current="page"{% endif %}>
                                     <span class="sidebar_navigation_link_title">{{ menu_item.title | escape_once }}</span>
 
                                     {% if display_post_count %}

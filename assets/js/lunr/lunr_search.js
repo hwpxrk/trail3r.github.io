@@ -2,26 +2,21 @@
 layout: none
 ---
 
-/*
-게시글 검색과 검색 결과 렌더링을 제어합니다.
-
-연관(Related)
-------------
-"_includes/search/search_form.html": 검색어 입력창과 검색 결과 영역의 HTML 마크업 구조를 정의합니다.
-"_sass/customs/_search.scss": 검색 화면의 레이아웃과 디자인을 정의합니다.
-"assets/js/lunr/lunr-store.js": 검색할 게시글의 기본 데이터를 생성합니다.
-*/
+/* Control Lunr search and result rendering. */
 
 
 (() => {
     "use strict";
 
-    const search_input = document.querySelector("#search", );
-    const search_results_container = document.querySelector("#results", );
-    const search_posts = store;
-
-    // Liquid Template.
-    const search_results_found_text = {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" | jsonify }};
+    const search_input = document.querySelector("#search_input", );
+    const search_results_container = document.querySelector(
+        "#search_results",
+    );
+    const search_results_found_text = {{
+        site.data.ui-text[site.locale].results_found
+        | default: "Result(s) found"
+        | jsonify
+    }};
     const post_metadata_by_url = {
         {% for post in site.posts %}
             {{ post.url | relative_url | jsonify }}: {
@@ -32,7 +27,8 @@ layout: none
         {% endfor %}
     };
 
-    if (!search_input || !search_results_container) return;  // 검색 화면이 없으면 인덱스 생성과 이벤트 등록을 생략합니다.
+    // Skip index construction outside the search interface.
+    if (!search_input || !search_results_container) return;
 
     const search_index = lunr(function initialize_search_index() {
         this.field("title");
@@ -42,8 +38,14 @@ layout: none
         this.field("tags");
         this.ref("id");
 
-        // 한글 검색어가 인덱싱 과정에서 제거되지 않도록 기본 영문 트리머를 제외합니다.
-        this.pipeline.remove(lunr.trimmer);
+        const configure_search_index = window.configure_lunr_search_index;
+
+        if (configure_search_index) {
+            configure_search_index.call(this);
+        } else {
+            // Preserve Korean tokens by removing the default English trimmer.
+            this.pipeline.remove(lunr.trimmer);
+        }
 
         search_posts.forEach((search_post, search_post_index) => {
             const post_metadata = post_metadata_by_url[search_post.url] ?? {};
@@ -61,7 +63,9 @@ layout: none
 
     function get_search_results(search_query) {
         const normalized_query = search_query.toLowerCase();
-        const search_terms = normalized_query.split(lunr.tokenizer.separator).filter((search_term) => search_term !== "");
+        const search_terms = normalized_query
+            .split(lunr.tokenizer.separator)
+            .filter((search_term) => search_term !== "");
 
         if (search_terms.length === 0) return [];
 
@@ -69,7 +73,7 @@ layout: none
 
         return search_index.query((query) => {
             search_terms.forEach((search_term) => {
-                // 완전히 일치하는 검색어를 가장 높은 우선순위로 정렬합니다.
+                // Rank exact terms before partial and fuzzy matches.
                 query.term(search_term, { boost: 100 });
 
                 if (!has_trailing_space) {
@@ -100,13 +104,21 @@ layout: none
 
     function create_search_result(search_post) {
         const post_metadata = post_metadata_by_url[search_post.url] ?? {};
-        const post_category = Array.isArray(search_post.categories) ? search_post.categories[0] : search_post.categories;
-        const post_tags = Array.isArray(search_post.tags) ? search_post.tags.map((tag) => `#${tag}`).join(" ") : "";
+        const post_category = Array.isArray(search_post.categories)
+            ? search_post.categories[0]
+            : search_post.categories;
+        const post_tags = Array.isArray(search_post.tags)
+            ? search_post.tags.map((tag) => `#${tag}`).join(" ")
+            : "";
         const search_result = document.createElement("article");
         const search_result_link = document.createElement("a");
         const search_result_thumbnail = document.createElement("div");
         const search_result_metadata = document.createElement("div");
-        const search_result_date = create_text_element("time", "search_result_date", post_metadata.date ?? "", );
+        const search_result_date = create_text_element(
+            "time",
+            "search_result_date",
+            post_metadata.date ?? "",
+        );
 
         search_result.className = "search_result";
         search_result_link.className = "search_result_link";
@@ -141,7 +153,11 @@ layout: none
 
     function render_search_results(search_results) {
         const search_results_fragment = document.createDocumentFragment();
-        const search_results_found = create_text_element("p", "search_results_found", `${search_results.length}${search_results_found_text}`, );
+        const search_results_found = create_text_element(
+            "p",
+            "search_results_found",
+            `${search_results.length}${search_results_found_text}`,
+        );
 
         search_results_fragment.append(search_results_found);
 

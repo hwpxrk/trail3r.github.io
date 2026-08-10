@@ -1,4 +1,4 @@
-<!-- Render recent posts on the main landing page. -->
+<!-- Render homepage recent posts. -->
 
 
 {% assign columns = include.columns | default: 2 %}
@@ -17,18 +17,18 @@
                 <a class="recent_post_link" href="{{ recent_post.url | relative_url }}">
                     <div class="recent_post_thumbnail">
                         {% if recent_post.header.teaser %}
-                            <img class="recent_post_teaser" src="{{ recent_post.header.teaser | relative_url }}" alt="">
+                            <img class="recent_post_teaser" src="{{ recent_post.header.teaser | relative_url }}" alt="" loading="lazy" decoding="async">
                         {% endif %}
                     </div>
 
                     <div class="recent_post_metadata">
                         <p class="recent_post_category">{{ category | escape_once }}</p>
 
-                        <p class="recent_post_title">{{ recent_post.title | escape_once }}</p>
+                        <h3 class="recent_post_title">{{ recent_post.title | escape_once }}</h3>
 
                         <p class="recent_post_subtitle">{{ recent_post.subtitle | escape_once }}</p>
 
-                        <p class="recent_post_excerpt">{{ recent_post.excerpt | markdownify | strip_html | strip }}</p>
+                        <p class="recent_post_excerpt" aria-hidden="true">{{ recent_post.excerpt | markdownify | strip_html | strip }}</p>
 
                         <time class="recent_post_date" datetime="{{ recent_post.date | date_to_xmlschema }}">{{ recent_post.date | date: "%Y. %m. %d" }}</time>
                     </div>

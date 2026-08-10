@@ -1,20 +1,12 @@
-# ====================================================================================================
-# Minimal Mistakes 기본 설정
-# [참고] https://mmistakes.github.io/minimal-mistakes/docs/configuration/
-# ====================================================================================================
+# Jekyll & Minimal Mistakes Theme configuration
+# For more information, please refer to https://mmistakes.github.io/minimal-mistakes/docs/configuration/
 
 
-
-# 
-# 테마 설정
-# ====================================================================================================
+# Theme Skin configuration
 minimal_mistakes_skin    : "custom"
 
 
-
-# 
-# 블로그 설정
-# ====================================================================================================
+# Blog Metadata configuration
 locale                   : "ko-KR"
 rtl                      : false
 title                    : "개구리의 밀실"
@@ -35,10 +27,7 @@ copyright                :
 copyright_url            : 
 
 
-
-# 
-# 댓글 설정
-# ====================================================================================================
+# Comment configuration
 comments:
   provider               : "giscus"
   disqus:
@@ -70,28 +59,20 @@ comments:
     endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
 
 
-
-# 
-# 보안 설정
-# ====================================================================================================
+# Security (Captcha) configuration
 reCaptcha:
   siteKey                :
   secret                 :
 
 
 
-# 
-# 피드 설정
-# ====================================================================================================
+# ATOM Feed configuration
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
 
 
-
-# 
-# 검색 기능 설정
-# ====================================================================================================
+# Search function configuration
 search                   : true
 search_full_content      : true
 search_provider          : lunr
@@ -108,10 +89,7 @@ google:
   instant_search         : # false (default), true
 
 
-
-# 
-# SEO 검색 엔진 설정
-# ====================================================================================================
+# SEO search engine configuration
 google_site_verification :
 bing_site_verification   :
 naver_site_verification  :
@@ -119,29 +97,26 @@ yandex_site_verification :
 baidu_site_verification  :
 
 
-
-# 
-# SNS 공유 설정
-# ====================================================================================================
+# SNS share information configuration
 twitter:
   username               :
 facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : "/assets/images/posts/Featured/Brochure/teaser.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : "Person"
+  name                   : "개구리"
+  links:
+    - "https://blog.naver.com/trail3r"
+    - "https://github.com/trail3r"
+    - "https://instagram.com/trail3r__"
 
 
-
-# 
-# 블로그 분석 도구 설정
-# ====================================================================================================
+# Blog analytics tool configuration
 analytics:
   provider               : # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
@@ -149,9 +124,7 @@ analytics:
     anonymize_ip         : # true, false (default)
 
 
-# 
-# 프로필 설정
-# ====================================================================================================
+# Author profile configuration
 author:
   name             : "개구리"
   avatar           : "assets/images/signatures/minecraft_frog.png"
@@ -173,10 +146,7 @@ author:
       url: "https://instagram.com/trail3r__"
 
 
-
-# 
-# 푸터 설정
-# ====================================================================================================
+# Footer configuration
 footer:
   links:
     - label: "네이버 블로그"
@@ -191,10 +161,7 @@ footer:
   since: "2026"
 
 
-
-# 
-# 파일 인식 설정
-# ====================================================================================================
+# File recognition configuration
 include:
   - .htaccess
   - _pages
@@ -206,8 +173,8 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
+  - assets/js/minimal_mistakes
   - assets/js/plugins
-  - assets/js/_main.js
   - assets/js/vendor
   - Capfile
   - CHANGELOG
@@ -224,8 +191,8 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
+  - /docs  # ignore Minimal Mistakes /docs
+  - /test  # ignore Minimal Mistakes /test
   - assets/tree_sitter_parsers  # ignore Tree-Sitter Parser
 keep_files:
   - .git
@@ -234,10 +201,7 @@ encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
-
-# 
-# 파일 변환 설정
-# ====================================================================================================
+# Markdown processing configuration
 markdown: kramdown
 highlighter: rouge
 lsi: false
@@ -245,10 +209,7 @@ excerpt_separator: "\n\n"
 incremental: false
 
 
-
-# 
-# 마크다운 설정
-# ====================================================================================================
+# Markdown configuration
 kramdown:
   input: GFM
   hard_wrap: false
@@ -264,44 +225,28 @@ kramdown:
     css_classes: true
 
 
-
-# 
-# Sass/SCSS 설정
-# ====================================================================================================
+# Sass configuration
 sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  quiet_deps: true
+  silence_deprecations:
+    - import
 
 
-# 
-# URL Metadata 설정
-# ====================================================================================================
+# URL Metadata configuration
 url_metadata:
   open_timeout: 3
   read_timeout: 5
 
 
-
-# 
-# Outputting 설정
-# ====================================================================================================
+# Output configuration
 permalink: /:categories/:title/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Seoul
 
 
-
-# 
-# jekyll-paginate 설정
-# ====================================================================================================
-# paginate: 5 # amount of posts to show
-# paginate_path: /page:num/
-
-
-
-# 
-# jekyll-paginate-v2 설정
-# [참고] https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
-# ====================================================================================================
+# jekyll-paginate-v2 configuration
+# For more information, please refer to https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
   # Set enabled to true to use paginate v2
   enabled: true
@@ -321,11 +266,8 @@ pagination:
     after: 2
 
 
-# 
-# 플러그인 설정
-# ====================================================================================================
+# Plugins configuration
 plugins:
-  # - jekyll-paginate
   - kramdown/syntax_tree_sitter
   - jekyll-paginate-v2
   - jekyll-sitemap
@@ -335,7 +277,6 @@ plugins:
   - jekyll-url-metadata
 
 whitelist:
-  # - jekyll-paginate
   - kramdown/syntax_tree_sitter
   - jekyll-paginate-v2
   - jekyll-sitemap
@@ -345,54 +286,23 @@ whitelist:
   - jekyll-url-metadata
 
 
-
-# 
-# 아카이브 설정
-# ====================================================================================================
-# Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path>/my-awesome-category/index.html ~> path: /
-# ====================================================================================================
+# Archive configuration
 category_archive:
   type: liquid
   path: /categories/
 tag_archive:
   type: liquid
   path: /tags/
-# https://github.com/jekyll/jekyll-archives
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: archive-taxonomy
-    tag: archive-taxonomy
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
 
 
-
-# 
-# HTML 압축 설정
-# [참고] - https://jch.penibelst.de/
-# ====================================================================================================
+# HTML compression configuration (https://jch.penibelst.de/)
 compress_html:
   clippings: all
   ignore:
     envs: development
 
 
-# 
-# 기본값 설정
-# ====================================================================================================
+# Default values configuration
 defaults:
   # _posts
   - scope:

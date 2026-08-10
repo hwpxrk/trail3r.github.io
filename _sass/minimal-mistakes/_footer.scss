@@ -1,18 +1,7 @@
-/*
-사이트 하단의 작성자 프로필, 사이트맵과 저작권 영역의 레이아웃과 디자인을 정의합니다.
-
-참고사항(Notes)
--------------
-데스크톱에서는 프로필과 사이트맵을 나란히 표시하고 모바일에서는 위아래로 나누어 표시합니다.
-사이트맵은 데스크톱에서 네 열, 모바일에서 두 열로 표시합니다.
-
-연관(Related)
-------------
-"_includes/footer/custom.html": 푸터의 HTML 마크업 구조를 정의합니다.
-*/
+/* Global footer */
 
 
-.page__footer {
+.page_footer {
     margin-top: 5rem;
 
     background: $footer_background_color;
@@ -103,7 +92,7 @@
 
         margin: 0.5rem 0;
 
-        color: $gray;
+        color: $muted_text_color;
 
         transition: color 0.2s ease;
 
@@ -121,9 +110,9 @@
 
         align-items: center;
 
-        margin-top: 3rem;
-
         gap: 1.5rem;
+
+        margin-top: 3rem;
     }
 
     .footer_follow_label {
@@ -145,10 +134,10 @@
         align-items: center;
         flex-wrap: wrap;
 
+        gap: 1.5rem;
+
         padding: 0;
         margin: 0;
-
-        gap: 1.5rem;
 
         list-style: none;
     }
@@ -166,7 +155,7 @@
 
         padding: 0.15rem 0;
 
-        color: $gray;
+        color: $muted_text_color;
 
         font-family: $bitmap_sans_serif;
         text-decoration: none;
@@ -187,7 +176,7 @@
         }
 
         &:visited {
-            color: $gray;
+            color: $muted_text_color;
         }
 
         &:hover {
@@ -206,9 +195,9 @@
         }
 
         &:focus-visible {
-            color: $primary_color;
-
             outline: 2px solid $primary_color;
+
+            color: $primary_color;
 
             .links_icon {
                 opacity: 1;
@@ -249,10 +238,10 @@
     .footer_sitemap_list {
         display: grid;
 
+        row-gap: 0.25rem;
+
         padding: 0;
         margin: 0;
-
-        row-gap: 0.25rem;
 
         list-style: none;
     }
@@ -268,19 +257,19 @@
 
         max-width: 100%;
 
-        color: $gray;
+        color: $muted_text_color;
 
         font-family: $bitmap_sans_serif;
         font-size: $type_size_9;
 
-        white-space: nowrap;
         text-decoration: none;
         text-overflow: ellipsis;
+        white-space: nowrap;
 
         transition: color 0.2s ease;
 
         &:visited {
-            color: $gray;
+            color: $muted_text_color;
         }
 
         &:hover {
@@ -295,9 +284,9 @@
         }
 
         &:focus-visible {
-            color: $primary_color;
-
             outline: 2px solid $primary_color;
+
+            color: $primary_color;
         }
     }
 
@@ -311,7 +300,7 @@
     .footer_copyright_text {
         margin: 0;
 
-        color: $gray;
+        color: $muted_text_color;
 
         font-family: $bitmap_sans_serif;
         font-size: $type_size_10;
@@ -340,18 +329,32 @@
             }
 
             &:focus-visible {
+                outline: 2px solid $primary_color;
+
                 color: $primary_color;
 
                 font-weight: bold;
-
-                outline: 2px solid $primary_color;
             }
         }
     }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page_footer {
+        .footer_contents {
+            grid-template-columns: 12rem minmax(0, 1fr);
+            column-gap: 2rem;
+        }
+
+        .footer_sitemap {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem 1.5rem;
+        }
+    }
+}
+
 @media (max-width: 768px) {
-    .page__footer {
+    .page_footer {
         margin-top: 3rem;
 
         footer {

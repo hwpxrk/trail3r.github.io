@@ -1,30 +1,40 @@
+<!-- Load Google Custom Search controls. -->
+
+
 <script>
-  (function () {
-    var cx = '{{ site.google.search_engine_id }}';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
+    (() => {
+        "use strict";
 
-  function googleCustomSearchExecute() {
-    var input = document.getElementById('cse-search-input-box-id');
-    var element = google.search.cse.element.getElement('searchresults-only0');
-    if (input.value == '') {
-      element.clearAllResults();
-    } else {
-      element.execute(input.value);
+        const search_engine_id = {{ site.google.search_engine_id | jsonify }};
+        const script = document.createElement("script");
+
+        script.async = true;
+        script.src = `https://cse.google.com/cse.js?cx=${search_engine_id}`;
+        document.head.append(script);
+    })();
+
+    function execute_google_custom_search() {
+        const search_input = document.getElementById(
+            "cse-search-input-box-id",
+        );
+        const search_element = (
+            window.google?.search?.cse?.element?.getElement(
+                "searchresults-only0",
+            )
+        );
+
+        if (!search_input || !search_element) return false;
+
+        if (search_input.value === "") {
+            search_element.clearAllResults();
+        } else {
+            search_element.execute(search_input.value);
+        }
+
+        return false;
     }
-    return false;
-  }
 
-  {% if site.google.instant_search %}
-    $(document).ready(function () {
-      $('input#cse-search-input-box-id').on('keyup', function () {
-        googleCustomSearchExecute();
-      });
-    });
-  {% endif %}
+    {% if site.google.instant_search %}
+        document.getElementById("cse-search-input-box-id")?.addEventListener("input", execute_google_custom_search);
+    {% endif %}
 </script>

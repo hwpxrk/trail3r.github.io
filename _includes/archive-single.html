@@ -1,4 +1,9 @@
-{% if include.type == "taxonomy" %}
+<!-- Render one archive entry. -->
+
+
+{% assign archive_layout = include.archive_layout | default: include.type | default: "list" %}
+
+{% if archive_layout == "taxonomy" %}
     <article class="taxonomy_post">
         <a class="taxonomy_post_link" href="{{ post.url | relative_url }}">
             <h3 class="taxonomy_post_title">{{ post.title | escape_once }}</h3>
@@ -20,38 +25,38 @@
     </article>
 {% else %}
     {% if post.header.teaser %}
-        {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+        {% capture archive_teaser %}{{ post.header.teaser }}{% endcapture %}
     {% else %}
-        {% assign teaser = site.teaser %}
+        {% assign archive_teaser = site.teaser %}
     {% endif %}
 
     {% if post.id %}
-        {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+        {% assign archive_title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
     {% else %}
-        {% assign title = post.title %}
+        {% assign archive_title = post.title %}
     {% endif %}
 
-    <div class="{{ include.type | default: 'list' }}__item">
-        <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>
-            {% if include.type == "grid" and teaser %}
-                <div class="archive__item-teaser">
-                    <img src="{{ teaser | relative_url }}" alt="">
+    <div class="archive_{{ archive_layout }}_item">
+        <article class="archive_item" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>
+            {% if archive_layout == "grid" and archive_teaser %}
+                <div class="archive_item_teaser">
+                    <img src="{{ archive_teaser | relative_url }}" alt="" loading="lazy" decoding="async">
                 </div>
             {% endif %}
 
-            <h2 class="archive__item-title no_toc" itemprop="headline">
+            <h2 class="archive_item_title no_toc" itemprop="headline">
                 {% if post.link %}
-                    <a href="{{ post.link }}">{{ title }}</a>
-                    <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+                    <a href="{{ post.link }}">{{ archive_title }}</a>
+                    <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="screen_reader_only">Permalink</span></a>
                 {% else %}
-                    <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+                    <a href="{{ post.url | relative_url }}" rel="permalink">{{ archive_title }}</a>
                 {% endif %}
             </h2>
 
-            {% include page__meta.html type=include.type %}
+            {% include page__meta.html type=archive_layout %}
 
             {% if post.excerpt %}
-                <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+                <p class="archive_item_excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
             {% endif %}
         </article>
     </div>

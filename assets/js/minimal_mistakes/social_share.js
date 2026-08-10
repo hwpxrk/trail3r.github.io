@@ -1,4 +1,4 @@
-/* Control post URL copy buttons and share menu. */
+/* Control post sharing. */
 
 
 (() => {
@@ -7,41 +7,26 @@
     const label_reset_delay = 500;
 
     async function copy_to_clipboard(text) {
-        if (!navigator.clipboard) {
+        if (!navigator.clipboard?.writeText) {
             throw new Error("Clipboard API is not supported", );
         }
 
         await navigator.clipboard.writeText(text, );
     }
 
-    function get_label(button) {
-        return (
-            button.querySelector(".btn__label", ) ||
-            button.querySelector("span", )
-        );
-    }
-
-    function set_label(button, text) {
-        const label = get_label(button);
-
-        if (label) {
-            label.textContent = text;
-        }
-
+    function set_copy_button_label(button, text) {
         button.setAttribute("aria-label", text, );
         button.setAttribute("title", text, );
     }
 
-    function reset_label(button) {
-        set_label(button, button.dataset.copyDefaultLabel, );
-        button.classList.remove("is-copied", "is-copy-failed", );
+    function reset_copy_button_label(button) {
+        set_copy_button_label(button, button.dataset.copyDefaultLabel, );
+        button.classList.remove("is_copied", );
+        button.copy_reset_timer = null;
     }
 
     function bind_copy_button(button) {
-        const label = get_label(button);
-
         button.dataset.copyDefaultLabel = (
-            label?.textContent ||
             button.getAttribute("aria-label", ) ||
             "URL 복사"
         );
@@ -51,20 +36,18 @@
 
             try {
                 await copy_to_clipboard(url, );
-                set_label(button, "URL 복사 완료!", );
-                button.classList.add("is-copied", );
-                button.classList.remove("is-copy-failed", );
+                set_copy_button_label(button, "URL 복사 완료!", );
+                button.classList.add("is_copied", );
             } catch {
-                set_label(button, "복사 실패", );
-                button.classList.add("is-copy-failed", );
-                button.classList.remove("is-copied", );
+                set_copy_button_label(button, "복사 실패", );
+                button.classList.remove("is_copied", );
             } finally {
                 if (button.copy_reset_timer) {
-                    clearTimeout(button.copy_reset_timer, );
+                    window.clearTimeout(button.copy_reset_timer, );
                 }
 
-                button.copy_reset_timer = setTimeout(
-                    () => reset_label(button, ),
+                button.copy_reset_timer = window.setTimeout(
+                    () => reset_copy_button_label(button, ),
                     label_reset_delay,
                 );
             }
@@ -112,7 +95,7 @@
         share_menu.addEventListener("click", (event) => {
             event.stopPropagation();
 
-            if (event.target.closest(".post__share-link", )) {
+            if (event.target.closest(".post_share_link", )) {
                 close_share_menu(button, );
             }
         }, );
@@ -142,14 +125,18 @@
         }, );
     }
 
-    function initialize() {
+    function initialize_social_share() {
         initialize_copy_buttons();
         initialize_share_menus();
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initialize, );
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize_social_share,
+            { once: true },
+        );
     } else {
-        initialize();
+        initialize_social_share();
     }
 })();

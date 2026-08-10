@@ -1,9 +1,15 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.tracking_id }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Load Google Analytics through gtag.js. -->
 
-  gtag('config', '{{ site.analytics.google.tracking_id }}', { 'anonymize_ip': {{ site.analytics.google.anonymize_ip | default: false }}});
+
+<script src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.tracking_id }}" async></script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", {{ site.analytics.google.tracking_id | jsonify }}, {"anonymize_ip": {{ site.analytics.google.anonymize_ip | default: false | jsonify }}, });
 </script>

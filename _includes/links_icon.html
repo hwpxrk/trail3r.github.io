@@ -1,0 +1,10 @@
+<!-- Render an image or Font Awesome icon. -->
+
+
+{% assign icon = include.icon | default: "" | remove: '"' | strip %}
+
+{% if icon contains ".svg" or icon contains ".png" %}
+    <img class="links_icon" src="{{ icon | relative_url }}" alt="" loading="lazy" decoding="async" aria-hidden="true">
+{% else %}
+    <i class="links_icon {{ icon | default: "fas fa-link" }}" aria-hidden="true"></i>
+{% endif %}

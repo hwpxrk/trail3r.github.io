@@ -7,7 +7,7 @@ layout: post
 permalink: /daily/tesla_purchase
 
 categories: ["개구리의 일상"]
-tags: ["Telsa"]
+tags: ["Tesla"]
 
 header:
     teaser: /assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_4.png
@@ -26,13 +26,13 @@ header:
 
 
 ## 근데 왜 테슬라 삼?
-<p class="posts-subtitle">테슬라 오너를 넘어선 테슬람을 꿈꾼다.</p>
+<p class="posts_subtitle">테슬라 오너를 넘어선 테슬람을 꿈꾼다.</p>
 
 ---
 
 &emsp;저는 스물한 살에 부모님이 물려주신 2008년식 SM5를 타고 다니고 있었어요. 오래됐지만 좋아요. 차 잘 나갑니다. 근데 브레이크를 3번이나 고쳤어요. 200만 원 조금 넘게 썼나... 브레이크니까... 목숨 값이죠 뭐... 아무튼, 타고 다니는데 불편한 건 전혀 없었어요. 적당히 크고 넓고, 막 굴리기 좋고, 차 잘나가고... 저한테는 더할 나위 없이 좋았어요. 하지만... 문제는 대학교에 입학하면서 생겨났죠. SM5 연비가 끝내줘요. 대충 예상해 보자면 고속도로 달릴 때 10km/L 정도 되는 것 같아요. 청주 공항에서 오송역까지 왕복 60km 정도 되는데 자주 다니니까 기름이 어마어마하게 소모되더라고요. 한 달에 20~30만 원 사이였어요. 지금이야 그냥 타고 다니면서 버티겠지만, 나중에 수원 캠퍼스로 통학을 하면 반드시 차를 타고 다니게 될 것 같은데 기름값이 월급만큼 나갈 거 같아 정신이 나가버릴 것만 같았어요. 그래서 결국 전기차를 사기로 마음먹었답니다.<br>
 
-&emsp;잠깐, 그렇다면 왜 하필 테슬라를 선택했을까요? 사실 저는 업무할 때 보는 전투기<span style="color: #808080">(F-35A)</span>도 미국제, 휴대폰도 아이폰, 이어폰도 에어팟, 노트북도 맥북 그리고 이제 차량마저 테슬라로 맞추면서 그야말로 미국의 앞잡이가 되고 싶었어요. 문화 사대주의에 쩔어있었기 때문이죠. 천조국 형님들 쩔더라 ㅋ<br>
+&emsp;잠깐, 그렇다면 왜 하필 테슬라를 선택했을까요? 사실 저는 업무할 때 보는 전투기<span style="color: #737373">(F-35A)</span>도 미국제, 휴대폰도 아이폰, 이어폰도 에어팟, 노트북도 맥북 그리고 이제 차량마저 테슬라로 맞추면서 그야말로 미국의 앞잡이가 되고 싶었어요. 문화 사대주의에 쩔어있었기 때문이죠. 천조국 형님들 쩔더라 ㅋ<br>
 
 &emsp;까지가 농담이고;; 테슬라의 가장 큰 특징 두 가지인 자율 주행과 슈퍼 차저때문이었어요. 전공이 분리되면 서울이든 수원이든 주로 운전해서 통학할 거 같은데요, 청주에서 꽤나 멀어요. 이 거리를 거의 매일 운전한다는 것은 미친 짓이죠. 졸음이든 과속이든 둘 중 하나로 수명을 단축시킬 거 같아요. 그래서 자율 주행이나 운전 보조 기능을 정말 중요하게 따졌죠. 그래야 뇌를 약간이라도 빼고 운전하니까요 ㅎㅎ... 믿는다. 테슬라.<br>
 
@@ -41,22 +41,22 @@ header:
 <br><br>
 
 ## 계약 ㄱㄱ
-<p class="posts-subtitle">계약금이 무려 300만 원입니다.</p>
+<p class="posts_subtitle">계약금이 무려 300만 원입니다.</p>
 
 ---
 
 &emsp;오케이. 계약해 보자고요. 테슬라는 홈페이지에서 직접 계약할 수 있어요. 중간 딜러를 거치지 않고 소비자가 전적으로 일련의 과정을 수행해야 하죠. 네 글자로 줄이면 원가절감. 인건비마저 줄여버리는 미친 원가절감으로 파격적 혁신을 선언했죠. 솔직히 혼자 이것저것 하니 답답해요. 잘 모르겠는데 물어볼 곳은 없고, 하면서도 이게 맞나 싶고, 근데 또 차는 비싸고... 하... 이게 테슬라의 특징이에요. 아무튼, 모든 게 처음인 저 같은 젊은이들이나 그냥 테슬라 계약이 깝깝하신 분들에게 큰 도움이 되면 좋겠네요... 고생은 적게, 행복은 크게... 근데 원가절감 그렇게 할 거면 차량 가격도 좀 내려줘라...<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_1.png"></center><br>
-&emsp;홈페이지 들어와서 상단에 차량 메뉴에 마우스를 올리면 차량이 나열되고 차량 하단에 주문하기 버튼이 있어요. 원하시는 차량 밑에 있는 주문하기를 클릭하시면 계약을 진행하는 페이지로 넘어가죠. 음... 저도 나름 남자라서 아는데요. 괜히 모델S 주문하기 눌러보고 견적 뽑고 그러지 마세요... 1억 2천부터 시작이고 이거저거 하다 보면 1억 5천 금방 갑니다. 솔직히 그 돈이면 포르쉐 카이엔 삼 ㄹㅇㅋㅋ <span style="color: #808080">(오빠 병@신이야?! 그 돈이면 그 돈 주고 그랜저를 뽑아야지!! 전국 아반떼 N 차주들 응원합니다. 근데 저는 안 살래요... 차가 싫은 게 아니라... ㅎ 여자친구(없음)가 뭐라 할까 봐 무섭네요...)</span><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_1.png" loading="lazy" decoding="async"></center><br>
+&emsp;홈페이지 들어와서 상단에 차량 메뉴에 마우스를 올리면 차량이 나열되고 차량 하단에 주문하기 버튼이 있어요. 원하시는 차량 밑에 있는 주문하기를 클릭하시면 계약을 진행하는 페이지로 넘어가죠. 음... 저도 나름 남자라서 아는데요. 괜히 모델S 주문하기 눌러보고 견적 뽑고 그러지 마세요... 1억 2천부터 시작이고 이거저거 하다 보면 1억 5천 금방 갑니다. 솔직히 그 돈이면 포르쉐 카이엔 삼 ㄹㅇㅋㅋ <span style="color: #737373">(오빠 병@신이야?! 그 돈이면 그 돈 주고 그랜저를 뽑아야지!! 전국 아반떼 N 차주들 응원합니다. 근데 저는 안 살래요... 차가 싫은 게 아니라... ㅎ 여자친구(없음)가 뭐라 할까 봐 무섭네요...)</span><br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_2.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_2.png" loading="lazy" decoding="async"></center><br>
 &emsp;들어가서 원하는 색상, 인테리어, 오토파일럿 기능까지 추가해 주면 돼요. 그럼 하단에 실시간으로 차량 가격이 책정되죠. 여기서 조심할게, 오토파일럿은 소프트웨어라서 차량 인도 후에 테슬라 스토어에서 구매할 수 있으니까 추가하지 마세요. 괜히 취등록세 비싸집니다. 테슬라 정도는 일시불로 긁을 수 있는 정1신나갈 것 같은 부자 형님들이라면 인정. 저는 지금 다음 날 점심 고민도 힘든 사람이라서 취등록세 100원이라도 아끼려고 추가 안 하고 주문했습니다. 제가 불쌍하면 후원 좀 해주세요. 신한 110-487-\*\*\*\*\*\*<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_3.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_3.png" loading="lazy" decoding="async"></center><br>
 &emsp;선택 완료 후 계속하기를 누르면 결제 창으로 넘어가요. 신용카드로만 결제할 수 있어요. VISA나 MasterCard 연계된 카드여야 하고, 계약금은 신기하게 삼성카드 결제가 불가능합니다. 차량 할부는 삼성카드로만 결제해야 되면서 계약금은 삼성카드 안되는 게 개열받는 포인트예요. 아, 미리 말씀드리자면 차량 대금은 테슬라 정도는 일시불로 긁을 수 있는 정1신나갈 것 같은 부자 형님들 말고는 어느 정도 할부도 할 것 같은데, 할부는 삼성카드로만 되니까 미리미리 발급받아두자고요. 차량 배정됐는데 할부 못 긁으면 곤란합니다. 삼성카드랑 협약이 되어있어 할부 이자가 그나마 저렴하니까 삼성카드 미리미리 발급받으세요. 오기로 덤비다가 하루 한 끼 육개장 사발면만 먹게 됩니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_4.png" width="50%"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_4.png" width="50%" loading="lazy" decoding="async"></center><br>
 &emsp;결제하면 이런 창 떠요. 당황하지 마세요. 저는 조금 많이 당황했어요. 어디 잘못 들어왔나... 사기당했나... 싶었습니다. 테슬라 미1친놈들이에요. 공식 홈페이지고 나름 큰 기업이면 조금 무게감을 가질 거라 생각하는데, 그딴 틀은 가뿐히 깨부수고 어디 인스타에나 밈으로 올라올 그런 짤을 계약 완료 화면에 띄우는 이 대담함. 솔직히 마음에 안 드는데 고슴도치쿤 귀여우니까 봐주자구요.<br>
 
 &emsp;결제 끝났으면 뭐해야하냐구요? 존버.<br>
@@ -66,21 +66,21 @@ header:
 
 
 ## 존버는 승리한다.
-<p class="posts-subtitle">테슬라는 기다림의 미학입니다... 라기엔 다음 날 연락 왔답니다 ㅎㅎ</p>
+<p class="posts_subtitle">테슬라는 기다림의 미학입니다... 라기엔 다음 날 연락 왔답니다 ㅎㅎ</p>
 
 ---
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_5.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_5.png" loading="lazy" decoding="async"></center><br>
 &emsp;기다리다 보면 이렇게 Tesla Advisor에게 카톡이랑 메일이 날아와요. 8월 13일에 계약했는데, 다음 날인 8월 14일에 연락 왔어요. 어디 블로그나 유튜브 보면 몇 개월씩 기다렸다던데... 안타깝습니다... 아무튼 담당자분께서 요청하신 내용을 주섬주섬 적어서 보내드리면 작성한 보조금 지역에 맞는 서류를 작성해달라고 보조금 대행사에서 메일을 보내줍니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_6.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_6.png" loading="lazy" decoding="async"></center><br>
 &emsp;저는 청주에 살아서 청주시에 보조금을 신청했어요. 아, 보조금이 후다닥 마무리되는 환경을 정말 사랑하시는 분들이 유독 많은 지역이 있어요. 보조금 마감 지역은 테슬라 공식 블로그에 전반기 후반기 각각 게시글이 올라오니까 참고해서 신청하도록 해요. 우리 지역 보조금 다 털렸으면 다음 반기를 노리거나 보조금 없이 사야 해요. 테슬라 정도는 일시불로 긁을 수 있는 정1신나갈 것 같은 부자 형님들은 보조금 따위 신경 안 쓰실 수도 있겠지만, 저같이 다음 날 점심 메뉴도 고민인 서민들은 보조금 한 푼 한 푼이 소중해요. 확인 잘 하자구요...<br>
 
 &emsp;사실 저는 여기서 1차 멘붕이 왔어요. 내야 될 서류가 많은 거 같은데 뭘 보내주는 게 맞는 건지 잘 모르겠더라고요. 그래서 빠르게 요약 드갑니다잉<br>
 
-<hr class="narrow">
+<hr class="separator_narrow">
 
-<p class="contents center">
+<p class="post_intro">
     [테슬라 계약 시 보조금 대행사에 제출해야 되는 서류]<br>
     1. 보조금 신청지원서 및 동의서 (서명 필요)<br>
     2. 자동차구매계약서 (4장 중 마지막 장 서명 필요)<br>
@@ -88,14 +88,14 @@ header:
     4. 주민등록초본<br>
     5. 지방세 납세증명서 (서류 우측 중앙 서명 필요)<br>
     6. 국세 납세증명서<br>
-    <span style="color: #808080"><del>7. 고등학교 생활기록부(대입용)</del> 뇌절 죄송합니다 이건 장난입니다...</span><br>
+    <span style="color: #737373"><del>7. 고등학교 생활기록부(대입용)</del> 뇌절 죄송합니다 이건 장난입니다...</span><br>
     <br>
     ** 이 모든 서류를 하나의 PDF로 병합해 등록금 대행사에 제출 **<br>
     ** 메일 보낼 때 주문번호 RN까지 포함해서 회신해 주기 **<br>
     ** 공동명의로 진행한다면, 3,4,5번 서류 공동명의자 명의로도 준비! **<br>
 </p>
 
-<hr class="narrow">
+<hr class="separator_narrow">
 
 &emsp;서류 제출하면 받았다는 연락 안 오니까 걱정하지 말고 기다리자구요. 서류가 잘못되면 어느 부분 수정해서 다시 제출해달라고 연락이 온다고 하네요! 그럼 이제 서류를 냈으니까 무엇을 해야 할까요? 그것은 바로... 존버.<br>
 
@@ -104,22 +104,22 @@ header:
 
 
 ## 결제 대금 납부
-<p class="posts-subtitle">아프다... 쓰라리다... 하지만 기분 좋다...</p>
+<p class="posts_subtitle">아프다... 쓰라리다... 하지만 기분 좋다...</p>
 
 ---
 
 &emsp;결제 대금 내는 것도 어렵더라구요. 처음이라 그런가...라고 했지만 쓰다 보니 쉬워 보이네요. 겁먹지 말고 결제 대금 납부 해보자구요. 제 연봉보다 차 한 대가 더 비싸네요. 인생 쓰다... 후... 바텐더. 여기 락스 21년산으로.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_7.png"></center><br>
-&emsp;전기차 보조금이 확정되면 또 메일이 와요. 어... 여기저기 후기 찾아보니까 다들 각 단계별로 1~2개월씩 걸리고 차량 인도까지도 3~6개월까지 걸렸다던데... 왜 저는 모든 절차가 하루 만에 해결되고 차량도 미리 배정이 되어서 저를 설레게 만드는 걸까요? 왜긴 왜겠어요... 전기차가 잘 안 팔리니까 이렇겠지 뭐... <span style="color: #808080">(T입니다. 때리지 말아 주세요. 사랑으로 보듬어 주세요.)</span><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_7.png" loading="lazy" decoding="async"></center><br>
+&emsp;전기차 보조금이 확정되면 또 메일이 와요. 어... 여기저기 후기 찾아보니까 다들 각 단계별로 1~2개월씩 걸리고 차량 인도까지도 3~6개월까지 걸렸다던데... 왜 저는 모든 절차가 하루 만에 해결되고 차량도 미리 배정이 되어서 저를 설레게 만드는 걸까요? 왜긴 왜겠어요... 전기차가 잘 안 팔리니까 이렇겠지 뭐... <span style="color: #737373">(T입니다. 때리지 말아 주세요. 사랑으로 보듬어 주세요.)</span><br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_8.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_8.png" loading="lazy" decoding="async"></center><br>
 &emsp;요새 급발진이 이슈예요. 인생을 살아가는데 모든 위기에서 우리에게 필요한 것은 침착함입니다. 호랑이 굴에 들어가도 정신만 빠짝 차리면 점심도 얻어먹고 나올 수 있어요. 어렵겠지만 당황하지 마세요. 급하면 돈 잃고 침착하면 돈 버는 겁니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_9.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_9.png" loading="lazy" decoding="async"></center><br>
 &emsp;음... 어쩌라는 건가 싶죠? 화면 중앙을 보면 다이렉트 오토 카드 할부가 있어요. 이게 테슬라 구매 시 이용할 할부 프로그램입니다. 테슬라 정도는 일시불로 긁을 수 있는 정1신나갈 것 같은 부자 형님들은 이 화면을 보실 일이 없으시겠지만, 다음 날 점심 메뉴도 크나큰 고민인 서민들은 반드시 보게 될 화면이에요. 가장 먼저 할 것은 한도 조회입니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_10.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_10.png" loading="lazy" decoding="async"></center><br>
 &emsp;누르면 자동으로 차 고르라고 뜨더라구요? 이 녀석들 내가 테슬라 살 것인 걸 어떻게 알고 냅다 테슬라부터 띄우고 보는 거죠? 흠... 아무튼, 진행하면 한도를 조회할 수 있어요. 차마 화면 캡처를 해두지는 않았네요... 큰돈 나갈 생각에 정1신도 같이 나가서 캡처할 생각조차 못 했어요. 다시 조회하면... 음... 찝찝해서 다시는 못 하겠네요 ㅋㅋㅋ 아무래도 신용이라서...<br>
 
 &emsp;한도조회가 끝나면 할부신청을 눌러서 할부를 신청하시면 돼요. 할부 신청할 때 굉장히 조심해야 돼요. 내가 선수금할 돈이 얼마인지 정확히 생각해 놓으셔야 해요. 그리고 할부를 할 금액도 직접 계산해서 입력해야 돼요. ㅇㅋ? 메일에 첨부된 최종구매가격표를 보고 선수금할 금액을 뺀 금액을 할부 신청하는 거예요. ㅇㅋ? 이해 가능? 잘못된 금액 입력해서 돈 더 내거나 적게 내서 불이익 들어오면 곤란해요;;;<br>
@@ -128,10 +128,10 @@ header:
 
 &emsp;입금을 하시면 문자로 인증번호 4자리와 링크 하나가 같이 날아와요. 그 링크에 접속해서 인증번호 4자리를 입력하면, 가상 카드 번호가 적힌 문자가 또 날아와요. 그럼 여기서 이제! 다시 담당자님께 카톡으로 가상 카드 번호가 나왔어요! 하고 말씀 전하시면, 담당자님께서 메일로 결제 링크를 보내주셔요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_11.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_11.png" loading="lazy" decoding="async"></center><br>
 &emsp;네... 결제 제출을 눌러서 가상 카드 번호를 입력하면, CVC 번호 입력란이 사라지면서 결제가 완료돼요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_12.jpeg" width="75%"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_12.jpeg" width="75%" loading="lazy" decoding="async"></center><br>
 &emsp;비싸네요... 쓰읍... 후... 바텐더... 여기 락ㅅ... 아 아니... 깨끗한 물 한 잔. 차는 타보고 죽어야 되겠으니... 그리고... 이제 또다시... 존버.<br>
 
 <br><br>
@@ -139,7 +139,7 @@ header:
 
 
 ## 보험 가입 증명서 제출
-<p class="posts-subtitle">찐막 절차입니다. 곧 차를 받는다는 거죠.</p>
+<p class="posts_subtitle">찐막 절차입니다. 곧 차를 받는다는 거죠.</p>
 
 ---
 
@@ -152,16 +152,16 @@ header:
 
 
 ## 는 무슨 번호판 만들러 ㄱㄱ
-<p class="posts-subtitle">찐찐막 절차입니다 ㅋㅋㅋ</p>
+<p class="posts_subtitle">찐찐막 절차입니다 ㅋㅋㅋ</p>
 
 ---
 
 &emsp;신차를 계약한 사람에게 특권이 있어요. 번호판의 번호를 직접 고를 수 있다는 것이죠. 도청에 가면 직접 차량을 등록하고 직접 번호판을 발급받아 들고 갈 수 있다는데요, 귀찮은 것은 참을 수 없어요. 저는 등록 대행사에게 모든 것을 맡겼습니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_13.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_13.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;취득세 환경부에서 140만 원이나 지원해 주네요. 2024년까지 140만 원이고 내년은 감소될 확률이 다소 높다고 해요. 정확하지는 않지만... 참고하세요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_14.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_14.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;선택지가 무려 10개. 뭐 골랐는지는 비밀입니다. 아, 차 받고 나서 확인해 보니 05더는 제주도 등록 앞자리더라고요. 용인이 22어였나..? 그래서 용인에 등록하러 가는 사람도 있다던데 앞자리 고르고 싶은 사람은 원하는 지역 가서 등록하는 것도 재밌을 것 같아요. 귀찮음만 감수할 수 있다면 말이죠?!<br>
 
 <br><br>
@@ -169,7 +169,7 @@ header:
 
 
 ## 전기차 혜택 쪽쪽 빨아먹기
-<p class="posts-subtitle">찐찐찐막 ㅋㅋㅋㅋ 차 받기 전이 제일 바빠요.</p>
+<p class="posts_subtitle">찐찐찐막 ㅋㅋㅋㅋ 차 받기 전이 제일 바빠요.</p>
 
 ---
 
@@ -179,21 +179,21 @@ header:
 
 &emsp;그러니까 일단 환경부 무공해차 통합누리집 ㄱㄱ<br>
 
-<hr class="narrow">
+<hr class="separator_narrow">
 
-<p class="contents center"><a href="https://ev.or.kr/nportal/main.do#">무공해차 통합누리집 (ev.or.kr)</a></p>
+<p class="post_intro"><a href="https://ev.or.kr/nportal/main.do#">무공해차 통합누리집 (ev.or.kr)</a></p>
 
 {% include customs/opengraph.html url="https://ev.or.kr/nportal/main.do#" %}
 
-<hr class="narrow">
+<hr class="separator_narrow">
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_15.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_15.png" loading="lazy" decoding="async"></center><br>
 &emsp;무엇을 해야 할지 아시겠죠? 우측 메뉴에 회원카드 신청을 클릭하면 돼요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_16.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_16.png" loading="lazy" decoding="async"></center><br>
 &emsp;는 회원가입부터 해야됩니다 ㅋ<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_17.png"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_17.png" loading="lazy" decoding="async"></center><br>
 &emsp;알아서 잘 딱 깔끔하고 센스 있게 채워주고 완료를 누르면 신청이 완료됩니다. 차량 번호 확정되자마자 신청했는데, 차량 받는 날 카드가 배송됐어요. 차량 번호를 임시 번호로 넣고 발급 후에 번호를 바꾸는 방식으로 미리 카드를 받아 가는 사람도 있다더라구요! 번호를 바꾸려면 귀찮게 상담원과 연락해가며 번호를 바꿔야 하기 때문에 귀찮음을 감당할 수 없는 저는 번호가 나오자마자 발급 신청했어요.
 <br>
 
@@ -202,7 +202,7 @@ header:
 
 
 ## ㄹㅇ 찐막
-<p class="posts-subtitle">세상에 공짜는 없습니다.</p>
+<p class="posts_subtitle">세상에 공짜는 없습니다.</p>
 
 ---
 
@@ -210,12 +210,12 @@ header:
 
 &emsp;네? 카드를 또 만드냐고요?<br>
 
-&emsp;하하하! 환경부 카드는 충전기에게 내가 누군지 알려주는 신분증 같은 카드랍니다. 결제용 카드는 따로 만들어야 해요. 하지만, 걱정하지 마세요! 환경부 카드와 연동해서 사실상 환경부 카드 하나만 들고 다니게 될지도 몰라요. <span style="color: #808080">(아직 충전 몇 번 안 해봐서 잘 모름)</span><br>
+&emsp;하하하! 환경부 카드는 충전기에게 내가 누군지 알려주는 신분증 같은 카드랍니다. 결제용 카드는 따로 만들어야 해요. 하지만, 걱정하지 마세요! 환경부 카드와 연동해서 사실상 환경부 카드 하나만 들고 다니게 될지도 몰라요. <span style="color: #737373">(아직 충전 몇 번 안 해봐서 잘 모름)</span><br>
 
-<figure class="image-grid" style="--size: 3;">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_18.png">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_19.png">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_20.png">
+<figure class="image_grid" style="--size: 3;">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_18.png" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_19.png" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_20.png" loading="lazy" decoding="async">
 </figure><br>
 &emsp;어디로든 그린카드(롯데, BC), 신한 EVerywhere, 삼성id PLUG-IN 이 그 주인공이죠. 사실 카드에 정답은 없다는 거 다들 아시잖아요? 하지만 전기차 결제 카드에는 어디로든 그린카드가 베스트라는 것이 정설로 여겨져요. 그냥... 그런 것 같아요. 카더라니까 믿지는 마시고... 꼭 혜택 직접 봐보시고 필요한 카드 하나 발급하시면 돼요. 저는 신한이 주거래 은행이라 신한카드 하나 뽑아주고, 어디로든 그린카드 하나 뽑아줬어요. 기 맥히죠?<br>
 
@@ -226,15 +226,15 @@ header:
 
 
 ## 그래서 충전기는 어디에?
-<p class="posts-subtitle">충전기 좌표 찍는다.</p>
+<p class="posts_subtitle">충전기 좌표 찍는다.</p>
 
 ---
 
 &emsp;혹시 충전기 어딨는지 아세요? 머리맡에 있는 그 충전기 말고 전기차 충전기요. 테슬라를 산다면 내장 내비게이션에 주변 전기차 충전소를 찾아주기는 해요. 근데 뭔가... 좀... 짜칩니다. 그래서 야무지게 만들어진 어플이 몇 개 있어요.<br>
 
-<figure class="image-grid">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_21.png">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_22.png">
+<figure class="image_grid">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_21.png" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_22.png" loading="lazy" decoding="async">
 </figure><br>
 &emsp;EV infra, Elecvery. 그냥 2개 까세요. 많이 안 써봐서 잘 모르겠는데 한눈에 봐도 그냥 야무진 어플이에요. 두 어플 모두 각 어플만의 페이가 있는데, 여기서도 약간의 혜택이 있어요 ㅋㅋㅋ 이론상 일정 금액 무료 충전 쌉가능 ㅋ<br>
 
@@ -247,59 +247,59 @@ header:
 
 
 ## 그리고 마침내.
-<p class="posts-subtitle">마주한 나의 테슬라 모델3</p>
+<p class="posts_subtitle">마주한 나의 테슬라 모델3</p>
 
 ---
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_23.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_23.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;후후후... 서론이 길었어요. 드디어 차 받으러 왔습니다. 키 카드와 간단 안내 만화를 주네요. 이거 실화냐? 내가 테슬라를..?<br>
 
-<figure class="image-grid">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_24.jpeg">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_25.jpeg">
+<figure class="image_grid">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_24.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_25.jpeg" loading="lazy" decoding="async">
 </figure><br>
 &emsp;헤드라이트가 정말 마음에 들어요. 단순히 L자형이었다면 심심할 뻔했는데 중간에 꺾이는 포인트를 준 것이 디자이너가 느낌쓰를 아네요. 합격. 뒤태도 예뻐요. 침 줄줄 흐릅니다.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_26.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_26.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;테일램프 디테일 컷인데요, 트렁크 열리면 같이 열리고 밑에 째깐한 LED에만 후방등이 표시돼요. 진짜 예쁘거든요..? 근데 고속도로에서 사고 나서 트렁크 열면 너무 위험할 것 같아요. 다들 안전운전합시다...<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_27.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_27.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;테슬라의 상징과도 같은 통유리 천장. 여름의 끝물이라 그런가... 아직 선쉐이드 안 꼈는데 정수리가 탈 것 같지는 않아요. 개방감 장난 ㅇ... 아니래요. 운전자라 잘 모르겠어요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_28.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_28.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;2024년형 모델3는 이 메인 스크린으로 모든 것을 컨트롤해요. 적응하는데 시간이 조금 걸릴 것 같아요. 심지어 기어 변경도 스크린으로 하는데 진짜 개막막해요. 안전은 갖다 버린 테슬라의 미니멀리즘. (와중에 앰비언트 라이트 기가 막히네요)<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_29.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_29.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;핸들입니다. 요크 핸들로 튜닝하는 사람도 있던데, 음... 개인적으로 불호예요. 굳이..?
 
 &emsp;왼쪽에 화살표가 깜빡이에요. 이거 방향 헷갈린다는 사람이 있다던데, 면허 반납하세요 ㅋㅋ... 기존 깜빡이랑 같은 방향인데 헷갈린다는 것은 지능 이슈 의심해 봐야 합니다. 근데 저거... 뒤에 레버 없는 게 이쁘긴 하거든요? 깔끔하고... 미니멀리즘을 실현하고... 다 좋아요. 근데 핸들 반 바퀴 돌아가면 진짜 깝깝합니다. 핸들 돌아갔을 때 깜빡이 킬 일이 뭐가 있냐 싶으시겠지만, 운전하다 보면 언젠가 그럴 일이 있거든요. 유턴 조지자마자 우회전을 한다든지... 그런 상황에서요. 미니멀리즘은 좋은데 전 세계 모든 자동차 회사가 수십 년을 유지해온 이유가 있을 텐데 말이죠. 기어 변속도 스크린으로 바꾸고 깜빡이도 저 지랄로 해둔 거 좀 열받습니다. 후... 깔건 까야죠.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_30.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_30.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;이건 뭐 보라고 만든 거냐?<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_31.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_31.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;이건 뭐... 이쁘네요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_32.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_32.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;작고 소중한 전면 트렁크. 크기는 나이키 크로스백 하나 들어가고 약간 남는 정도네요. 은근 크면서 은근 작아요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_33.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_33.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;트렁크인데 충분히 깊어요. 충분히 넓구요. 위에서 트렁크 열면 밑에 째깐한 LED 조명 들어온다는 게 이 사진을 통해서 이해하실 수 있겠네요.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_34.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_34.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;인테리어 화이트 기가 맥힙니다. 진짜 이거 예쁜 거 인정. 너무 예뻐요. 마음에 들어요. 화이트 시트 관리 어려울 것 같다는 분들이 많더라구요. 예... 저도 그럴 것 같네요... 예... 하지만 예쁘잖아요! 한잔해!<br>
 
-<figure class="image-grid" style="--size: 3;">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_35.jpeg">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_36.jpeg">
-    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_37.jpeg">
+<figure class="image_grid" style="--size: 3;">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_35.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_36.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_37.jpeg" loading="lazy" decoding="async">
 </figure><br>
 &emsp;하이패스 등록하러 간 김에 햇살이 너무 잘 비치길래 찍어봤어요. 예뻐요. 신차 뽕 오래갈 느낌.<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_38.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_38.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;남자의 본능을 일깨우는 그 단어. Mad Max. (아직 안 써봄)<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_39.jpeg"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_39.jpeg" loading="lazy" decoding="async"></center><br>
 &emsp;마지막으로 청주로 돌아와 슈퍼 차저를 꽂아보았습니다. 40%에서 80%까지 가는 데 15분 걸리더라구요. 장난 아닙니다. 살벌해요. 가끔 급할 때 애용해야겠어요. 근데 율량동 이안테라스 주차비 너무 비싸요 ㅠ<br>
 
 <br><br>
@@ -307,7 +307,7 @@ header:
 
 
 ## 아 맞다, 이동형 충전기
-<p class="posts-subtitle">뭐가 많아요. 깝깝하죠?</p>
+<p class="posts_subtitle">뭐가 많아요. 깝깝하죠?</p>
 
 ---
 
@@ -322,7 +322,7 @@ header:
 
 
 ## 테슬라 흑우 에디션
-<p class="posts-subtitle">Enhanced Auto Pilot</p>
+<p class="posts_subtitle">Enhanced Auto Pilot</p>
 
 ---
 
@@ -332,7 +332,7 @@ header:
 
 &emsp;는 군인 정신을 담은 해석이었고요, FSD는 미국에서 생산된 차량을 기준으로 성능 시험이 이루어졌어요. 중국에서 만들어져 수입되는 모델은 아직 성능 시험 검증이 끝나지 않았다는 거죠. 승인만 나면 FSD를 쓸 수 있어요. 예? 별거 아닌 거 아니냐구요? 나도 몰?루. 암튼 우리나라에서 모델3, 모델Y는 FSD 기능 제한돼서 사실상 EAP니까 EAP만 사자구요. ㅇㅋ?<br>
 
-<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_40.jpeg" style="width: 75%;"></center><br>
+<center><img src="/assets/images/posts/daily/Tesla_Purchase/20240830_Tesla_Purchase_40.jpeg" style="width: 75%;" loading="lazy" decoding="async"></center><br>
 
 &emsp;아무튼, EAP 샀습니다. 테슬라 흑우 에디션 Get!<br>
 
@@ -348,4 +348,4 @@ header:
 
 
 
-<span class="end-of-post">End of Post.</span>
+<span class="end_of_post">End of Post</span>

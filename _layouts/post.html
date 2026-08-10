@@ -2,114 +2,130 @@
 layout: default
 ---
 
-{%- if page.header.overlay_color or page.header.overlay_image or page.header.image -%}
-    {%- include page__hero.html -%}
-{%- elsif page.header.video.id and page.header.video.provider -%}
-    {%- include page__hero_video.html -%}
-{%- endif -%}
 
-{%- assign breadcrumbs_enabled = site.breadcrumbs -%}
-{%- if page.breadcrumbs != null -%}
-    {%- assign breadcrumbs_enabled = page.breadcrumbs -%}
-{%- endif -%}
-{%- if page.url != "/" and breadcrumbs_enabled -%}
-    {%- unless paginator -%}
-        {%- include breadcrumbs.html -%}
-    {%- endunless -%}
-{%- endif -%}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+    {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+    {% include page__hero_video.html %}
+{% endif %}
 
-{%- assign author = page.author | default: site.author -%}
-{%- assign github_link = author.links | where: "label", "GitHub" | first -%}
+{% assign breadcrumbs_enabled = site.breadcrumbs %}
 
-<div id="main" role="main">
-    {%- include sidebar.html -%}
+{% if page.breadcrumbs != null %}
+    {% assign breadcrumbs_enabled = page.breadcrumbs %}
+{% endif %}
 
-    <article class="page post" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
-        {%- if page.title -%}
-            <meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">
-        {%- endif -%}
-        <link itemprop="url" href="{{ page.url | absolute_url }}">
-        {%- if page.excerpt -%}
-            <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
-        {%- endif -%}
-        {%- if page.date -%}
-            <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
-        {%- endif -%}
-        {%- if page.last_modified_at -%}
-            <meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">
-        {%- endif -%}
+{% if page.url != "/" and breadcrumbs_enabled %}
+    {% unless paginator %}
+        {% include breadcrumbs.html %}
+    {% endunless %}
+{% endif %}
 
-        <div class="page__inner-wrap">
-            {%- if page.toc -%}
-                <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-                    <nav class="table-of-contents" id="table-of-contents">
+{% assign author = page.author | default: site.author %}
+{% assign github_link = author.links | where: "label", "GitHub" | first %}
+
+<main id="main">
+    {% include sidebar.html %}
+
+    <article class="page post" itemscope itemtype="https://schema.org/BlogPosting"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+        {% if page.title %}
+            <meta content="{{ page.title | replace: "|", "&#124;" | markdownify | strip_html | strip_newlines | escape_once }}" itemprop="headline">
+        {% endif %}
+
+        <link href="{{ page.url | absolute_url }}" itemprop="mainEntityOfPage url">
+
+        {% assign post_description = page.description | default: page.subtitle | default: page.excerpt %}
+
+        {% if post_description %}
+            <meta content="{{ post_description | markdownify | strip_html | strip_newlines | escape_once }}" itemprop="description">
+        {% endif %}
+
+        {% assign post_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image | default: page.header.teaser %}
+
+        {% if post_image %}
+            <meta content="{{ post_image | absolute_url }}" itemprop="image">
+        {% endif %}
+
+        {% if page.date %}
+            <meta content="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% endif %}
+
+        {% if page.last_modified_at %}
+            <meta content="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+        {% endif %}
+
+        <div class="page_inner_wrap">
+            {% if page.toc %}
+                <aside class="sidebar_right {% if page.toc_sticky %}sticky{% endif %}">
+                    <nav class="table_of_contents" id="table_of_contents" aria-label="목차">
                         <header>
-                            <a class="nav__title" href="#">{{ page.title }}</a>
+                            <a class="navigation_title" href="#page_title">{{ page.title }}</a>
                         </header>
-                        {%- include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
+                        {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc_menu" skip_no_ids=true %}
                     </nav>
                 </aside>
-            {%- endif -%}
+            {% endif %}
 
-            {%- unless page.header.overlay_color or page.header.overlay_image -%}
-                <header class="post__header">
-                    {%- if page.categories -%}
-                        {%- assign category = page.categories | first -%}
-                        {%- assign category_slug = category | slugify -%}
-                        {%- assign category_path = site.category_archive.path | default: "/categories/" | relative_url | append: "#" | append: category_slug -%}
+            {% unless page.header.overlay_color or page.header.overlay_image %}
+                <header class="post_header">
+                    {% if page.categories %}
+                        {% assign category = page.categories | first %}
+                        {% assign category_slug = category | slugify %}
+                        {% assign category_path = site.category_archive.path | default: "/categories/" | relative_url | append: "#" | append: category_slug %}
 
-                        {%- for navigation in site.data.navigation.main -%}
-                            {%- if navigation.title == category -%}
-                                {%- assign category_path = navigation.url | relative_url -%}
-                            {%- endif -%}
+                        {% for navigation_item in site.data.navigation.main %}
+                            {% if navigation_item.title == category %}
+                                {% assign category_path = navigation_item.url | relative_url %}
+                            {% endif %}
 
-                            {%- if navigation.children -%}
-                                {%- for child in navigation.children -%}
-                                    {%- if child.title == category -%}
-                                        {%- assign category_path = child.url | relative_url -%}
-                                    {%- endif -%}
-                                {%- endfor -%}
-                            {%- endif -%}
-                        {%- endfor -%}
+                            {% if navigation_item.children %}
+                                {% for navigation_child in navigation_item.children %}
+                                    {% if navigation_child.title == category %}
+                                        {% assign category_path = navigation_child.url | relative_url %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
 
-                        <a class="post__categories-link" href="{{ category_path }}">{{ category }}</a>
-                    {%- endif -%}
+                        <a class="post_categories_link" href="{{ category_path }}" itemprop="articleSection">{{ category }}</a>
+                    {% endif %}
 
-                    {%- if page.title -%}
-                        <h1 class="page__title" id="page-title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-                    {%- endif -%}
+                    {% if page.title %}
+                        <h1 class="page_title" id="page_title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+                    {% endif %}
 
-                    {%- if page.subtitle -%}
-                        <p class="post__subtitle">{{ page.subtitle | escape_once }}</p>
-                    {%- endif -%}
+                    {% if page.subtitle %}
+                        <p class="post_subtitle">{{ page.subtitle | escape_once }}</p>
+                    {% endif %}
 
-                    <div class="post__meta">
-                        <div class="post__author">
-                            <a class="post__author-link" href="{{ '/' | relative_url }}">
-                                {%- if author.avatar -%}
-                                    <img class="post__author-avatar" src="{{ author.avatar | relative_url }}" alt="">
-                                {%- endif -%}
-                                <span class="post__author-name">{{ author.name | escape_once }}</span>
+                    <div class="post_meta">
+                        <div class="post_author">
+                            <a class="post_author_link" href="{{ '/' | relative_url }}" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                {% if author.avatar %}
+                                    <img class="post_author_avatar" src="{{ author.avatar | relative_url }}" alt="" decoding="async" itemprop="image">
+                                {% endif %}
+
+                                <span class="post_author_name" itemprop="name">{{ author.name | escape_once }}</span>
                             </a>
-                            <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y. %m. %d." }}</time>
+                            <time class="post_date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y. %m. %d." }}</time>
                         </div>
 
-                        <div class="post__actions">
-                            {%- if github_link -%}
+                        <div class="post_actions">
+                            {% if github_link %}
                                 <a
-                                    class="post__github-link"
+                                    class="post_github_link"
                                     href="{{ github_link.url }}"
                                     rel="me"
                                     title="GitHub"
                                     aria-label="GitHub"
                                 >
-                                    {%- include customs/links-icon.html icon=github_link.icon -%}
+                                    {% include links_icon.html icon=github_link.icon %}
                                 </a>
-                            {%- endif -%}
+                            {% endif %}
 
-                            {%- if page.share -%}
+                            {% if page.share %}
                                 <button
-                                    class="post__copy-url-button"
+                                    class="post_copy_url_button"
                                     type="button"
                                     title="URL 복사"
                                     data-copy-url-button
@@ -119,58 +135,51 @@ layout: default
                                     <i class="fas fa-link" aria-hidden="true"></i>
                                 </button>
 
-                                <div class="post__share-menu">
-                                    <button
-                                        class="post__share-menu-button"
-                                        type="button"
-                                        title="공유하기"
-                                        data-share-menu-button
-                                        aria-controls="post-share-menu-panel"
-                                        aria-expanded="false"
-                                        aria-label="공유하기"
-                                    >
+                                <div class="post_share_menu">
+                                    <button class="post_share_menu_button" type="button" title="공유하기" data-share-menu-button aria-controls="post_share_menu_panel" aria-expanded="false" aria-label="공유하기">
                                         <i class="fas fa-share-nodes" aria-hidden="true"></i>
                                     </button>
 
-                                    {%- include social_share.html context="menu" -%}
+                                    {% include social_share.html context="menu" %}
                                 </div>
-                            {%- endif -%}
+                            {% endif %}
                         </div>
                     </div>
                 </header>
-            {%- endunless -%}
+            {% endunless %}
 
-            <section class="page__content" itemprop="text">
-                <div id="table-of-content">{{ content }}</div>
-                {%- if page.link -%}
+            <section class="page_content" itemprop="text">
+                <div id="article_content">{{ content }}</div>
+
+                {% if page.link %}
                     <div>
-                        <a class="btn btn--primary" href="{{ page.link }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a>
+                        <a class="btn btn_primary" href="{{ page.link }}">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a>
                     </div>
-                {%- endif -%}
+                {% endif %}
             </section>
 
-            {%- include page_taxonomy.html context="post" -%}
+            {% include page_taxonomy.html taxonomy_context="post" %}
 
-            {%- if page.share -%}
-                {%- include social_share.html -%}
-            {%- endif -%}
+            {% if page.share %}
+                {% include social_share.html %}
+            {% endif %}
 
-            {%- include post_pagination.html -%}
+            {% include post_pagination.html %}
 
-            {%- if page.id and page.related -%}
-                {%- include related_posts.html -%}
-            {%- endif -%}
+            {% if page.id and page.related %}
+                {% include related_posts.html %}
+            {% endif %}
         </div>
 
-        {%- if site.comments.provider and page.comments -%}
-            {%- if jekyll.environment == "production" -%}
-                {%- include comments.html -%}
-            {%- else -%}
+        {% if site.comments.provider and page.comments %}
+            {% if jekyll.environment == "production" %}
+                {% include comments.html %}
+            {% else %}
                 <p>
                     Comments are configured with provider: <strong>{{ site.comments.provider }}</strong>,
                     but are disabled in non-production environments.
                 </p>
-            {%- endif -%}
-        {%- endif -%}
+            {% endif %}
+        {% endif %}
     </article>
-</div>
+</main>

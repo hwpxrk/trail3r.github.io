@@ -1,27 +1,41 @@
-<nav class="nav__list">
-  {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
-  <ul class="nav__items">
-    {% for navname in include.nav %}
-      {% assign navigation = site.data.navigation[navname] %}
-      {% for nav in navigation %}
-        <li>
-          {% if nav.url %}
-            <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
-          {% else %}
-            <span class="nav__sub-title">{{ nav.title }}</span>
-          {% endif %}
+<!-- Render a nested sidebar navigation list. -->
 
-          {% if nav.children != null %}
-          <ul>
-            {% for child in nav.children %}
-              <li><a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}>{{ child.title }}</a></li>
+
+<nav class="navigation_list">
+    {% if page.sidebar.title %}
+        <h3 class="navigation_title">{{ page.sidebar.title }}</h3>
+    {% endif %}
+
+    <input id="accordion_table_of_contents" name="accordion_table_of_contents" type="checkbox">
+    <label for="accordion_table_of_contents">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+
+    <ul class="navigation_items">
+        {% for navigation_name in include.nav %}
+            {% assign navigation_items = site.data.navigation[navigation_name] %}
+
+            {% for navigation_item in navigation_items %}
+                <li>
+                    {% if navigation_item.url %}
+                        <a href="{{ navigation_item.url | relative_url }}">
+                            <span class="navigation_subtitle">{{ navigation_item.title }}</span>
+                        </a>
+                    {% else %}
+                        <span class="navigation_subtitle">{{ navigation_item.title }}</span>
+                    {% endif %}
+
+                    {% if navigation_item.children %}
+                        <ul>
+                            {% for navigation_child in navigation_item.children %}
+                                <li>
+                                    <a {% if navigation_child.url == page.url %}class="is_active"{% endif %} href="{{ navigation_child.url | relative_url }}">
+                                        {{ navigation_child.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
             {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    {% endfor %}
-  </ul>
+        {% endfor %}
+    </ul>
 </nav>

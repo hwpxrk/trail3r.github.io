@@ -1,4 +1,9 @@
+<!-- Render posts with one tag. -->
+
+
 {% assign posts = site.tags[include.taxonomy] | where_exp: "post", "post.hidden != true" %}
-{%- for post in posts -%}
-  {% include archive-single.html %}
-{%- endfor -%}
+{% assign archive_layout = include.archive_layout | default: include.type | default: "list" %}
+
+{% for post in posts %}
+    {% include archive-single.html archive_layout=archive_layout %}
+{% endfor %}

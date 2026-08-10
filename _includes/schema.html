@@ -1,16 +1,74 @@
+<!-- Render structured data for the current page. -->
+
+
+{% assign schema_site_identifier = "/#website" | absolute_url %}
+{% assign schema_author_identifier = "/#person" | absolute_url %}
+{% assign schema_author_name = author.name | default: author | default: site.name %}
+{% assign schema_image = page_large_image | default: page_teaser_image %}
+
 <script type="application/ld+json">
+{% if page.date %}
 {
-  "@context": "https://schema.org",
-  {% if site.social.type == "Organization" -%}
-    "@type": "Organization",
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.og_image %},
-    "logo": {{ site_og_image | jsonify }}{% endif %}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- else -%}
-    "@type": "Person",
-    "name": {{ site.social.name | default: site.name | jsonify }},
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- endif %}
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | markdownify | strip_html | strip_newlines | jsonify }},
+    "description": {{ seo_description | jsonify }},
+    "url": {{ canonical_url | jsonify }},
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": {{ canonical_url | jsonify }}
+    },
+    "isPartOf": {
+        "@id": {{ schema_site_identifier | jsonify }}
+    },
+    "inLanguage": {{ site.locale | default: "ko-KR" | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+    "author": {
+        "@type": "Person",
+        "@id": {{ schema_author_identifier | jsonify }},
+        "name": {{ schema_author_name | jsonify }},
+        "url": {{ "/" | absolute_url | jsonify }}
+    }{% if schema_image %},
+    "image": {{ schema_image | jsonify }}{% endif %}{% if page.categories and page.categories.size > 0 %},
+    "articleSection": {{ page.categories | first | jsonify }}{% endif %}{% if page.tags and page.tags.size > 0 %},
+    "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
 }
+{% elsif page.url == "/" %}
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": {{ schema_site_identifier | jsonify }},
+            "name": {{ site.title | jsonify }},
+            "description": {{ site.description | jsonify }},
+            "url": {{ "/" | absolute_url | jsonify }},
+            "inLanguage": {{ site.locale | default: "ko-KR" | jsonify }},
+            "publisher": {
+                "@id": {{ schema_author_identifier | jsonify }}
+            }
+        },
+        {
+            "@type": "Person",
+            "@id": {{ schema_author_identifier | jsonify }},
+            "name": {{ schema_author_name | jsonify }},
+            "url": {{ "/" | absolute_url | jsonify }}{% if site.social.links %},
+            "sameAs": {{ site.social.links | jsonify }}{% endif %}
+        }
+    ]
+}
+{% else %}
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": {{ page_title | default: site.title | jsonify }},
+    "description": {{ seo_description | jsonify }},
+    "url": {{ canonical_url | jsonify }},
+    "isPartOf": {
+        "@id": {{ schema_site_identifier | jsonify }}
+    },
+    "inLanguage": {{ site.locale | default: "ko-KR" | jsonify }}
+}
+{% endif %}
 </script>

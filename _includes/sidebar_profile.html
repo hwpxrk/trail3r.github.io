@@ -9,7 +9,7 @@
     <div class="sidebar_profile_section" itemscope itemtype="https://schema.org/Person">
         <a class="sidebar_profile" href="{{ '/' | absolute_url }}" rel="me" itemprop="url">
             {% if author.avatar %}
-                <img class="sidebar_profile_avatar" src="{{ author.avatar | relative_url }}" alt="" itemprop="image">
+                <img class="sidebar_profile_avatar" src="{{ author.avatar | relative_url }}" alt="" loading="lazy" decoding="async" itemprop="image">
             {% endif %}
 
             <div class="sidebar_profile_contents">
@@ -25,13 +25,11 @@
 
         {% if follow_links and follow_links.size > 0 %}
             <div class="sidebar_follow">
-                <!-- <p class="sidebar_follow_label">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</p> -->
-
                 <ul class="sidebar_follow_list">
                     {% for link in follow_links %}
                         <li class="sidebar_follow_item">
                             <a class="sidebar_follow_link" href="{{ link.url }}" rel="nofollow noopener noreferrer me"{% if link.url contains "http" %} itemprop="sameAs"{% endif %}>
-                                {% include customs/links-icon.html icon=link.icon %}
+                                {% include links_icon.html icon=link.icon %}
                                 <span class="sidebar_follow_link_label">{{ link.label | escape_once }}</span>
                             </a>
                         </li>

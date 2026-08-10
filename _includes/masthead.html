@@ -1,16 +1,23 @@
-<!-- Render Global Masthead. -->
+<!-- Render the global masthead. -->
 
 {% assign logo_path = site.logo | default: "" | strip %}
 {% assign author = site.author %}
 {% assign follow_label = site.data.ui-text[site.locale].follow_label | default: "팔로우" %}
+{% assign current_url = page.url %}
 
-<nav class="masthead" id="site-nav">
+{% if paginator and paginator.page > 1 %}
+    {% assign current_url = paginator.first_page_path | default: page.url %}
+{% endif %}
+
+{% assign current_url = current_url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+
+<nav class="masthead" id="site_navigation" aria-label="주요 메뉴">
     <div class="masthead_container">
         <div class="masthead_contents">
             <div class="masthead_site_metadata">
                 {% unless logo_path == empty %}
                     <a class="masthead_site_logo" href="{{ '/' | relative_url }}">
-                        <img src="{{ logo_path | relative_url }}" alt="{{ site.title }}">
+                        <img src="{{ logo_path | relative_url }}" alt="{{ site.title | escape_once }}" decoding="async">
                     </a>
                 {% endunless %}
 
@@ -42,7 +49,7 @@
             </ul>
 
             {% if site.search == true %}
-                <button class="masthead_search_bar js_masthead_search_bar" type="button">
+                <button class="masthead_search_bar js_masthead_search_bar" type="button" aria-controls="site_search" aria-expanded="false">
                     <span class="masthead_search_icon" aria-hidden="true">🔍︎</span>
                     밀실 수색하기
                 </button>
@@ -50,17 +57,17 @@
         </div>
     </div>
 
-    <!-- Desktop Fly-out Menu -->
+    <!-- Render the desktop flyout menu. -->
     <div class="masthead_flyout_container js_masthead_flyout_container" id="masthead_flyout_container" inert>
         <div class="masthead_flyout_contents">
             <div class="masthead_profile_section">
                 <a class="masthead_profile_link" href="{{ '/' | relative_url }}">
                     {% if author.avatar %}
-                        <img class="masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                        <img class="masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="" loading="lazy" decoding="async">
                     {% endif %}
 
                     {% if author.name %}
-                        <span class="masthead_profile_name">{{ author.name }}</span>
+                        <span class="masthead_profile_name">{{ author.name | escape_once }}</span>
                     {% endif %}
 
                     {% if author.bio %}
@@ -73,8 +80,8 @@
                         <ul class="masthead_follow_list">
                             {% for link in author.links %}
                                 <li>
-                                    <a class="masthead_follow_link" href="{{ link.url }}" aria-label="{{ link.label }}">
-                                        {% include customs/links-icon.html icon=link.icon %}
+                                    <a class="masthead_follow_link" href="{{ link.url }}" aria-label="{{ link.label | escape_once }}">
+                                        {% include links_icon.html icon=link.icon %}
                                     </a>
                                 </li>
                             {% endfor %}
@@ -90,10 +97,10 @@
 
                         <ul class="masthead_submenu_list">
                             {% if menu.children and menu.children.size > 0 %}
-                                {% for submenu in menu.children %}
+                                {% for submenu_item in menu.children %}
                                     <li>
-                                        <a class="masthead_submenu_link" href="{{ submenu.url | relative_url }}">
-                                            {{ submenu.title | escape_once }}
+                                        <a class="masthead_submenu_link" href="{{ submenu_item.url | relative_url }}">
+                                            {{ submenu_item.title | escape_once }}
                                         </a>
                                     </li>
                                 {% endfor %}
@@ -110,13 +117,12 @@
             </div>
         </div>
     </div>
-    <!-- /Desktop Fly-out Menu -->
 
     <div class="mobile_masthead_container">
         <div class="mobile_masthead_site_metadata">
             {% unless logo_path == empty %}
                 <a class="mobile_masthead_site_logo" href="{{ '/' | relative_url }}">
-                    <img src="{{ logo_path | relative_url }}" alt="{{ site.title }}">
+                    <img src="{{ logo_path | relative_url }}" alt="{{ site.title | escape_once }}" decoding="async">
                 </a>
             {% endunless %}
 
@@ -131,7 +137,7 @@
             </a>
 
             {% if site.search == true %}
-                <button class="mobile_masthead_search_button js_mobile_masthead_search_button" type="button" aria-label="밀실 수색하기">
+                <button class="mobile_masthead_search_button js_mobile_masthead_search_button" type="button" aria-controls="site_search" aria-expanded="false" aria-label="밀실 수색하기">
                     <span class="mobile_masthead_search_icon" aria-hidden="true">🔍︎</span>
                 </button>
             {% endif %}
@@ -144,17 +150,17 @@
 
             <div class="mobile_masthead_filter js_mobile_masthead_filter"></div>
 
-            <!-- Mobile Sidebar Menu -->
+            <!-- Render the mobile sidebar menu. -->
             <div class="mobile_masthead_sidebar_container js_mobile_masthead_sidebar_container" id="mobile_masthead_sidebar_container" inert>
                 <div class="mobile_masthead_sidebar_contents">
                     <div class="mobile_masthead_profile">
                         <a class="mobile_masthead_profile_link" href="{{ '/' | relative_url }}">
                             {% if author.avatar %}
-                                <img class="mobile_masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="">
+                                <img class="mobile_masthead_profile_avatar" src="{{ author.avatar | relative_url }}" alt="" loading="lazy" decoding="async">
                             {% endif %}
 
                             {% if author.name %}
-                                <span class="mobile_masthead_profile_name">{{ author.name }}</span>
+                                <span class="mobile_masthead_profile_name">{{ author.name | escape_once }}</span>
                             {% endif %}
 
                             {% if author.bio %}
@@ -168,24 +174,60 @@
                     <div class="mobile_masthead_accordion_section">
                         {% for menu in site.data.navigation.main %}
                             {% if menu.children and menu.children.size > 0 %}
-                                <details class="mobile_masthead_accordion_group js_mobile_masthead_accordion_group">
+                                {% assign is_menu_active = false %}
+
+                                {% for submenu_item in menu.children %}
+                                    {% assign submenu_item_url = submenu_item.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+
+                                    {% if submenu_item_url == current_url %}
+                                        {% assign is_menu_active = true %}
+                                    {% endif %}
+
+                                    {% if page.categories and page.categories contains submenu_item.title %}
+                                        {% assign is_menu_active = true %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                <details class="mobile_masthead_accordion_group js_mobile_masthead_accordion_group{% if is_menu_active %} is_active{% endif %}"{% if is_menu_active %} open{% endif %}>
                                     <summary class="mobile_masthead_accordion_header">
                                         {{ menu.title | escape_once }}
                                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
                                     </summary>
 
                                     <ul class="mobile_masthead_accordion_list">
-                                        {% for submenu in menu.children %}
+                                        {% for submenu_item in menu.children %}
+                                            {% assign submenu_item_url = submenu_item.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+                                            {% assign is_submenu_active = false %}
+
+                                            {% if submenu_item_url == current_url %}
+                                                {% assign is_submenu_active = true %}
+                                            {% endif %}
+
+                                            {% if page.categories and page.categories contains submenu_item.title %}
+                                                {% assign is_submenu_active = true %}
+                                            {% endif %}
+
                                             <li>
-                                                <a class="mobile_masthead_accordion_link" href="{{ submenu.url | relative_url }}">
-                                                    {{ submenu.title | escape_once }}
+                                                <a class="mobile_masthead_accordion_link{% if is_submenu_active %} is_active{% endif %}" href="{{ submenu_item.url | relative_url }}"{% if is_submenu_active %} aria-current="page"{% endif %}>
+                                                    {{ submenu_item.title | escape_once }}
                                                 </a>
                                             </li>
                                         {% endfor %}
                                     </ul>
                                 </details>
                             {% else %}
-                                <a class="mobile_masthead_accordion_link" href="{{ menu.url | relative_url }}">
+                                {% assign menu_url = menu.url | relative_url | replace: "index.html", "" | replace: ".html", "" | append: "/" | replace: "//", "/" %}
+                                {% assign is_menu_active = false %}
+
+                                {% if menu_url == current_url %}
+                                    {% assign is_menu_active = true %}
+                                {% endif %}
+
+                                {% if page.categories and page.categories contains menu.title %}
+                                    {% assign is_menu_active = true %}
+                                {% endif %}
+
+                                <a class="mobile_masthead_accordion_link{% if is_menu_active %} is_active{% endif %}" href="{{ menu.url | relative_url }}"{% if is_menu_active %} aria-current="page"{% endif %}>
                                     {{ menu.title | escape_once }}
                                 </a>
                             {% endif %}
@@ -202,9 +244,9 @@
                                 {% for link in author.links %}
                                     <li class="mobile_masthead_follow_item">
                                         <a class="mobile_masthead_follow_link" href="{{ link.url }}">
-                                            {% include customs/links-icon.html icon=link.icon %}
+                                            {% include links_icon.html icon=link.icon %}
                                             <span class="mobile_masthead_follow_link_label">
-                                                {{ link.label }}
+                                                {{ link.label | escape_once }}
                                             </span>
                                         </a>
                                     </li>
@@ -214,7 +256,6 @@
                     {% endif %}
                 </div>
             </div>
-            <!-- /Mobile Sidebar Menu -->
         </div>
     </div>
 </nav>

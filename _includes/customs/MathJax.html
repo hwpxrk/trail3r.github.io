@@ -1,61 +1,20 @@
+<!-- Detect TeX and load MathJax. -->
+
+
 <style>
-    .mathjax_loading .page__content {
-        opacity: 0;
+    .mathjax_loading .page_content {
         visibility: hidden;
+
+        opacity: 0;
     }
 
-    .page__content {
-        transition: opacity 0.5s ease;
+    .page_content {
+        transition: opacity 0.2s ease;
+    }
+
+    mjx-container[display="true"] {
+        overflow-x: auto;
     }
 </style>
 
-<script>
-    document.documentElement.classList.add("mathjax_loading");
-
-    const reveal_mathjax_content = () => {
-        document.documentElement.classList.remove("mathjax_loading");
-    };
-    const mathjax_loading_timeout = window.setTimeout(
-        reveal_mathjax_content,
-        5000,
-    );
-
-    window.MathJax = {
-        options: {
-            a11y: {
-                braille: false,
-                speech: false,
-            },
-            enableExplorer: false,
-            enableExplorerHelp: false,
-            enableMenu: false,
-            menuOptions: {
-                settings: {
-                    braille: false,
-                    speech: false,
-                },
-            },
-        },
-        startup: {
-            pageReady: () => {
-                return MathJax.startup.defaultPageReady().finally(() => {
-                    window.clearTimeout(mathjax_loading_timeout);
-                    reveal_mathjax_content();
-                });
-            },
-        },
-        tex: {
-            inlineMath: {
-                "[+]": [
-                    ["$", "$"],
-                ],
-            },
-        },
-    };
-</script>
-
-<script
-    defer
-    src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
-    onerror="document.documentElement.classList.remove('mathjax_loading')"
-></script>
+<script src="{{ '/assets/js/customs/mathjax.js' | relative_url }}" defer></script>

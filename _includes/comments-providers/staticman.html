@@ -1,40 +1,53 @@
+<!-- Submit comments through Staticman v1. -->
+
+
 {% if site.repository and site.staticman.branch %}
-  <script>
-    (function ($) {
-    $('#new_comment').submit(function () {
-      var form = this;
+    <script>
+        (($) => {
+            "use strict";
 
-      $(form).addClass('disabled');
-      $('#comment-form-submit').html('<i class="fas fa-spinner fa-spin fa-fw"></i> {{ site.data.ui-text[site.locale].loading_label | default: "Loading..." }}');
+            const comment_form = $("#new_comment");
+            const submit_button = $("#comment-form-submit");
+            const notice = $(".page_comments_form .js_notice");
+            const notice_text = $(".page_comments_form .js_notice_text");
+            const loading_label = {{ site.data.ui-text[site.locale].loading_label | default: "Loading..." | jsonify }};
+            const submitted_label = {{ site.data.ui-text[site.locale].comment_btn_submitted | default: "Submitted" | jsonify }};
+            const submit_label = {{ site.data.ui-text[site.locale].comment_btn_submit | default: "Submit Comment" | jsonify }};
+            const success_message = {{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site once it has been approved." | jsonify }};
+            const error_message = {{ site.data.ui-text[site.locale].comment_error_msg | default: "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again." | jsonify }};
 
-      $.ajax({
-        type: $(this).attr('method'),
-        url: $(this).attr('action'),
-        data: $(this).serialize(),
-        contentType: 'application/x-www-form-urlencoded',
-        success: function (data) {
-          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submitted | default: "Submitted" }}');
-          $('.page__comments-form .js-notice').removeClass('notice--danger');
-          $('.page__comments-form .js-notice').addClass('notice--success');
-          showAlert('{{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site once it has been approved." }}');
-        },
-        error: function (err) {
-          console.log(err);
-          $('#comment-form-submit').html('{{ site.data.ui-text[site.locale].comment_btn_submit  | default: "Submit Comment" }}');
-          $('.page__comments-form .js-notice').removeClass('notice--success');
-          $('.page__comments-form .js-notice').addClass('notice--danger');
-          showAlert('{{ site.data.ui-text[site.locale].comment_error_msg | default: "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again." }}');
-          $(form).removeClass('disabled');
-        }
-      });
+            function show_alert(message) {
+                notice.removeClass("hidden");
+                notice_text.text(message);
+            }
 
-      return false;
-    });
+            comment_form.on("submit", (event) => {
+                event.preventDefault();
 
-    function showAlert(message) {
-      $('.page__comments-form .js-notice').removeClass('hidden');
-      $('.page__comments-form .js-notice-text').html(message);
-    }
-  })(jQuery);
-  </script>
+                const form = $(event.currentTarget);
+
+                form.addClass("disabled");
+                submit_button.html(`<i class="fas fa-spinner fa-spin fa-fw"></i> ${loading_label}`);
+
+                $.ajax({
+                    type: form.attr("method"),
+                    url: form.attr("action"),
+                    data: form.serialize(),
+                    contentType: "application/x-www-form-urlencoded",
+                    success: () => {
+                        submit_button.text(submitted_label);
+                        notice.removeClass("notice_danger").addClass("notice_success");
+                        show_alert(success_message);
+                    },
+                    error: (error) => {
+                        console.error(error);
+                        submit_button.text(submit_label);
+                        notice.removeClass("notice_success").addClass("notice_danger");
+                        show_alert(error_message);
+                        form.removeClass("disabled");
+                    },
+                });
+            });
+        })(jQuery);
+    </script>
 {% endif %}

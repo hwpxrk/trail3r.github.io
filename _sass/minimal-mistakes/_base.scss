@@ -1,26 +1,33 @@
-/* ==========================================================================
-   BASE ELEMENTS
-   ========================================================================== */
+/* Base elements */
+
 
 html {
-  /* sticky footer fix */
-  position: relative;
-  min-height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    position: relative;
+
+    min-height: 100%;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  color: $text_color;
-  font-family: $global_font_family;
-  line-height: 1.5;
+    display: flex;
 
-  &.overflow--hidden {
-    /* when primary navigation is visible, the content in the background won't scroll */
-    overflow: hidden;
-  }
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    padding: 0;
+    margin: 0;
+
+    color: $text_color;
+
+    font-family: $global_font_family;
+    line-height: 1.5;
+
+    &.overflow_hidden {
+        overflow: hidden;
+    }
 }
 
 h1,
@@ -29,61 +36,65 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 2em 0 0.5em;
-  line-height: 1.2;
-  font-family: $header_font_family;
-  font-weight: bold;
+    margin: 2em 0 0.5em;
+
+    font-family: $header_font_family;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 h1 {
-  margin-top: 0;
-  font-size: $h_size_1;
+    margin-top: 0;
+
+    font-size: $h_size_1;
 }
 
 h2 {
-  font-size: $h_size_2;
+    font-size: $h_size_2;
 }
 
 h3 {
-  font-size: $h_size_3;
+    font-size: $h_size_3;
 }
 
 h4 {
-  font-size: $h_size_4;
+    font-size: $h_size_4;
 }
 
 h5 {
-  font-size: $h_size_5;
+    font-size: $h_size_5;
 }
 
 h6 {
-  font-size: $h_size_6;
+    font-size: $h_size_6;
 }
 
 small,
 .small {
-  font-size: $type_size_6;
+    font-size: $type_size_6;
 }
 
 p {
-  margin-bottom: 1.3em;
+    margin-bottom: 1.3em;
 }
 
 u,
 ins {
-  text-decoration: none;
-  border-bottom: 1px solid $text_color;
-  a {
-    color: inherit;
-  }
+    border-bottom: 1px solid $text_color;
+
+    text-decoration: none;
+
+    a {
+        color: inherit;
+    }
 }
 
 del a {
-  color: inherit;
+    color: inherit;
 }
 
-/* reduce orphans and widows when printing */
 
+// Reduce orphans and widows when printing.
 p,
 pre,
 blockquote,
@@ -93,249 +104,186 @@ dl,
 figure,
 table,
 fieldset {
-  orphans: 3;
-  widows: 3;
+    orphans: 3;
+    widows: 3;
 }
-
-/* abbreviations */
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: none;
-  cursor: help;
-  border-bottom: 1px dotted $text_color;
-}
+    border-bottom: 1px dotted $text_color;
 
-/* blockquotes */
+    text-decoration: none;
+
+    cursor: help;
+}
 
 blockquote {
-  margin-block: 2em;
-  margin-inline-end: 1em;
-  padding-inline: 1em;
-  font-style: italic;
-  border-inline-start: 0.25em solid $primary_color;
+    padding-inline: 1em;
+    margin-block: 2em;
+    margin-inline-end: 1em;
 
-  cite {
+    border-inline-start: 0.25em solid $primary_color;
+
     font-style: italic;
 
-    &::before {
-      content: "\2014";
-      padding-inline-end: 5px;
-    }
-  }
-}
+    cite {
+        font-style: italic;
 
-/* links */
+        &::before {
+            content: "\2014";
+
+            padding-inline-end: 5px;
+        }
+    }
+}
 
 a {
-  &:focus {
-    @extend %tab-focus;
-  }
+    &:focus {
+        @extend %tab_focus;
+    }
 
-  &:visited {
-    color: $link_color_visited;
-  }
+    &:visited {
+        color: $link_color_visited;
+    }
 
-  &:hover {
-    color: $link_color_hover;
-    outline: 0;
-  }
+    &:hover {
+        outline: 0;
+
+        color: $link_color_hover;
+    }
 }
-
-/* buttons */
 
 button:focus {
-  @extend %tab-focus;
+    @extend %tab_focus;
 }
-
-/* code */
 
 tt,
 code,
 kbd,
 samp,
 pre {
-  font-family: $monospace;
+    font-family: $monospace;
 }
 
 pre {
-  overflow-x: auto; /* add scrollbars to wide code blocks*/
+    overflow-x: auto;
 }
-
-/* horizontal rule */
 
 hr {
-  display: block;
-  margin: 1em 0;
-  border: 0;
-  border-top: 1px solid $border_color;
-}
+    display: block;
 
-/* lists */
+    margin: 1em 0;
+
+    border: 0;
+    border-top: 1px solid $border_color;
+}
 
 ul li,
 ol li {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 li ul,
 li ol {
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
-/*
-   Media and embeds
-   ========================================================================== */
 
-/* Figures and images */
-
+// Figures and images
 figure {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 2em 0;
+    display: flex;
 
-  img,
-  iframe,
-  .fluid-width-video-wrapper {
-    margin-bottom: 1em;
-  }
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  img {
-    width: 100%;
-    border-radius: $border_radius;
-    -webkit-transition: $global_transition;
-    transition: $global_transition;
-  }
+    margin: 2em 0;
 
-  > a {
-    display: block;
-  }
-
-  &.half {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(50% - 0.5em);
-      }
+    img,
+    iframe,
+    .fluid_width_video_wrapper {
+        margin-bottom: 1em;
     }
 
-    figcaption {
-      width: 100%;
-    }
-  }
+    img {
+        width: 100%;
 
-  &.third {
-    > a,
-    > img {
-      @include breakpoint($small) {
-        width: calc(33.3333% - 0.5em);
-      }
+        border-radius: $border_radius;
+
+        transition: $global_transition;
     }
 
-    figcaption {
-      width: 100%;
+    > a {
+        display: block;
     }
-  }
+
+    &.half {
+        > a,
+        > img {
+            @include breakpoint($small) {
+                width: calc(50% - 0.5em);
+            }
+        }
+
+        figcaption {
+            width: 100%;
+        }
+    }
+
+    &.third {
+        > a,
+        > img {
+            @include breakpoint($small) {
+                width: calc(33.3333% - 0.5em);
+            }
+        }
+
+        figcaption {
+            width: 100%;
+        }
+    }
 }
-
-/* Figure captions */
 
 figcaption {
-  margin-bottom: 0.5em;
-  color: $muted_text_color;
-  font-family: $caption_font_family;
-  font-size: $type_size_6;
+    margin-bottom: 0.5em;
 
-  a {
-    -webkit-transition: $global_transition;
-    transition: $global_transition;
+    color: $muted_text_color;
 
-    &:hover {
-      color: $link_color_hover;
+    font-family: $caption_font_family;
+    font-size: $type_size_6;
+
+    a {
+        transition: $global_transition;
+
+        &:hover {
+            color: $link_color_hover;
+        }
     }
-  }
 }
 
-/* Fix IE9 SVG bug */
 
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/*
-   Navigation lists
-   ========================================================================== */
-
-/**
- * Removes margins, padding, and bullet points from navigation lists
- *
- * Example usage:
- * <nav>
- *    <ul>
- *      <li><a href="#link-1">Link 1</a></li>
- *      <li><a href="#link-2">Link 2</a></li>
- *      <li><a href="#link-3">Link 3</a></li>
- *    </ul>
- *  </nav>
- */
-
+// Navigation lists
 nav {
-  ul {
-    margin: 0;
-    padding: 0;
-  }
+    ul {
+        padding: 0;
+        margin: 0;
+    }
 
-  li {
-    list-style: none;
-  }
+    li {
+        list-style: none;
+    }
 
-  a {
-    text-decoration: none;
-  }
+    a {
+        text-decoration: none;
+    }
 
-  /* override white-space for nested lists */
-  ul li,
-  ol li {
-    margin-bottom: 0;
-  }
+    ul li,
+    ol li {
+        margin-bottom: 0;
+    }
 
-  li ul,
-  li ol {
-    margin-top: 0;
-  }
-}
-
-/*
-   Global animation transition
-   ========================================================================== */
-
-b,
-i,
-strong,
-em,
-blockquote,
-p,
-q,
-span,
-figure,
-img,
-h1,
-h2,
-header,
-input,
-a,
-tr,
-td,
-form button,
-input[type="submit"],
-.btn,
-.highlight,
-.archive__item-teaser {
-  -webkit-transition: $global_transition;
-  transition: $global_transition;
+    li ul,
+    li ol {
+        margin-top: 0;
+    }
 }

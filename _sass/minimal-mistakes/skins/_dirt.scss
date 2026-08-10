@@ -1,20 +1,20 @@
-/* ==========================================================================
-   Dirt skin
-   ========================================================================== */
+/* Dirt skin */
+
+@use "sass:color";
 
 /* Colors */
-$background-color: #f3f3f3 !default;
-$text-color: #343434 !default;
-$muted-text-color: #8e8b82 !default;
-$primary-color: #343434 !default;
-$border-color: #e9dcbe !default;
-$footer-background-color: #e9dcbe !default;
-$link-color: #343434 !default;
-$masthead-link-color: $text-color !default;
-$masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+$background_color: #f3f3f3 !default;
+$text_color: #343434 !default;
+$muted_text_color: #8e8b82 !default;
+$primary_color: #343434 !default;
+$border_color: #e9dcbe !default;
+$footer_background_color: #e9dcbe !default;
+$link_color: #343434 !default;
+$masthead_link_color: $text_color !default;
+$masthead_link_color_hover: $text_color !default;
+$navicon_link_color_hover: color.mix(#fff, $text_color, 80%) !default;
 
-/* dirt syntax highlighting (base16) */
+/* Dirt syntax highlighting */
 $base00: #231e18 !default;
 $base01: #302b25 !default;
 $base02: #48413a !default;

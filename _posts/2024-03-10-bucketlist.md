@@ -2,6 +2,7 @@
 title: 개구리의 소망목록, 버킷리스트
 subtitle: 태어난 김에 한 번쯤 해보고 싶은 것들
 date: 2024-03-10 01:27
+last_modified_at: 2026-05-17 00:00
 
 layout: post
 permalink: /blog/bucketlist
@@ -15,7 +16,7 @@ header:
 featured: true
 ---
 
-<center><img src="/assets/images/posts/Featured/Bucketlist/bucketlist.jpg"></center><br>
+<center><img src="/assets/images/posts/Featured/Bucketlist/bucketlist.jpg" alt="" loading="lazy" decoding="async"></center><br>
 
 &emsp;안녕하세요, 개구리의 밀실 블로그 주인장 개구리입니다. 이번 글은 소박하게 이루고 싶은 버킷리스트에 대해서 끄적여 보려고 해요. 여러분은 살면서 한 번쯤은 꼭 해보고 싶은 무언가가 있으신가요? 소박해도 좋고, 거창해도 좋아요. 그냥 뭐라도 꼭 해보고 싶은 그런 것들 하나쯤 있잖아요. 저도 태어난 김에 생각할 수 있는 범주에서 나름 최선을 다하는 흔하디흔한 사람인지라 그런 것들이 조금 많이 있어요.<br>
 
@@ -40,7 +41,7 @@ featured: true
 
 
 ## 개구리의 은밀한 버킷리스트
-<p class="posts-subtitle">태어난 김에 한 번쯤 해보고 싶은 것들</p>
+<p class="posts_subtitle">태어난 김에 한 번쯤 해보고 싶은 것들</p>
 
 ---
 
@@ -48,27 +49,27 @@ featured: true
 
 - [ ] **하프 마라톤 완주하기**<br>
 
-- [X] <span style="color: #808080">한 달 동안 개인 트레이닝 받아보기 (2023. 12. 20. 수요일)</span><br>
+- [X] <span style="color: #737373">한 달 동안 개인 트레이닝 받아보기 (2023. 12. 20. 수요일)</span><br>
 
-- [X] <span style="color: #808080">세 달 동안 개인 트레이닝 받아보기 (2024. 1. 26. 금요일)</span><br>
+- [X] <span style="color: #737373">세 달 동안 개인 트레이닝 받아보기 (2024. 1. 26. 금요일)</span><br>
 
 - [ ] **몸무게 65kg 이상 한 달 이상 유지하기**<br>
 
-- [X] <span style="color: #808080">덧니 뽑기 (2023. 2. 16. 목요일)</span><br>
+- [X] <span style="color: #737373">덧니 뽑기 (2023. 2. 16. 목요일)</span><br>
 
-- [X] <span style="color: #808080">교정하기 (2023. 2. 8. 수요일) (현재 진행 중)</span><br>
+- [X] <span style="color: #737373">교정하기 (2023. 2. 8. 수요일) (현재 진행 중)</span><br>
 
 - [ ] **3km 달리기 10분 대에 완주하기**<br>
 
-- [X] <span style="color: #808080">스쿼트 100kg 들기 (2024. 1. 9. 목요일)</span><br>
+- [X] <span style="color: #737373">스쿼트 100kg 들기 (2024. 1. 9. 목요일)</span><br>
 
-- [X] <span style="color: #808080">데드리프트 120kg 들기 (2024. 12. 25. 월요일)</span><br>
+- [X] <span style="color: #737373">데드리프트 120kg 들기 (2024. 12. 25. 월요일)</span><br>
 
 ---
 
-- [X] <span style="color: #808080">벤치프레스 80kg 들기 (2024. 2. 8. 목요일)</span><br>
+- [X] <span style="color: #737373">벤치프레스 80kg 들기 (2024. 2. 8. 목요일)</span><br>
 
-- [X] <span style="color: #808080">라식 수술하기 (2021. 1. 28. 목요일)</span><br>
+- [X] <span style="color: #737373">라식 수술하기 (2021. 1. 28. 목요일)</span><br>
 
 - [ ] **체력 평가 종합 특급 받기**<br>
 
@@ -78,13 +79,13 @@ featured: true
 
 - [ ] **100만 원 이상의 사치품 일시불로 구매하기**<br>
 
-- [X] <span style="color: #808080">데스크탑 구매하기 (2021. 5. 26. 수요일)</span><br>
+- [X] <span style="color: #737373">데스크탑 구매하기 (2021. 5. 26. 수요일)</span><br>
 
-- [X] <span style="color: #808080">노트북 구매하기 (2024. 2. 20. 화요일)</span><br>
+- [X] <span style="color: #737373">노트북 구매하기 (2024. 2. 20. 화요일)</span><br>
 
-- [X] <span style="color: #808080">아이패드 구매하기 (2024. 2. 20. 화요일)</span><br>
+- [X] <span style="color: #737373">아이패드 구매하기 (2024. 2. 20. 화요일)</span><br>
 
-- [X] <span style="color: #808080">아이폰 16 구매하기 (2024. 10. 22. 화요일)</span><br>
+- [X] <span style="color: #737373">아이폰 16 구매하기 (2024. 10. 22. 화요일)</span><br>
 
 ---
 
@@ -102,11 +103,11 @@ featured: true
 
 - [ ] **버킷리스트 통장에 100만 원 저축하기**<br>
 
-- [X] <span style="color: #808080">1,000만 원 저축하기</span><br>
+- [X] <span style="color: #737373">1,000만 원 저축하기</span><br>
 
 - [ ] **내 집 마련하기**<br>
 
-- [X] <span style="color: #808080">내 차 마련하기 (2024. 8. 27. 화요일)</span><br>
+- [X] <span style="color: #737373">내 차 마련하기 (2024. 8. 27. 화요일)</span><br>
 
 ---
 
@@ -114,9 +115,9 @@ featured: true
 
 - [ ] **레몬청 만들어보기**<br>
 
-- [X] <span style="color: #808080">혼자 영화 보기 (2022. 3. 12. 토요일)</span><br>
+- [X] <span style="color: #737373">혼자 영화 보기 (2022. 3. 12. 토요일)</span><br>
 
-- [X] <span style="color: #808080">어떤 것이든 강의해보기 (2025. 1. 11. 토요일)</span><br>
+- [X] <span style="color: #737373">어떤 것이든 강의해보기 (2025. 1. 11. 토요일)</span><br>
 
 - [ ] **승마 체험하기**<br>
 
@@ -146,11 +147,11 @@ featured: true
 
 - [ ] **브런치 시간에 브런치 카페가서 책 읽기**<br>
 
-- [X] <span style="color: #808080">COVID-19 종식 선언 보기 (2023. 5. 11. 목요일)</span><br>
+- [X] <span style="color: #737373">COVID-19 종식 선언 보기 (2023. 5. 11. 목요일)</span><br>
 
 - [ ] **내 몸만 한 눈사람 만들기**<br>
 
-- [X] <span style="color: #808080">지리산 완등하기 (2024. 2. 25. 일요일)</span><br>
+- [X] <span style="color: #737373">지리산 완등하기 (2024. 2. 25. 일요일)</span><br>
 
 ---
 
@@ -160,7 +161,7 @@ featured: true
 
 - [ ] **국내 모든 공항 및 비행단 방문하기**<br>
 
-- [X] <span style="color: #808080">백문백답하기 (2024. 2. 13. 화요일)</span><br>
+- [X] <span style="color: #737373">백문백답하기 (2024. 2. 13. 화요일)</span><br>
 
 - [ ] **스쿠버다이빙하기**<br>
 
@@ -168,7 +169,7 @@ featured: true
 
 - [ ] **산 정상에서 일출 보기**<br>
 
-- [X] <span style="color: #808080">해변에서 일출 보기 (2023. 1. 1. 일요일)</span><br>
+- [X] <span style="color: #737373">해변에서 일출 보기 (2023. 1. 1. 일요일)</span><br>
 
 - [ ] **은하수 보기**<br>
 
@@ -184,7 +185,7 @@ featured: true
 
 - [ ] **한강에서 치맥 하기**<br>
 
-- [X] <span style="color: #808080">광안리 해변에서 드론 쇼 보기 (2022. 12. 31. 토요일)</span><br>
+- [X] <span style="color: #737373">광안리 해변에서 드론 쇼 보기 (2022. 12. 31. 토요일)</span><br>
 
 - [ ] **울릉도 가기**<br>
 
@@ -194,7 +195,7 @@ featured: true
 
 - [ ] **국내 주요 도시 모든 랜드마크 가보기**<br>
 
-- [X] <span style="color: #808080">혼자 국내여행 가기 (2023. 12. 30. 금요일)</span><br>
+- [X] <span style="color: #737373">혼자 국내여행 가기 (2023. 12. 30. 금요일)</span><br>
 
 ---
 
@@ -253,11 +254,11 @@ featured: true
 
 - [ ] **버킷리스트 100개 이루기**<br>
 
-- [X] <span style="color: #808080">임관 100일을 기념하며 선물 사기 (2021. 5. 26. 수요일)</span><br>
+- [X] <span style="color: #737373">임관 100일을 기념하며 선물 사기 (2021. 5. 26. 수요일)</span><br>
 
-- [X] <span style="color: #808080">임관 1주년을 기념하며 선물 사기 (2022. 4. 18. 월요일)</span><br>
+- [X] <span style="color: #737373">임관 1주년을 기념하며 선물 사기 (2022. 4. 18. 월요일)</span><br>
 
-- [X] <span style="color: #808080">임관 3주년을 기념하며 선물 사기 (2024. 2. 20. 화요일)</span><br>
+- [X] <span style="color: #737373">임관 3주년을 기념하며 선물 사기 (2024. 2. 20. 화요일)</span><br>
 
 - [ ] **임관 5주년을 기념하며 선물 사기**<br>
 
@@ -265,7 +266,7 @@ featured: true
 
 - [ ] **임관 7주년을 기념하며 선물 사기**<br>
 
-- [X] <span style="color: #808080">나의 꿈 찾기 (N/A)</span><br>
+- [X] <span style="color: #737373">나의 꿈 찾기 (N/A)</span><br>
 
 - [ ] **한 분야의 전문가로서 인정받기**<br>
 
@@ -329,9 +330,9 @@ featured: true
 
 ---
 
-- [X] <span style="color: #808080">대학에서 1과목 이상 A+ 등급 받기 (2024. 6. 28. 금요일)</span><br>
+- [X] <span style="color: #737373">대학에서 1과목 이상 A+ 등급 받기 (2024. 6. 28. 금요일)</span><br>
 
-- [X] <span style="color: #808080">대학에서 전과목 A+ 등급 받기 (2024. 12. 29. 일요일)</span><br>
+- [X] <span style="color: #737373">대학에서 전과목 A+ 등급 받기 (2024. 12. 29. 일요일)</span><br>
 
 - [ ] **피아노 10개 곡 외우고 연주할 정도로 연습해보기**<br>
 
@@ -339,19 +340,19 @@ featured: true
 
 - [ ] **신기한 자격증 취득해보기**<br>
 
-- [X] <span style="color: #808080">어떤 공모전이든 수상하기 (2024. 7. 21. 일요일)</span><br>
+- [X] <span style="color: #737373">어떤 공모전이든 수상하기 (2024. 7. 21. 일요일)</span><br>
 
 - [ ] **포토샵 자격증 취득하기**<br>
 
-- [X] <span style="color: #808080">산업기사급 자격증 취득하기 (2022. 11. 25. 목요일)</span><br>
+- [X] <span style="color: #737373">산업기사급 자격증 취득하기 (2022. 11. 25. 목요일)</span><br>
 
 - [ ] **기사급 자격증 취득하기**
 
-- [X] <span style="color: #808080">토익 700점 넘기기 (2022. 4. 10. 일요일)</span><br>
+- [X] <span style="color: #737373">토익 700점 넘기기 (2022. 4. 10. 일요일)</span><br>
 
 ---
 
-- [X] <span style="color: #808080">OPIc IH 이상 취득하기 (2022. 9. 17. 토요일)</span><br>
+- [X] <span style="color: #737373">OPIc IH 이상 취득하기 (2022. 9. 17. 토요일)</span><br>
 
 - [ ] **노트 1권 공부로만 가득 채워보기**<br>
 
@@ -363,7 +364,7 @@ featured: true
 
 - [ ] **여자친구랑 서로 코디한 옷 입고 데이트하기**<br>
 
-- [X] <span style="color: #808080">첫 월급으로 부모님 용돈 드리기 (2022. 3. 10. 수요일)</span><br>
+- [X] <span style="color: #737373">첫 월급으로 부모님 용돈 드리기 (2022. 3. 10. 수요일)</span><br>
 
 - [ ] **누군가의 진심 어린 존경 받아보기**<br>
 
@@ -383,7 +384,7 @@ featured: true
 
 - [ ] **누군가에게 감동을 선물해서 울려보기**<br>
 
-- [X] <span style="color: #808080">대학 입학식 참여하기 (2024. 2. 27. 화요일)</span><br>
+- [X] <span style="color: #737373">대학 입학식 참여하기 (2024. 2. 27. 화요일)</span><br>
 
 - [ ] -ing.
 
@@ -391,4 +392,4 @@ featured: true
 
 
 
-<span class="end-of-post">End of Post.</span>
+<span class="end_of_post">End of Post</span>

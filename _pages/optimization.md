@@ -1,5 +1,6 @@
 ---
 title: "최적화이론"
+description: "Think Different."
 layout: posts_archive
 categories: ["최적화이론"]
 permalink: /optimization/

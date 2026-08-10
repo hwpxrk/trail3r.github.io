@@ -12,10 +12,9 @@
     {% assign posts = paginator.posts %}
 {% else %}
     {% assign posts = site.posts %}
-{% endif %}
-
-{% if category != empty %}
-    {% assign posts = posts | where_exp: "post", "post.categories contains category" %}
+    {% if category != empty %}
+        {% assign posts = posts | where_exp: "post", "post.categories contains category" %}
+    {% endif %}
 {% endif %}
 
 {% if posts.size > 0 %}
@@ -25,7 +24,7 @@
                 <a class="posts_archive_link" href="{{ post.url | relative_url }}">
                     <div class="posts_archive_thumbnail">
                         {% if post.header.teaser %}
-                            <img class="posts_archive_teaser" src="{{ post.header.teaser | relative_url }}" alt="">
+                            <img class="posts_archive_teaser" src="{{ post.header.teaser | relative_url }}" alt="" loading="lazy" decoding="async">
                         {% endif %}
                     </div>
 
@@ -36,7 +35,7 @@
 
                         <p class="posts_archive_subtitle">{{ post.subtitle | escape_once }}</p>
 
-                        <p class="posts_archive_excerpt">{{ post.excerpt | markdownify | strip_html }}</p>
+                        <p class="posts_archive_excerpt" aria-hidden="true">{{ post.excerpt | markdownify | strip_html }}</p>
 
                         <time class="posts_archive_date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
                     </div>

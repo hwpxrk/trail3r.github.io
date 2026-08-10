@@ -1,4 +1,4 @@
-/* Control tag expand function */
+/* Expand and collapse the tag archive. */
 
 
 (() => {
@@ -57,12 +57,12 @@
 
         toggle_button.addEventListener("click", () => {
             const is_expanded = toggle_button.getAttribute("aria-expanded", ) === "true";
-            const next_is_expanded = !is_expanded;
+            const should_expand = !is_expanded;
 
-            update_tag_archive_toggle(toggle_button, next_is_expanded);
+            update_tag_archive_toggle(toggle_button, should_expand);
 
             if (prefers_reduced_motion) {
-                update_tag_item_visibility(hidden_tag_items, next_is_expanded);
+                update_tag_item_visibility(hidden_tag_items, should_expand);
 
                 return;
             }
@@ -72,11 +72,11 @@
             const tag_archive_animation = animate_tag_archive(
                 tag_index,
                 hidden_tag_items,
-                next_is_expanded,
+                should_expand,
             );
 
             tag_archive_animation.addEventListener("finish", () => {
-                update_tag_item_visibility(hidden_tag_items, next_is_expanded);
+                update_tag_item_visibility(hidden_tag_items, should_expand);
 
                 tag_index.style.removeProperty("overflow");
                 toggle_button.disabled = false;

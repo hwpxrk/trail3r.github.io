@@ -1,34 +1,34 @@
-/* ==========================================================================
-   Aqua skin
-   ========================================================================== */
+/* Aqua skin */
+
+@use "sass:color";
 
 /* Colors */
-$gray                       : #1976d2 !default;
-$dark-gray                  : mix(#000, $gray, 40%) !default;
-$darker-gray                : mix(#000, $gray, 60%) !default;
-$light-gray                 : mix(#fff, $gray, 50%) !default;
-$lighter-gray               : mix(#fff, $gray, 90%) !default;
+$gray: #1976d2 !default;
+$dark_gray: color.mix(#000, $gray, 40%) !default;
+$darker_gray: color.mix(#000, $gray, 60%) !default;
+$light_gray: color.mix(#fff, $gray, 50%) !default;
+$lighter_gray: color.mix(#fff, $gray, 90%) !default;
 
-$body-color                 : #fff !default;
-$background-color           : #f0fff0 !default;
-$code-background-color      : $lighter-gray !default;
-$code-background-color-dark : $light-gray !default;
-$text-color                 : $dark-gray !default;
-$border-color               : $lighter-gray !default;
+$body_color: #fff !default;
+$background_color: #f0fff0 !default;
+$code_background_color: $lighter_gray !default;
+$code_background_color_dark: $light_gray !default;
+$text_color: $dark_gray !default;
+$border_color: $lighter_gray !default;
 
-$primary-color              : $gray !default;
-$success-color              : #27ae60 !default;
-$warning-color              : #e67e22 !default;
-$danger-color               : #c0392b !default;
-$info-color                 : #03a9f4 !default;
+$primary_color: $gray !default;
+$success_color: #27ae60 !default;
+$warning_color: #e67e22 !default;
+$danger_color: #c0392b !default;
+$info_color: #03a9f4 !default;
 
-/* links */
-$link-color                 : $info-color !default;
-$link-color-hover           : mix(#000, $link-color, 25%) !default;
-$link-color-visited         : mix(#fff, $link-color, 25%) !default;
-$masthead-link-color        : $primary-color !default;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%) !default;
+/* Links */
+$link_color: $info_color !default;
+$link_color_hover: color.mix(#000, $link_color, 25%) !default;
+$link_color_visited: color.mix(#fff, $link_color, 25%) !default;
+$masthead_link_color: $primary_color !default;
+$masthead_link_color_hover: color.mix(#000, $primary_color, 25%) !default;
 
-/* notices */
-$notice-background-mix: 90% !default;
-$code-notice-background-mix: 95% !default;
+/* Notices */
+$notice_background_mix: 90% !default;
+$code_notice_background_mix: 95% !default;

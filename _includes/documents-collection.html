@@ -1,13 +1,17 @@
+<!-- Render documents from a collection. -->
+
+
 {% assign entries = include.entries | default: site[include.collection] | where_exp: "post", "post.hidden != true" %}
+{% assign archive_layout = include.archive_layout | default: include.type | default: "list" %}
 
 {% if include.sort_by %}
-  {% assign entries = entries | sort: include.sort_by %}
+    {% assign entries = entries | sort: include.sort_by %}
 {% endif %}
 
-{% if include.sort_order == 'reverse' %}
-  {% assign entries = entries | reverse %}
+{% if include.sort_order == "reverse" %}
+    {% assign entries = entries | reverse %}
 {% endif %}
 
-{%- for post in entries -%}
-  {% include archive-single.html type=include.type %}
-{%- endfor -%}
+{% for post in entries %}
+    {% include archive-single.html archive_layout=archive_layout %}
+{% endfor %}

@@ -1,6 +1,6 @@
-/* Tree-Sitter Codeblock */
+/* Tree-sitter code blocks. */
 
-// Codeblock common styles
+// Common styles.
 .highlighter-tree-sitter {
     position: relative;
 
@@ -26,19 +26,19 @@
         overflow: auto;
 
         margin: 0;
+
+        code {
+            display: block;
+
+            white-space: pre;
+        }
     }
 
     > pre {
         padding: 0.5rem;
     }
 
-    pre code {
-        display: block;
-
-        white-space: pre;
-    }
-
-    // Syntax highlighting
+    // Highlight syntax.
     .ts-attribute {
         color: $codeblock_dark_attributes;
     }
@@ -105,7 +105,7 @@
     }
 
     .ts-delimiter {
-        color: $codeblock_dark_punctuation_delimeter;
+        color: $codeblock_dark_punctuation_delimiter;
     }
 
     .ts-punctuation-special {
@@ -120,40 +120,40 @@
         color: $codeblock_dark_number;
     }
 
-    // Rainbow bracket emphasis effect
-    .bracket-depth-1 {
+    // Highlight bracket depth.
+    .codeblock_bracket_depth_1 {
         color: $codeblock_dark_bracket_depth_1;
     }
 
-    .bracket-depth-2 {
+    .codeblock_bracket_depth_2 {
         color: $codeblock_dark_bracket_depth_2;
     }
 
-    .bracket-depth-3 {
+    .codeblock_bracket_depth_3 {
         color: $codeblock_dark_bracket_depth_3;
     }
 
-    .bracket-depth-4 {
+    .codeblock_bracket_depth_4 {
         color: $codeblock_dark_bracket_depth_4;
     }
 
-    .bracket-depth-5 {
+    .codeblock_bracket_depth_5 {
         color: $codeblock_dark_bracket_depth_5;
     }
 
-    .bracket-depth-6 {
+    .codeblock_bracket_depth_6 {
         color: $codeblock_dark_bracket_depth_6;
     }
 
-    .bracket-depth-7 {
+    .codeblock_bracket_depth_7 {
         color: $codeblock_dark_bracket_depth_7;
     }
 
-    .bracket-depth-8 {
+    .codeblock_bracket_depth_8 {
         color: $codeblock_dark_bracket_depth_8;
     }
 
-    .bracket-mismatch {
+    .codeblock_bracket_mismatch {
         color: $codeblock_dark_error;
 
         text-decoration: underline wavy $codeblock_dark_error;
@@ -161,8 +161,8 @@
         text-underline-offset: 3px;
     }
 
-    // Codeblock metadata header
-    .codeblock-masthead {
+    // Show metadata.
+    .codeblock_masthead {
         display: flex;
 
         align-items: center;
@@ -173,28 +173,27 @@
         font-family: $sans_serif;
     }
 
-    .codeblock-masthead__language {
+    .codeblock_masthead_language {
         font-weight: bold;
     }
 
-    .codeblock-masthead__filename {
+    .codeblock_masthead_filename {
         margin-left: 0.5rem;
     }
-
-    // Codeblock line numbers
-    > .codeblock__body {
+    // Show line numbers.
+    > .codeblock_body {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
 
         // Make space for line numbers.
-        .gutter {
+        .codeblock_gutter {
             padding: 0 0.5rem 0.75rem 0.75rem;
 
             color: $codeblock_dark_line_numbers;
 
             text-align: right;
 
-            // Sync height with the codes.
+            // Match the code line height.
             > span {
                 display: block;
 
@@ -202,7 +201,7 @@
             }
         }
 
-        // Sync height with the codes.
+        // Match the code height.
         > pre {
             min-width: 0;
 
@@ -211,8 +210,8 @@
     }
 }
 
-// Copy button
-.codeblock-copy_button {
+// Copy button.
+.codeblock_copy_button {
     display: inline-flex;
 
     align-items: center;
@@ -234,10 +233,10 @@
     }
 
     &:focus-visible {
-        outline: 1px solid $primary_color;
+        outline: 2px solid $primary_color;
     }
 
-    .codeblock-copy_button_icon {
+    .codeblock_copy_button_icon {
         flex: none;
 
         width: 1.25em;
@@ -245,13 +244,13 @@
     }
 }
 
-// Floating copy button.
-.codeblock-copy--floating {
+// Float the copy button.
+.codeblock_copy_floating {
     display: none;
 
     position: fixed;
 
-    .codeblock-copy_button {
+    .codeblock_copy_button {
         padding: 0.15rem 0.3rem;
 
         border: 1px solid $gray;

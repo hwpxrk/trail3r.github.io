@@ -13,9 +13,9 @@ header:
     teaser: /assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_9.jpeg
 ---
 
-&emsp;안녕하세요. 반가워요. 다들 아시다시피 제가 성균관대<span style="color: #808080">(야간)</span>에 24학번으로 입학했어요 **(뿌이뿌이뿌이---!!)**. 직장 생활을 병행해야만 하기 때문에, 마냥 쉽지만은 않은 한 달이었어요. 결국 3월의 마지막 주말은 버티지 못하고 몸살로 앓아누웠어요. 건강해야 뭐라도 할 수 있을 텐데 이건 저의 명백한 실수라고 할 수 있겠어요. 하지만 괜찮아요. 다들 쉰다는 주말에 아파 마음 편히 쉴 수 있었기에 큰 손실 없이 푹 쉬다 살아났기 때문이에요. 오히려 좋아요. 평일 한 중간에 아팠다면 일도 학교도 이도 저도 못 하는 안타깝게 아픈 사람만 되는 거니까요.​<br>
+&emsp;안녕하세요. 반가워요. 다들 아시다시피 제가 성균관대<span style="color: #737373">(야간)</span>에 24학번으로 입학했어요 **(뿌이뿌이뿌이---!!)**. 직장 생활을 병행해야만 하기 때문에, 마냥 쉽지만은 않은 한 달이었어요. 결국 3월의 마지막 주말은 버티지 못하고 몸살로 앓아누웠어요. 건강해야 뭐라도 할 수 있을 텐데 이건 저의 명백한 실수라고 할 수 있겠어요. 하지만 괜찮아요. 다들 쉰다는 주말에 아파 마음 편히 쉴 수 있었기에 큰 손실 없이 푹 쉬다 살아났기 때문이에요. 오히려 좋아요. 평일 한 중간에 아팠다면 일도 학교도 이도 저도 못 하는 안타깝게 아픈 사람만 되는 거니까요.​<br>
 
-&emsp;그래서 성균관대에서의 한 달은 어땠는지 써보려고 해요. 어... 군 생활 후기는 안 쓰면서 학교생활 후기만 쓰는 게 너무 편애하는 거 아니냐고요? 아, 그런 건 아니에요. 군 생활도 너무 좋고 만족스러워요 <span style="color: #808080">(당근 흔들흔들)</span>. 근데 군 생활을 리뷰하기에는 너무나도 많은 일을 하고 무엇보다 군 생활은... <span style="color: #808080">(태양의 후예 바이브로)</span> 기밀이라 함부로 발설할 수 없지 말입니다 <span style="color: #808080">(어쩔 기밀ㅋ)</span>. 제가 비밀이 많은 남자라서 아쉽네요. 아무튼, 제 한 달간의 성균관대 후기를 가볍게 써볼게요. 재밌게 봐주세요!<br>
+&emsp;그래서 성균관대에서의 한 달은 어땠는지 써보려고 해요. 어... 군 생활 후기는 안 쓰면서 학교생활 후기만 쓰는 게 너무 편애하는 거 아니냐고요? 아, 그런 건 아니에요. 군 생활도 너무 좋고 만족스러워요 <span style="color: #737373">(당근 흔들흔들)</span>. 근데 군 생활을 리뷰하기에는 너무나도 많은 일을 하고 무엇보다 군 생활은... <span style="color: #737373">(태양의 후예 바이브로)</span> 기밀이라 함부로 발설할 수 없지 말입니다 <span style="color: #737373">(어쩔 기밀ㅋ)</span>. 제가 비밀이 많은 남자라서 아쉽네요. 아무튼, 제 한 달간의 성균관대 후기를 가볍게 써볼게요. 재밌게 봐주세요!<br>
 
 &emsp;그럼 이제, 집중.<br>
 
@@ -24,7 +24,7 @@ header:
 
 
 ## 매번 여행 가는 느낌 들어서 좋다!
-<p class="posts-subtitle">매번 왕복 4시간 통학하느라 힘들겠다가 아닙니다. 긍정적으로 보자구요.</p>
+<p class="posts_subtitle">매번 왕복 4시간 통학하느라 힘들겠다가 아닙니다. 긍정적으로 보자구요.</p>
 
 ---
 
@@ -45,7 +45,7 @@ header:
 
 
 ## 이번 열차는 서울역으로 향하는 KTX 516번 열차입니다.
-<p class="posts-subtitle">청주에서 통학하는 삶의 교통비 정산</p>
+<p class="posts_subtitle">청주에서 통학하는 삶의 교통비 정산</p>
 
 ---
 
@@ -55,7 +55,7 @@ header:
 
 &emsp;청주에 돌아오면 다시 집으로 가야겠죠? 일단, 청주 오송역 주차비가 하루 8,400원 나와요. 이거 계산 방식 잘 모르겠는데 11시 30분에 차 빼도 8,400원이고 12시 30분에 차 빼도 8,400원인 거 보니 대충 뭐... 그런 게 있나 봐요. 그리고 다시 열심히 30km를 달리면 1시쯤 집에 도착하게 돼요. 제가 한 번 기름값이 궁금해서 출발하기 전 기름을 가득 넣고, 갔다 와서 다시 가득 넣어봤는데 기름값이 8,000원 나오더라구요.<br>
 
-&emsp;이 모든 금액을 합하면 1회 출석에 소모되는 금액은 <span style="color: #808080">(결제 순서대로 더해볼게요.)</span><br>
+&emsp;이 모든 금액을 합하면 1회 출석에 소모되는 금액은 <span style="color: #737373">(결제 순서대로 더해볼게요.)</span><br>
 
 &emsp;**15,700원 (서울행 KTX) + 1,400원 (학교 가는 지하철) + 400원 (셔틀버스) + 1,400원 (돌아오는 지하철) + 11,100원 (오송행 KTX) + 8,400원 (오송역 주차비) + 8,000원 (오송역에서 집 왕복 기름값) = 46,400원.**<br>
 
@@ -68,29 +68,29 @@ header:
 
 
 ## 슬기로운 군-대학 생활을 위한 10계명
-<p class="posts-subtitle">스스로 세워본 나름의 규칙입니다. 마지막 자존심이랄까요.</p>
+<p class="posts_subtitle">스스로 세워본 나름의 규칙입니다. 마지막 자존심이랄까요.</p>
 
 ---
 
 &emsp;학교생활 이야기를 하기 전에, 대학생 인건 어디까지나 저의 부캐예요. 부캐가 본캐의 영역을 넘본다면 더 이상 부캐로서의 역할을 수행하지 못하는 것이고, 제가 감당하지 못하는 것이에요. 그래서 저는 스스로 군인과 대학생 이 둘 사이를 철저히 구분하기 위해 나름의 규칙을 세워봤어요. 일명 슬기로운 군-대학 생활을 위한 10계명. 그 내용을 알려드리죠. 부끄럽지만, 귀여운 발악 정도로 여겨주세요.<br>
 
-&emsp;1. 출근하면 무조건 일이 우선. <span style="color: #808080">강의 듣거나 복습한다고 일을 미루는 건 절대 금지.</span><br>
-&emsp;2. 피곤하다는 말 절대 하지 않기. <span style="color: #808080">자꾸 피곤하다 말하면 피곤한 사람밖에 안 되는 거죠.</span><br>
-&emsp;3. 커피는 하루 3잔까지만 마시기. <span style="color: #808080">카페인은 훌륭하지만, 중독은 위험해요.</span><br>
-&emsp;4. 사무실 분들의 배려를 당연히 여기지 않기. <span style="color: #808080">세상에는 당연하던 것들이 당연하지 않은 경우가 더 많은 것 같더라구요.</span><br>
-&emsp;5. 휴가 처리, 기차표 예약은 미리 하기. <span style="color: #808080">미루는 습관은 언제나 제게 해만 끼칠 뿐이에요.</span><br>
-&emsp;6. 수업 들을 때는 집중하기. <span style="color: #808080">혼자 등록금 1.5배 이벤트 하는 저에게 가장 중요한 부분이에요.</span><br>
-&emsp;7. 겸손하기. <span style="color: #808080">겸손, 그리고 또 겸손.</span><br>
-&emsp;8. 절대 금주 (다음날 휴가면 다음날 영향 가지 않을 때까지만!) <span style="color: #808080">왕복 시간이 긴 저에게 하루 날리는 것도 꽤나 타격이 커요.</span><br>
-&emsp;9. 해야 할 일을 절대 내일로 미루지 말기. <span style="color: #808080">5번과 동일한 이유.</span><br>
-&emsp;10. 잘 먹고 다니기. <span style="color: #808080">근손실 못 참아...</span><br>
+&emsp;1. 출근하면 무조건 일이 우선. <span style="color: #737373">강의 듣거나 복습한다고 일을 미루는 건 절대 금지.</span><br>
+&emsp;2. 피곤하다는 말 절대 하지 않기. <span style="color: #737373">자꾸 피곤하다 말하면 피곤한 사람밖에 안 되는 거죠.</span><br>
+&emsp;3. 커피는 하루 3잔까지만 마시기. <span style="color: #737373">카페인은 훌륭하지만, 중독은 위험해요.</span><br>
+&emsp;4. 사무실 분들의 배려를 당연히 여기지 않기. <span style="color: #737373">세상에는 당연하던 것들이 당연하지 않은 경우가 더 많은 것 같더라구요.</span><br>
+&emsp;5. 휴가 처리, 기차표 예약은 미리 하기. <span style="color: #737373">미루는 습관은 언제나 제게 해만 끼칠 뿐이에요.</span><br>
+&emsp;6. 수업 들을 때는 집중하기. <span style="color: #737373">혼자 등록금 1.5배 이벤트 하는 저에게 가장 중요한 부분이에요.</span><br>
+&emsp;7. 겸손하기. <span style="color: #737373">겸손, 그리고 또 겸손.</span><br>
+&emsp;8. 절대 금주 (다음날 휴가면 다음날 영향 가지 않을 때까지만!) <span style="color: #737373">왕복 시간이 긴 저에게 하루 날리는 것도 꽤나 타격이 커요.</span><br>
+&emsp;9. 해야 할 일을 절대 내일로 미루지 말기. <span style="color: #737373">5번과 동일한 이유.</span><br>
+&emsp;10. 잘 먹고 다니기. <span style="color: #737373">근손실 못 참아...</span><br>
 
 <br><br>
 
 
 
 ## 달리는 기차 안은 사무치도록 외롭다.
-<p class="posts-subtitle">45분간의 정적 속에서 내가 하는 것</p>
+<p class="posts_subtitle">45분간의 정적 속에서 내가 하는 것</p>
 
 ---
 
@@ -114,7 +114,7 @@ header:
 
 
 ## 관성의 크기
-<p class="posts-subtitle">3년, 어쩌면 그 이상 공부 안 하던 직장인의 대학 공부는</p>
+<p class="posts_subtitle">3년, 어쩌면 그 이상 공부 안 하던 직장인의 대학 공부는</p>
 
 ---
 
@@ -131,7 +131,7 @@ header:
 
 
 ## 살아남았다는 것. 강하다는 증거.
-<p class="posts-subtitle">에디슨은 괴물이 분명해요.</p>
+<p class="posts_subtitle">에디슨은 괴물이 분명해요.</p>
 
 ---
 
@@ -146,95 +146,95 @@ header:
 
 
 ## 내가 바라본 성균관대학교
-<p class="posts-subtitle">내가 바라온 성균관대학교</p>
+<p class="posts_subtitle">내가 바라온 성균관대학교</p>
 
 ---
 
 &emsp;음... 네... 의식의 흐름대로 글을 대충 쓰다 보니 어떻게 마무리를 해야 할지 모르겠군요. 이렇게 된 거 제가 지금까지 성균관대를 다니며 찍은 사진들을 마구 흩뿌리고 홀연히 사라지겠어요. 여러분, 우리는 강해요. 할 수 있습니다. 더 나은 내일을 위해 함께 힘내보자구요. 파이팅!<br>
 
-<figure class="image-grid" style="--size: 3;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_1.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_2.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_3.jpeg">
+<figure class="image_grid" style="--size: 3;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_1.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_2.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_3.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_4.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_5.jpeg">
+<figure class="image_grid" style="margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_4.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_5.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_6.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_7.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_8.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_6.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_7.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_8.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_9.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_10.jpeg">
+<figure class="image_grid" style="margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_9.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_10.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_11.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_12.jpeg">
+<figure class="image_grid" style="margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_11.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_12.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 9fr 16fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_13.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_14.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_15.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 9fr 16fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_13.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_14.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_15.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_16.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_17.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_18.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_16.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_17.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_18.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 3fr 16fr 16fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_19.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_20.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_21.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 3fr 16fr 16fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_19.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_20.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_21.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_22.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_23.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_24.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_22.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_23.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_24.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 16fr 9fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_25.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_26.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_27.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 16fr 9fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_25.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_26.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_27.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 16fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_28.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_29.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_30.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 16fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_28.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_29.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_30.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 9fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_31.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_32.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_33.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 9fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_31.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_32.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_33.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 16fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_34.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_35.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_36.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 16fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_34.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_35.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_36.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px;">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_37.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_38.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_39.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px;">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_37.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_38.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_39.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 16fr 9fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_40.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_41.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_42.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 16fr 9fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_40.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_41.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_42.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 9fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_43.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_44.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_45.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 9fr 16fr 9fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_43.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_44.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_45.jpeg" loading="lazy" decoding="async">
 </figure>
-<figure class="image-grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 9fr 9fr">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_46.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_47.jpeg">
-    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_48.jpeg">
+<figure class="image_grid" style="--size: 3; margin-top: 5px; grid-template-columns: 16fr 9fr 9fr">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_46.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_47.jpeg" loading="lazy" decoding="async">
+    <img src="/assets/images/posts/campuslife/Monthly_SKKU/20240404_Monthly_SKKU_48.jpeg" loading="lazy" decoding="async">
 </figure><br>
 
 <br><br>
 
-<p class="end-of-post">End of Post.</p>
+<p class="end_of_post">End of Post</p>

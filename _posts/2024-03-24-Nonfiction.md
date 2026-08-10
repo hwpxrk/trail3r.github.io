@@ -63,7 +63,7 @@ header:
 
 
 ## ff
-<p class="posts-subtitle">포르티시모</p>
+<p class="posts_subtitle">포르티시모</p>
 
 ---
 
@@ -80,7 +80,7 @@ header:
 
 
 ## decresendo
-<p class="posts-subtitle">점점 더 여리게</p>
+<p class="posts_subtitle">점점 더 여리게</p>
 
 ---
 
@@ -132,4 +132,4 @@ header:
 
 
 
-<p class="end-of-post">End of Post</p>
+<p class="end_of_post">End of Post</p>

@@ -105,4 +105,4 @@ header:
 
 ​
 
-<p class="end-of-post">To Be Continued</p>
+<p class="end_of_post">To Be Continued</p>

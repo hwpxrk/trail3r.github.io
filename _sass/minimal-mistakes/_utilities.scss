@@ -1,574 +1,494 @@
-/* ==========================================================================
-   UTILITY CLASSES
-   ========================================================================== */
+/* Utility classes. */
 
-/*
-   Visibility
-   ========================================================================== */
+@use "sass:color";
 
-/* http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/ */
 
+// Visibility.
 .hidden,
-.is--hidden {
-  display: none;
-  visibility: hidden;
+.is_hidden {
+    display: none;
 }
 
-/* for preloading images */
 
+// Preloaded images.
 .load {
-  display: none;
+    display: none;
 }
 
 .transparent {
-  opacity: 0;
+    opacity: 0;
 }
 
-/* https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html */
+.visually_hidden,
+.screen_reader_text,
+.screen_reader_text span,
+.screen_reader_shortcut,
+.screen_reader_only,
+.screen_reader_focusable:not(:focus) {
+    overflow: hidden;
 
-.visually-hidden,
-.screen-reader-text,
-.screen-reader-text span,
-.screen-reader-shortcut,
-.sr-only,
-.sr-only-focusable:not(:focus) {
-  position: absolute !important;
-  clip: rect(0, 0, 0, 0);
-  height: 1px !important;
-  width: 1px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  margin: -1px;
-  overflow: hidden;
-  white-space: nowrap;
+    position: absolute !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    padding: 0 !important;
+    margin: -1px;
+
+    border: 0 !important;
+
+    white-space: nowrap;
+
+    clip-path: inset(50%);
 }
 
-body:hover .visually-hidden a,
-body:hover .visually-hidden input,
-body:hover .visually-hidden button {
-  display: none !important;
+
+// Screen readers
+.screen_reader_text:focus,
+.screen_reader_shortcut:focus {
+    display: block;
+
+    overflow: visible;
+
+    position: fixed !important;
+    top: 0;
+    inset-inline-start: 0;
+
+    z-index: 100000;
+
+    width: auto !important;
+    height: auto !important;
+
+    padding: 15px 23px 14px !important;
+    margin: 0;
+
+    background: #fff;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+
+    font-size: 1em;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    clip-path: none;
 }
 
-/* screen readers */
 
-.screen-reader-text:focus,
-.screen-reader-shortcut:focus {
-  clip: auto !important;
-  height: auto !important;
-  width: auto !important;
-  display: block;
-  font-size: 1em;
-  font-weight: bold;
-  padding: 15px 23px 14px;
-  background: #fff;
-  z-index: 100000;
-  text-decoration: none;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+// Type
+$text_alignments: left, right, start, end, center, justify;
+@each $alignment in $text_alignments {
+    .text_#{$alignment} {
+        text-align: $alignment;
+    }
 }
 
-/*
-   Skip links
-   ========================================================================== */
-
-.skip-link {
-  position: fixed;
-  z-index: 20;
-  margin: 0;
-  font-family: $sans_serif;
-  white-space: nowrap;
+.text_nowrap {
+    white-space: nowrap;
 }
 
-.skip-link li {
-  height: 0;
-  width: 0;
-  list-style: none;
-}
 
-/*
-   Type
-   ========================================================================== */
-
-$text-alignments: left, right, start, end, center, justify;
-@each $alignment in $text-alignments {
-  .text-#{$alignment} {
-    text-align: $alignment;
-  }
-}
-
-.text-nowrap {
-  white-space: nowrap;
-}
-
-/*
-   Task lists
-   ========================================================================== */
-
+// Task lists
 .task-list {
-  padding: 0;
+    padding: 0;
 
-  li {
-    list-style-type: none;
-  }
+    li {
+        list-style-type: none;
+    }
 
-  .task-list-item-checkbox {
-    margin-inline-end: 0.5em;
-    opacity: 1;
-  }
+    .task-list-item-checkbox {
+        margin-inline-end: 0.5em;
+        opacity: 1;
+    }
+
+    .task-list {
+        margin-inline-start: 1em;
+    }
 }
 
-.task-list .task-list {
-  margin-inline-start: 1em;
-}
 
-/*
-   Alignment
-   ========================================================================== */
-
-/* clearfix */
-
+// Alignment
 .cf {
-  clear: both;
+    clear: both;
 }
 
 .wrapper {
-  margin-inline: auto;
-  width: 100%;
+    width: 100%;
+
+    margin-inline: auto;
 }
 
-/*
-   Images
-   ========================================================================== */
 
-/* image align left */
+// Images
+.align_left {
+    display: block;
+    margin-inline: auto;
 
-.align-left {
-  display: block;
-  margin-inline: auto;
+    @include breakpoint($small) {
+        float: inline-start;
 
-  @include breakpoint($small) {
-    float: left;
-    margin-right: 1em;
-  }
+        margin-inline-end: 1em;
+    }
 }
 
-/* image align right */
+.align_right {
+    display: block;
+    margin-inline: auto;
 
-.align-right {
-  display: block;
-  margin-inline: auto;
+    @include breakpoint($small) {
+        float: inline-end;
 
-  @include breakpoint($small) {
-    float: right;
-    margin-left: 1em;
-  }
+        margin-inline-start: 1em;
+    }
 }
 
-/* image align center */
-
-.align-center {
-  display: block;
-  margin-inline: auto;
+.align_center {
+    display: block;
+    margin-inline: auto;
 }
-
-/* file page content container */
 
 .full {
-  @include breakpoint($large) {
-    margin-inline-end: -1 * span(2.5 of 12) !important;
-  }
-}
-
-/*
-   Icons
-   ========================================================================== */
-
-.icon {
-  display: inline-block;
-  fill: currentColor;
-  width: 1em;
-  height: 1.1em;
-  line-height: 1;
-  position: relative;
-  top: -0.1em;
-  vertical-align: middle;
-}
-
-/* social icons*/
-
-.social-icons {
-  .fas,
-  .fab,
-  .far,
-  .fal {
-    color: $text_color;
-  }
-
-  @each $color, $icons in (
-    $behance_color: ".fa-behance, .fa-behance-square",
-    $bitbucket_color: ".fa-bitbucket",
-    $dribbble_color: ".fa-dribbble, .fa-dribbble-square",
-    $facebook_color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
-    $flickr_color: ".fa-flickr",
-    $foursquare_color: ".fa-foursquare",
-    $github_color: ".fa-github, .fa-github-alt, .fa-github-square",
-    $gitlab_color: ".fa-gitlab",
-    $instagram_color: ".fa-instagram",
-    $keybase_color: ".fa-keybase",
-    $lastfm_color: ".fa-lastfm, .fa-lastfm-square",
-    $linkedin_color: ".fa-linkedin, .fa-linkedin-in",
-    $mastodon_color: ".fa-mastodon, .fa-mastodon-square",
-    $pinterest_color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
-    $reddit_color: ".fa-reddit",
-    $rss_color: ".fa-rss, .fa-rss-square",
-    $soundcloud_color: ".fa-soundcloud",
-    $stackoverflow_color: ".fa-stack-exchange, .fa-stack-overflow",
-    $tumblr_color: ".fa-tumblr, .fa-tumblr-square",
-    $twitter_color: ".fa-twitter, .fa-twitter-square",
-    $x_color: ".fa-x-twitter, .fa-square-x-twitter",
-    $vimeo_color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
-    $vine_color: ".fa-vine",
-    $xing_color: ".fa-xing, .fa-xing-square",
-    $youtube_color: ".fa-youtube",
-  ) {
-    #{$icons} {
-      color: $color;
+    @include breakpoint($large) {
+        margin-inline-end: -1 * span(2.5 of 12) !important;
     }
-  }
 }
 
-/*
-   Navicons
-   ========================================================================== */
 
+// Icons
+.icon {
+    display: inline-block;
+
+    position: relative;
+    top: -0.1em;
+
+    width: 1em;
+    height: 1.1em;
+
+    line-height: 1;
+
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.social_icons {
+    .fas,
+    .fab,
+    .far,
+    .fal {
+        color: $text_color;
+    }
+
+    @each $color, $icons in (
+        $behance_color: ".fa-behance, .fa-behance-square",
+        $bitbucket_color: ".fa-bitbucket",
+        $dribbble_color: ".fa-dribbble, .fa-dribbble-square",
+        $facebook_color: ".fa-facebook, .fa-facebook-square, .fa-facebook-f",
+        $flickr_color: ".fa-flickr",
+        $foursquare_color: ".fa-foursquare",
+        $github_color: ".fa-github, .fa-github-alt, .fa-github-square",
+        $gitlab_color: ".fa-gitlab",
+        $instagram_color: ".fa-instagram",
+        $keybase_color: ".fa-keybase",
+        $lastfm_color: ".fa-lastfm, .fa-lastfm-square",
+        $linkedin_color: ".fa-linkedin, .fa-linkedin-in",
+        $mastodon_color: ".fa-mastodon, .fa-mastodon-square",
+        $pinterest_color: ".fa-pinterest, .fa-pinterest-p, .fa-pinterest-square",
+        $reddit_color: ".fa-reddit",
+        $rss_color: ".fa-rss, .fa-rss-square",
+        $soundcloud_color: ".fa-soundcloud",
+        $stackoverflow_color: ".fa-stack-exchange, .fa-stack-overflow",
+        $tumblr_color: ".fa-tumblr, .fa-tumblr-square",
+        $twitter_color: ".fa-twitter, .fa-twitter-square",
+        $x_color: ".fa-x-twitter, .fa-square-x-twitter",
+        $vimeo_color: ".fa-vimeo, .fa-vimeo-square, .fa-vimeo-v",
+        $vine_color: ".fa-vine",
+        $xing_color: ".fa-xing, .fa-xing-square",
+        $youtube_color: ".fa-youtube",
+    ) {
+        #{$icons} {
+            color: $color;
+        }
+    }
+}
+
+
+// Navigation icons
 .navicon {
-  position: relative;
-  width: $navicon_width;
-  height: $navicon_height;
-  background: $primary_color;
-  margin: auto;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+    position: relative;
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    inset-inline-start: 0;
     width: $navicon_width;
     height: $navicon_height;
+
+    margin: auto;
+
     background: $primary_color;
-    -webkit-transition: 0.3s;
+
     transition: 0.3s;
-  }
 
-  &:before {
-    top: (-2 * $navicon_height);
-  }
+    &::before,
+    &::after {
+        content: "";
 
-  &:after {
-    bottom: (-2 * $navicon_height);
-  }
-}
+        position: absolute;
+        inset-inline-start: 0;
 
-.close .navicon {
-  /* hide the middle line*/
-  background: transparent;
+        width: $navicon_width;
+        height: $navicon_height;
 
-  /* overlay the lines by setting both their top values to 0*/
-  &:before,
-  &:after {
-    -webkit-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    top: 0;
-    width: $navicon_width;
-  }
+        background: $primary_color;
 
-  /* rotate the lines to form the x shape*/
-  &:before {
-    -webkit-transform: rotate3d(0, 0, 1, 45deg);
-    transform: rotate3d(0, 0, 1, 45deg);
-  }
-  &:after {
-    -webkit-transform: rotate3d(0, 0, 1, -45deg);
-    transform: rotate3d(0, 0, 1, -45deg);
-  }
-}
-
-.greedy-nav__toggle {
-  &:before {
-    @supports (pointer-events: none) {
-      content: '';
-      position: fixed;
-      top: 0;
-      inset-inline-start: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      background-color: $background_color;
-      -webkit-transition: $global_transition;
-      transition: $global_transition;
-      pointer-events: none;
+        transition: 0.3s;
     }
-  }
 
-  &.close {
-    &:before {
-      opacity: 0.9;
-      -webkit-transition: $global_transition;
-      transition: $global_transition;
-      pointer-events: auto;
+    &::before {
+        top: (-2 * $navicon_height);
     }
-  }
+
+    &::after {
+        bottom: (-2 * $navicon_height);
+    }
 }
 
-.greedy-nav__toggle:hover {
-  .navicon,
-  .navicon:before,
-  .navicon:after {
-    background: mix(#000, $primary_color, 25%);
-  }
-
-  &.close {
+.close {
     .navicon {
-      background: transparent;
+        // Hide the middle line.
+        background: transparent;
+
+        // Overlay the outer lines.
+        &::before,
+        &::after {
+            top: 0;
+
+            width: $navicon_width;
+
+            transform-origin: 50% 50%;
+        }
+
+        // Rotate the lines into an X.
+        &::before {
+            transform: rotate3d(0, 0, 1, 45deg);
+        }
+
+        &::after {
+            transform: rotate3d(0, 0, 1, -45deg);
+        }
     }
-  }
 }
 
-/*
-   Sticky, fixed to top content
-   ========================================================================== */
+.greedy_nav_toggle {
+    &::before {
+        @supports (pointer-events: none) {
+            content: "";
 
+            position: fixed;
+            top: 0;
+            inset-inline-start: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-color: $background_color;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: $global_transition;
+        }
+    }
+
+    &.close {
+        &::before {
+            opacity: 0.9;
+
+            pointer-events: auto;
+
+            transition: $global_transition;
+        }
+    }
+}
+
+.greedy_nav_toggle:hover {
+    .navicon,
+    .navicon::before,
+    .navicon::after {
+        background: color.mix(#000, $primary_color, 25%);
+    }
+
+    &.close {
+        .navicon {
+            background: transparent;
+        }
+    }
+}
+
+
+// Sticky content
 .sticky {
-  @include breakpoint($large) {
-    @include clearfix();
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2em;
+    @include breakpoint($large) {
+        @include apply_clearfix();
 
-    > * {
-      display: block;
+        position: sticky;
+        top: 2em;
+
+        > * {
+            display: block;
+        }
     }
-  }
 }
 
-/*
-   Wells
-   ========================================================================== */
 
+// Wells
 .well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  border-radius: $border_radius;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    min-height: 20px;
+
+    padding: 19px;
+    margin-bottom: 20px;
+
+    border: 1px solid #e3e3e3;
+    border-radius: $border_radius;
+
+    background-color: #f5f5f5;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-/*
-   Modals
-   ========================================================================== */
 
-.show-modal {
-  overflow: hidden;
-  position: relative;
+// Modals
+.show_modal {
+    overflow: hidden;
 
-  &::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    inset-inline-start: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    background-color: rgba(255, 255, 255, 0.85);
-  }
+    position: relative;
 
-  .modal {
-    display: block;
-  }
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+
+        z-index: 999;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    .modal {
+        display: block;
+    }
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  width: 300px;
-  top: 50%;
-  inset-inline-start: 50%;
-  margin-inline-start: -150px;
-  margin-top: -150px;
-  min-height: 0;
-  z-index: 9999;
-  background: #fff;
-  border: 1px solid $border_color;
-  border-radius: $border_radius;
-  box-shadow: $box_shadow;
+    display: none;
 
-  &__title {
-    margin: 0;
-    padding: 0.5em 1em;
-  }
+    position: fixed;
+    top: 50%;
+    inset-inline-start: 50%;
 
-  &__supporting-text {
-    padding: 0 1em 0.5em 1em;
-  }
+    z-index: 9999;
 
-  &__actions {
-    padding: 0.5em 1em;
-    border-top: 1px solid $border_color;
-  }
+    width: 300px;
+    min-height: 0;
+
+    margin-top: -150px;
+    margin-inline-start: -150px;
+
+    border: 1px solid $border_color;
+    border-radius: $border_radius;
+
+    background: #fff;
+    box-shadow: $box_shadow;
+
+    &_title {
+        padding: 0.5em 1em;
+        margin: 0;
+    }
+
+    &_supporting_text {
+        padding: 0 1em 0.5em 1em;
+    }
+
+    &_actions {
+        padding: 0.5em 1em;
+
+        border-top: 1px solid $border_color;
+    }
 }
 
-/*
-   Footnotes
-   ========================================================================== */
 
+// Footnotes
 .footnote {
-  color: mix(#fff, $gray, 25%);
-  text-decoration: none;
+    color: color.mix(#fff, $gray, 25%);
+    text-decoration: none;
 }
 
 .footnotes {
-  color: mix(#fff, $gray, 25%);
+    color: color.mix(#fff, $gray, 25%);
 
-  ol,
-  li,
-  p {
-    margin-bottom: 0;
-    font-size: $type_size_6;
-  }
+    ol,
+    li,
+    p {
+        margin-bottom: 0;
+        font-size: $type_size_6;
+    }
 }
 
 a.reversefootnote {
-  color: $gray;
-  text-decoration: none;
+    color: $gray;
+    text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
-/*
-   Required
-   ========================================================================== */
 
+// Required fields
 .required {
-  color: $danger_color;
-  font-weight: bold;
+    color: $danger_color;
+    font-weight: bold;
 }
 
-/*
-   Google Custom Search Engine
-   ========================================================================== */
 
+// Google Custom Search Engine
 .gsc-control-cse {
-  table,
-  tr,
-  td {
-    border: 0; /* remove table borders widget */
-  }
+    table,
+    tr,
+    td {
+        border: 0;  // remove table borders widget
+    }
 }
 
-/*
-   Responsive Video Embed
-   ========================================================================== */
 
-.responsive-video-container {
-  position: relative;
-  margin-bottom: 1em;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
+// Responsive video embeds
+.responsive_video_container {
+    overflow: hidden;
 
-  iframe,
-  object,
-  embed {
-    position: absolute;
-    top: 0;
-    inset-inline-start: 0;
-    width: 100%;
-    height: 100%;
-  }
+    position: relative;
+
+    max-width: 100%;
+    height: 0;
+
+    padding-bottom: 56.25%;
+    margin-bottom: 1em;
+
+    iframe,
+    object,
+    embed {
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+
+        width: 100%;
+        height: 100%;
+    }
 }
 
-// full screen video fixes
+
+// Full-screen video fixes
 :-webkit-full-screen-ancestor {
-  .masthead,
-  .page__footer {
-    position: static;
-  }
-}
-
-/*
-   Copy <pre> block to clipboard
-   ========================================================================== */
-
-// a <textarea> to hold text for document.execCommand("copy")
-.clipboard-helper {
-  // Prevent zooming on iOS
-  font-size: 12pt !important;
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  outline: none !important;
-  position: absolute;
-}
-
-pre {
-  &.highlight .clipboard-copy-button {
-    color: #ffffca;
-  }
-
-  .clipboard-copy-button {
-    display: block;
-    position: absolute;
-    top: 0.6em;
-    inset-inline-end: 0.5em;
-    width: 1.8em;
-    height: 1.5em;
-    z-index: 1;
-    background: none;
-    border: none;
-    outline: none;
-    border-radius: 0.1em;
-    padding: 0.2em 0.5em;
-    opacity: 0.4;
-    transition: color 0.25s linear -0.25s, opacity 0.25s linear;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 2;
+    .masthead,
+    .page_footer {
+        position: static;
     }
-
-    i {
-      position: absolute;
-      top: 0.25em;
-      inset-inline-end: 0.25em;
-      &.copied {
-        opacity: 0;
-      }
-    }
-
-    &.copied i {
-      opacity: 0;
-      &.copied {
-        opacity: 1;
-      }
-    }
-
-    @at-root {
-      .no-copy & {
-        display: none;
-      }
-    }
-  }
-
-  &:hover .clipboard-copy-button {
-    opacity: 1;
-  }
 }

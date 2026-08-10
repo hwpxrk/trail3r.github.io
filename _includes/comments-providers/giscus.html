@@ -1,34 +1,40 @@
+<!-- Load Giscus comments. -->
+
+
 <script>
-  'use strict';
+    (() => {
+        "use strict";
 
-  (function () {
-    var commentContainer = document.querySelector('#giscus-comments');
+        const comment_container = document.querySelector("#giscus-comments", );
 
-    if (!commentContainer) {
-      return;
-    }
+        if (!comment_container) return;
 
-    var script = document.createElement('script');
+        const script = document.createElement("script");
+        const giscus_attributes = {
+            "data-repo": {{ site.repository | downcase | jsonify }},
+            "data-repo-id": {{ site.comments.giscus.repo_id | jsonify }},
+            "data-category": {{ site.comments.giscus.category_name | jsonify }},
+            "data-category-id": {{ site.comments.giscus.category_id | jsonify }},
+            "data-mapping": {{ site.comments.giscus.discussion_term | default: "pathname" | jsonify }},
+            "data-strict": {{ site.comments.giscus.strict | default: 0 | jsonify }},
+            "data-reactions-enabled": {{ site.comments.giscus.reactions_enabled | default: 1 | jsonify }},
+            "data-emit-metadata": {{ site.comments.giscus.emit_metadata | default: 0 | jsonify }},
+            "data-input-position": {{ site.comments.giscus.input_position | default: "top" | jsonify }},
+            "data-theme": {{ site.comments.giscus.theme | default: "light" | jsonify }},
+            "data-lang": {{ site.comments.giscus.lang | default: "en" | jsonify }},
+        };
 
-    script.setAttribute('src', 'https://giscus.app/client.js');
-    script.setAttribute('data-repo', '{{ site.repository | downcase }}');
-    script.setAttribute('data-repo-id', '{{ site.comments.giscus.repo_id }}');
-    script.setAttribute('data-category', '{{ site.comments.giscus.category_name }}');
-    script.setAttribute('data-category-id', '{{ site.comments.giscus.category_id }}');
-    script.setAttribute('data-mapping', '{{ site.comments.giscus.discussion_term | default: "pathname" }}');
-    script.setAttribute('data-strict', '{{ site.comments.giscus.strict | default: 0 }}');
-    script.setAttribute('data-reactions-enabled', '{{ site.comments.giscus.reactions_enabled | default: 1 }}');
-    script.setAttribute('data-emit-metadata', '{{ site.comments.giscus.emit_metadata | default: 0 }}');
-    script.setAttribute('data-input-position', '{{ site.comments.giscus.input_position | default: "top" }}');
-    script.setAttribute('data-theme', '{{ site.comments.giscus.theme | default: "light" }}');
-    script.setAttribute('data-lang',  '{{ site.comments.giscus.lang | default: "en" }}');
-    {% if site.comments.giscus.lazy %}
-    script.setAttribute('data-loading', 'lazy');
-    {% endif %}
-    script.setAttribute('crossorigin', 'anonymous');
+        {% if site.comments.giscus.lazy %}
+            giscus_attributes["data-loading"] = "lazy";
+        {% endif %}
 
-    script.setAttribute('async', '');
+        Object.entries(giscus_attributes).forEach(([attribute, value]) => {
+            script.setAttribute(attribute, value);
+        }, );
 
-    commentContainer.appendChild(script);
-  })();
+        script.src = "https://giscus.app/client.js";
+        script.crossOrigin = "anonymous";
+        script.async = true;
+        comment_container.append(script);
+    })();
 </script>

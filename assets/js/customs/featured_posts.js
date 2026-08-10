@@ -1,4 +1,4 @@
-/* Control carousel button on the main landing page. */
+/* Control the featured posts carousel. */
 
 
 (() => {
@@ -24,7 +24,7 @@
 
         let is_controls_update_scheduled = false;
 
-        function update_controls() {
+        function update_featured_posts_controls() {
             const maximum_scroll_left = (featured_posts.scrollWidth - featured_posts.clientWidth);
             const scroll_left = featured_posts.scrollLeft;
             const has_overflow = maximum_scroll_left > 1;
@@ -34,46 +34,46 @@
             next_button.disabled = (!has_overflow || scroll_left >= maximum_scroll_left - 1);
         }
 
-        function schedule_controls_update() {
+        function schedule_featured_posts_controls_update() {
             if (is_controls_update_scheduled) return;
 
             is_controls_update_scheduled = true;
 
             window.requestAnimationFrame(() => {
                 is_controls_update_scheduled = false;
-                update_controls();
+                update_featured_posts_controls();
             });
         }
 
-        function get_scroll_step() {
+        function get_featured_posts_scroll_step() {
             const computed_style = window.getComputedStyle(featured_posts);
-            const column_gap = parseFloat(computed_style.columnGap) || 0;
+            const column_gap = Number.parseFloat(computed_style.columnGap) || 0;
             const featured_post_width = (featured_post_items[0].getBoundingClientRect().width);
 
             return featured_post_width + column_gap;
         }
 
-        function move(direction) {
+        function scroll_featured_posts(direction) {
             featured_posts.scrollBy({
-                left: direction * get_scroll_step(),
+                left: direction * get_featured_posts_scroll_step(),
                 behavior: prefers_reduced_motion.matches ? "auto" : "smooth",
             });
         }
 
-        previous_button.addEventListener("click", () => move(-1));
-        next_button.addEventListener("click", () => move(1));
-        featured_posts.addEventListener("scroll", schedule_controls_update, { passive: true }, );
+        previous_button.addEventListener("click", () => scroll_featured_posts(-1), );
+        next_button.addEventListener("click", () => scroll_featured_posts(1), );
+        featured_posts.addEventListener("scroll", schedule_featured_posts_controls_update, { passive: true }, );
 
         if ("ResizeObserver" in window) {
-            const resize_observer = new ResizeObserver(update_controls);
+            const resize_observer = new ResizeObserver(update_featured_posts_controls, );
 
             resize_observer.observe(featured_posts);
         } else {
-            window.addEventListener("resize", schedule_controls_update);
+            window.addEventListener("resize", schedule_featured_posts_controls_update, );
         }
 
-        window.addEventListener("load", update_controls, { once: true });
-        update_controls();
+        window.addEventListener("load", update_featured_posts_controls, { once: true }, );
+        update_featured_posts_controls();
     }
 
     featured_posts_carousels.forEach(initialize_featured_posts, );

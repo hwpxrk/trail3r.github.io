@@ -1,27 +1,21 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
 
 @charset "utf-8";
 
-@import "customs/fonts";  // 폰트(Fonts) 추가
+// Main stylesheet
+@import "customs/fonts";
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: "default" }}";
+@import "minimal-mistakes";
 
-@import "customs/search";  // 검색 화면 스타일링
+@import "customs/hero";
+@import "customs/featured_posts";
+@import "customs/recent_posts";
 
-@import "customs/hero";  // 홈페이지의 Hero 스타일링
-@import "customs/featured_posts";  // 홈페이지의 대표 게시글 스타일링
-@import "customs/recent_posts";  // 홈페이지의 최근 업로드된 게시글 스타일링
-
-@import "customs/table_of_contents";  // 목차 (Table of Contents) 스타일링
-
-@import "customs/posts_archive";  // 게시판 스타일링
-
-@import "customs/posts/table";  // 게시글 도표 스타일링
-@import "customs/posts/image"; // 게시글 내 이미지 배치 스타일링
-@import "customs/posts/seperator";  // 게시글 내 구분선 스타일링
-@import "customs/posts/opengraph";  // OpenGraph 카드 스타일링
-@import "customs/codeblock";  // Tree Sitter 구문 강조기 (Syntax Highlighter) 코드블럭 스타일링
+@import "customs/table";
+@import "customs/image";
+@import "customs/separator";
+@import "customs/opengraph";
+@import "customs/codeblock";

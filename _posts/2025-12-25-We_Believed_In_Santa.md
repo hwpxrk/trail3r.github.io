@@ -9,15 +9,17 @@ permalink: /daily/we_believed_in_santa
 categories: ["개구리의 일상"]
 tags: ["Merry Christmas"]
 
+toc: false
+
 header:
     teaser: /assets/images/posts/daily/We_Believed_In_Santa/20251225_We_Believed_In_Santa_1.jpeg
 ---
 
-<section class="christmas-postcard">
-    <figure class="christmas-postcard__image">
-        <img src="/assets/images/posts/daily/We_Believed_In_Santa/20251225_We_Believed_In_Santa_1.jpeg">
+<section class="christmas_postcard">
+    <figure class="christmas_postcard_image">
+        <img src="/assets/images/posts/daily/We_Believed_In_Santa/20251225_We_Believed_In_Santa_1.jpeg" alt="" loading="lazy" decoding="async">
     </figure>
-    <div class="christmas-postcard__body">
+    <div class="christmas_postcard_body">
         <p>
             &emsp;크리스마스가 찾아왔네요. 매년 크리스마스를 그리 반갑게 맞지는 않지만, 그럼에도 제게는 크리스마스가 가져다주는 설렘이 있어요. 어린 시절의 동심을, 우리의 추억을, 누군가의 믿음을, 지난날의 슬픔을, 앞 날의 기대를, 연말의 아쉬움을, 그리고 새해의 설렘을 가져다주니까요.
         </p>
@@ -29,7 +31,7 @@ header:
         </p>
         <p>
             세상의 모든 평범한 산타들에게, 개구리의 밀실 블로그 주인장 개구리 올림.<br>
-            <span class="christmas-postcard__signature">Merry Christmas!</span>
+            <span class="christmas_postcard_signature">Merry Christmas!</span>
         </p>
     </div>
 </section>
@@ -44,7 +46,7 @@ header:
         font-display: swap;
     }
 
-    .christmas-postcard {
+    .christmas_postcard {
         display: grid;
         margin: 2rem 0;
         gap: 1rem;
@@ -52,7 +54,7 @@ header:
         grid-template-columns: 33% 67%;
     }
 
-    .christmas-postcard__image {
+    .christmas_postcard_image {
         display: block;
         margin: 0;
 
@@ -64,7 +66,7 @@ header:
         }
     }
 
-    .christmas-postcard__body {
+    .christmas_postcard_body {
         padding: 0;
 
         p {
@@ -74,7 +76,7 @@ header:
         }
     }
 
-    .christmas-postcard__signature {
+    .christmas_postcard_signature {
         font-family: "OngleipWFontList";
         font-size: 1rem;
         font-weight: bold;
@@ -82,12 +84,12 @@ header:
     }
 
     @media (max-width: 768px) {
-        .christmas-postcard {
+        .christmas_postcard {
             grid-template-columns: 1fr;
             gap: 1rem;
         }
 
-        .christmas-postcard__body {
+        .christmas_postcard_body {
             p {
                 margin-bottom: 1rem;
                 line-height: 1.5;

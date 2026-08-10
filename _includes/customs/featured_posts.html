@@ -1,4 +1,4 @@
-<!-- Render featured posts on the main landing page. -->
+<!-- Render homepage featured posts. -->
 
 
 {% assign limit = include.limit | default: 5 %}
@@ -11,11 +11,11 @@
 
             {% if featured_posts.size > 1 %}
                 <nav class="featured_posts_navigation js_featured_posts_navigation" aria-label="대표 게시글 둘러보기" hidden>
-                    <button class="featured_posts_button previous js_featured_posts_button_previous" type="button" aria-controls="featured_posts" aria-label="이전 대표 게시글" disabled>
+                    <button class="featured_posts_button js_featured_posts_button_previous" type="button" aria-controls="featured_posts" aria-label="이전 대표 게시글" disabled>
                         <span aria-hidden="true">&lt;</span>
                     </button>
 
-                    <button class="featured_posts_button next js_featured_posts_button_next" type="button" aria-controls="featured_posts" aria-label="다음 대표 게시글">
+                    <button class="featured_posts_button featured_posts_button_next js_featured_posts_button_next" type="button" aria-controls="featured_posts" aria-label="다음 대표 게시글">
                         <span aria-hidden="true">&gt;</span>
                     </button>
                 </nav>
@@ -30,7 +30,7 @@
                     <a class="featured_post_link" href="{{ featured_post.url | relative_url }}">
                         <div class="featured_post_thumbnail">
                             {% if featured_post.header.teaser %}
-                                <img class="featured_post_teaser" src="{{ featured_post.header.teaser | relative_url }}" alt="">
+                                <img class="featured_post_teaser" src="{{ featured_post.header.teaser | relative_url }}" alt="" loading="lazy" decoding="async">
                             {% endif %}
                         </div>
 
@@ -40,7 +40,7 @@
                             {% endif %}
 
                             {% if featured_post.title %}
-                                <p class="featured_post_title">{{ featured_post.title | escape_once }}</p>
+                                <h3 class="featured_post_title">{{ featured_post.title | escape_once }}</h3>
                             {% endif %}
 
                             {% if featured_post.subtitle %}

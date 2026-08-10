@@ -6,10 +6,9 @@
 {% assign share_context = include.context | default: "section" %}
 
 {% capture share_list %}
-    <ul class="post__share-list">
-        <li class="post__share-item">
-            <a
-                class="post__share-link x"
+    <ul class="post_share_list">
+        <li class="post_share_item">
+            <a class="post_share_link post_share_link_x"
                 href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&amp;{% endif %}text={{ post_share_text | strip | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -20,9 +19,8 @@
             </a>
         </li>
 
-        <li class="post__share-item">
-            <a
-                class="post__share-link facebook"
+        <li class="post_share_item">
+            <a class="post_share_link post_share_link_facebook"
                 href="https://www.facebook.com/sharer/sharer.php?u={{ post_url | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -33,9 +31,8 @@
             </a>
         </li>
 
-        <li class="post__share-item">
-            <a
-                class="post__share-link linkedin"
+        <li class="post_share_item">
+            <a class="post_share_link post_share_link_linkedin"
                 href="https://www.linkedin.com/sharing/share-offsite/?url={{ post_url | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -46,9 +43,8 @@
             </a>
         </li>
 
-        <li class="post__share-item">
-            <a
-                class="post__share-link bluesky"
+        <li class="post_share_item">
+            <a class="post_share_link post_share_link_bluesky"
                 href="https://bsky.app/intent/compose?text={{ post_share_text | strip | url_encode }}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,9 +55,8 @@
             </a>
         </li>
 
-        <li class="post__share-item">
-            <button
-                class="post__share-copy-button"
+        <li class="post_share_item">
+            <button class="post_share_copy_button"
                 type="button"
                 title="URL 복사"
                 data-copy-url-button
@@ -75,14 +70,14 @@
 {% endcapture %}
 
 {% if share_context == "menu" %}
-    <div class="post__share-menu-panel" id="post-share-menu-panel" aria-labelledby="post-share-menu-title" hidden>
-        <p class="post__share-menu-title" id="post-share-menu-title">공유하기</p>
+    <div class="post_share_menu_panel" id="post_share_menu_panel" aria-labelledby="post_share_menu_title" hidden>
+        <p class="post_share_menu_title" id="post_share_menu_title">공유하기</p>
 
         {{ share_list }}
     </div>
 {% else %}
-    <section class="post__share" aria-labelledby="post-share-title">
-        <h2 class="post__section-title" id="post-share-title">공유하기</h2>
+    <section class="post_share" aria-labelledby="post_share_title">
+        <h2 class="post_share_title" id="post_share_title">공유하기</h2>
 
         {{ share_list }}
     </section>

@@ -1,6 +1,7 @@
-/* Social share styles. */
+/* Post sharing. */
 
-.post__share-list {
+
+.post_share_list {
     display: flex;
 
     align-items: center;
@@ -14,12 +15,12 @@
     list-style: none;
 }
 
-.post__share-item {
+.post_share_item {
     margin: 0;
 }
 
-.post__share-link,
-.post__share-copy-button {
+.post_share_link,
+.post_share_copy_button {
     display: inline-flex;
 
     align-items: center;
@@ -34,19 +35,15 @@
     background: transparent;
 
     color: $gray;
-    opacity: 0.7;
 
     font-size: $type_size_8;
+
     text-decoration: none;
 
-    transition:
-        color 0.2s ease,
-        opacity 0.2s ease;
+    transition: color 0.2s ease;
 
     &:hover,
-    &.is-copied {
-        opacity: 1;
-
+    &.is_copied {
         text-decoration: none;
     }
 
@@ -55,55 +52,53 @@
     }
 
     &:focus-visible {
-        opacity: 1;
-
         outline: 2px solid currentColor;
     }
 }
 
-.post__share-link {
+.post_share_link {
     &:visited {
         color: $gray;
     }
 
-    &.x:hover,
-    &.x:focus-visible {
+    &.post_share_link_x:hover,
+    &.post_share_link_x:focus-visible {
         color: $x_color;
     }
 
-    &.facebook:hover,
-    &.facebook:focus-visible {
+    &.post_share_link_facebook:hover,
+    &.post_share_link_facebook:focus-visible {
         color: $facebook_color;
     }
 
-    &.linkedin:hover,
-    &.linkedin:focus-visible {
+    &.post_share_link_linkedin:hover,
+    &.post_share_link_linkedin:focus-visible {
         color: $linkedin_color;
     }
 
-    &.bluesky:hover,
-    &.bluesky:focus-visible {
+    &.post_share_link_bluesky:hover,
+    &.post_share_link_bluesky:focus-visible {
         color: $bluesky_color;
     }
 }
 
-.post__share-copy-button {
+.post_share_copy_button {
     cursor: pointer;
 
     &:hover,
     &:focus-visible,
-    &.is-copied {
+    &.is_copied {
         color: $black;
     }
 }
 
-.post__share-menu {
-    position: relative;
-
+.post_share_menu {
     display: flex;
+
+    position: relative;
 }
 
-.post__share-menu-panel {
+.post_share_menu_panel {
     position: absolute;
     top: calc(100% + 0.5rem);
     right: 0;
@@ -118,14 +113,14 @@
     background: $background_color;
     box-shadow: 0 0.25rem 1rem rgba($black, 0.1);
 
-    .post__share-list {
+    .post_share_list {
         flex-wrap: nowrap;
 
         gap: 0.75rem;
     }
 }
 
-.post__share-menu-title {
+.post_share_menu_title {
     margin: 0 0 0.5rem;
 
     color: $black;

@@ -1,23 +1,27 @@
-/* ==========================================================================
-   Air skin
-   ========================================================================== */
+/* Air skin */
+
+@use "sass:color";
 
 /* Colors */
-$background-color: #eeeeee !default;
-$text-color: #222831 !default;
-$muted-text-color: #393e46 !default;
-$primary-color: #0092ca !default;
-$border-color: mix(#fff, #393e46, 75%) !default;
-$footer-background-color: $primary-color !default;
-$link-color: #393e46 !default;
-$masthead-link-color: $text-color !default;
-$masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+$background_color: #eeeeee !default;
+$text_color: #222831 !default;
+$muted_text_color: #393e46 !default;
+$primary_color: #0092ca !default;
+$border_color: color.mix(#fff, #393e46, 75%) !default;
+$footer_background_color: $primary_color !default;
+$link_color: #393e46 !default;
+$masthead_link_color: $text_color !default;
+$masthead_link_color_hover: $text_color !default;
+$navicon_link_color_hover: color.mix(#fff, $text_color, 80%) !default;
 
-.page__footer {
-  color: #fff !important; // override
+.page_footer {
+    color: #fff !important;
 }
 
-.page__footer-follow .social-icons .svg-inline--fa {
-  color: inherit;
+.footer_follow {
+    .social_icons {
+        .svg-inline--fa {
+            color: inherit;
+        }
+    }
 }

@@ -1,6 +1,8 @@
+/* Global masthead */
+
 @use "sass:color";
 
-// Common Styling
+
 .masthead {
     position: sticky;
     top: 0;
@@ -16,7 +18,8 @@
     font-weight: normal;
 }
 
-// Desktop Masthead
+
+// Desktop masthead
 .masthead_container {
     max-width: $x_large;
 
@@ -142,9 +145,9 @@
     }
 
     &:focus-visible {
-        color: $primary_color;
-
         outline: 2px solid $primary_color;
+
+        color: $primary_color;
     }
 }
 
@@ -178,9 +181,9 @@
     }
 
     &:focus-visible {
-        color: $primary_color;
-
         outline: 2px solid $primary_color;
+
+        color: $primary_color;
     }
 }
 
@@ -207,6 +210,8 @@
     font-size: $type_size_9;
     line-height: 1;
 
+    white-space: nowrap;
+
     transition: background-color 0.2s ease, color 0.2s ease;
 
     &:hover {
@@ -231,10 +236,11 @@
     line-height: 1;
 }
 
-// Desktop Fly-out Menu
+
+// Desktop fly-out menu
 .masthead_flyout_container {
-    overflow: hidden;
     visibility: hidden;
+    overflow: hidden;
 
     position: absolute;
     top: 100%;
@@ -475,20 +481,20 @@
     }
 
     &:focus-visible {
+        outline: 2px solid $primary_color;
+
         color: $primary_color;
 
         font-weight: bold;
-
-        outline: 2px solid $primary_color;
     }
 }
 
 .masthead.is_open {
     .masthead_flyout_container {
-        overflow-y: auto;
         visibility: visible;
+        overflow-y: auto;
 
-        // Guarantee masthead's minimum height.
+        /* Preserve the masthead's minimum height. */
         max-height: calc(100dvh - 52px);
 
         opacity: 1;
@@ -502,7 +508,8 @@
     }
 }
 
-// Mobile Masthead
+
+// Mobile masthead
 .mobile_masthead_container {
     display: none;
 }
@@ -561,6 +568,8 @@
     }
 
     &:focus-visible {
+        outline: 2px solid $primary_color;
+
         background: rgba($light_gray, 0.25);
     }
 }
@@ -610,6 +619,8 @@
     }
 
     &:focus-visible {
+        outline: 2px solid $primary_color;
+
         background: rgba($light_gray, 0.25);
     }
 }
@@ -622,12 +633,12 @@
 .mobile_masthead_sidebar_trigger {
     display: inline-flex;
 
+    z-index: 3;
+
     align-items: center;
     justify-content: center;
 
     flex: 0 0 auto;
-
-    z-index: 3;
 
     width: $nav_toggle_height;
     height: $nav_toggle_height;
@@ -671,6 +682,8 @@
     }
 
     &:focus-visible {
+        outline: 2px solid $primary_color;
+
         background: rgba($light_gray, 0.25);
     }
 }
@@ -743,7 +756,8 @@
     transition: opacity 0.1s ease, transform 0.18s ease;
 }
 
-// Mobile Sidebar
+
+// Mobile sidebar
 .mobile_masthead_filter {
     position: fixed;
     inset: 0;
@@ -884,6 +898,12 @@
 .mobile_masthead_accordion_group {
     border-bottom: 1px solid $light_gray;
 
+    &.is_active {
+        .mobile_masthead_accordion_header {
+            font-weight: bold;
+        }
+    }
+
     &.is_open {
         .mobile_masthead_accordion_header {
             i {
@@ -906,8 +926,9 @@
     font-size: $type_size_8;
     font-weight: normal;
 
-    cursor: pointer;
     list-style: none;
+
+    cursor: pointer;
 
     i {
         transform: scaleY(1);
@@ -920,6 +941,8 @@
     }
 
     &:focus-visible {
+        outline: 2px solid $primary_color;
+
         background: rgba($light_gray, 0.25);
     }
 }
@@ -940,6 +963,12 @@
 
     text-decoration: none;
 
+    &.is_active {
+        color: $black;
+
+        font-weight: bold;
+    }
+
     &:visited {
         color: $black;
     }
@@ -954,12 +983,18 @@
     &:focus {
         outline: none;
     }
+
+    &:focus-visible {
+        outline: 2px solid $primary_color;
+    }
 }
 
-.mobile_masthead_accordion_section > .mobile_masthead_accordion_link {
-    padding: 0.5rem 0.25rem;
+.mobile_masthead_accordion_section {
+    > .mobile_masthead_accordion_link {
+        padding: 0.5rem 0.25rem;
 
-    border-bottom: 1px solid $light_gray;
+        border-bottom: 1px solid $light_gray;
+    }
 }
 
 .mobile_masthead_follow {
@@ -1048,7 +1083,7 @@
     white-space: nowrap;
 }
 
-// Responsive Styling
+
 @media (min-width: 769px) and (max-width: 1024px) {
     .masthead_contents {
         column-gap: 1rem;
@@ -1056,6 +1091,12 @@
 
     .masthead_menu_items {
         gap: 1rem;
+    }
+
+    .masthead_search_bar {
+        gap: 0.25rem;
+
+        padding-inline: 0.75rem;
     }
 
     .masthead_flyout_contents {
@@ -1097,19 +1138,22 @@
         }
     }
 
-    .masthead > .masthead_container {
-        display: none;
-    }
+    .masthead {
+        > .masthead_container {
+            display: none;
+        }
 
-    .masthead > .masthead_flyout_container {
-        display: none;
+        > .masthead_flyout_container {
+            display: none;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
     }
 
     .mobile_masthead_container {
         display: block;
     }
 
-    .masthead * {
-        -webkit-tap-highlight-color: transparent;
-    }
 }
